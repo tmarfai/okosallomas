@@ -1,10 +1,23 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const button = document.getElementById('playButton');
-  const audio = document.getElementById('hang');
+document.addEventListener("DOMContentLoaded", function () {
+  const playButton = document.getElementById("playButton");
+  const audio = document.getElementById("hang");
 
-  if (button && audio) {
-    button.addEventListener('click', () => {
+  let isPlaying = false;
+
+  playButton.addEventListener("click", function () {
+    if (!isPlaying) {
       audio.play();
-    });
-  }
+      playButton.textContent = "⏹️ Leállítás";
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+      playButton.textContent = "🔊 Hallgasd meg";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  audio.addEventListener("ended", function () {
+    isPlaying = false;
+    playButton.textContent = "🔊 Hallgasd meg";
+  });
 });

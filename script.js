@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("hang");
   const playButton = document.getElementById("playButton");
@@ -22,4 +21,3 @@ document.addEventListener("DOMContentLoaded", function () {
     playButton.textContent = "🔊 Hallgasd meg";
   });
 });
-</script>

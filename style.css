@@ -92,3 +92,47 @@ footer small {
     max-width: 100px;
   }
 }
+
+/* Új konténer stílusa */
+#controlsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; /* távolság az elemek között */
+  flex-wrap: nowrap; /* ne törje meg a sort */
+  margin-bottom: 1rem;
+}
+
+/* Minden elemre egyforma vertikális középre igazítás */
+#playPauseButton,
+#restartButton,
+#timer {
+  flex-shrink: 0; /* ne zsugorodjanak túlzottan */
+}
+
+/* Restart gomb méretének igazítása */
+#restartButton {
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+}
+
+/* Timer kicsit kisebb mobilon */
+@media (max-width: 480px) {
+  #timer {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+    min-width: 80px;
+    max-width: 100px;
+  }
+
+  #playPauseButton {
+    font-size: 1.1rem;
+    padding: 0.6rem 2rem;
+  }
+
+  #restartButton {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+

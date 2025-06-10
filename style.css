@@ -118,12 +118,7 @@ footer small {
 
 /* Timer kicsit kisebb mobilon */
 @media (max-width: 480px) {
-  #timer {
-    font-size: 1rem;
-    padding: 0.3rem 0.6rem;
-    min-width: 80px;
-    max-width: 100px;
-  }
+
 
   #playPauseButton {
     font-size: 1.1rem;

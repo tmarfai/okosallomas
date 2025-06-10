@@ -3,6 +3,10 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header.bg-dark {
+  background-color: rgb(27, 68, 125) !important;
+}
+
 h1, h2 {
   font-weight: 600;
 }

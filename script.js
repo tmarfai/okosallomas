@@ -1,17 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("hang");
-
-  audio.load(); // próbálja meg betölteni az adatokat rögtön
-
-  audio.addEventListener("loadedmetadata", function() {
-    updateTimer();
-  });
-
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const audio = document.getElementById("hang");
   const playPauseButton = document.getElementById("playPauseButton");
   const restartButton = document.getElementById("restartButton");
   const timerDisplay = document.getElementById("timer");
@@ -34,14 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
   playPauseButton.addEventListener("click", function () {
     if (!isPlaying) {
       audio.play();
-      playPauseButton.textContent = "⏸️ Szünet";
+      playPauseButton.textContent = "Szünet";
       if (!startedOnce) {
         startedOnce = true;
         restartButton.style.display = "inline-block";
       }
     } else {
       audio.pause();
-      playPauseButton.textContent = "▶️ Folytatás";
+      playPauseButton.textContent = "Lejátszás";
     }
     isPlaying = !isPlaying;
   });
@@ -51,19 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
     audio.currentTime = 0;
     updateTimer();
     isPlaying = false;
-    playPauseButton.textContent = "▶️ Lejátszás";
+    playPauseButton.textContent = "Lejátszás";
   });
 
   audio.addEventListener("ended", function () {
     isPlaying = false;
-    playPauseButton.textContent = "▶️ Lejátszás";
+    playPauseButton.textContent = "Lejátszás";
     updateTimer();
   });
 
   audio.addEventListener("timeupdate", updateTimer);
 
   audio.addEventListener("loadedmetadata", function() {
-    // Itt már ismert a teljes hossz, mutatjuk a timer-t azonnal
     updateTimer();
   });
+
+  audio.load();
 });

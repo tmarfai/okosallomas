@@ -20,7 +20,7 @@ footer small {
   color: #6c757d;
 }
 
-/* Play/Pause és Restart gomb közös stílusa */
+/* Közös gombstílus – minden effekt itt van */
 #playPauseButton,
 #restartButton {
   padding: 0.75rem 2.5rem;
@@ -34,36 +34,30 @@ footer small {
   font-weight: 600;
   vertical-align: middle;
   box-sizing: border-box;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Play/Pause gomb egyedi stílusa */
+/* Hover és active effekt mindkét gombra */
+#playPauseButton:hover,
+#restartButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#playPauseButton:active,
+#restartButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Színek külön – csak ez a különbség! */
 #playPauseButton {
   background: linear-gradient(135deg, #4a90e2, #007bff);
-  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
 
-#playPauseButton:hover {
-  background: linear-gradient(135deg, #357ae8, #0056b3);
-  box-shadow: 0 8px 16px rgba(0, 86, 179, 0.6);
-  transform: translateY(-2px);
-}
-
-#playPauseButton:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.4);
-}
-
-/* Restart gomb egyedi stílusa */
 #restartButton {
-  background-color: #5a5f68;
-  box-shadow: 0 4px 8px rgba(90, 95, 104, 0.5);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#restartButton:hover {
-  background-color: #434a54;
-  box-shadow: 0 6px 12px rgba(67, 74, 84, 0.7);
+  background: linear-gradient(135deg, #6c757d, #495057);
 }
 
 /* Timer stílus */
@@ -101,7 +95,7 @@ footer small {
   }
 }
 
-/* Konténer a gombokhoz */
+/* Gombkonténer */
 #controlsContainer {
   display: flex;
   justify-content: center;

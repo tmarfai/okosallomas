@@ -35,3 +35,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   audio.load();
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const varosok = [
+    {
+      id: "idojaras-ata",
+      nev: "Áta",
+      lat: 45.9766,
+      lon: 18.3703
+    },
+    {
+      id: "idojaras-villany",
+      nev: "Villány",
+      lat: 45.8705,
+      lon: 18.4543
+    },
+    {
+      id: "idojaras-pecs",
+      nev: "Pécs",
+      lat: 46.0727,
+      lon: 18.2323
+    }
+  ];
+
+  varosok.forEach(varos => {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${varos.lat}&longitude=${varos.lon}&current_weather=true`)
+      .then(response => response.json())
+      .then(data => {
+        const weather = data.current_weather;
+        const box = document.getElementById(varos.id);
+        box.querySelector(".homerseklet").textContent = `Hőmérséklet: ${weather.temperature} °C`;
+        box.querySelector(".szel").textContent = `Szélsebesség: ${weather.windspeed} km/h`;
+      })
+      .catch(error => {
+        const box = document.getElementById(varos.id);
+        box.querySelector(".homerseklet").textContent = "Nem elérhető az időjárás.";
+        console.error(`${varos.nev} időjárási hiba:`, error);
+      });
+  });
+});

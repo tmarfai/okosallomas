@@ -130,4 +130,11 @@ footer small {
     padding: 0.3rem 0.8rem;
   }
 }
-
+.card {
+  max-width: 400px;
+  margin: 20px auto;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

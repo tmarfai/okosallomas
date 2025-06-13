@@ -38,10 +38,28 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const varosok = [
     {
+      id: "idojaras-abaliget",
+      nev: "Abaliget",
+      lat: 46.1272,
+      lon: 18.0946
+    },
+    {
       id: "idojaras-ata",
       nev: "Áta",
       lat: 45.9766,
       lon: 18.3703
+    },
+    {
+      id: "idojaras-pecs",
+      nev: "Pécs",
+      lat: 46.0727,
+      lon: 18.2323
+    },
+    {
+      id: "idojaras-szentlorinc",
+      nev: "Szentlőrinc",
+      lat: 46.0464,
+      lon: 17.9857
     },
     {
       id: "idojaras-villany",
@@ -49,12 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 45.8705,
       lon: 18.4543
     },
-    {
-      id: "idojaras-pecs",
-      nev: "Pécs",
-      lat: 46.0727,
-      lon: 18.2323
-    }
+    
   ];
 
   varosok.forEach(varos => {

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abaliget Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Abaliget – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Abaligetet egy kattintással!</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Abaligetre?</h2>
+      <p>Egy barlang, egy tó, és egy falu, ahol megáll az idő… felfedeznéd Abaligetet...?</p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Lejátszás
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Elölről kezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="abaliget.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+
+
+
+
+  </main>
+
+  <section class="my-5">
+  <h2 class="text-center mb-4">📍 Térkép – Abaliget vasútállomás</h2>
+  <div class="ratio ratio-16x9">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2324.149450044439!2d18.073234992607357!3d46.15283570203589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749796325559!5m2!1shu!2shu" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+<div class="card text-center mt-4" id="idojaras-abaliget">
+  <div class="card-body">
+    <h5 class="card-title">🌤️ Abaliget időjárása</h5>
+    <p class="homerseklet">Töltés...</p>
+    <p class="szel"></p>
+  </div>
+  </div>
+
+  <section class="container my-5">
+  <h2 class="text-center mb-4">🗺️ További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="pecs.jpg" class="card-img-top" alt="Pécs város">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Pécs</h5>
+      <p class="card-text">A történelmi belváros, a Zsolnay-negyed és a katedrális csak egy karnyújtásnyira van Átától.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Pécs" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="orfu.jpg" class="card-img-top" alt="Orfu">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Orfűi tó</h5>
+      <p class="card-text">Kiváló horgászási, csónakázási, fürdési lehetőség a természet lágy ölében.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Pécsi tó" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="abaliget.jpg" class="card-img-top" alt="Abaliget">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Abaligeti cseppkőbarlnag</h5>
+      <p class="card-text">Lenyűgöző barlang és denevérmúzeum, kb. 45-50 percnyi autóútra.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Abaligeti cseppkőbarlnag" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Abaliget Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

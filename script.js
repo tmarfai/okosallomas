@@ -22,11 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   restartButton.addEventListener("click", function () {
-    audio.pause();
-    audio.currentTime = 0;
-    isPlaying = false;
-    playPauseButton.textContent = "Lejátszás";
-  });
+  audio.currentTime = 0;    // Visszaáll az elejére
+  audio.play();             // Azonnal elindul a hang
+  isPlaying = true;         // Jelzi, hogy most épp játszik
+  playPauseButton.textContent = "Szünet";  // A gomb felirata megfelelő legyen
+});
+
 
   audio.addEventListener("ended", function () {
     isPlaying = false;

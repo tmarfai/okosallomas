@@ -63,6 +63,13 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.1500
     },
     {
+      id: "idojaras-fonyod",
+      nev: "Fonyód",
+      lat: 46.7425,
+      lon: 17.5619
+    },
+
+    {
       id: "idojaras-kaposvar",
       nev: "Kaposvár",
       lat: 46.3590,

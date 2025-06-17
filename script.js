@@ -39,6 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const varosok = [
     {
+      id: "idojaras-villany",
+      nev: "Villány",
+      lat: 45.8705,
+      lon: 18.4543
+    },
+       {
       id: "idojaras-abaliget",
       nev: "Abaliget",
       lat: 46.1272,
@@ -68,12 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 46.0464,
       lon: 17.9857
     },
-    {
-      id: "idojaras-villany",
-      nev: "Villány",
-      lat: 45.8705,
-      lon: 18.4543
-    }
   ];
 
   varosok.forEach(varos => {
@@ -83,38 +83,40 @@ document.addEventListener("DOMContentLoaded", function () {
         const weather = data.current_weather;
         const daily = data.daily;
         const box = document.getElementById(varos.id);
+        const body = box.querySelector(".card-body");
 
-        // Hőmérséklet, szél
-        box.querySelector(".homerseklet").textContent =
-          `Most: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
-        box.querySelector(".szel").textContent =
-          `Szélsebesség: ${weather.windspeed} km/h`;
+        // Hőmérséklet
+        const homersekletP = document.createElement("p");
+        homersekletP.className = "homerseklet";
+        homersekletP.textContent = `Most: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
+        body.appendChild(homersekletP);
+
+        // Szél
+        const szelP = document.createElement("p");
+        szelP.className = "szel";
+        szelP.textContent = `Szélsebesség: ${weather.windspeed} km/h`;
+        body.appendChild(szelP);
 
         // Csapadék
         const csapadek = daily.precipitation_sum[0];
-        let csapadekText = "";
+        const csapadekP = document.createElement("p");
+        csapadekP.className = "csapadek";
         if (csapadek === 0) {
-          csapadekText = "🌞 Száraz nap, nem várható eső!";
+          csapadekP.textContent = "🌞 Száraz nap, nem várható eső!";
         } else if (csapadek < 2) {
-          csapadekText = `🌦️ Gyenge csapadék várható: ${csapadek} mm`;
+          csapadekP.textContent = `🌦️ Gyenge csapadék várható: ${csapadek} mm`;
         } else {
-          csapadekText = `🌧️ Jelentős csapadék várható: ${csapadek} mm`;
+          csapadekP.textContent = `🌧️ Jelentős csapadék várható: ${csapadek} mm`;
         }
-
-        // Hozzáadni vagy frissíteni csapadék sort
-        let csapadekP = box.querySelector(".csapadek");
-        if (!csapadekP) {
-          csapadekP = document.createElement("p");
-          csapadekP.className = "csapadek";
-          box.querySelector(".card-body").appendChild(csapadekP);
-        }
-        csapadekP.textContent = csapadekText;
+        body.appendChild(csapadekP);
       })
       .catch(error => {
         const box = document.getElementById(varos.id);
-        box.querySelector(".homerseklet").textContent = "Nem elérhető az időjárás.";
+        const body = box.querySelector(".card-body");
+        const errorP = document.createElement("p");
+        errorP.textContent = "Nem elérhető az időjárás.";
+        body.appendChild(errorP);
         console.error(`${varos.nev} időjárási hiba:`, error);
       });
   });
 });
-

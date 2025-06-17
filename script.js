@@ -63,6 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.1500
     },
     {
+      id: "idojaras-kaposvar",
+      nev: "Kaposvár",
+      lat: 46.3590,
+      lon: 17.7960
+    },
+    {
       id: "idojaras-pecs",
       nev: "Pécs",
       lat: 46.0727,

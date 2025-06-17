@@ -73,18 +73,42 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Villány",
       lat: 45.8705,
       lon: 18.4543
-    },
-    
+    }
   ];
 
   varosok.forEach(varos => {
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${varos.lat}&longitude=${varos.lon}&current_weather=true`)
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${varos.lat}&longitude=${varos.lon}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=Europe%2FBudapest`)
       .then(response => response.json())
       .then(data => {
         const weather = data.current_weather;
+        const daily = data.daily;
         const box = document.getElementById(varos.id);
-        box.querySelector(".homerseklet").textContent = `Hőmérséklet: ${weather.temperature} °C`;
-        box.querySelector(".szel").textContent = `Szélsebesség: ${weather.windspeed} km/h`;
+
+        // Hőmérséklet, szél
+        box.querySelector(".homerseklet").textContent =
+          `Most: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
+        box.querySelector(".szel").textContent =
+          `Szélsebesség: ${weather.windspeed} km/h`;
+
+        // Csapadék
+        const csapadek = daily.precipitation_sum[0];
+        let csapadekText = "";
+        if (csapadek === 0) {
+          csapadekText = "🌞 Száraz nap, nem várható eső!";
+        } else if (csapadek < 2) {
+          csapadekText = `🌦️ Gyenge csapadék várható: ${csapadek} mm`;
+        } else {
+          csapadekText = `🌧️ Jelentős csapadék várható: ${csapadek} mm`;
+        }
+
+        // Hozzáadni vagy frissíteni csapadék sort
+        let csapadekP = box.querySelector(".csapadek");
+        if (!csapadekP) {
+          csapadekP = document.createElement("p");
+          csapadekP.className = "csapadek";
+          box.querySelector(".card-body").appendChild(csapadekP);
+        }
+        csapadekP.textContent = csapadekText;
       })
       .catch(error => {
         const box = document.getElementById(varos.id);
@@ -93,3 +117,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+

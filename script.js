@@ -81,6 +81,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.6667
     },
     {
+      id: "idojaras-balatonszentgyorgy",
+      nev: "Balatonszentgyörgy",
+      lat: 46.6991,
+      lon: 17.4825
+    },
+    {
       id: "idojaras-dombovar",
       nev: "Dombóvár",
       lat: 46.3500,

@@ -111,6 +111,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.2323
     },
     {
+      id: "idojaras-siofok",
+      nev: "Siófok",
+      lat: 46.9081,
+      lon: 18.0510
+    },
+    {
       id: "idojaras-szentlorinc",
       nev: "Szentlőrinc",
       lat: 46.0464,

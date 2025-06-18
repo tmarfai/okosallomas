@@ -104,6 +104,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 46.0464,
       lon: 17.9857
     },
+    {
+      id: "idojaras-balatonboglar",
+      nev: "Balatonboglár",
+      lat: 46.7781,
+      lon: 17.6597
+    },
   ];
 
   varosok.forEach(varos => {

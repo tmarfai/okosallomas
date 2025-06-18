@@ -92,6 +92,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 46.0464,
       lon: 17.9857
     },
+    {
+      id: "idojaras-balatonmariafurdo",
+      nev: "Balatonmáriafürdő",
+      lat: 46.70424,
+      lon: 17.40128
+    },
   ];
 
   varosok.forEach(varos => {

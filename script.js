@@ -57,6 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.3703
     },
     {
+      id: "idojaras-balatonfenyves",
+      nev: "Balatonfenyves",
+      lat: 46.7196,
+      lon: 17.5360
+    },
+    {
       id: "idojaras-dombovar",
       nev: "Dombóvár",
       lat: 46.3500,
@@ -68,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 46.7425,
       lon: 17.5619
     },
-
     {
       id: "idojaras-kaposvar",
       nev: "Kaposvár",

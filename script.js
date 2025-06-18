@@ -63,6 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.5360
     },
     {
+      id: "idojaras-balatonlelle",
+      nev: "Balatonlelle",
+      lat: 46.7830,
+      lon: 17.6876
+    },
+    {
+      id: "idojaras-balatonmariafurdo",
+      nev: "Balatonmáriafürdő",
+      lat: 46.70424,
+      lon: 17.40128
+    },
+    {
       id: "idojaras-dombovar",
       nev: "Dombóvár",
       lat: 46.3500,
@@ -91,12 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Szentlőrinc",
       lat: 46.0464,
       lon: 17.9857
-    },
-    {
-      id: "idojaras-balatonmariafurdo",
-      nev: "Balatonmáriafürdő",
-      lat: 46.70424,
-      lon: 17.40128
     },
   ];
 

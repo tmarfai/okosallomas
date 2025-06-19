@@ -117,6 +117,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.0510
     },
     {
+      id: "idojaras-szantod",
+      nev: "Szántód",
+      lat: 46.860639,
+      lon: 17.902411
+    },
+    {
       id: "idojaras-szentlorinc",
       nev: "Szentlőrinc",
       lat: 46.0464,

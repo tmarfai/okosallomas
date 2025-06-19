@@ -75,6 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.5360
     },
     {
+      id: "idojaras-balatonfoldvar",
+      nev: "Balatonföldvár",
+      lat: 46.853281,
+      lon: 17.879889
+    },
+    {
       id: "idojaras-balatonlelle",
       nev: "Balatonlelle",
       lat: 46.7830,
@@ -85,6 +91,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Balatonmáriafürdő",
       lat: 46.70424,
       lon: 17.40128
+    },
+    {
+    id: "idojaras-balatonszarszo",
+    nev: "Balatonszárszó",
+    lat: 46.8295,
+    lon: 17.8351
     },
     {
       id: "idojaras-balatonszemes",
@@ -145,12 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
     nev: "Zamárdi",
     lat: 46.88434,
     lon: 17.95051
-    },
-    {
-    id: "idojaras-balatonszarszo",
-    nev: "Balatonszárszó",
-    lat: 46.8295,
-    lon: 17.8351
     },
   ];
 

@@ -146,6 +146,12 @@ document.addEventListener("DOMContentLoaded", function () {
     lat: 46.88434,
     lon: 17.95051
     },
+    {
+    id: "idojaras-balatonszarszo",
+    nev: "Balatonszárszó",
+    lat: 46.8295,
+    lon: 17.8351
+    },
   ];
 
   varosok.forEach(varos => {

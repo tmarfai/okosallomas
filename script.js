@@ -75,6 +75,18 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.40128
     },
     {
+      id: "idojaras-balatonszemes",
+      nev: "Balatonszemes",
+      lat: 46.8167,
+      lon: 17.6667
+    },
+    {
+      id: "idojaras-balatonszentgyorgy",
+      nev: "Balatonszentgyörgy",
+      lat: 46.6991,
+      lon: 17.4825
+    },
+    {
       id: "idojaras-dombovar",
       nev: "Dombóvár",
       lat: 46.3500,
@@ -97,6 +109,18 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Pécs",
       lat: 46.0727,
       lon: 18.2323
+    },
+    {
+      id: "idojaras-siofok",
+      nev: "Siófok",
+      lat: 46.9081,
+      lon: 18.0510
+    },
+    {
+      id: "idojaras-szantod",
+      nev: "Szántód",
+      lat: 46.860639,
+      lon: 17.902411
     },
     {
       id: "idojaras-szentlorinc",

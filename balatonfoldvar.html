@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balatonföldvár Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Balatonföldvár – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Balatonföldvárat egy kattintással!</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Balatonföldvárra?</h2>
+      <p>Balatonföldvár a déli part elegáns kisvárosa, ahol a történelmi villák hangulata, a rendezett sétányok és a lenyűgöző kilátás a Balatonra tökéletes nyári kikapcsolódást ígér...</p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="balatonfoldvar.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+
+
+
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Balatonföldvár vasútállomás</h5>
+
+    <!-- Térkép -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1364.2520720355346!2d17.880767645163562!3d46.853451495190704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750319712493!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Élő menetrend gomb -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    Nézd meg az élő vonatmozgásokat
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-balatonfoldvar">
+  <div class="card-body">
+    <h5 class="card-title">Balatonföldvár időjárása</h5>
+    <!-- JS generálja az összes adat sort -->
+  </div>
+</div>
+  <section class="container my-5">
+  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="strandfesztival.jpg" class="card-img-top" alt="STRAND fesztivál">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">STRAND fesztivál</h5>
+      <p class="card-text">Ha augusztus, akkor Zamárdi, ahol a STRAND Fesztivál minden évben összehozza a nyár legjobb bulijait! A magyar és nemzetközi zenei élvonal, a barátokkal közös naplementés koncertélmények, a homokos part és a hajnalig tartó tánc itt nem csak ígéret – hanem maga a valóság. 
+
+</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Strand fesztivál" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="lellevidampark.jpg" class="card-img-top" alt="Lellei Vidámpark">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Vidámpark</h5>
+      <p class="card-text"> Balatonlelle vidámparkja igazi családi élményközpont, ahol minden korosztály megtalálja a kedvére való kalandot. Legyen szó izgalmas hullámvasútról, mókás körhintákról vagy interaktív játékokról, a park garantált szórakozást nyújt a nyári napokra.
+</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Balatonlelle vidámpark" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="keletistrand.jpg" class="card-img-top" alt="Keleti strand">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Keleti strand</h5>
+      <p class="card-text">A Balatonföldvári Keleti Strand a nyugalom és a családbarát kikapcsolódás helyszíne, ahol a finom homokos part és a lassan mélyülő víz tökéletes környezetet biztosít a pihenéshez és a vidám játékhoz a Balaton partján...</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Keleti strand" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Balatonföldvár Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

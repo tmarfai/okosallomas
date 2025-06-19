@@ -57,6 +57,18 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.3703
     },
     {
+      id: "idojaras-balatonboglar",
+      nev: "Balatonboglár",
+      lat: 46.7781,
+      lon: 17.6597
+    },
+    {
+      id: "idojaras-balatonbereny",
+      nev: "Balatonberény",
+      lat: 46.707,
+      lon: 17.320
+    },
+    {
       id: "idojaras-balatonfenyves",
       nev: "Balatonfenyves",
       lat: 46.7196,
@@ -129,16 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.9857
     },
     {
-      id: "idojaras-balatonboglar",
-      nev: "Balatonboglár",
-      lat: 46.7781,
-      lon: 17.6597
-    },
-    {
-      id: "idojaras-balatonbereny",
-      nev: "Balatonberény",
-      lat: 46.707,
-      lon: 17.320
+    id: "idojaras-zamardi",
+    nev: "Zamárdi",
+    lat: 46.88434,
+    lon: 17.95051
     },
   ];
 

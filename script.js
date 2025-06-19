@@ -134,6 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 46.7781,
       lon: 17.6597
     },
+    {
+      id: "idojaras-balatonbereny",
+      nev: "Balatonberény",
+      lat: 46.707,
+      lon: 17.320
+    },
   ];
 
   varosok.forEach(varos => {

@@ -3,40 +3,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const playPauseButton = document.getElementById("playPauseButton");
   const restartButton = document.getElementById("restartButton");
 
+  const lang = document.documentElement.getAttribute("lang") || "hu";
+
+  const texts = {
+    hu: { play: 'Lejátszás', pause: 'Szünet', restart: 'Újrakezdés' },
+    en: { play: 'Listen', pause: 'Pause', restart: 'Restart' }
+  };
+
   let isPlaying = false;
   let startedOnce = false;
 
+  // Play / Pause gomb kezelése
   playPauseButton.addEventListener("click", function () {
     if (!isPlaying) {
       audio.play();
-      playPauseButton.textContent = "Szünet";
+      playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${texts[lang].pause}`;
       if (!startedOnce) {
         startedOnce = true;
         restartButton.style.display = "inline-block";
+        restartButton.innerHTML = `${texts[lang].restart}`;
       }
     } else {
       audio.pause();
-      playPauseButton.textContent = "Lejátszás";
+      playPauseButton.innerHTML = `<i class="bi bi-volume-up-fill me-2"></i> ${texts[lang].play}`;
     }
     isPlaying = !isPlaying;
   });
 
+  // Újrakezdés gomb kezelése
   restartButton.addEventListener("click", function () {
-  audio.currentTime = 0;    // Visszaáll az elejére
-  audio.play();             // Azonnal elindul a hang
-  isPlaying = true;         // Jelzi, hogy most épp játszik
-  playPauseButton.textContent = "Szünet";  // A gomb felirata megfelelő legyen
-});
+    audio.currentTime = 0;
+    audio.play();
+    isPlaying = true;
+    playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${texts[lang].pause}`;
+  });
 
-
+  // Lejátszás vége esemény
   audio.addEventListener("ended", function () {
     isPlaying = false;
-    playPauseButton.textContent = "Lejátszás";
+    playPauseButton.innerHTML = `<i class="bi bi-volume-up-fill me-2"></i> ${texts[lang].play}`;
   });
 
   audio.load();
 });
+
 document.addEventListener("DOMContentLoaded", function () {
+  const lang = document.documentElement.getAttribute("lang") || "hu";
+
   const varosok = [
     {
       id: "idojaras-villany",
@@ -57,10 +70,28 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.3703
     },
     {
+      id: "idojaras-balatonboglar",
+      nev: "Balatonboglár",
+      lat: 46.7781,
+      lon: 17.6597
+    },
+    {
+      id: "idojaras-balatonbereny",
+      nev: "Balatonberény",
+      lat: 46.707,
+      lon: 17.320
+    },
+    {
       id: "idojaras-balatonfenyves",
       nev: "Balatonfenyves",
       lat: 46.7196,
       lon: 17.5360
+    },
+    {
+      id: "idojaras-balatonfoldvar",
+      nev: "Balatonföldvár",
+      lat: 46.853281,
+      lon: 17.879889
     },
     {
       id: "idojaras-balatonlelle",
@@ -73,6 +104,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Balatonmáriafürdő",
       lat: 46.70424,
       lon: 17.40128
+    },
+    {
+    id: "idojaras-balatonszarszo",
+    nev: "Balatonszárszó",
+    lat: 46.8295,
+    lon: 17.8351
     },
     {
       id: "idojaras-balatonszemes",
@@ -117,16 +154,22 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.0510
     },
     {
+      id: "idojaras-szantod",
+      nev: "Szántód",
+      lat: 46.860639,
+      lon: 17.902411
+    },
+    {
       id: "idojaras-szentlorinc",
       nev: "Szentlőrinc",
       lat: 46.0464,
       lon: 17.9857
     },
     {
-      id: "idojaras-balatonboglar",
-      nev: "Balatonboglár",
-      lat: 46.7781,
-      lon: 17.6597
+    id: "idojaras-zamardi",
+    nev: "Zamárdi",
+    lat: 46.88434,
+    lon: 17.95051
     },
   ];
 
@@ -142,25 +185,36 @@ document.addEventListener("DOMContentLoaded", function () {
         // Hőmérséklet
         const homersekletP = document.createElement("p");
         homersekletP.className = "homerseklet";
-        homersekletP.textContent = `Most: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
+        homersekletP.textContent = lang === "en"
+          ? `Now: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`
+          : `Most: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
         body.appendChild(homersekletP);
 
         // Szél
         const szelP = document.createElement("p");
         szelP.className = "szel";
-        szelP.textContent = `Szélsebesség: ${weather.windspeed} km/h`;
+        szelP.textContent = lang === "en"
+          ? `Wind speed: ${weather.windspeed} km/h`
+          : `Szélsebesség: ${weather.windspeed} km/h`;
         body.appendChild(szelP);
 
         // Csapadék
         const csapadek = daily.precipitation_sum[0];
         const csapadekP = document.createElement("p");
         csapadekP.className = "csapadek";
+
         if (csapadek === 0) {
-          csapadekP.textContent = "🌞 Száraz nap, nem várható eső!";
+          csapadekP.textContent = lang === "en"
+            ? "🌞 Dry day, no rain expected!"
+            : "🌞 Száraz nap, nem várható eső!";
         } else if (csapadek < 2) {
-          csapadekP.textContent = `🌦️ Gyenge csapadék várható: ${csapadek} mm`;
+          csapadekP.textContent = lang === "en"
+            ? `🌦️ Light rain expected: ${csapadek} mm`
+            : `🌦️ Gyenge csapadék várható: ${csapadek} mm`;
         } else {
-          csapadekP.textContent = `🌧️ Jelentős csapadék várható: ${csapadek} mm`;
+          csapadekP.textContent = lang === "en"
+            ? `🌧️ Significant rain expected: ${csapadek} mm`
+            : `🌧️ Jelentős csapadék várható: ${csapadek} mm`;
         }
         body.appendChild(csapadekP);
       })
@@ -168,7 +222,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const box = document.getElementById(varos.id);
         const body = box.querySelector(".card-body");
         const errorP = document.createElement("p");
-        errorP.textContent = "Nem elérhető az időjárás.";
+        errorP.textContent = lang === "en"
+          ? "Weather data unavailable."
+          : "Nem elérhető az időjárás.";
         body.appendChild(errorP);
         console.error(`${varos.nev} időjárási hiba:`, error);
       });

@@ -142,6 +142,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.7960
     },
     {
+    id: "idojaras-mohacs",
+    nev: "Mohács",
+    lat: 45.9959,
+    lon: 18.6798
+    },
+    {
       id: "idojaras-pecs",
       nev: "Pécs",
       lat: 46.0727,

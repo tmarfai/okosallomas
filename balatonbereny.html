@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balatonberény Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Balatonberény – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Balatonberényt egy kattintással!</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Balatonberénybe?</h2>
+      <p>Egy csendes, hangulatos balatoni település, ahol a természetközeli környezet, a családbarát strandok, a lenyűgöző panoráma és a helyi hagyományok találkoznak.…</p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="balatonbereny.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+
+
+
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Balatonberény vasútállomás</h5>
+
+    <!-- Térkép -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d287.5443098565829!2d17.316245748898226!3d46.71366721153929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zYmFsYXRvbmJlcsOpbnkgdmFzw7p0w6FsbG9tw6Fz!5e0!3m2!1shu!2shu!4v1750316696958!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Élő menetrend gomb -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    Nézd meg az élő vonatmozgásokat
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-balatonbereny">
+  <div class="card-body">
+    <h5 class="card-title">Balatonberény időjárása</h5>
+    <!-- JS generálja az összes adat sort -->
+  </div>
+</div>
+
+  <section class="container my-5">
+  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="csicsergofelsziget.jpg" class="card-img-top" alt="Csicsergő-félsziget">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Csicsergő-félsziget</h5>
+      <p class="card-text">A Csicsergő-félsziget Balatonberény csendes, természetközeli részén található kis félsziget, amely gazdag növény- és madárvilágáról ismert. A területen egy kilátó is áll, ahonnan szép panoráma nyílik a Balatonra és a tanúhegyekre.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Csicsergő-félsziget" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="somoskilato.jpg" class="card-img-top" alt="Somoshegyi kilátó">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Somoshegyi kilátó</h5>
+      <p class="card-text">A Somoshegyi kilátó egy fából épült, több szintes kilátó Balatonberény határában, a Somos parkerdő szélén. Tetejéről lenyűgöző kilátás nyílik a Balaton nyugati medencéjére, a Keszthelyi-öbölre és a környező tanúhegyekre. Könnyen megközelíthető, csendes környezetben található, így ideális hely egy rövid kirándulásra, fotózásra vagy csak a természet élvezetére.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Somoshegyi kilátó" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>    
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="kotenger.jpg" class="card-img-top" alt="Kőtenger">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Kőtenger</h5>
+      <p class="card-text">A Kőtenger, más néven Szentbékkállai kőtenger, a Balaton-felvidék egyik különleges természeti csodája, mely a Káli-medencében található egy ligetes erdőben. Masszív homokkőből álló, bizarr formájú sziklatömbök borítják a talajt – igazi „középkori kőlabirintus”, ahol sétálva, túrázva felfedezhetjük a természet által faragott formákat, üregeket és kerekedéseket</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Kőtenger" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Balatonberény Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

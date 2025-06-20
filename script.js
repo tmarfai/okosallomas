@@ -148,6 +148,12 @@ document.addEventListener("DOMContentLoaded", function () {
     lon: 18.6798
     },
     {
+  id: "idojaras-osztopan",
+  nev: "Osztopán",
+  lat: 46.4832,
+  lon: 17.8879
+},
+    {
       id: "idojaras-pecs",
       nev: "Pécs",
       lat: 46.0727,

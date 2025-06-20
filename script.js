@@ -148,11 +148,11 @@ document.addEventListener("DOMContentLoaded", function () {
     lon: 18.6798
     },
     {
-    id: "idojaras-ocseny",
-    nev: "Őcsény",
-    lat: 46.3126,
-    lon: 18.7579
-    },
+  id: "idojaras-osztopan",
+  nev: "Osztopán",
+  lat: 46.4832,
+  lon: 17.8879
+},
     {
       id: "idojaras-pecs",
       nev: "Pécs",

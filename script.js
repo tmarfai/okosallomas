@@ -142,6 +142,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.7960
     },
     {
+  id: "idojaras-lengyeltoti",
+  nev: "Lengyeltóti",
+  lat: 46.7000,  // Lengyeltóti pontos szélesség
+  lon: 17.6389  // Lengyeltóti pontos hosszúság
+},
+    {
     id: "idojaras-mohacs",
     nev: "Mohács",
     lat: 45.9959,

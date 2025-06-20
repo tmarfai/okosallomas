@@ -1,0 +1,109 @@
+<title>Balatonföldvár Audio Guide</title>
+
+<header class="bg-dark text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4">Balatonföldvár – Audio Introduction</h1>
+    <p class="lead">Discover Balatonföldvár with a single click!</p>
+  </div>
+  <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" ... >
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" ... >
+  </div>
+</header>
+
+<main class="container py-5">
+  <section class="mb-5">
+    <h2>Why should you visit Balatonföldvár?</h2>
+    <p>Balatonföldvár is an elegant town on the southern shore of Lake Balaton, where the atmosphere of historic villas, well-maintained promenades, and the breathtaking view of the lake offer a perfect summer getaway...</p>
+  </section>
+
+  <section class="text-center">
+    <div id="controlsContainer">
+      <button id="playPauseButton" class="btn btn-lg btn-primary">
+        <i class="bi bi-volume-up-fill me-2"></i> Listen now!
+      </button>
+
+      <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+    </div>
+
+    <audio id="hang" preload="metadata">
+      <source src="balatonfoldvar.mp3" type="audio/mpeg" />
+      Your browser does not support audio playback.
+    </audio>
+  </section>
+</main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Balatonföldvár Railway Station</h5>
+
+    <iframe ... ></iframe>
+
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+      Check live train movements
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-balatonfoldvar">
+  <div class="card-body">
+    <h5 class="card-title">Balatonföldvár Weather</h5>
+    <!-- JS will generate the content -->
+  </div>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">More destinations nearby</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="strandfesztival.jpg" ... alt="STRAND Festival">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">STRAND Festival</h5>
+          <p class="card-text">
+            August means Zamárdi, where the STRAND Festival brings together the best summer parties every year! With top Hungarian and international performers, sunset concerts with friends, a sandy beach, and dancing until dawn, this is not just a promise – it's reality.
+          </p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Strand fesztivál" ... >Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="lellevidampark.jpg" ... alt="Lelle Amusement Park">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Amusement Park</h5>
+          <p class="card-text">
+            The amusement park in Balatonlelle is a true family experience center, offering adventures for all ages. From thrilling roller coasters to fun carousels and interactive games, the park guarantees entertainment during the summer days.
+          </p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Balatonlelle vidámpark" ... >Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="keletistrand.jpg" ... alt="Eastern Beach">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Eastern Beach</h5>
+          <p class="card-text">
+            The Eastern Beach of Balatonföldvár is a peaceful and family-friendly place where the fine sandy shore and shallow water provide the perfect setting for relaxation and fun by Lake Balaton...
+          </p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Keleti strand" ... >Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="text-center my-4">
+  <img src="mavlogo.png" alt="MÁV logo" ... >
+</div>
+
+<footer class="bg-light text-center py-3">
+  <div class="container">
+    <small>&copy; 2025 Balatonföldvár Info</small>
+  </div>
+</footer>

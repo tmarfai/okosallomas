@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Szekszárd Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Szekszárd – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Szekszárdot egy kattintással!</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Szekszárdra?</h2>
+      <p>Szekszárd egy hangulatos, dombokkal körülölelt város, ahol a híres borvidék és a nyugodt természeti környezet harmonikusan találkozik…</p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="szekszard.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+
+
+
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Szekszárd vasútállomás</h5>
+
+    <!-- Térkép -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d409.38562754380274!2d18.712071751910646!3d46.349400440274174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742ee72ea814753%3A0x7e17e5c74fcea0b2!2sSzeksz%C3%A1rd!5e0!3m2!1shu!2shu!4v1750401414164!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Élő menetrend gomb -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    Nézd meg az élő vonatmozgásokat
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-szekszard">
+  <div class="card-body">
+    <h5 class="card-title">Szekszárd időjárása</h5>
+    <!-- JS generálja az összes adat sort -->
+  </div>
+</div>
+
+  <section class="container my-5">
+  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="bormuzeum.jpg" class="card-img-top" alt="Bormúzeum">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Bormúzeum</h5>
+      <p class="card-text">Középkori épületben berendezett interaktív múzeum, ahol a szekszárdi Kadarka, Kékfrankos és Bikavér történetén keresztül fedezheted fel helyi borvidék szakmai és kulturális értékeit.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Szekszárd Bormúzeum" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="kalvaria.jpg" class="card-img-top" alt="Kálvária-kilátó">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Kálvária-kilátó</h5>
+      <p class="card-text">A Kálvária-kilátó Szekszárd egyik legismertebb látványossága, a Bartina-hegy tetején található. A kilátóból lenyűgöző panoráma nyílik a városra, a Szekszárdi-dombságra és a környező szőlőültetvényekre. Könnyen megközelíthető sétaút vezet fel hozzá, így kiváló célpont egy rövid kiránduláshoz.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Kávária-kilátó Szekszárd" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>    
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="augusz.jpg" class="card-img-top" alt="Augusz-ház">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Augusz-ház</h5>
+      <p class="card-text">Az Augusz‑ház Szekszárd egyik legszebb és legismertebb épülete, mely háromkorosztályos történelmi fejlődést mutat be. Aki szereti az építészeti, kulturális és zenei örökséget egyaránt, mindenképp érdemes megtekinteni kívülről – a hangulatos udvar és a külső homlokzat önmagában is élmény.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Augusz-ház" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Szekszárd Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

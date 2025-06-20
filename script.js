@@ -172,6 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.902411
     },
     {
+      id: "idojaras-szekszard",
+      nev: "Szekszárd",
+      lat: 46.3558,
+      lon: 18.7039
+    },
+    {
       id: "idojaras-szentlorinc",
       nev: "Szentlőrinc",
       lat: 46.0464,

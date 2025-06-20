@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fonyód Audio Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Fonyód – Audio Guide</h1>
+      <p class="lead">Discover Fonyód with a single click!</p>
+    </div>
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='fonyod.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='fonyod-en.html'">
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Why should you visit Fonyód?</h2>
+      <p>Fonyód train station is one of the key transportation hubs on the southern shore of Lake Balaton, where the rhythm of the trains connects not only the town but the entire lakeside region with distant parts of the country...</p>
+    </section>
+
+    <section class="text-center">
+      <div id="controlsContainer">
+        <button id="playPauseButton" class="btn btn-lg btn-primary">
+          <i class="bi bi-volume-up-fill me-2"></i> Listen now!
+        </button>
+
+        <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+      </div>
+
+      <audio id="audio" preload="metadata">
+        <source src="fonyod.mp3" type="audio/mpeg" />
+        Your browser does not support audio playback.
+      </audio>
+    </section>
+  </main>
+
+  <div class="card my-4" style="max-width: 600px; margin: auto;">
+    <div class="card-body text-center">
+      <h5 class="card-title">Fonyód Train Station</h5>
+
+      <!-- Map -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1366.8860464352283!2d17.55846251560088!3d46.74967576545669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sen!4v1750149450610!5m2!1sen!2sen"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <!-- Live schedule button -->
+      <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+        Check live train movements
+      </a>
+    </div>
+  </div>
+
+  <div class="card text-center mt-4" id="weather-fonyod">
+    <div class="card-body">
+      <h5 class="card-title">Fonyód Weather</h5>
+      <!-- JS will generate all data rows -->
+    </div>
+  </div>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Other destinations nearby</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="panoramastrand.jpg" class="card-img-top" alt="Panorama Beach">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Panorama Beach</h5>
+            <p class="card-text">Several excellent, well-maintained free beaches can be found along the shore, such as Bélatelep or Panorama Beach, with lots of green spaces and shady trees. Ideal for families or a peaceful swim.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Fonyódi strand" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="kriptavilla.jpg" class="card-img-top" alt="Kripta Villa">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kripta Villa – The Statue of Loyalty</h5>
+            <p class="card-text">A unique, symbolic building and statue in the heart of the town that tells a sad but touching love story.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Kripta villa" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="badacsony.jpg" class="card-img-top" alt="Badacsony">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Badacsony</h5>
+            <p class="card-text">From Fonyód, you can easily cross to the northern shore of Lake Balaton by ferry to Badacsony. Famous for its basalt organ formations, wine cellars, and picturesque views.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Badacsony" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV Logo" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Fonyód Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

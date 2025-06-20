@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balatonszemes Audio Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Balatonszemes – Audio Guide</h1>
+      <p class="lead">Explore Balatonszemes with a single click!</p>
+    </div>
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='balatonszemes.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='balatonszemes-en.html'">
+  </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Why visit Balatonszemes?</h2>
+      <p>From Balatonszemes, you can access lakeside adventures and peaceful moments at the same time, making this stop truly unique along the southern shore.
+      </p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Listen!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="balatonszemes.mp3" type="audio/mpeg" />
+    Your browser does not support audio playback.
+  </audio>
+</section>
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Balatonszemes Train Station</h5>
+
+    <!-- Map -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3751.77752635235!2d17.777085295534384!3d46.811329345053416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750232615265!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Live timetable button -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    View live train movements
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-balatonszemes">
+  <div class="card-body">
+    <h5 class="card-title">Weather in Balatonszemes</h5>
+    <!-- JS will generate all data rows -->
+  </div>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">Other destinations nearby</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="postamuzeum.jpg" class="card-img-top" alt="Post Museum">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Post Museum</h5>
+      <p class="card-text">The Post Museum in Balatonszemes offers a unique insight into the history of postal transportation, from the Middle Ages to the present day. The exhibition, titled “From Cart to Electric Vehicle,” showcases the evolution of transport vehicles used in postal services.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Balatonszemes postamúzeum" target="_blank" class="btn btn-primary mt-auto">Plan your route</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="lelleoriaskerek.jpg" class="card-img-top" alt="Lelle Eye">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Lelle Eye</h5>
+      <p class="card-text">Located in the heart of Balatonlelle near the Móló promenade, the Lelle Eye is a 30-meter-high Ferris wheel that has welcomed visitors since the summer of 2020. During the three-round ride, you can enjoy a breathtaking panorama: the full surface of Lake Balaton, the harbor, and the hills on the northern shore including the famous witness hills.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Lelle Eye" target="_blank" class="btn btn-primary mt-auto">Plan your route</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="gombkilato.jpg" class="card-img-top" alt="Sphere Lookout">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Sphere Lookout</h5>
+      <p class="card-text">The iconic sphere lookout on the hilltop was originally created for the 1958 Brussels World’s Fair and was later relocated here in the 1960s. With a diameter of 15 meters made of 240 triangles, it provides a wide view of Lake Balaton from a height of 165 meters – especially stunning when illuminated at sunset. Nearby you'll find an adventure park, alpine coaster, and treetop walkway for families.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Xantus János - Gömbkilátó és Magasösvény" target="_blank" class="btn btn-primary mt-auto">Plan your route</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Balatonszemes Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

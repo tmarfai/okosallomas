@@ -28,25 +28,23 @@
       <p>Szántód railway station is one of the quiet but key points on the southern shore of Lake Balaton, offering not only peace and proximity to the waterfront but also easy access to the experiences of Tihany via the ferry...</p>
     </section>
 
+    <section class="text-center">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+      <i class="bi bi-volume-up-fill me-2"></i> Listen
+    </button>
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+    <audio id="hang" preload="metadata">
+      <source src="szantod-en.mp3" type="audio/mpeg" />
+      Your browser does not support audio playback.
+    </audio>
+  </section>
+
    
   </main>
-    <section class="text-center">
-  <div id="controlsContainer">
-    <button id="playPauseButton" class="btn btn-lg btn-primary">
-  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
-</button>
-
-    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
-  </div>
-
-  <audio id="hang" preload="metadata">
-    <source src="szantod-en.mp3" type="audio/mpeg" />
-    A böngésződ nem támogatja a hang lejátszást.
-  </audio>
-</section>
+  
   <div class="card my-4" style="max-width: 600px; margin: auto;">
     <div class="card-body text-center">
-      <h5 class="card-title">Szántód Railway Station</h5>
+      <h5 class="card-title">Szántód railway station</h5>
 
       <!-- Map -->
       <iframe 
@@ -68,7 +66,7 @@
 
   <div class="card text-center mt-4" id="weather-szantod">
     <div class="card-body">
-      <h5 class="card-title">Szántód Weather</h5>
+      <h5 class="card-title">Szántód weather</h5>
       <!-- JS will generate all the data rows -->
     </div>
   </div>

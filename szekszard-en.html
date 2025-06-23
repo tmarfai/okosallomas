@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Szekszárd Audio Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Szekszárd – Audio Guide</h1>
+      <p class="lead">Discover Szekszárd with a single click!</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Why should you visit Szekszárd?</h2>
+      <p>Szekszárd is a charming town surrounded by hills, where the famous wine region and peaceful natural surroundings harmoniously meet…</p>
+    </section>
+
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='szekszard.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='szekszard-en.html'">
+    </div>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="szekszard-en.mp3" type="audio/mpeg" />
+    You.
+  </audio>
+</section>
+
+  </main>
+
+  <div class="card my-4" style="max-width: 600px; margin: auto;">
+    <div class="card-body text-center">
+      <h5 class="card-title">Szekszárd railway station</h5>
+
+      <!-- Map -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3894.827840733218!2d18.709732981746324!3d46.34836988984216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750665806331!5m2!1shu!2shu"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <!-- Live timetable button -->
+      <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+        Check live train movements
+      </a>
+    </div>
+  </div>
+
+  <div class="card text-center mt-4" id="idojaras-szekszard">
+    <div class="card-body">
+      <h5 class="card-title">Szekszárd weather</h5>
+      <!-- JS will generate all data rows -->
+    </div>
+  </div>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Other destinations nearby</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="bormuzeum.jpg" class="card-img-top" alt="Wine Museum">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Wine Museum</h5>
+            <p class="card-text">An interactive museum set up in a medieval building where you can explore the professional and cultural values of the local wine region through the stories of Szekszárd’s Kadarka, Kékfrankos and Bikavér wines.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Szekszárd Bormúzeum" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="kalvaria.jpg" class="card-img-top" alt="Kálvária Lookout">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kálvária Lookout</h5>
+            <p class="card-text">The Kálvária Lookout is one of Szekszárd’s most famous sights, located at the top of Bartina Hill. It offers a stunning panoramic view of the city, the Szekszárd Hills, and the surrounding vineyards. A walking trail leads up to it, making it a perfect spot for a short hike.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Kávária-kilátó Szekszárd" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+          </div>
+        </div>    
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="augusz.jpg" class="card-img-top" alt="Augusz House">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Augusz House</h5>
+            <p class="card-text">The Augusz House is one of Szekszárd’s most beautiful and well-known buildings, showcasing three generations of historical development. For those who appreciate architectural, cultural, and musical heritage, it’s worth seeing from the outside – the cozy courtyard and elegant façade are a joy to behold.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Augusz-ház" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Szekszárd Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

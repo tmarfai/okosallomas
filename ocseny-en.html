@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Őcsény Hangoldal</title>
+  <title>Őcsény Audio Guide</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -11,50 +11,46 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
   <div class="position-absolute" style="top: 15px; right: 15px;">
-    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='ocseny.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='ocseny.html'">
     <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='ocseny-en.html'">
   </div>
 </head>
 <body>
   <header class="bg-dark text-white text-center py-5">
     <div class="container">
-      <h1 class="display-4">Őcsény – Hangos bemutató</h1>
-      <p class="lead">Fedezd fel Őcsényt egy kattintással!</p>
+      <h1 class="display-4">Őcsény – Audio Guide</h1>
+      <p class="lead">Discover Őcsény with a single click!</p>
     </div>
   </header>
 
   <main class="container py-5">
     <section class="mb-5">
-      <h2>Miért érdemes ellátogatni Őcsényre?</h2>
-      <p>Őcsény egy nyugodt, természeti kincsekben gazdag falucska…</p>
+      <h2>Why should you visit Őcsény?</h2>
+      <p>Őcsény is a peaceful village rich in natural beauty...</p>
     </section>
 
     <section class="text-center">
   <div id="controlsContainer">
     <button id="playPauseButton" class="btn btn-lg btn-primary">
-  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+  <i class="bi bi-volume-up-fill me-2"></i> Listen Now!
 </button>
 
-    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
   </div>
 
   <audio id="hang" preload="metadata">
     <source src="ocseny.mp3" type="audio/mpeg" />
-    A böngésződ nem támogatja a hang lejátszást.
+    Your browser does not support audio playback.
   </audio>
 </section>
-
-
-
-
 
   </main>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
   <div class="card-body text-center">
-    <h5 class="card-title">Őcsény vasútállomás</h5>
+    <h5 class="card-title">Őcsény railway station</h5>
 
-    <!-- Térkép -->
+    <!-- Map -->
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3786.0681307903687!2d18.74198372622474!3d46.31776025378645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750411295653!5m2!1shu!2shu"
       width="100%"
@@ -65,53 +61,53 @@
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
 
-    <!-- Élő menetrend gomb -->
+    <!-- Live timetable button -->
     <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
-    Nézd meg az élő vonatmozgásokat
+    Check live train movements
     </a>
   </div>
 </div>
 
 <div class="card text-center mt-4" id="idojaras-ocseny">
   <div class="card-body">
-    <h5 class="card-title">Őcsény időjárása</h5>
-    <!-- JS generálja az összes adat sort -->
+    <h5 class="card-title">Őcsény weather</h5>
+    <!-- JS generates the data rows -->
   </div>
 </div>
 
   <section class="container my-5">
-  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <h2 class="text-center mb-4">Other Nearby Destinations</h2>
   <div class="row row-cols-1 row-cols-md-3 g-4">
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="baranyfok.jpg" class="card-img-top" alt="Bárányfoki tanösvény">
+    <img src="baranyfok.jpg" class="card-img-top" alt="Bárányfok Nature Trail">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Bárányfoki tanösvény</h5>
-      <p class="card-text">A Gemenci Erdei Vasút állomásától induló sétaút, ahol ártéri erdők, holtágak és változatos élővilág vár.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Bárányfoki tanösvény" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Bárányfok Nature Trail</h5>
+      <p class="card-text">A walking path starting from the Gemenc Forest Railway station, offering floodplain forests, oxbow lakes, and diverse wildlife.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Bárányfoki tanösvény" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
     </div>
   </div>
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="tajhaz.jpg" class="card-img-top" alt="Őcsényi tájház">
+    <img src="tajhaz.jpg" class="card-img-top" alt="Őcsény Folk House">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Őcsényi tájház</h5>
-      <p class="card-text">Helytörténeti kiállítás a Bocskai utcában, népi élet, viselet, kézművesség bemutatása.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Őcsény tájház" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Őcsény Folk House</h5>
+      <p class="card-text">A local history exhibition on Bocskai Street showcasing traditional life, clothing, and craftsmanship.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Őcsény tájház" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
     </div>
   </div>    
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="repuloter.jpg" class="card-img-top" alt="Őcsényi repülőtér">
+    <img src="repuloter.jpg" class="card-img-top" alt="Őcsény Airport">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Őcsényi repülőtér</h5>
-      <p class="card-text">Az Őcsényi repülőtér Tolna megye egyetlen nem nyilvános repülőtere. Őcsény délkeleti részén található, könnyen megközelíthető a településről. Nemcsak kisgépes reptér, de hőlégballon-emlékművel és gyűjteménnyel is büszkélkedik.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Őcsény repülőtér" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Őcsény Airport</h5>
+      <p class="card-text">The only private airport in Tolna County, located in the southeast of the village. Besides small aircraft, it features a hot air balloon memorial and collection.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Őcsény repülőtér" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
     </div>
   </div>
 </div>
@@ -119,9 +115,8 @@
   </div>
 </section>
 
-
   <div class="text-center my-4">
-    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+    <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
   </div>
 
   <footer class="bg-light text-center py-3">

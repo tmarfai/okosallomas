@@ -142,11 +142,11 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.7960
     },
     {
-  id: "idojaras-lengyeltoti",
-  nev: "Lengyeltóti",
-  lat: 46.7000,  // Lengyeltóti pontos szélesség
-  lon: 17.6389  // Lengyeltóti pontos hosszúság
-},
+    id: "idojaras-lengyeltoti",
+    nev: "Lengyeltóti",
+    lat: 46.7000,  // Lengyeltóti pontos szélesség
+    lon: 17.6389  // Lengyeltóti pontos hosszúság
+    },
     {
     id: "idojaras-mohacs",
     nev: "Mohács",
@@ -154,11 +154,18 @@ document.addEventListener("DOMContentLoaded", function () {
     lon: 18.6798
     },
     {
-  id: "idojaras-osztopan",
-  nev: "Osztopán",
-  lat: 46.4832,
-  lon: 17.8879
-},
+    id: "idojaras-osztopan",
+    nev: "Osztopán",
+    lat: 46.4832,
+    lon: 17.8879
+    },
+    {
+    id: "idojaras-ocseny",
+    nev: "Őcsény",
+    lat: 46.31776,
+    lon: 18.74559
+    },
+
     {
       id: "idojaras-pecs",
       nev: "Pécs",

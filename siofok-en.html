@@ -27,19 +27,20 @@
       <p>Siófok is the vibrant heart of the southern shore of Lake Balaton, where sunshine, excitement, and waterfront experiences come together...
       </p>
     </section>
-
     <section class="text-center">
-      <button id="playPauseButton" class="btn btn-lg btn-primary">
-        <i class="bi bi-volume-up-fill me-2"></i> Listen Now!
-      </button>
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
 
-      <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
-      <audio id="audio" preload="metadata">
-        <source src="siofok.mp3" type="audio/mpeg" />
-        Your browser does not support audio playback.
-      </audio>
-    </section>
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
 
+  <audio id="hang" preload="metadata">
+    <source src="siofok-en.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
   </main>
 
   <div class="card my-4" style="max-width: 600px; margin: auto;">

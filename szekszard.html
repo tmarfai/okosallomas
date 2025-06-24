@@ -25,11 +25,25 @@
       <p>Szekszárd egy hangulatos, dombokkal körülölelt város, ahol a híres borvidék és a nyugodt természeti környezet harmonikusan találkozik…</p>
     </section>
 
+     <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='szekszard.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='szekszard-en.html'">
+    </div>
+    
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
 
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
 
-
-
-
+  <audio id="hang" preload="metadata">
+    <source src="szekszard.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
 
   </main>
 
@@ -39,7 +53,7 @@
 
     <!-- Térkép -->
     <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d409.38562754380274!2d18.712071751910646!3d46.349400440274174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4742ee72ea814753%3A0x7e17e5c74fcea0b2!2sSzeksz%C3%A1rd!5e0!3m2!1shu!2shu!4v1750401414164!5m2!1shu!2shu"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3894.827840733218!2d18.709732981746324!3d46.34836988984216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750665806331!5m2!1shu!2shu"
       width="100%"
       height="300"
       style="border:0;"

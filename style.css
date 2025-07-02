@@ -135,4 +135,16 @@ header img {
   border: none;
   box-shadow: none;
 }
+.flag-switcher {
+  height: 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 5px;
+}
+/*zászló */
+.flag-switcher:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 

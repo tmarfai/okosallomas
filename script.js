@@ -173,6 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.2323
     },
     {
+    id: "idojaras-pusztaszabolcs",
+    nev: "Pusztaszabolcs",
+    lat: 47.13718,
+    lon: 18.76704
+    },
+    {
       id: "idojaras-siofok",
       nev: "Siófok",
       lat: 46.9081,

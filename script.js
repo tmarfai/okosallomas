@@ -192,6 +192,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.0510
     },
     {
+      id: "idojaras-sarbogard",
+      nev: "Sárbogárd",
+      lat: 46.8773,
+      lon: 18.6305
+    },
+    {
       id: "idojaras-szantod",
       nev: "Szántód",
       lat: 46.860639,

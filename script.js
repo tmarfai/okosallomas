@@ -136,6 +136,13 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.5619
     },
     {
+  id: "idojaras-keszohidegkutgyonk",
+  nev: "Keszőhidegkút-Gyönk",
+  lat: 46.5006,
+  lon: 18.4831
+},
+
+    {
       id: "idojaras-kaposvar",
       nev: "Kaposvár",
       lat: 46.3590,

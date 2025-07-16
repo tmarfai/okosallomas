@@ -129,6 +129,10 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 46.3500,
       lon: 18.1500
     },
+    {id: "idojaras-erd",
+  nev: "Érd",
+  lat: 47.3870,
+  lon: 18.9051},
     {
       id: "idojaras-fonyod",
       nev: "Fonyód",

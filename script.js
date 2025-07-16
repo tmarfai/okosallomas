@@ -204,6 +204,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.902411
     },
     {
+      id: "idojaras-szazhalombatta",
+      nev: "Százhalombatta",
+      lat: 47.3264,
+      lon: 18.9122
+    },
+    {
       id: "idojaras-szekszard",
       nev: "Szekszárd",
       lat: 46.3558,

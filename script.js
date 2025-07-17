@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.5619
     },
     {
-<<<<<<< HEAD
   id: "idojaras-barcs",
   nev: "Barcs",
   lat: 45.9587,
@@ -162,13 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
   lon: 18.4831
 },
 
-=======
-      id: "idojaras-keszohidegkutgyonk",
-      nev: "Keszőhidegkút-Gyönk",
-      lat: 46.5006,
-      lon: 18.4831
-    },
->>>>>>> c2b57e1529ef829ae3b00767567d29963f603f48
     {
       id: "idojaras-kaposvar",
       nev: "Kaposvár",

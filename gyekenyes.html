@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gyékényes Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+   <!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-59ZRZ0FTDM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-59ZRZ0FTDM');
+</script>
+
+  <!-- End Google Analytics -->
+</head>
+<body>
+<header class="bg-dark text-white text-center py-5 position-relative">
+  <div class="container">
+    <h1 class="display-4">Gyékényes – Hangos bemutató</h1>
+    <p class="lead">Fedezd fel Gyékényest egy kattintással!</p>
+  </div>
+  <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='pusztaszabolcs.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='pusztaszabolcs-en.html'">
+  </div>
+</header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Gyékényesre?</h2>
+      <p>Gyékényes jelentős vasúti határállomás, amely páratlan környezeti természetével vonzza az érdeklődőket...</p>
+    </section>
+
+    <section class="text-center">
+  <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+  <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  <audio id="hang" preload="metadata">
+    <source src="gyekenyes.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Gyékényes vasútállomás</h5>
+
+    <!-- Térkép -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1379.5226067306094!2d16.953236775353314!3d46.24932895645609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47688388b15a048f%3A0xb9990875a67ac7a7!2zR3nDqWvDqW55ZXMgdmFzw7p0w6FsbG9tw6Fz!5e0!3m2!1shu!2shu!4v1752739340410!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Élő menetrend gomb -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    Nézd meg az élő vonatmozgásokat
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-gyekenyes">
+  <div class="card-body">
+    <h5 class="card-title">Gyékényes időjárása</h5>
+    <!-- JS generálja az összes adat sort -->
+  </div>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="kotro.jpg" class="card-img-top" alt="Gyékényesi-tó">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Gyékényesi-tó</h5>
+      <p class="card-text">A Kotró, vagyis a gyékényesi bányató kristálytiszta, mély vizével nemcsak a nyári fürdőzők kedvence, hanem igazi paradicsom a horgászok számára is. A tó környezete csendes, nyugodt, tökéletes hely a kikapcsolódásra, legyen szó napozásról, sátorozásról vagy egy esti csónakázásról.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Gyékényesi-tó" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="csurgo.jpg" class="card-img-top" alt="Csurgói Történelmi Park">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Csurgói Történelmi Park</h5>
+      <p class="card-text">A csurgói Történelmi Park egy izgalmas és tanulságos időutazásra hívja az érdeklődőket Csurgó óvárosában, ahol a középkori rendházak és csatamezők nyomait idézik meg élményszerűen.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Csurgói Történelmi Park" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="erzsebet_ter.jpg" class="card-img-top" alt="Erzsébet tér">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Erzsébet tér</h5>
+      <p class="card-text">A Nagykanizsai Erzsébet tér a város szíve, ahol a történelem és a modern városi élet harmonikusan találkozik. A tér gazdag művészeti alkotásokban, zöldfelületekben és kulturális rendezvényekben, így ideális helyszín egy kellemes séta vagy egy családi program számára.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Nagykanizsa Erzsébet tér" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+</section>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+   
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Gyékényes Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

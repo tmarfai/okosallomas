@@ -246,6 +246,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.9857
     },
     {
+      id: "idojaras-szigetvar",
+      nev: "Szigetvár",
+      lat: 46.1303,
+      lon: 17.8157
+    },
+    {
     id: "idojaras-zamardi",
     nev: "Zamárdi",
     lat: 46.88434,

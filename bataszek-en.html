@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bátaszék Audio Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+
+<header class="bg-dark text-white text-center py-5 position-relative">
+  <div class="container">
+    <h1 class="display-4">Bátaszék – Audio Guide</h1>
+    <p class="lead">Discover Bátaszék with a single click!</p>
+  </div>
+  <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar" class="flag-switcher" onclick="window.location.href='bataszek.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-switcher" onclick="window.location.href='bataszek-en.html'">
+  </div>
+</header>
+
+<main class="container py-5">
+  <section class="mb-5">
+    <h2>Why should you visit Bátaszék?</h2>
+    <p>Bátaszék is an important railway junction in Southern Transdanubia, where the lines from Pécs to Baja and from Szekszárd to Villány meet – making it a great starting point for exploring the countryside and local wine regions...</p>
+  </section>
+
+  <section class="text-center">
+    <div id="controlsContainer">
+      <button id="playPauseButton" class="btn btn-lg btn-primary">
+        <i class="bi bi-volume-up-fill me-2"></i> Listen
+      </button>
+      <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+    </div>
+
+    <audio id="hang" preload="metadata">
+      <source src="bataszek-en.mp3" type="audio/mpeg" />
+      Your browser does not support audio playback.
+    </audio>
+  </section>
+</main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Bátaszék railway station</h5>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2761.421293181766!2d18.713174861299233!3d46.202073620975035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1752733447923!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+      Check live train movements
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-bataszek">
+  <div class="card-body">
+    <h5 class="card-title">Bátaszék weather</h5>
+  </div>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">Other destinations nearby</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="nagyboldogasszonyplebaniatemplom.jpg" class="card-img-top" alt="Church of the Assumption">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Church of the Assumption</h5>
+          <p class="card-text">The Church of the Assumption of the Roman Catholic Parish in Bátaszék is the city's symbol, with its sky-reaching tower topped by a 30-meter-high spire.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Nagyboldogasszony Plébániatemplom Bátaszék" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="szentorbankapolna.jpg" class="card-img-top" alt="St. Urban’s Chapel">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">St. Urban’s Chapel</h5>
+          <p class="card-text">After the plague epidemic of 1739, the faithful of Bátaszék decided to build a chapel. In 1754, they constructed it on the vineyard hill in honor of St. Urban, the patron saint of vineyards. The chapel is a baroque-style building with a barrel vault and a small tower.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Szent Orbán-kápolna Bátaszék" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="molyhostolgy.jpg" class="card-img-top" alt="Downy Oak – Tree of the Year">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Downy Oak – Tree of the Year</h5>
+          <p class="card-text">Located right next to St. Urban’s Chapel, this downy oak won Hungary’s “Tree of the Year” title in 2015. A year later, it also won the “European Tree of the Year” award in 2016. The tree is estimated to be 300–400 years old and is the oldest tree in Bátaszék.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Molyhos Tölgy Ország Fája - Bátaszék" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="text-center my-4">
+  <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
+</div>
+
+<footer class="bg-light text-center py-3">
+  <div class="container">
+    <small>&copy; 2025 Bátaszék Info</small>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

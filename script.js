@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lat: 45.8705,
       lon: 18.4543
     },
-       {
+    {
       id: "idojaras-abaliget",
       nev: "Abaliget",
       lat: 46.1272,
@@ -124,15 +124,23 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.4825
     },
     {
+      id: "idojaras-bataszek",
+      nev: "Bátaszék",
+      lat: 46.2010,
+      lon: 18.7142
+    },
+    {
       id: "idojaras-dombovar",
       nev: "Dombóvár",
       lat: 46.3500,
       lon: 18.1500
     },
-    {id: "idojaras-erd",
-  nev: "Érd",
-  lat: 47.3870,
-  lon: 18.9051},
+    {
+      id: "idojaras-erd",
+      nev: "Érd",
+      lat: 47.3870,
+      lon: 18.9051
+    },
     {
       id: "idojaras-fonyod",
       nev: "Fonyód",
@@ -140,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.5619
     },
     {
+<<<<<<< HEAD
   id: "idojaras-barcs",
   nev: "Barcs",
   lat: 45.9587,
@@ -153,6 +162,13 @@ document.addEventListener("DOMContentLoaded", function () {
   lon: 18.4831
 },
 
+=======
+      id: "idojaras-keszohidegkutgyonk",
+      nev: "Keszőhidegkút-Gyönk",
+      lat: 46.5006,
+      lon: 18.4831
+    },
+>>>>>>> c2b57e1529ef829ae3b00767567d29963f603f48
     {
       id: "idojaras-kaposvar",
       nev: "Kaposvár",
@@ -162,8 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
     {
     id: "idojaras-lengyeltoti",
     nev: "Lengyeltóti",
-    lat: 46.7000,  // Lengyeltóti pontos szélesség
-    lon: 17.6389  // Lengyeltóti pontos hosszúság
+    lat: 46.7000,
+    lon: 17.6389
     },
     {
     id: "idojaras-mohacs",
@@ -183,7 +199,6 @@ document.addEventListener("DOMContentLoaded", function () {
     lat: 46.31776,
     lon: 18.74559
     },
-
     {
       id: "idojaras-pecs",
       nev: "Pécs",
@@ -207,6 +222,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Sárbogárd",
       lat: 46.8773,
       lon: 18.6305
+    },
+    {
+      id: "idojaras-somogyszob",
+      nev: "Somogyszob",
+      lat: 46.2310,
+      lon: 17.2650
     },
     {
       id: "idojaras-szantod",

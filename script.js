@@ -208,6 +208,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.6305
     },
     {
+      id: "idojaras-somogyszob",
+      nev: "Somogyszob",
+      lat: 46.2310,
+      lon: 17.2650
+    },
+    {
       id: "idojaras-szantod",
       nev: "Szántód",
       lat: 46.860639,

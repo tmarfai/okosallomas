@@ -140,6 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.5619
     },
     {
+  id: "idojaras-barcs",
+  nev: "Barcs",
+  lat: 45.9587,
+  lon: 17.4581
+},
+
+    {
   id: "idojaras-keszohidegkutgyonk",
   nev: "Keszőhidegkút-Gyönk",
   lat: 46.5006,

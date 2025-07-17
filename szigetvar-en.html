@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Szigetvár Audio Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+<header class="bg-dark text-white text-center py-5 position-relative">
+  <div class="container">
+    <h1 class="display-4">Szigetvár – Audio Guide</h1>
+    <p class="lead">Discover Szigetvár with a single click!</p>
+  </div>
+  <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='szigetvar.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-switcher"style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='szigetvar-en.html'">
+  </div>
+</header>
+
+<main class="container py-5">
+  <section class="mb-5">
+    <h2>Why should you visit Szigetvár?</h2>
+    <p>The town’s thermal bath, the Ottoman-era mosque, and the Zrínyi statue all offer a unique experience for visitors...</p>
+  </section>
+
+  <section class="text-center">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+      <i class="bi bi-volume-up-fill me-2"></i> Listen
+    </button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+    <audio id="hang" preload="metadata">
+      <source src="szigetvar-en.mp3" type="audio/mpeg" />
+      Your browser does not support audio playback.
+    </audio>
+  </section>
+</main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Szigetvár railway station</h5>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1958.2555125708043!2d17.800295603582384!3d46.04328867840719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1752738717786!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+      Check live train movements
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-szigetvar">
+  <div class="card-body">
+    <h5 class="card-title">Szigetvár weather</h5>
+  </div>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">Other destinations nearby</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="szigetvarivar.jpg" class="card-img-top" alt="Szigetvár Castle">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Szigetvár Castle</h5>
+          <p class="card-text">Not only the castle but also the city’s most significant historical memory is the 1566 siege. Sultan Suleiman I camped with his hundred-thousand-strong army on the eastern side of the castle and called for Zrínyi’s surrender. Zrínyi refused, and the siege began, during which the Ottoman army’s numbers dwindled, but the defenders of the castle also suffered heavy losses.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Szigetvári vár" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="szigetvarigyogyfurdo.jpg" class="card-img-top" alt="Szigetvár Thermal Bath">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Szigetvár Thermal Bath</h5>
+          <p class="card-text">One of Szigetvár’s most popular places is the Szigetvár Thermal Bath, known for its excellent quality medicinal water. It offers refreshing relaxation opportunities for every family member throughout the year.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Szigetvári Gyógyfürdő" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="okopark.jpg" class="card-img-top" alt="Ökopark - Bükkösd">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Ökopark - Bükkösd</h5>
+          <p class="card-text">A great excursion spot for kindergarten and school groups. A huge playground, an experience barn with folk games, and a barefoot trail await both young and old. Visitors can try horseback riding, carriage rides, compete in relay races, sleep in yurts, and hike through the forest at night.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Ökopark Bükkösd" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="text-center my-4">
+  <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
+</div>
+
+<footer class="bg-light text-center py-3">
+  <div class="container">
+    <small>&copy; 2025 Szigetvár Info</small>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

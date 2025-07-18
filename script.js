@@ -256,6 +256,13 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.8157
     },
     {
+  id: "idojaras-tab",
+  nev: "Tab",
+  lat: 46.7372,
+  lon: 17.5472
+},
+
+    {
     id: "idojaras-zamardi",
     nev: "Zamárdi",
     lat: 46.88434,

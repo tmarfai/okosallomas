@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tab Audio Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+
+<header class="bg-dark text-white text-center py-5 position-relative">
+  <div class="container">
+    <h1 class="display-4">Tab – Audio Guide</h1>
+    <p class="lead">Discover Tab with one click!</p>
+  </div>
+  <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='tab.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='tab-en.html'">
+  </div>
+</header>
+
+<main class="container py-5">
+  <section class="mb-5">
+    <h2>Why visit Tab?</h2>
+    <p>A quiet town in Somogy County, offering green parks, historic buildings, and a relaxed countryside atmosphere.</p>
+  </section>
+
+  <section class="text-center">
+    <div id="controlsContainer">
+      <button id="playPauseButton" class="btn btn-lg btn-primary">
+        <i class="bi bi-volume-up-fill me-2"></i> Listen!
+      </button>
+      <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+    </div>
+
+    <audio id="hang" preload="metadata">
+      <source src="tab.mp3" type="audio/mpeg" />
+      Your browser does not support audio playback.
+    </audio>
+  </section>
+</main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Tab Railway Station</h5>
+
+    <!-- Map -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2241.0796221035815!2d17.5472!3d46.7372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749840000000!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Timetable button -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+      Check live train movements
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-tab">
+  <div class="card-body">
+    <h5 class="card-title">Weather in Tab</h5>
+    <!-- Populated by JS -->
+  </div>
+</div>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4">Nearby destinations</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="nagyferencgaleria.jpg" class="card-img-top" alt="Nagy Ferenc Gallery">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Nagy Ferenc Gallery</h5>
+          <p class="card-text">Permanent exhibition of the local woodcarving artist's work. Over 300 pieces featuring folk motifs.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Nagy+Ferenc+Galéria,+Tab" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="zichymuvhaz.jpg" class="card-img-top" alt="Zichy Mihály Cultural Center">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Zichy Mihály Cultural Center</h5>
+          <p class="card-text">The town's cultural venue. Regular theatre plays, concerts and local events are held here.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Zichy+Mihály+Művelődési+Központ,+Tab" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="tabtemplom.jpg" class="card-img-top" alt="Catholic Church in Tab">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Roman Catholic Church</h5>
+          <p class="card-text">Baroque church from 1762 with frescos by István Dorfmeister and a replica of the Holy Crown.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Római+Katolikus+Plébániatemplom,+Tab" target="_blank" class="btn btn-primary mt-auto">Get Directions</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="text-center my-4">
+  <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
+</div>
+
+<footer class="bg-light text-center py-3">
+  <div class="container">
+    <small>&copy; 2025 Tab Info</small>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

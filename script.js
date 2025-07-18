@@ -202,16 +202,22 @@ document.addEventListener("DOMContentLoaded", function () {
     lon: 18.76704
     },
     {
-      id: "idojaras-siofok",
-      nev: "Siófok",
-      lat: 46.9081,
-      lon: 18.0510
-    },
-    {
       id: "idojaras-sarbogard",
       nev: "Sárbogárd",
       lat: 46.8773,
       lon: 18.6305
+    },
+    {
+      id: "idojaras-sellye",
+      nev: "Sellye",
+      lat: 45.8472,
+      lon: 17.6867
+    },
+    {
+      id: "idojaras-siofok",
+      nev: "Siófok",
+      lat: 46.9081,
+      lon: 18.0510
     },
     {
       id: "idojaras-somogyszob",

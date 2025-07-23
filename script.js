@@ -76,6 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.3703
     },
     {
+      id: "idojaras-balatonaliga",
+      nev: "Balatonaliga",
+      lat: 46.9830,
+      lon: 18.1670
+    },
+    {
       id: "idojaras-balatonboglar",
       nev: "Balatonboglár",
       lat: 46.7781,
@@ -202,6 +208,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.2323
     },
     {
+      id: "idojaras-pincehely",
+      nev: "Pincehely",
+      lat: 46.5422,
+      lon: 18.4053
+    },
+    {
     id: "idojaras-pusztaszabolcs",
     nev: "Pusztaszabolcs",
     lat: 47.13718,
@@ -218,6 +230,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nev: "Sellye",
       lat: 45.8472,
       lon: 17.6867
+    },
+    {
+      id: "idojaras-simontornya",
+      nev: "Simontornya",
+      lat: 46.7365,
+      lon: 18.3863
     },
     {
       id: "idojaras-siofok",

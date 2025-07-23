@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balatonaliga Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-59ZRZ0FTDM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-59ZRZ0FTDM');
+</script>
+
+</head>
+<body>
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Balatonaliga – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Balatonaligát egy kattintással!</p>
+    </div>
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='balatonaliga.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='balatonaliga-en.html'">
+  </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Balatonaligára?</h2>
+      <p>Balatonaliga titkos oázis a Balaton déli partján, ahol a természet szépsége és a nyugodt atmoszféra tökéletes kikapcsolódást ígér minden látogatónak...</p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="balatonaliga.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+
+
+
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Balatonaliga vasútállomás</h5>
+
+    <!-- Térkép -->
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1144.3962680220984!2d18.170025659389854!3d46.9843128189066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1753257257389!5m2!1shu!2shu"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    <!-- Élő menetrend gomb -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    Nézd meg az élő vonatmozgásokat
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-balatonaliga">
+  <div class="card-body">
+    <h5 class="card-title">Balatonaliga időjárása</h5>
+    <!-- JS generálja az összes adat sort -->
+  </div>
+</div>
+
+  <section class="container my-5">
+  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="aligakikoto.jpg" class="card-img-top" alt="Aliga Kikötő">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Aliga Kikötő</h5>
+      <p class="card-text">Az Aliga Kikötő a Balaton partján tökéletes helyszín a pihenésre és szórakozásra. A kikötő nemcsak a hajózást kedvelők számára kínál kiváló lehetőségeket, hanem azoknak is, akik a parton maradva élveznék a Balaton varázsát.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Aliga Kikötő" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="zamardiring.jpg" class="card-img-top" alt="Forgó ring">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Forgó ring</h5>
+      <p class="card-text">Ha egy kis adrenalinra vágysz a Balaton partján, irány a Forgó Ring! Zamárdi kedvelt gokartpályája a gyerekeknek és felnőtteknek is garantálja a szórakozást.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Zamárdi ring" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+   <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="forditotthaz.jpg" class="card-img-top" alt="Fordított ház">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Fordított ház</h5>
+      <p class="card-text">A siófoki Fordított Házban minden a feje tetejére áll – szó szerint. Belépve azonnal különös érzés kerít hatalmába, hiszen a bútorok a mennyezeten lógnak, a padló pedig a fejünk felett van. Ez a szokatlan látvány nemcsak vicces fotókra ad lehetőséget, hanem garantáltan mosolyt csal minden látogató arcára.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Fordított ház" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Balatonaliga Info</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

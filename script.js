@@ -64,6 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.0946
     },
     {
+  id: "idojaras-adand",
+  nev: "Ádánd",
+  lat: 46.3920,
+  lon: 17.7050
+},
+    {
       id: "idojaras-ata",
       nev: "Áta",
       lat: 45.9766,

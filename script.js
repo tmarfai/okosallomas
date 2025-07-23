@@ -70,6 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.3703
     },
     {
+      id: "idojaras-balatonaliga",
+      nev: "Balatonaliga",
+      lat: 46.9830,
+      lon: 18.1670
+    },
+    {
       id: "idojaras-balatonboglar",
       nev: "Balatonboglár",
       lat: 46.7781,

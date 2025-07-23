@@ -220,6 +220,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.6867
     },
     {
+      id: "idojaras-simontornya",
+      nev: "Simontornya",
+      lat: 46.7365,
+      lon: 18.3863
+    },
+    {
       id: "idojaras-siofok",
       nev: "Siófok",
       lat: 46.9081,

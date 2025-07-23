@@ -196,6 +196,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 18.2323
     },
     {
+      id: "idojaras-pincehely",
+      nev: "Pincehely",
+      lat: 46.5422,
+      lon: 18.4053
+    },
+    {
     id: "idojaras-pusztaszabolcs",
     nev: "Pusztaszabolcs",
     lat: 47.13718,

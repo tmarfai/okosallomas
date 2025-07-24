@@ -250,6 +250,12 @@ document.addEventListener("DOMContentLoaded", function () {
       lon: 17.2650
     },
     {
+      id: "idojaras-szabadisosto",
+      nev: "Szabadisóstó",
+      lat: 46.9207,
+      lon: 18.1204
+    },
+    {
       id: "idojaras-szantod",
       nev: "Szántód",
       lat: 46.860639,

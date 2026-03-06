@@ -183,3 +183,34 @@ header img {
   margin-bottom: 0;
   font-size: 0.95rem;
 }
+.nearby-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.nearby-btn {
+  display: block;
+  text-decoration: none;
+  background: white;
+  color: #1b447d;
+  font-weight: 600;
+  padding: 16px 18px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+}
+
+.nearby-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  color: #1b447d;
+}
+
+@media (max-width: 768px) {
+  .nearby-links {
+    grid-template-columns: 1fr;
+  }
+}

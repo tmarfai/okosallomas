@@ -147,4 +147,39 @@ header img {
   transform: scale(1.15);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+.station-info {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
 
+@media (min-width: 768px) {
+  .station-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.info-item i {
+  font-size: 2rem;
+  margin-right: 0.75rem;
+  color: rgb(27, 68, 125);
+}
+
+.info-item h6 {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.info-item p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}

@@ -214,3 +214,109 @@ header img {
     grid-template-columns: 1fr;
   }
 }
+/* ===== Közeli helyek térkép ===== */
+
+.station-nearby-map {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.map-wrapper > div[id^="leaflet-map-"] {
+  width: 100%;
+  height: 400px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid #d9dee7;
+}
+
+.map-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 18px;
+  z-index: 500;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.loading-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1b447d;
+  text-align: center;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #dbe5f3;
+  border-top: 4px solid #1b447d;
+  border-radius: 50%;
+  animation: stationMapSpin 0.9s linear infinite;
+}
+
+@keyframes stationMapSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.route-info {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f4f8fd;
+  border: 1px solid #d6e2f1;
+  color: #163a68;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Leaflet routing oldalsó panel elrejtése */
+.leaflet-routing-container {
+  display: none !important;
+}
+
+/* Saját ikonok */
+.church-marker,
+.restaurant-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+  border: 2px solid white;
+}
+
+.church-marker {
+  width: 32px;
+  height: 32px;
+  background: #1b447d;
+  color: white;
+}
+
+.restaurant-marker {
+  width: 30px;
+  height: 30px;
+  background: #d97706;
+  color: white;
+}

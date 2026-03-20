@@ -17,7 +17,8 @@
   gtag('js', new Date());
   gtag('config', 'G-59ZRZ0FTDM');
 </script>
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"/>
 </head>
 <body>
   <header class="bg-dark text-white text-center py-5">
@@ -222,10 +223,14 @@
 </a>
 
 </div>
-</section>
 
-</section>
-
+<div
+  class="station-nearby-map my-4"
+  data-station-name="Kaposvár vasútállomás"
+  data-lat="46.3529"
+  data-lon="17.7948"
+  data-radius="750">
+</div>
   <div class="text-center my-4">
     <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
   </div>
@@ -235,7 +240,8 @@
       <small>&copy; 2025 Kaposvár Info</small>
     </div>
   </footer>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

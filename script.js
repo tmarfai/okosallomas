@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initAudioPlayer();
   initWeatherCards();
   initSmartNearbyExplorer();
+    initPecsGoogleMenu();
 });
 
 function initAudioPlayer() {
@@ -946,5 +947,416 @@ function initSmartNearbyExplorer() {
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/\s+/g, " ")
       .trim();
+  } 
+}
+function initPecsGoogleMenu() {
+  const root = document.getElementById("pecsGoogleNearby");
+  if (!root) return;
+
+  const lang = (document.documentElement.getAttribute("lang") || "hu").substring(0, 2);
+
+  const texts = {
+    hu: {
+      chooseCategory: "Válassz egy kategóriát a közeli helyek megjelenítéséhez.",
+      chooseSubcategory: "Most válassz egy alkategóriát.",
+      choosePlace: "Most válassz egy konkrét helyet.",
+      categoryPlaceholder: "Válassz kategóriát",
+      subcategoryPlaceholder: "Válassz alkategóriát",
+      placePlaceholder: "Válassz konkrét helyet",
+      firstChooseCategory: "Először kategóriát válassz",
+      firstChooseSubcategory: "Először alkategóriát válassz",
+      selectedPlace: "Kiválasztott hely:",
+      mapsOpen: "Megnyitás Google Mapsben",
+      mapsRoute: "Útvonal Google Mapsben",
+      resetDone: "A menü visszaállt alapállapotba."
+    },
+    en: {
+      chooseCategory: "Choose a category to display nearby places.",
+      chooseSubcategory: "Now choose a subcategory.",
+      choosePlace: "Now choose a specific place.",
+      categoryPlaceholder: "Choose category",
+      subcategoryPlaceholder: "Choose subcategory",
+      placePlaceholder: "Choose a place",
+      firstChooseCategory: "Choose category first",
+      firstChooseSubcategory: "Choose subcategory first",
+      selectedPlace: "Selected place:",
+      mapsOpen: "Open in Google Maps",
+      mapsRoute: "Route in Google Maps",
+      resetDone: "Menu reset to default."
+    }
+  };
+
+  const t = texts[lang] || texts.hu;
+
+  const stationName = root.dataset.stationName || "Pécs vasútállomás";
+  const originLat = root.dataset.originLat || "46.066700";
+  const originLon = root.dataset.originLon || "18.225600";
+
+  const categorySelect = document.getElementById("pecsGoogleCategorySelect");
+  const subcategorySelect = document.getElementById("pecsGoogleSubcategorySelect");
+  const placeSelect = document.getElementById("pecsGooglePlaceSelect");
+  const openBtn = document.getElementById("pecsGoogleOpenBtn");
+  const routeBtn = document.getElementById("pecsGoogleRouteBtn");
+  const resetBtn = document.getElementById("pecsGoogleResetBtn");
+  const statusBox = document.getElementById("pecsGoogleStatus");
+  const summaryBox = document.getElementById("pecsGoogleSummary");
+
+  if (!categorySelect || !subcategorySelect || !placeSelect || !openBtn || !routeBtn || !resetBtn || !statusBox || !summaryBox) {
+    return;
   }
+
+  const data = {
+    school: {
+      label: { hu: "Iskolák", en: "Schools" },
+      subcategories: {
+        university: {
+          label: { hu: "Egyetem / karok", en: "University / faculties" },
+          places: [
+            {
+              name: "PTE Állam- és Jogtudományi Kar",
+              address: "48-as tér 1.",
+              query: "PTE Állam- és Jogtudományi Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Közgazdaságtudományi Kar",
+              address: "Rákóczi út 80.",
+              query: "PTE Közgazdaságtudományi Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Egészségtudományi Kar",
+              address: "Vörösmarty utca 4.",
+              query: "PTE Egészségtudományi Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Műszaki és Informatikai Kar",
+              address: "",
+              query: "PTE Műszaki és Informatikai Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Természettudományi Kar",
+              address: "",
+              query: "PTE Természettudományi Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Bölcsészet- és Társadalomtudományi Kar",
+              address: "",
+              query: "PTE Bölcsészet- és Társadalomtudományi Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Általános Orvostudományi Kar",
+              address: "",
+              query: "PTE Általános Orvostudományi Kar Pécs",
+              icon: "🎓"
+            },
+            {
+              name: "PTE Művészeti Kar",
+              address: "",
+              query: "PTE Művészeti Kar Pécs",
+              icon: "🎓"
+            }
+          ]
+        },
+        secondary: {
+          label: { hu: "Középsulik", en: "Secondary schools" },
+          places: [
+            {
+              name: "Leőwey Klára Gimnázium",
+              address: "",
+              query: "Leőwey Klára Gimnázium Pécs",
+              icon: "🏫"
+            },
+            {
+              name: "Ciszterci Rend Nagy Lajos Gimnázium",
+              address: "",
+              query: "Ciszterci Rend Nagy Lajos Gimnázium Pécs",
+              icon: "🏫"
+            },
+            {
+              name: "Janus Pannonius Gimnázium",
+              address: "",
+              query: "Janus Pannonius Gimnázium Pécs",
+              icon: "🏫"
+            }
+          ]
+        }
+      }
+    },
+
+    culture: {
+      label: { hu: "Kultúra", en: "Culture" },
+      subcategories: {
+        sights: {
+          label: { hu: "Fő látnivalók", en: "Main sights" },
+          places: [
+            {
+              name: "Zsolnay Kulturális Negyed",
+              address: "",
+              query: "Zsolnay Kulturális Negyed Pécs",
+              icon: "🏛️"
+            },
+            {
+              name: "Kodály Központ",
+              address: "",
+              query: "Kodály Központ Pécs",
+              icon: "🎼"
+            },
+            {
+              name: "Széchenyi tér",
+              address: "",
+              query: "Széchenyi tér Pécs",
+              icon: "📍"
+            },
+            {
+              name: "Cella Septichora",
+              address: "",
+              query: "Cella Septichora Pécs",
+              icon: "🏛️"
+            },
+            {
+              name: "Pécsi Székesegyház",
+              address: "",
+              query: "Pécsi Székesegyház",
+              icon: "⛪"
+            }
+          ]
+        }
+      }
+    },
+
+    shops: {
+      label: { hu: "Boltok", en: "Shops" },
+      subcategories: {
+        malls: {
+          label: { hu: "Plázák / áruházak", en: "Malls / stores" },
+          places: [
+            {
+              name: "Árkád Pécs",
+              address: "",
+              query: "Árkád Pécs",
+              icon: "🛍️"
+            },
+            {
+              name: "Pécs Plaza",
+              address: "",
+              query: "Pécs Plaza",
+              icon: "🛍️"
+            },
+            {
+              name: "Pécsi Vásárcsarnok",
+              address: "",
+              query: "Pécsi Vásárcsarnok",
+              icon: "🧺"
+            }
+          ]
+        }
+      }
+    },
+
+    food: {
+      label: { hu: "Étkezés", en: "Food" },
+      subcategories: {
+        cafes: {
+          label: { hu: "Kávézó / sütiző", en: "Cafe / pastry" },
+          places: [
+            {
+              name: "Mecsek Cukrászda",
+              address: "",
+              query: "Mecsek Cukrászda Pécs",
+              icon: "☕"
+            },
+            {
+              name: "Cooltour Café",
+              address: "",
+              query: "Cooltour Café Pécs",
+              icon: "☕"
+            },
+            {
+              name: "Reggeli",
+              address: "",
+              query: "Reggeli Pécs",
+              icon: "☕"
+            }
+          ]
+        },
+        fastfood: {
+          label: { hu: "Gyorsétterem", en: "Fast food" },
+          places: [
+            {
+              name: "McDonald's Pécs",
+              address: "",
+              query: "McDonald's Pécs",
+              icon: "🍔"
+            },
+            {
+              name: "Burger King Pécs",
+              address: "",
+              query: "Burger King Pécs",
+              icon: "🍔"
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  function getLabel(item) {
+    return item?.[lang] || item?.hu || "";
+  }
+
+  function setStatus(text) {
+    statusBox.textContent = text;
+    statusBox.classList.remove("is-error", "is-success");
+  }
+
+  function disableLink(linkEl) {
+    linkEl.href = "#";
+    linkEl.classList.add("disabled");
+    linkEl.setAttribute("aria-disabled", "true");
+  }
+
+  function enableLink(linkEl, href) {
+    linkEl.href = href;
+    linkEl.classList.remove("disabled");
+    linkEl.setAttribute("aria-disabled", "false");
+  }
+
+  function resetPlaceSelect(text) {
+    placeSelect.innerHTML = `<option value="">${text}</option>`;
+    placeSelect.disabled = true;
+  }
+
+  function populateCategories() {
+    categorySelect.innerHTML = `<option value="">${t.categoryPlaceholder}</option>`;
+    Object.keys(data).forEach(categoryKey => {
+      const option = document.createElement("option");
+      option.value = categoryKey;
+      option.textContent = getLabel(data[categoryKey].label);
+      categorySelect.appendChild(option);
+    });
+  }
+
+  function populateSubcategories(categoryKey) {
+    subcategorySelect.innerHTML = `<option value="">${t.subcategoryPlaceholder}</option>`;
+    subcategorySelect.disabled = !categoryKey;
+
+    if (!categoryKey || !data[categoryKey]) return;
+
+    Object.keys(data[categoryKey].subcategories).forEach(subKey => {
+      const option = document.createElement("option");
+      option.value = subKey;
+      option.textContent = getLabel(data[categoryKey].subcategories[subKey].label);
+      subcategorySelect.appendChild(option);
+    });
+  }
+
+  function populatePlaces(categoryKey, subcategoryKey) {
+    placeSelect.innerHTML = `<option value="">${t.placePlaceholder}</option>`;
+
+    if (!categoryKey || !subcategoryKey) {
+      placeSelect.disabled = true;
+      return;
+    }
+
+    const places = data[categoryKey].subcategories[subcategoryKey].places || [];
+    placeSelect.disabled = places.length === 0;
+
+    places.forEach((place, index) => {
+      const option = document.createElement("option");
+      option.value = index;
+      option.textContent = `${place.icon} ${place.name}`;
+      placeSelect.appendChild(option);
+    });
+  }
+
+  function clearSelectionState() {
+    summaryBox.classList.add("d-none");
+    summaryBox.innerHTML = "";
+    disableLink(openBtn);
+    disableLink(routeBtn);
+  }
+
+  function renderSummary(categoryKey, subcategoryKey, place) {
+    const categoryLabel = getLabel(data[categoryKey].label);
+    const subcategoryLabel = getLabel(data[categoryKey].subcategories[subcategoryKey].label);
+
+    summaryBox.classList.remove("d-none");
+    summaryBox.innerHTML = `
+      <strong>${t.selectedPlace}</strong> ${place.icon} ${place.name}<br>
+      <strong>${categoryLabel} / ${subcategoryLabel}</strong>
+      ${place.address ? `<br><strong>Cím:</strong> ${place.address}` : ""}
+      <br><strong>${stationName}</strong> → <strong>${place.name}</strong>
+    `;
+  }
+
+  function buildMapsSearchUrl(query) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  }
+
+  function buildMapsRouteUrl(query) {
+    return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(`${originLat},${originLon}`)}&destination=${encodeURIComponent(query)}&travelmode=walking`;
+  }
+
+  populateCategories();
+  resetPlaceSelect(t.firstChooseSubcategory);
+  clearSelectionState();
+  setStatus(t.chooseCategory);
+
+  categorySelect.addEventListener("change", function () {
+    populateSubcategories(categorySelect.value);
+    resetPlaceSelect(t.firstChooseSubcategory);
+    clearSelectionState();
+
+    if (!categorySelect.value) {
+      setStatus(t.chooseCategory);
+      return;
+    }
+
+    setStatus(t.chooseSubcategory);
+  });
+
+  subcategorySelect.addEventListener("change", function () {
+    populatePlaces(categorySelect.value, subcategorySelect.value);
+    clearSelectionState();
+
+    if (!subcategorySelect.value) {
+      resetPlaceSelect(t.firstChooseSubcategory);
+      return;
+    }
+
+    setStatus(t.choosePlace);
+  });
+
+  placeSelect.addEventListener("change", function () {
+    clearSelectionState();
+
+    const categoryKey = categorySelect.value;
+    const subcategoryKey = subcategorySelect.value;
+
+    if (!categoryKey || !subcategoryKey || placeSelect.value === "") {
+      return;
+    }
+
+    const place = data[categoryKey].subcategories[subcategoryKey].places[Number(placeSelect.value)];
+    if (!place) return;
+
+    renderSummary(categoryKey, subcategoryKey, place);
+    enableLink(openBtn, buildMapsSearchUrl(place.query));
+    enableLink(routeBtn, buildMapsRouteUrl(place.query));
+    setStatus(`${t.selectedPlace} ${place.name}`);
+  });
+
+  resetBtn.addEventListener("click", function () {
+    categorySelect.value = "";
+    subcategorySelect.innerHTML = `<option value="">${t.firstChooseCategory}</option>`;
+    subcategorySelect.disabled = true;
+    resetPlaceSelect(t.firstChooseSubcategory);
+    clearSelectionState();
+    setStatus(t.resetDone);
+  });
 }

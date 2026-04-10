@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   initAudioPlayer();
   initWeatherCards();
   initSmartNearbyExplorer();
@@ -175,7 +175,7 @@ function initSmartNearbyExplorer() {
 
   const lang = document.documentElement.getAttribute("lang")?.substring(0, 2) || "hu";
   const station = {
-    name: lang === "en" ? "Kaposvár railway station" : "Kaposvár vasútállomás",
+    name: lang === "en" ? "Kaposvár railway station" : "Kaposvár vasállomás",
     lat: 46.3529,
     lon: 17.7948
   };
@@ -504,8 +504,14 @@ function initSmartNearbyExplorer() {
     try {
       const route = await fetchRouteWithRetry(selectedPlace);
       drawRoute(route, selectedPlace);
+      
+      // --- JAVÍTOTT RÉSZ ---
       const km = (route.distance / 1000).toFixed(2);
-      const minutes = Math.max(1, Math.round(route.duration / 60));
+      
+      // Manuális időszámítás: 5 km/h sebességgel (1 km = 12 perc)
+      const distKmForCalc = route.distance / 1000;
+      const minutes = Math.max(1, Math.round(distKmForCalc * 12));
+      // ----------------------
 
       routeInfo.classList.remove("hidden");
       routeInfo.innerHTML = `

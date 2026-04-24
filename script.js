@@ -182,7 +182,7 @@ function initSmartNearbyExplorer() {
 
   const radius = 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = "kaposvar-smart-nearby-v4";
+  const cachePrefix = "kaposvar-smart-nearby-v5";
   
   let selectedPlace = null;
   let routeLayer = null;

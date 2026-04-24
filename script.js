@@ -175,7 +175,7 @@ function initSmartNearbyExplorer() {
 
   const lang = document.documentElement.getAttribute("lang")?.substring(0, 2) || "hu";
   const station = {
-    name: lang === "en" ? "Kaposvár railway station" : "Kaposvár vasállomás",
+    name: lang === "en" ? "Kaposvár railway station" : "Kaposvár vasútállomás",
     lat: 46.3529,
     lon: 17.7948
   };
@@ -436,7 +436,6 @@ function initSmartNearbyExplorer() {
     setStatus(categorySelect.value ? messages[lang].chooseSubcategory : messages[lang].chooseCategory, "default");
   });
 
-  // --- MÓDOSÍTOTT RÉSZ: ALKATEGÓRIA VÁLASZTÁSAKOR JELENNEK MEG AZ IKONOK ---
   subcategorySelect.addEventListener("change", async () => {
     clearRoute();
     clearDestinationMarker();
@@ -460,7 +459,6 @@ function initSmartNearbyExplorer() {
       const result = await loadPlaces(categoryKey, subcategoryKey);
       populatePlaces(result.places);
 
-      // Ikonok kirakása a térképre + Kattintás kezelő
       result.places.forEach(place => {
         const markerIcon = L.divIcon({
           className: "destination-smart-marker",
@@ -472,7 +470,6 @@ function initSmartNearbyExplorer() {
         const m = L.marker([place.lat, place.lon], { icon: markerIcon });
         m.bindPopup(`<strong>${place.icon} ${place.name}</strong>`);
         
-        // Pöttyre kattintás: kiválasztja a listában
         m.on('click', function() {
           for (let i = 0; i < placeSelect.options.length; i++) {
             const opt = placeSelect.options[i];
@@ -562,7 +559,6 @@ function initSmartNearbyExplorer() {
     setStatus(messages[lang].resetDone, "default");
   });
 
-  // Segédfüggvények (a kód többi része változatlan marad)
   function populateCategories() {
     categorySelect.innerHTML = `<option value="">${messages[lang].categoryPlaceholder}</option>`;
     Object.keys(config).forEach(key => {
@@ -667,14 +663,23 @@ function initSmartNearbyExplorer() {
     return await fetchJsonWithTimeout(url, {}, 10000).then(d => d.routes[0]);
   }
 
+  // --- JAVÍTOTT normalizePlaces FÜGGVÉNY ---
   function normalizePlaces(elements, categoryKey, subcategoryKey, subConfig) {
     const res = [];
     elements.forEach(el => {
       const lat = el.lat || el.center?.lat;
       const lon = el.lon || el.center?.lon;
       if (!lat || !lon) return;
+
+      const name = el.tags?.name;
+
+      // CSAK AKKOR ADJUK HOZZÁ, HA A KONFIGURÁCIÓBAN LÉVŐ MATCHER ENGEDI
+      if (subConfig.matcher && !subConfig.matcher({ name })) {
+        return; 
+      }
+
       res.push({
-        name: el.tags?.name || "Névtelen",
+        name: name || "Névtelen",
         lat, lon,
         distance: haversine(station.lat, station.lon, lat, lon),
         categoryKey, subcategoryKey,
@@ -731,5 +736,5 @@ function initSmartNearbyExplorer() {
 }
 
 function initPecsGoogleMenu() {
-  // Pécsi rész változatlanul hagyva az eredeti kód alapján...
+  // Pécsi rész változatlanul hagyva...
 }

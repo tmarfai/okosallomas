@@ -694,8 +694,23 @@ function initSmartNearbyExplorer() {
     const icon = L.divIcon({ className: "destination-smart-marker", html: place.icon, iconSize: [34,34], iconAnchor:[17,17] });
     destinationMarker = L.marker([place.lat, place.lon], { icon }).addTo(map);
     map.flyTo([place.lat, place.lon], 16);
+    
     summaryBox.classList.remove("d-none");
-    summaryBox.innerHTML = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
+    
+    // Alapértelmezett szöveg összeállítása
+    let summaryHtml = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
+    
+    // Ellenőrizzük, hogy a Kultik Mozit választották-e ki (név alapján)
+    if (place.name.toLowerCase().includes("kultik")) {
+      summaryHtml += `
+        <div class="mt-2">
+          <a href="https://kaposvarimozi.hu/" target="_blank">
+            <img src="kultik_logo.png" alt="Kultik Mozi" style="max-width: 120px; cursor: pointer; border-radius: 8px; transition: transform 0.2s;">
+          </a>
+        </div>`;
+    }
+    
+    summaryBox.innerHTML = summaryHtml;
   }
 
   function drawRoute(route, place) {

@@ -710,7 +710,7 @@ function showSelectedPlace(place) {
     
     const lowerName = place.name.toLowerCase();
 
-    // Kultik Mozi specifikus rész
+    // 1. Kultik Mozi
     if (lowerName.includes("kultik")) {
       summaryHtml += `
         <div class="mt-3 pt-2 border-top" style="display: block !important;">
@@ -722,7 +722,7 @@ function showSelectedPlace(place) {
           </a>
         </div>`;
     } 
-    // Csiky Gergely Színház specifikus rész
+    // 2. Csiky Gergely Színház
     else if (lowerName.includes("csiky gerge")) {
       summaryHtml += `
         <div class="mt-3 pt-2 border-top" style="display: block !important;">
@@ -731,6 +731,18 @@ function showSelectedPlace(place) {
           </p>
           <a href="https://www.csiky.hu/musor/" target="_blank" style="display: inline-block;">
             <img src="csikygergelyszinhaz_logo.png" alt="Csiky Gergely Színház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>`;
+    }
+    // 3. Roxínház
+    else if (lowerName.includes("roxínház") || lowerName.includes("roxinhaz")) {
+      summaryHtml += `
+        <div class="mt-3 pt-2 border-top" style="display: block !important;">
+          <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
+            A képre kattintva megtekintheti az aktuális műsort és jegyeket:
+          </p>
+          <a href="https://roxinhaz.hu/jegyek-musor/" target="_blank" style="display: inline-block;">
+            <img src="roxinhaz_logo.png" alt="Roxínház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
           </a>
         </div>`;
     }

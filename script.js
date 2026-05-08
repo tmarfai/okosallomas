@@ -663,9 +663,12 @@ function initSmartNearbyExplorer() {
     return await fetchJsonWithTimeout(url, {}, 10000).then(d => d.routes[0]);
   }
 
-  // --- JAVÍTOTT normalizePlaces FÜGGVÉNY ---
+  // --- MÓDOSÍTOTT normalizePlaces FÜGGVÉNY TILTO LISTÁVAL ---
   function normalizePlaces(elements, categoryKey, subcategoryKey, subConfig) {
     const res = [];
+    // TILTO LISTA: Ezek a nevek soha nem kerülnek a listába
+    const forbiddenNames = ["Kamaraszínház", "Rendezvénytér"];
+
     elements.forEach(el => {
       const lat = el.lat || el.center?.lat;
       const lon = el.lon || el.center?.lon;
@@ -673,7 +676,12 @@ function initSmartNearbyExplorer() {
 
       const name = el.tags?.name;
 
-      // CSAK AKKOR ADJUK HOZZÁ, HA A KONFIGURÁCIÓBAN LÉVŐ MATCHER ENGEDI
+      // 1. Kiszűrés, ha a név szerepel a tiltólistán
+      if (name && forbiddenNames.includes(name)) {
+        return; 
+      }
+
+      // 2. CSAK AKKOR ADJUK HOZZÁ, HA A KONFIGURÁCIÓBAN LÉVŐ MATCHER ENGEDI
       if (subConfig.matcher && !subConfig.matcher({ name })) {
         return; 
       }
@@ -697,13 +705,16 @@ function initSmartNearbyExplorer() {
     
     summaryBox.classList.remove("d-none");
     
-    // Alapértelmezett szöveg összeállítása
     let summaryHtml = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
     
+<<<<<<< HEAD
+    if (place.name.toLowerCase().includes("kultik")) {
+=======
     const lowerName = place.name.toLowerCase();
 
     // Kultik Mozi ellenőrzése
     if (lowerName.includes("kultik")) {
+>>>>>>> f3bef1f912e902fc2b75dedfb6defad2b488dcde
       summaryHtml += `
         <div class="mt-3 pt-2 border-top">
           <p class="mb-2" style="font-size: 0.9rem; color: #1b447d; font-weight: 600;">

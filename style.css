@@ -418,3 +418,8 @@ header img {
     font-size: 0.94rem;
   }
 }
+
+div.info-item:hover{
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+}

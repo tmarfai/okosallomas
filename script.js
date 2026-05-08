@@ -707,14 +707,7 @@ function initSmartNearbyExplorer() {
     
     let summaryHtml = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
     
-<<<<<<< HEAD
     if (place.name.toLowerCase().includes("kultik")) {
-=======
-    const lowerName = place.name.toLowerCase();
-
-    // Kultik Mozi ellenőrzése
-    if (lowerName.includes("kultik")) {
->>>>>>> f3bef1f912e902fc2b75dedfb6defad2b488dcde
       summaryHtml += `
         <div class="mt-3 pt-2 border-top">
           <p class="mb-2" style="font-size: 0.9rem; color: #1b447d; font-weight: 600;">

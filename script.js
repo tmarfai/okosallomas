@@ -707,15 +707,33 @@ function initSmartNearbyExplorer() {
     
     let summaryHtml = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
     
+<<<<<<< HEAD
     if (place.name.toLowerCase().includes("kultik")) {
+=======
+    const lowerName = place.name.toLowerCase();
+
+    // Kultik Mozi ellenőrzése
+    if (lowerName.includes("kultik")) {
+>>>>>>> f3bef1f912e902fc2b75dedfb6defad2b488dcde
       summaryHtml += `
-      <div class="mt-3 pt-2 border-top">
+        <div class="mt-3 pt-2 border-top">
           <p class="mb-2" style="font-size: 0.9rem; color: #1b447d; font-weight: 600;">
             A képre kattintva megtekintheti az aktuális moziműsort:
           </p>
-        <div class="mt-2">
           <a href="https://kaposvarimozi.hu/" target="_blank">
-            <img src="kultik_logo.png" alt="Kultik Mozi" style="max-width: 120px; cursor: pointer; border-radius: 8px; transition: transform 0.2s;">
+            <img src="kultik_logo.png" alt="Kultik Mozi" style="max-width: 140px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>`;
+    } 
+    // Csiky Gergely Színház ellenőrzése
+    else if (lowerName.includes("csiky gerge")) {
+      summaryHtml += `
+        <div class="mt-3 pt-2 border-top">
+          <p class="mb-2" style="font-size: 0.9rem; color: #1b447d; font-weight: 600;">
+            A képre kattintva megtekintheti az aktuális színházműsort:
+          </p>
+          <a href="https://www.csiky.hu/musor/" target="_blank">
+            <img src="csikygergelyszinhaz_logo.png" alt="Csiky Gergely Színház" style="max-width: 140px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
           </a>
         </div>`;
     }

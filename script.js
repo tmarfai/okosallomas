@@ -697,43 +697,59 @@ function initSmartNearbyExplorer() {
     return res.sort((a,b) => a.distance - b.distance).slice(0, 30);
   }
 
-  function showSelectedPlace(place) {
-    clearDestinationMarker();
-    const icon = L.divIcon({ className: "destination-smart-marker", html: place.icon, iconSize: [34,34], iconAnchor:[17,17] });
-    destinationMarker = L.marker([place.lat, place.lon], { icon }).addTo(map);
-    map.flyTo([place.lat, place.lon], 16);
-    
-    summaryBox.classList.remove("d-none");
-    
-    let summaryHtml = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
-    
-    if (place.name.toLowerCase().includes("kultik")) {
-      summaryHtml += `
-        <div class="mt-3 pt-2 border-top">
-          <p class="mb-2" style="font-size: 0.9rem; color: #1b447d; font-weight: 600;">
-            A képre kattintva megtekintheti az aktuális moziműsort:
-          </p>
-          <a href="https://kaposvarimozi.hu/" target="_blank">
-            <img src="kultik_logo.png" alt="Kultik Mozi" style="max-width: 140px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-          </a>
-        </div>`;
-    } 
-    // Csiky Gergely Színház ellenőrzése
-    else if (lowerName.includes("csiky gerge")) {
-      summaryHtml += `
-        <div class="mt-3 pt-2 border-top">
-          <p class="mb-2" style="font-size: 0.9rem; color: #1b447d; font-weight: 600;">
-            A képre kattintva megtekintheti az aktuális színházműsort:
-          </p>
-          <a href="https://www.csiky.hu/musor/" target="_blank">
-            <img src="csikygergelyszinhaz_logo.png" alt="Csiky Gergely Színház" style="max-width: 140px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-          </a>
-        </div>`;
-    }
-    
-    summaryBox.innerHTML = summaryHtml;
+function showSelectedPlace(place) {
+  clearDestinationMarker();
+
+  const icon = L.divIcon({
+    className: "destination-smart-marker",
+    html: place.icon,
+    iconSize: [34, 34],
+    iconAnchor: [17, 17]
+  });
+
+  destinationMarker = L.marker([place.lat, place.lon], { icon }).addTo(map);
+  map.flyTo([place.lat, place.lon], 16);
+
+  summaryBox.classList.remove("d-none");
+
+  const lowerName = (place.name || "").toLowerCase();
+
+  let summaryHtml = `
+    <strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)
+  `;
+
+  if (lowerName.includes("kultik")) {
+    summaryHtml += `
+      <div class="mt-3 pt-2 border-top">
+        <a href="https://kaposvarimozi.hu/" target="_blank">
+          <img 
+            src="kultik_logo.png" 
+            alt="Kultik Mozi" 
+            style="max-width: 140px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);"
+          >
+        </a>
+      </div>
+    `;
+  } else if (
+    lowerName.includes("csiky") ||
+    lowerName.includes("színház") ||
+    lowerName.includes("szinhaz")
+  ) {
+    summaryHtml += `
+      <div class="mt-3 pt-2 border-top">
+        <a href="https://www.csiky.hu/musor/" target="_blank">
+          <img 
+            src="csikygergelyszinhaz_logo.png" 
+            alt="Csiky Gergely Színház" 
+            style="max-width: 140px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);"
+          >
+        </a>
+      </div>
+    `;
   }
 
+  summaryBox.innerHTML = summaryHtml;
+}
   function drawRoute(route, place) {
     clearRoute();
     routeLayer = L.geoJSON(route.geometry, { style: { color: "#1b447d", weight: 6 } }).addTo(map);

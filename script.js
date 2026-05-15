@@ -699,14 +699,30 @@ function initSmartNearbyExplorer() {
 
 function showSelectedPlace(place) {
     clearDestinationMarker();
-    const icon = L.divIcon({ className: "destination-smart-marker", html: place.icon, iconSize: [34,34], iconAnchor:[17,17] });
+    const icon = L.divIcon({ 
+      className: "destination-smart-marker", 
+      html: place.icon, 
+      iconSize: [34,34], 
+      iconAnchor:[17,17] 
+    });
     destinationMarker = L.marker([place.lat, place.lon], { icon }).addTo(map);
     map.flyTo([place.lat, place.lon], 16);
     
     summaryBox.classList.remove("d-none");
     
+    // NYELV ELLENŐRZÉSE
+    const isEn = document.documentElement.lang === 'en';
+
+    // NYELVI SZÖVEGEK
+    const ui = {
+      selected: isEn ? "Selected:" : "Kiválasztva:",
+      cinema: isEn ? "Click the image to view the current movie schedule:" : "A képre kattintva megtekintheti az aktuális moziműsort:",
+      theater: isEn ? "Click the image to view the current theater program:" : "A képre kattintva megtekintheti az aktuális színházműsort:",
+      rox: isEn ? "Click the image to view the current program and tickets:" : "A képre kattintva megtekintheti az aktuális műsort és jegyeket:"
+    };
+    
     // Alapértelmezett rész: név és távolság
-    let summaryHtml = `<strong>Kiválasztva:</strong> ${place.icon} ${place.name} (${place.distance} m)`;
+    let summaryHtml = `<strong>${ui.selected}</strong> ${place.icon} ${place.name} (${place.distance} m)`;
     
     const lowerName = place.name.toLowerCase();
 
@@ -715,7 +731,7 @@ function showSelectedPlace(place) {
       summaryHtml += `
         <div class="mt-3 pt-2 border-top" style="display: block !important;">
           <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
-            A képre kattintva megtekintheti az aktuális moziműsort:
+            ${ui.cinema}
           </p>
           <a href="https://kaposvarimozi.hu/" target="_blank" style="display: inline-block;">
             <img src="kultik_logo.png" alt="Kultik Mozi" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
@@ -727,7 +743,7 @@ function showSelectedPlace(place) {
       summaryHtml += `
         <div class="mt-3 pt-2 border-top" style="display: block !important;">
           <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
-            A képre kattintva megtekintheti az aktuális színházműsort:
+            ${ui.theater}
           </p>
           <a href="https://www.csiky.hu/musor/" target="_blank" style="display: inline-block;">
             <img src="csikygergelyszinhaz_logo.png" alt="Csiky Gergely Színház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
@@ -739,7 +755,7 @@ function showSelectedPlace(place) {
       summaryHtml += `
         <div class="mt-3 pt-2 border-top" style="display: block !important;">
           <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
-            A képre kattintva megtekintheti az aktuális műsort és jegyeket:
+            ${ui.rox}
           </p>
           <a href="https://roxinhaz.hu/jegyek-musor/" target="_blank" style="display: inline-block;">
             <img src="roxinhaz_logo.png" alt="Roxínház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
@@ -750,6 +766,8 @@ function showSelectedPlace(place) {
     // Tartalom frissítése
     summaryBox.innerHTML = summaryHtml;
   }
+
+  
 
   function drawRoute(route, place) {
     clearRoute();

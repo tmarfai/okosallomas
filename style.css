@@ -423,3 +423,78 @@ div.info-item:hover{
   transform: translateY(-5px) scale(1.01);
   box-shadow: 0 3px 6px rgba(0,0,0,0.5);
 }
+.station-inner-map-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+  border: 1px solid #d8e3f0;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.station-inner-map-section h2 {
+  color: #1b447d;
+  font-weight: 700;
+}
+
+.station-inner-map-text {
+  color: #49627f;
+  font-size: 0.98rem;
+  margin-bottom: 16px;
+}
+
+.station-inner-map-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 18px;
+  border: 1px solid #d9dee7;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.station-inner-map-img {
+  display: block;
+  width: 1400px;
+  max-width: none;
+  height: auto;
+  user-select: none;
+}
+
+/* Szebb görgetősáv gépen */
+.station-inner-map-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.station-inner-map-scroll::-webkit-scrollbar-track {
+  background: #e8eef7;
+  border-radius: 999px;
+}
+
+.station-inner-map-scroll::-webkit-scrollbar-thumb {
+  background: #1b447d;
+  border-radius: 999px;
+}
+
+/* Telefonos nézet */
+@media (max-width: 768px) {
+  .station-inner-map-section {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .station-inner-map-img {
+    width: 1200px;
+  }
+
+  .station-inner-map-text {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .station-inner-map-img {
+    width: 1050px;
+  }
+}

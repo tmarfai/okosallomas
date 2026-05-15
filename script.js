@@ -267,7 +267,8 @@ function initSmartNearbyExplorer() {
         cinema: "Mozi",
         museum: "Múzeum / kiállítás",
         library: "Könyvtár",
-        theatre: "Színház / művészet"
+        theatre: "Színház / művészet",
+        bath: "Fürdő",
       }
     },
     en: {
@@ -292,7 +293,8 @@ function initSmartNearbyExplorer() {
         cinema: "Cinema",
         museum: "Museum / exhibition",
         library: "Library",
-        theatre: "Theatre / arts"
+        theatre: "Theatre / arts",
+        bath: "Bath / spa",
       }
     }
   };
@@ -356,19 +358,23 @@ function initSmartNearbyExplorer() {
       }
     },
     entertainment: {
-      subcategories: {
-        pub: {
-          icon: "🍺",
-          filters: [{ key: "amenity", values: ["pub", "bar", "biergarten"] }],
-          matcher: place => hasName(place)
-        },
-        cinema: {
-          icon: "🎬",
-          filters: [{ key: "amenity", values: ["cinema"] }],
-          matcher: place => hasName(place)
-        }
-      }
+  subcategories: {
+    bath: {
+      icon: "🏊",
+      manual: true
     },
+    pub: {
+      icon: "🍺",
+      filters: [{ key: "amenity", values: ["pub", "bar", "biergarten"] }],
+      matcher: place => hasName(place)
+    },
+    cinema: {
+      icon: "🎬",
+      filters: [{ key: "amenity", values: ["cinema"] }],
+      matcher: place => hasName(place)
+    }
+  }
+},
     culture: {
       subcategories: {
         museum: {
@@ -597,13 +603,33 @@ function initSmartNearbyExplorer() {
     placeSelect.disabled = true;
   }
 
-  async function loadPlaces(categoryKey, subcategoryKey) {
-    const cacheKey = `${cachePrefix}:${categoryKey}:${subcategoryKey}`;
-    const cached = readCache(cacheKey);
-    if (cached) return { places: cached, fromCache: true, fromFallback: false };
+ async function loadPlaces(categoryKey, subcategoryKey) {
+  const cacheKey = `${cachePrefix}:${categoryKey}:${subcategoryKey}`;
+  const cached = readCache(cacheKey);
+  if (cached) return { places: cached, fromCache: true, fromFallback: false };
 
-    const subConfig = config[categoryKey].subcategories[subcategoryKey];
-    const query = buildOverpassQuery(subConfig.filters);
+  const subConfig = config[categoryKey].subcategories[subcategoryKey];
+
+  // Fix, kézzel megadott helyek.
+  // Itt nem hívjuk az Overpass API-t, mert Kaposváron csak a Virágfürdőt akarjuk megjeleníteni.
+  if (categoryKey === "entertainment" && subcategoryKey === "bath") {
+    const places = [
+      {
+        name: "Virágfürdő Kaposvár",
+        lat: 46.351111,
+        lon: 17.7975,
+        distance: haversine(station.lat, station.lon, 46.351111, 17.7975),
+        categoryKey,
+        subcategoryKey,
+        icon: subConfig.icon || "🏊"
+      }
+    ];
+
+    writeCache(cacheKey, places);
+    return { places, fromCache: false, fromFallback: false };
+  }
+
+  const query = buildOverpassQuery(subConfig.filters);
     const data = await fetchOverpassWithRetry(query);
     let places = normalizePlaces(data.elements || [], categoryKey, subcategoryKey, subConfig);
     let fromFallback = false;

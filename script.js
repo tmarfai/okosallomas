@@ -159,6 +159,25 @@ function initWeatherCards() {
   });
 }
 
+function getSmartNearbyPageConfig(lang) {
+  const configs = window.stationSmartConfigs || {};
+  const bodyKey = document.body?.dataset?.stationKey;
+  const fileName = window.location.pathname.split("/").pop() || "";
+  const pageKey = fileName
+    .replace(/\.(html|htm)$/i, "")
+    .replace(/-en$/i, "");
+  const key = bodyKey || pageKey;
+  const config = configs[key] || configs.kaposvar;
+
+  if (!config || !config.station) return null;
+
+  return {
+    ...config,
+    key: config.key || key,
+    activeLang: lang
+  };
+}
+
 function initSmartNearbyExplorer() {
   const mapElement = document.getElementById("smartNearbyMap");
   const categorySelect = document.getElementById("smartCategorySelect");
@@ -174,15 +193,18 @@ function initSmartNearbyExplorer() {
   if (!mapElement || typeof L === "undefined") return;
 
   const lang = document.documentElement.getAttribute("lang")?.substring(0, 2) || "hu";
-  const station = {
-    name: lang === "en" ? "Kaposvár railway station" : "Kaposvár vasútállomás",
-    lat: 46.3529,
-    lon: 17.7948
-  };
+  const pageConfig = getSmartNearbyPageConfig(lang);
+  if (!pageConfig) return;
 
-  const radius = 3500;
+  const station = {
+    name: pageConfig.stationName?.[lang] || pageConfig.stationName?.hu || pageConfig.stationName || "Vasútállomás",
+    lat: pageConfig.station.lat,
+    lon: pageConfig.station.lon
+  };
+  const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
+  const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = "kaposvar-smart-nearby-v5";
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v6`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -361,7 +383,11 @@ function initSmartNearbyExplorer() {
   subcategories: {
     bath: {
       icon: "🏊",
-      manual: true
+      filters: [
+        { key: "leisure", values: ["water_park", "swimming_pool"] },
+        { key: "amenity", values: ["public_bath"] }
+      ],
+      matcher: place => hasName(place)
     },
     pub: {
       icon: "🍺",
@@ -610,23 +636,15 @@ function initSmartNearbyExplorer() {
 
   const subConfig = config[categoryKey].subcategories[subcategoryKey];
 
-  // Fix, kézzel megadott helyek.
-  // Itt nem hívjuk az Overpass API-t, mert Kaposváron csak a Virágfürdőt akarjuk megjeleníteni.
-  if (categoryKey === "entertainment" && subcategoryKey === "bath") {
-    const places = [
-      {
-        name: "Virágfürdő Kaposvár",
-        lat: 46.351111,
-        lon: 17.7975,
-        distance: haversine(station.lat, station.lon, 46.351111, 17.7975),
-        categoryKey,
-        subcategoryKey,
-        icon: subConfig.icon || "🏊"
-      }
-    ];
+  const manualPlaces = getManualPlaces(categoryKey, subcategoryKey, subConfig);
+  if (manualPlaces) {
+    writeCache(cacheKey, manualPlaces);
+    return { places: manualPlaces, fromCache: false, fromFallback: false };
+  }
 
-    writeCache(cacheKey, places);
-    return { places, fromCache: false, fromFallback: false };
+  if (!subConfig.filters || !subConfig.filters.length) {
+    writeCache(cacheKey, []);
+    return { places: [], fromCache: false, fromFallback: false };
   }
 
   const query = buildOverpassQuery(subConfig.filters);
@@ -640,6 +658,23 @@ function initSmartNearbyExplorer() {
     }
     writeCache(cacheKey, places);
     return { places, fromCache: false, fromFallback };
+  }
+
+  function getManualPlaces(categoryKey, subcategoryKey, subConfig) {
+    const places = pageConfig.manualPlaces?.[categoryKey]?.[subcategoryKey];
+    if (!Array.isArray(places)) return null;
+
+    return places
+      .map(place => ({
+        name: place.name,
+        lat: place.lat,
+        lon: place.lon,
+        distance: haversine(station.lat, station.lon, place.lat, place.lon),
+        categoryKey,
+        subcategoryKey,
+        icon: place.icon || subConfig.icon || "📍"
+      }))
+      .sort((a, b) => a.distance - b.distance);
   }
 
   function buildOverpassQuery(filters) {
@@ -664,8 +699,12 @@ function initSmartNearbyExplorer() {
   }
 
   async function fetchSchoolFallback(subcategoryKey) {
-    const phrases = { school_all: ["iskola Kaposvár"], university: ["egyetem Kaposvár"] };
-    const queries = phrases[subcategoryKey] || phrases.school_all;
+    const defaultQueries = {
+      school_all: [`iskola ${cityName}`],
+      university: [`egyetem ${cityName}`]
+    };
+    const phrases = pageConfig.fallbackQueries || defaultQueries;
+    const queries = phrases[subcategoryKey] || defaultQueries[subcategoryKey] || defaultQueries.school_all;
     const found = [];
     for (const q of queries) {
       const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q)}&limit=10`;
@@ -692,8 +731,8 @@ function initSmartNearbyExplorer() {
   // --- MÓDOSÍTOTT normalizePlaces FÜGGVÉNY TILTO LISTÁVAL ---
   function normalizePlaces(elements, categoryKey, subcategoryKey, subConfig) {
     const res = [];
-    // TILTO LISTA: Ezek a nevek soha nem kerülnek a listába
-    const forbiddenNames = ["Kamaraszínház", "Rendezvénytér"];
+    // TILTO LISTA: ezek a nevek az adott városnál soha nem kerülnek a listába.
+    const forbiddenNames = pageConfig.forbiddenNames || [];
 
     elements.forEach(el => {
       const lat = el.lat || el.center?.lat;
@@ -789,11 +828,51 @@ function showSelectedPlace(place) {
         </div>`;
     }
 
+    const specialLink = findSpecialPlaceLink(lowerName);
+    if (specialLink && !summaryHtml.includes(specialLink.url)) {
+      summaryHtml += renderSpecialPlaceLink(specialLink);
+    }
+
     // Tartalom frissítése
     summaryBox.innerHTML = summaryHtml;
   }
 
   
+
+  function findSpecialPlaceLink(lowerName) {
+    const links = pageConfig.specialLinks || [];
+    return links.find(link => {
+      const matches = link.matches || [];
+      return matches.some(match => lowerName.includes(match.toLowerCase()));
+    });
+  }
+
+  function renderSpecialPlaceLink(link) {
+    const text = link.text?.[lang] || link.text?.hu || "";
+    const label = link.label?.[lang] || link.label?.hu || link.alt || link.url;
+
+    if (link.image) {
+      return `
+        <div class="mt-3 pt-2 border-top" style="display: block !important;">
+          <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
+            ${text}
+          </p>
+          <a href="${link.url}" target="_blank" style="display: inline-block;">
+            <img src="${link.image}" alt="${link.alt || label}" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+          </a>
+        </div>`;
+    }
+
+    return `
+      <div class="mt-3 pt-2 border-top" style="display: block !important;">
+        <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
+          ${text}
+        </p>
+        <a href="${link.url}" target="_blank" class="btn btn-outline-primary btn-sm">
+          ${label}
+        </a>
+      </div>`;
+  }
 
   function drawRoute(route, place) {
     clearRoute();
@@ -802,10 +881,37 @@ function showSelectedPlace(place) {
 
   function clearRoute() { if (routeLayer) map.removeLayer(routeLayer); routeLayer = null; }
   function clearDestinationMarker() { if (destinationMarker) map.removeLayer(destinationMarker); destinationMarker = null; }
-  function setStatus(text, type) { statusBox.textContent = text; }
-  function showLoading(text) { loadingBox.classList.remove("d-none"); }
+  function setStatus(text, type) {
+    statusBox.textContent = text;
+    statusBox.classList.remove("is-error", "is-success");
+    if (type === "error") statusBox.classList.add("is-error");
+    if (type === "success") statusBox.classList.add("is-success");
+  }
+
+  function showLoading(text) {
+    const loadingText = loadingBox.querySelector(".loading-text");
+    if (loadingText && text) loadingText.textContent = text;
+    loadingBox.classList.remove("d-none");
+  }
+
   function hideLoading() { loadingBox.classList.add("d-none"); }
-  function readCache(k) { const r = localStorage.getItem(k); return r ? JSON.parse(r).places : null; }
+  function readCache(k) {
+    const raw = localStorage.getItem(k);
+    if (!raw) return null;
+
+    try {
+      const parsed = JSON.parse(raw);
+      if (!parsed.timestamp || Date.now() - parsed.timestamp > cacheTtlMs) {
+        localStorage.removeItem(k);
+        return null;
+      }
+      return parsed.places || null;
+    } catch (error) {
+      localStorage.removeItem(k);
+      return null;
+    }
+  }
+
   function writeCache(k, p) { localStorage.setItem(k, JSON.stringify({ timestamp: Date.now(), places: p })); }
 
   async function fetchJsonWithTimeout(url, opt, timeout) {

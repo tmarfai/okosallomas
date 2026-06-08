@@ -142,9 +142,6 @@ window.stationSmartConfigs = {
       school_all: ["iskola Dombóvár"],
       university: ["egyetem Dombóvár"]
     },
-    unavailableSubcategories: {
-      school: ["university"]
-    },
     forbiddenNames: [],
     specialLinks: []
   },
@@ -167,9 +164,6 @@ window.stationSmartConfigs = {
     fallbackQueries: {
       school_all: ["iskola Siófok"],
       university: ["egyetem Siófok"]
-    },
-    unavailableSubcategories: {
-      school: ["university"]
     },
     forbiddenNames: [],
     specialLinks: []
@@ -194,9 +188,6 @@ window.stationSmartConfigs = {
       school_all: ["iskola Balatonlelle"],
       university: ["egyetem Balatonlelle"]
     },
-    unavailableSubcategories: {
-      school: ["university"]
-    },
     forbiddenNames: [],
     specialLinks: []
   },
@@ -220,9 +211,6 @@ window.stationSmartConfigs = {
       school_all: ["iskola Barcs"],
       university: ["egyetem Barcs"]
     },
-    unavailableSubcategories: {
-      school: ["university"]
-    },
     forbiddenNames: [],
     specialLinks: []
   },
@@ -245,9 +233,6 @@ window.stationSmartConfigs = {
     fallbackQueries: {
       school_all: ["iskola Fonyód"],
       university: ["egyetem Fonyód"]
-    },
-    unavailableSubcategories: {
-      school: ["university"]
     },
     forbiddenNames: [],
     specialLinks: []

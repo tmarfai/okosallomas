@@ -210,6 +210,7 @@ function initSmartNearbyExplorer() {
   let routeLayer = null;
   let destinationMarker = null;
   let allMarkersLayer = L.layerGroup(); 
+  let placesLoadRequestId = 0;
 
   const messages = {
     hu: {
@@ -219,6 +220,7 @@ function initSmartNearbyExplorer() {
       cachedPlaces: "A helyek cache-ből töltődtek be.",
       placesLoaded: "A helyek betöltődtek. Most válassz egy konkrét helyet.",
       noResults: "Ebben az alkategóriában most nem találtam találatot a körzeten belül.",
+      unavailableSubcategory: "Ez az alkategória ennél a településnél nem található.",
       fetchError: "A helyek betöltése most nem sikerült. Ez Overpass vagy hálózati hiba.",
       routeLoading: "Útvonal tervezése...",
       routeError: "A gyalogos útvonal most nem jött vissza a szolgáltatótól.",
@@ -226,6 +228,7 @@ function initSmartNearbyExplorer() {
       categoryPlaceholder: "Válassz kategóriát",
       subcategoryPlaceholder: "Válassz alkategóriát",
       placePlaceholder: "Válassz konkrét helyet",
+      notFoundPlaceholder: "Nem található",
       firstChooseCategory: "Először kategóriát válassz",
       firstChooseSubcategory: "Először alkategóriát válassz",
       routeTo: "Útvonal ide:",
@@ -245,6 +248,7 @@ function initSmartNearbyExplorer() {
       cachedPlaces: "Places loaded from cache.",
       placesLoaded: "Places loaded. Now choose a specific place.",
       noResults: "No results found in this subcategory within the radius.",
+      unavailableSubcategory: "This subcategory is not available for this settlement.",
       fetchError: "Loading places failed. This is an Overpass or network error.",
       routeLoading: "Planning route...",
       routeError: "Walking route could not be returned by the service.",
@@ -252,6 +256,7 @@ function initSmartNearbyExplorer() {
       categoryPlaceholder: "Choose category",
       subcategoryPlaceholder: "Choose subcategory",
       placePlaceholder: "Choose place",
+      notFoundPlaceholder: "Not found",
       firstChooseCategory: "Choose category first",
       firstChooseSubcategory: "Choose subcategory first",
       routeTo: "Route to:",
@@ -455,6 +460,8 @@ function initSmartNearbyExplorer() {
   setStatus(messages[lang].chooseCategory, "default");
 
   categorySelect.addEventListener("change", () => {
+    placesLoadRequestId++;
+    hideLoading();
     clearRoute();
     clearDestinationMarker();
     allMarkersLayer.clearLayers();
@@ -480,15 +487,27 @@ function initSmartNearbyExplorer() {
 
     const categoryKey = categorySelect.value;
     const subcategoryKey = subcategorySelect.value;
+    const requestId = ++placesLoadRequestId;
+    hideLoading();
 
     if (!categoryKey || !subcategoryKey) {
       resetPlaceSelect(messages[lang].firstChooseSubcategory);
       return;
     }
 
+    if (isSubcategoryUnavailable(categoryKey, subcategoryKey)) {
+      populatePlaces([], messages[lang].notFoundPlaceholder);
+      map.fitBounds(radiusCircle.getBounds(), { padding: [30, 30] });
+      const subcategoryLabel = labels[lang].subcategories[subcategoryKey] || subcategoryKey;
+      setStatus(`${subcategoryLabel}: ${messages[lang].unavailableSubcategory}`, "default");
+      return;
+    }
+
     showLoading(messages[lang].loadingPlaces);
     try {
       const result = await loadPlaces(categoryKey, subcategoryKey);
+      if (requestId !== placesLoadRequestId) return;
+
       populatePlaces(result.places);
 
       result.places.forEach(place => {
@@ -524,14 +543,21 @@ function initSmartNearbyExplorer() {
         map.fitBounds(group.getBounds().pad(0.1));
       }
 
-      let text = `${messages[lang].placesLoaded} ${messages[lang].resultsCount}: ${result.places.length}.`;
-      setStatus(text, result.places.length ? "success" : "default");
+      if (result.places.length > 0) {
+        let text = `${messages[lang].placesLoaded} ${messages[lang].resultsCount}: ${result.places.length}.`;
+        setStatus(text, "success");
+      } else {
+        populatePlaces([], messages[lang].notFoundPlaceholder);
+        map.fitBounds(radiusCircle.getBounds(), { padding: [30, 30] });
+        setStatus(messages[lang].noResults, "default");
+      }
     } catch (error) {
+      if (requestId !== placesLoadRequestId) return;
       console.error(error);
-      resetPlaceSelect(messages[lang].firstChooseSubcategory);
+      populatePlaces([], messages[lang].notFoundPlaceholder);
       setStatus(messages[lang].fetchError, "error");
     } finally {
-      hideLoading();
+      if (requestId === placesLoadRequestId) hideLoading();
     }
   });
 
@@ -613,8 +639,8 @@ function initSmartNearbyExplorer() {
     });
   }
 
-  function populatePlaces(places) {
-    placeSelect.innerHTML = `<option value="">${messages[lang].placePlaceholder}</option>`;
+  function populatePlaces(places, emptyText = messages[lang].placePlaceholder) {
+    placeSelect.innerHTML = `<option value="">${places.length ? messages[lang].placePlaceholder : emptyText}</option>`;
     placeSelect.disabled = places.length === 0;
     places.forEach(place => {
       const option = document.createElement("option");
@@ -629,7 +655,14 @@ function initSmartNearbyExplorer() {
     placeSelect.disabled = true;
   }
 
- async function loadPlaces(categoryKey, subcategoryKey) {
+  function isSubcategoryUnavailable(categoryKey, subcategoryKey) {
+    const unavailable = pageConfig.unavailableSubcategories?.[categoryKey];
+    if (!unavailable) return false;
+    if (Array.isArray(unavailable)) return unavailable.includes(subcategoryKey);
+    return unavailable[subcategoryKey] === true;
+  }
+
+async function loadPlaces(categoryKey, subcategoryKey) {
   const cacheKey = `${cachePrefix}:${categoryKey}:${subcategoryKey}`;
   const cached = readCache(cacheKey);
   if (cached) return { places: cached, fromCache: true, fromFallback: false };
@@ -892,9 +925,13 @@ function showSelectedPlace(place) {
     const loadingText = loadingBox.querySelector(".loading-text");
     if (loadingText && text) loadingText.textContent = text;
     loadingBox.classList.remove("d-none");
+    loadingBox.style.display = "flex";
   }
 
-  function hideLoading() { loadingBox.classList.add("d-none"); }
+  function hideLoading() {
+    loadingBox.classList.add("d-none");
+    loadingBox.style.display = "none";
+  }
   function readCache(k) {
     const raw = localStorage.getItem(k);
     if (!raw) return null;

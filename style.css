@@ -337,6 +337,10 @@ header img {
   z-index: 500;
 }
 
+.smart-nearby-loading.d-none {
+  display: none !important;
+}
+
 .station-smart-marker,
 .destination-smart-marker {
   display: flex;

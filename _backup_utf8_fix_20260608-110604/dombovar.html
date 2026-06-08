@@ -135,47 +135,47 @@
 <section class="container my-5">
   <div class="smart-nearby-section">
     <div class="smart-nearby-header text-center">
-      <h2 class="mb-3">Interaktív közeli helyek térkép</h2>
+      <h2 class="mb-3">Interakt?v k?zeli helyek t?rk?p</h2>
       <p class="smart-nearby-intro">
-        Válassz fő kategóriát, azon belül alkategóriát, majd egy konkrét helyet.
-        A térképen csak a kiválasztott hely jelenik meg, és külön gombbal kérhetsz gyalogos útvonalat az állomástól.
+        V?lassz f? kateg?ri?t, azon bel?l alkateg?ri?t, majd egy konkr?t helyet.
+        A t?rk?pen csak a kiv?lasztott hely jelenik meg, ?s k?l?n gombbal k?rhetsz gyalogos ?tvonalat az ?llom?st?l.
       </p>
     </div>
 
     <div class="smart-nearby-controls">
       <div class="smart-control-card">
-        <label for="smartCategorySelect" class="form-label">Fő kategória</label>
+        <label for="smartCategorySelect" class="form-label">F? kateg?ria</label>
         <select id="smartCategorySelect" class="form-select">
-          <option value="">Válassz kategóriát</option>
+          <option value="">V?lassz kateg?ri?t</option>
         </select>
       </div>
 
       <div class="smart-control-card">
-        <label for="smartSubcategorySelect" class="form-label">Alkategória</label>
+        <label for="smartSubcategorySelect" class="form-label">Alkateg?ria</label>
         <select id="smartSubcategorySelect" class="form-select" disabled>
-          <option value="">Először kategóriát válassz</option>
+          <option value="">El?sz?r kateg?ri?t v?lassz</option>
         </select>
       </div>
 
       <div class="smart-control-card smart-control-card-wide">
-        <label for="smartPlaceSelect" class="form-label">Konkrét hely</label>
+        <label for="smartPlaceSelect" class="form-label">Konkr?t hely</label>
         <select id="smartPlaceSelect" class="form-select" disabled>
-          <option value="">Először alkategóriát válassz</option>
+          <option value="">El?sz?r alkateg?ri?t v?lassz</option>
         </select>
       </div>
     </div>
 
     <div class="smart-nearby-actions">
       <button id="smartRouteButton" class="btn btn-primary" disabled>
-        <i class="bi bi-sign-turn-right-fill me-2"></i>útvonal kérése az állomástól
+        <i class="bi bi-sign-turn-right-fill me-2"></i>?tvonal k?r?se az ?llom?st?l
       </button>
       <button id="smartResetButton" class="btn btn-outline-secondary" type="button">
-        <i class="bi bi-arrow-counterclockwise me-2"></i>Visszaállítás
+        <i class="bi bi-arrow-counterclockwise me-2"></i>Vissza?ll?t?s
       </button>
     </div>
 
     <div id="smartNearbyStatus" class="smart-nearby-status" aria-live="polite">
-      Válassz egy kategóriát a közeli helyek betöltéséhez.
+      V?lassz egy kateg?ri?t a k?zeli helyek bet?lt?s?hez.
     </div>
 
     <div id="smartNearbySummary" class="smart-nearby-summary d-none"></div>
@@ -184,14 +184,17 @@
       <div id="smartNearbyMap"></div>
       <div id="smartNearbyLoading" class="smart-nearby-loading d-none">
         <div class="spinner"></div>
-        <div class="loading-text">Betöltés...</div>
+        <div class="loading-text">Bet?lt?s...</div>
       </div>
     </div>
 
     <div id="smartNearbyRouteInfo" class="route-info hidden"></div>
   </div>
 </section>
-<div class="text-center my-4">
+
+
+
+  <div class="text-center my-4">
     <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
   </div>
 

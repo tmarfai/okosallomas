@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dombóvár Hangoldal</title>
+  <title>Fonyód Hangoldal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -20,22 +20,22 @@
 </script>
 
 </head>
-<body data-station-key="dombovar">
+<body data-station-key="fonyod">
   <header class="bg-dark text-white text-center py-5">
     <div class="container">
-      <h1 class="display-4">Dombóvár – Hangos bemutató</h1>
-      <p class="lead">Fedezd fel Dombóvárt egy kattintással!</p>
+      <h1 class="display-4">Fonyód – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Fonyódot egy kattintással!</p>
     </div>
     <div class="position-absolute" style="top: 15px; right: 15px;">
-    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='dombovar.html'">
-    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='dombovar-en.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='fonyod.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='fonyod-en.html'">
   </div>
   </header>
 
   <main class="container py-5">
     <section class="mb-5">
-      <h2>Miért érdemes ellátogatni Dombóvárra?</h2>
-      <p>Dombóvár vasútállomása a régió fontos közlekedési csomópontja, ahol a vonatok ritmusa összeköti a várost a környező tájjal...</p>
+      <h2>Miért érdemes ellátogatni Fonyódra?</h2>
+      <p>Fonyód vasútállomása a Balaton déli partjának egyik meghatározó közlekedési csomópontja, ahol a vonatok ritmusa nemcsak a várost, hanem az egész tóparti vidéket is összeköti az ország távolabbi pontjaival...</p>
     </section>
 
     <section class="text-center">
@@ -48,27 +48,27 @@
   </div>
 
   <audio id="hang" preload="metadata">
-    <source src="dombovar.mp3" type="audio/mpeg" />
+    <source src="fonyod.mp3" type="audio/mpeg" />
     A böngésződ nem támogatja a hang lejátszást.
   </audio>
 </section>
 
 
-
 <div class="card my-4" style="max-width: 600px; margin: auto;">
-  <div class="card-body p-2"> <img src="dombovarallomaskep.jpg" alt="Abaliget vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  <div class="card-body p-2"> <img src="fonyodallomaskep.jpg" alt="Abaliget vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
   </div>
 </div>
+
 
   </main>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
   <div class="card-body text-center">
-    <h5 class="card-title">Dombóvár vasútállomás</h5>
+    <h5 class="card-title">Fonyód vasútállomás</h5>
 
     <!-- Térkép -->
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2752.9682631180153!2d18.146702011310413!3d46.37001767098272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749797544678!5m2!1shu!2shu"
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1366.8860464352283!2d17.55846251560088!3d46.74967576545669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750149450610!5m2!1shu!"
       width="100%"
       height="300"
       style="border:0;"
@@ -84,9 +84,9 @@
   </div>
 </div>
 
-<div class="card text-center mt-4" id="idojaras-dombovar">
+<div class="card text-center mt-4" id="idojaras-fonyod">
   <div class="card-body">
-    <h5 class="card-title">Dombóvár időjárása</h5>
+    <h5 class="card-title">Fonyód időjárása</h5>
     <!-- JS generálja az összes adat sort -->
   </div>
 </div>
@@ -96,35 +96,35 @@
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="gunarasfurdo.jpg" class="card-img-top" alt="Gunarasfürdő">
+    <img src="panoramastrand.jpg" class="card-img-top" alt="Panoráma strand">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Gunarasfürdő</h5>
-      <p class="card-text">A gyógy- és élménymedencék, a szaunavilág és a zöldövezeti szálláshelyek tökéletes kikapcsolódást kínálnak minden korosztály számára. Fedezd fel Te is ezt a rejtett dél-dunántúli gyöngyszemet!
+      <h5 class="card-title">Panoráma strand</h5>
+      <p class="card-text">Több kiváló, gondozott szabadstrand is található a part mentén, például a Bélatelep vagy a Panoráma strand, sok zöldterülettel és árnyékos fákkal. Ideális családosoknak vagy egy nyugodt fürdőzéshez.
 
 </p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Gunarasfürdő" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Fonyódi strand" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="szallasretito.jpg" class="card-img-top" alt="Szállásréti-tó">
+    <img src="kriptavilla.jpg" class="card-img-top" alt="Kripta villa">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Szállásréti-tó</h5>
-      <p class="card-text">A Dombóvár közelében fekvő Szállásréti-tó a Kapos‑hegyháti Natúrpark és a Kis‑Konda‑patak völgye mentén nyugalmat és feltöltődést kínál. A tó partján festői sétány, pihenőpadok, egyedi szobrok, Kneipp‑ösvény és szabadtéri fitnesspark várja a vendégeket.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Szállásréti-tó" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Kripta villa - a hűség szobra</h5>
+      <p class="card-text">Különleges, szimbolikus épület és szobor a város szívében, mely egy szomorú, de megrendítő szerelmi történetet mesél el.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Kripta villa" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="dombovarvasutpark.jpg" class="card-img-top" alt="dombovarvasutpark">
+    <img src="badacsony.jpg" class="card-img-top" alt="Badacsony">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Vasúttörténeti múzeum</h5>
-      <p class="card-text">Fedezd fel a Dombóvári Vasúttörténeti Múzeumot – a helyiek által csak „Múzeum Megállóként” emlegetett, valaha vasúti bunkernek tervezett, impozáns betonépületet! </p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Dombóvár múzeum megálló" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Badacsony</h5>
+      <p class="card-text">A Fonyódról induló kompjárattal könnyedén átkelhetsz a Balaton északi partjára, Badacsonyba. Híres bazaltorgonáiról, borospincéiről és festői kilátásairól. </p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Badacsony" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
@@ -135,47 +135,47 @@
 <section class="container my-5">
   <div class="smart-nearby-section">
     <div class="smart-nearby-header text-center">
-      <h2 class="mb-3">Interaktív közeli helyek térkép</h2>
+      <h2 class="mb-3">Interakt?v k?zeli helyek t?rk?p</h2>
       <p class="smart-nearby-intro">
-        Válassz fő kategóriát, azon belül alkategóriát, majd egy konkrét helyet.
-        A térképen csak a kiválasztott hely jelenik meg, és külön gombbal kérhetsz gyalogos útvonalat az állomástól.
+        V?lassz f? kateg?ri?t, azon bel?l alkateg?ri?t, majd egy konkr?t helyet.
+        A t?rk?pen csak a kiv?lasztott hely jelenik meg, ?s k?l?n gombbal k?rhetsz gyalogos ?tvonalat az ?llom?st?l.
       </p>
     </div>
 
     <div class="smart-nearby-controls">
       <div class="smart-control-card">
-        <label for="smartCategorySelect" class="form-label">Fő kategória</label>
+        <label for="smartCategorySelect" class="form-label">F? kateg?ria</label>
         <select id="smartCategorySelect" class="form-select">
-          <option value="">Válassz kategóriát</option>
+          <option value="">V?lassz kateg?ri?t</option>
         </select>
       </div>
 
       <div class="smart-control-card">
-        <label for="smartSubcategorySelect" class="form-label">Alkategória</label>
+        <label for="smartSubcategorySelect" class="form-label">Alkateg?ria</label>
         <select id="smartSubcategorySelect" class="form-select" disabled>
-          <option value="">Először kategóriát válassz</option>
+          <option value="">El?sz?r kateg?ri?t v?lassz</option>
         </select>
       </div>
 
       <div class="smart-control-card smart-control-card-wide">
-        <label for="smartPlaceSelect" class="form-label">Konkrét hely</label>
+        <label for="smartPlaceSelect" class="form-label">Konkr?t hely</label>
         <select id="smartPlaceSelect" class="form-select" disabled>
-          <option value="">Először alkategóriát válassz</option>
+          <option value="">El?sz?r alkateg?ri?t v?lassz</option>
         </select>
       </div>
     </div>
 
     <div class="smart-nearby-actions">
       <button id="smartRouteButton" class="btn btn-primary" disabled>
-        <i class="bi bi-sign-turn-right-fill me-2"></i>útvonal kérése az állomástól
+        <i class="bi bi-sign-turn-right-fill me-2"></i>?tvonal k?r?se az ?llom?st?l
       </button>
       <button id="smartResetButton" class="btn btn-outline-secondary" type="button">
-        <i class="bi bi-arrow-counterclockwise me-2"></i>Visszaállítás
+        <i class="bi bi-arrow-counterclockwise me-2"></i>Vissza?ll?t?s
       </button>
     </div>
 
     <div id="smartNearbyStatus" class="smart-nearby-status" aria-live="polite">
-      Válassz egy kategóriát a közeli helyek betöltéséhez.
+      V?lassz egy kateg?ri?t a k?zeli helyek bet?lt?s?hez.
     </div>
 
     <div id="smartNearbySummary" class="smart-nearby-summary d-none"></div>
@@ -184,20 +184,23 @@
       <div id="smartNearbyMap"></div>
       <div id="smartNearbyLoading" class="smart-nearby-loading d-none">
         <div class="spinner"></div>
-        <div class="loading-text">Betöltés...</div>
+        <div class="loading-text">Bet?lt?s...</div>
       </div>
     </div>
 
     <div id="smartNearbyRouteInfo" class="route-info hidden"></div>
   </div>
 </section>
-<div class="text-center my-4">
+
+
+
+  <div class="text-center my-4">
     <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
   </div>
 
   <footer class="bg-light text-center py-3">
     <div class="container">
-      <small>&copy; 2025 Dombóvár Info</small>
+      <small>&copy; 2025 Fonyód Info</small>
     </div>
   </footer>
 

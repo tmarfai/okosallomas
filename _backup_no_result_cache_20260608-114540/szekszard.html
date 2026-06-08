@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pécs Hangoldal</title>
+  <title>Szekszárd Hangoldal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="style.css?v=20260608-1204"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-  <!-- Google Analytics -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-59ZRZ0FTDM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -19,50 +20,54 @@
 </script>
 
 </head>
-<body data-station-key="pecs">
+<body data-station-key="szekszard">
   <header class="bg-dark text-white text-center py-5">
     <div class="container">
-      <h1 class="display-4">Pécs – Hangos bemutató</h1>
-      <p class="lead">Fedezd fel Pécset egy kattintással!</p>
+      <h1 class="display-4">Szekszárd – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Szekszárdot egy kattintással!</p>
     </div>
-    <div class="position-absolute" style="top: 15px; right: 15px;">
-    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='pecs.html'">
-    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='pecs-en.html'">
-  </div>
   </header>
 
   <main class="container py-5">
     <section class="mb-5">
-      <h2>Miért érdemes ellátogatni Pécsre?</h2>
-      <p>Pécs történelmi város, mediterrán hangulattal, pezsgő kulturális élettel és gyönyörű műemlékekkel...</p>
+      <h2>Miért érdemes ellátogatni Szekszárdra?</h2>
+      <p>Szekszárd egy hangulatos, dombokkal körülölelt város, ahol a híres borvidék és a nyugodt természeti környezet harmonikusan találkozik…</p>
     </section>
 
+     <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian" class="flag-switcher"style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='szekszard.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-switcher"style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='szekszard-en.html'">
+    </div>
+    
     <section class="text-center">
-  <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
   <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
 </button>
 
-  <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
   <audio id="hang" preload="metadata">
-    <source src="pecs.mp3" type="audio/mpeg" />
+    <source src="szekszard.mp3" type="audio/mpeg" />
     A böngésződ nem támogatja a hang lejátszást.
   </audio>
 </section>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
-  <div class="card-body p-2"> <img src="pecsallomaskep.jpg" alt="Abaliget vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  <div class="card-body p-2"> <img src="szekszardallomaskep.jpg" alt="Abaliget vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
   </div>
 </div>
 
-</main>
+  </main>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
   <div class="card-body text-center">
-    <h5 class="card-title">Pécs vasútállomás</h5>
+    <h5 class="card-title">Szekszárd vasútállomás</h5>
 
     <!-- Térkép -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2768.234419027788!2d18.222012361290368!3d46.0663667709696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749541014525!5m2!1shu!2shu"
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3894.827840733218!2d18.709732981746324!3d46.34836988984216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750665806331!5m2!1shu!2shu"
       width="100%"
       height="300"
       style="border:0;"
@@ -77,53 +82,52 @@
     </a>
   </div>
 </div>
-  
-<div class="card text-center mt-4" id="idojaras-pecs">
+
+<div class="card text-center mt-4" id="idojaras-szekszard">
   <div class="card-body">
-    <h5 class="card-title">Pécs időjárása</h5>
+    <h5 class="card-title">Szekszárd időjárása</h5>
     <!-- JS generálja az összes adat sort -->
   </div>
 </div>
 
-<section class="container my-5">
+  <section class="container my-5">
   <h2 class="text-center mb-4">További úti célok a környéken</h2>
   <div class="row row-cols-1 row-cols-md-3 g-4">
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="villany.jpg" class="card-img-top" alt="Villányi bordvidék">
+    <img src="bormuzeum.jpg" class="card-img-top" alt="Bormúzeum">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Villányi borvidék</h5>
-      <p class="card-text">Magyarország egyik legfejlettebb borvidéke. Egy pohár villányi Cabernet Franc a lemenő nap fényében – ez több, mint bor: ez életérzés. </p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Villány" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Bormúzeum</h5>
+      <p class="card-text">Középkori épületben berendezett interaktív múzeum, ahol a szekszárdi Kadarka, Kékfrankos és Bikavér történetén keresztül fedezheted fel helyi borvidék szakmai és kulturális értékeit.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Szekszárd Bormúzeum" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="siklosivar.jpg" class="card-img-top" alt="Siklósi vár">
+    <img src="kalvaria.jpg" class="card-img-top" alt="Kálvária-kilátó">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Siklósi vár</h5>
-      <p class="card-text">Középkori vár, panoptikum, kiállítások, városnéző kisvonat. Magyarország egyik legszebb vára.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Siklósi vár" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Kálvária-kilátó</h5>
+      <p class="card-text">A Kálvária-kilátó Szekszárd egyik legismertebb látványossága, a Bartina-hegy tetején található. A kilátóból lenyűgöző panoráma nyílik a városra, a Szekszárdi-dombságra és a környező szőlőültetvényekre. Könnyen megközelíthető sétaút vezet fel hozzá, így kiváló célpont egy rövid kiránduláshoz.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Kávária-kilátó Szekszárd" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
-  </div>
+  </div>    
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="zsolnaynegyed.jpg" class="card-img-top" alt="Zsolnay kulturális negyed">
+    <img src="augusz.jpg" class="card-img-top" alt="Augusz-ház">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Zsolnay Kulturális negyed</h5>
-      <p class="card-text">Fedezd fel a híres Zsolnay porcelánok világát, csodáld meg a Gyugyi-gyűjteményt, sétálj végig a Zsolnay-negyed zegzugos utcácskáin, és élvezd a hangulatos kávézók, parkok és kiállítások nyugalmát.Ez nem csak egy múzeum – ez egy élmény.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Zsolnay-negyed" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Augusz-ház</h5>
+      <p class="card-text">Az Augusz‑ház Szekszárd egyik legszebb és legismertebb épülete, mely háromkorosztályos történelmi fejlődést mutat be. Aki szereti az építészeti, kulturális és zenei örökséget egyaránt, mindenképp érdemes megtekinteni kívülről – a hangulatos udvar és a külső homlokzat önmagában is élmény.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Augusz-ház" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
 
-
-</div>
+  </div>
 </section>
 
 <section class="container my-5">
@@ -191,13 +195,12 @@
 
   <footer class="bg-light text-center py-3">
     <div class="container">
-      <small>&copy; 2025 Pécs Info</small>
+      <small>&copy; 2025 Szekszárd Info</small>
     </div>
   </footer>
 
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="station-smart-config.js?v=20260608-1204"></script>
-<script src="script.js?v=20260608-1204"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="station-smart-config.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

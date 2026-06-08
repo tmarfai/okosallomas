@@ -143,19 +143,7 @@ window.stationSmartConfigs = {
       university: ["egyetem Dombóvár"]
     },
     unavailableSubcategories: {
-      school: ["university"],
-      entertainment: ["cinema"]
-    },
-    manualPlaces: {
-      culture: {
-        library: [
-          {
-            name: "Földi István Könyvtár",
-            lat: 46.3763141,
-            lon: 18.1327629
-          }
-        ]
-      }
+      school: ["university"]
     },
     forbiddenNames: [],
     specialLinks: []

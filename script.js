@@ -204,7 +204,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v6`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v8`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -664,9 +664,6 @@ function initSmartNearbyExplorer() {
 
 async function loadPlaces(categoryKey, subcategoryKey) {
   const cacheKey = `${cachePrefix}:${categoryKey}:${subcategoryKey}`;
-  const cached = readCache(cacheKey);
-  if (cached) return { places: cached, fromCache: true, fromFallback: false };
-
   const subConfig = config[categoryKey].subcategories[subcategoryKey];
 
   const manualPlaces = getManualPlaces(categoryKey, subcategoryKey, subConfig);
@@ -674,6 +671,9 @@ async function loadPlaces(categoryKey, subcategoryKey) {
     writeCache(cacheKey, manualPlaces);
     return { places: manualPlaces, fromCache: false, fromFallback: false };
   }
+
+  const cached = readCache(cacheKey);
+  if (cached) return { places: cached, fromCache: true, fromFallback: false };
 
   if (!subConfig.filters || !subConfig.filters.length) {
     writeCache(cacheKey, []);

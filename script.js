@@ -204,7 +204,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v8`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v14`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -221,7 +221,7 @@ function initSmartNearbyExplorer() {
       placesLoaded: "A helyek betöltődtek. Most válassz egy konkrét helyet.",
       noResults: "Ebben az alkategóriában most nem találtam találatot a körzeten belül.",
       unavailableSubcategory: "Ez az alkategória ennél a településnél nem található.",
-      fetchError: "A helyek betöltése most nem sikerült. Ez Overpass vagy hálózati hiba.",
+      fetchError: "A helyek betöltése most nem sikerült. Próbáld meg újra pár perc múlva.",
       routeLoading: "Útvonal tervezése...",
       routeError: "A gyalogos útvonal most nem jött vissza a szolgáltatótól.",
       selectPlaceFirst: "Először válassz egy konkrét helyet.",
@@ -249,7 +249,7 @@ function initSmartNearbyExplorer() {
       placesLoaded: "Places loaded. Now choose a specific place.",
       noResults: "No results found in this subcategory within the radius.",
       unavailableSubcategory: "This subcategory is not available for this settlement.",
-      fetchError: "Loading places failed. This is an Overpass or network error.",
+      fetchError: "Loading places failed. Please try again in a few minutes.",
       routeLoading: "Planning route...",
       routeError: "Walking route could not be returned by the service.",
       selectPlaceFirst: "Choose a specific place first.",
@@ -374,7 +374,10 @@ function initSmartNearbyExplorer() {
         },
         cafe: {
           icon: "☕",
-          filters: [{ key: "amenity", values: ["cafe", "ice_cream"] }],
+          filters: [
+            { key: "amenity", values: ["cafe", "ice_cream"] },
+            { key: "shop", values: ["pastry", "confectionery", "bakery"] }
+          ],
           matcher: place => hasName(place)
         },
         fastfood: {
@@ -666,29 +669,39 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   const cacheKey = `${cachePrefix}:${categoryKey}:${subcategoryKey}`;
   const subConfig = config[categoryKey].subcategories[subcategoryKey];
 
-  const manualPlaces = getManualPlaces(categoryKey, subcategoryKey, subConfig);
-  if (manualPlaces) {
+  const manualPlaces = getManualPlaces(categoryKey, subcategoryKey, subConfig) || [];
+
+  const cached = readCache(cacheKey);
+  if (cached) {
+    const places = mergePlaces(manualPlaces, cached);
+    return { places, fromCache: true, fromFallback: false };
+  }
+
+  if (!subConfig.filters || !subConfig.filters.length) {
     writeCache(cacheKey, manualPlaces);
     return { places: manualPlaces, fromCache: false, fromFallback: false };
   }
 
-  const cached = readCache(cacheKey);
-  if (cached) return { places: cached, fromCache: true, fromFallback: false };
-
-  if (!subConfig.filters || !subConfig.filters.length) {
-    writeCache(cacheKey, []);
-    return { places: [], fromCache: false, fromFallback: false };
-  }
-
   const query = buildOverpassQuery(subConfig.filters);
-    const data = await fetchOverpassWithRetry(query);
+  let data;
+  try {
+    data = await fetchOverpassWithRetry(query);
+  } catch (error) {
+    const places = mergePlaces(manualPlaces, await fetchPlacesFallback(categoryKey, subcategoryKey, subConfig));
+    if (places.length) {
+      writeCache(cacheKey, places);
+      return { places, fromCache: false, fromFallback: true };
+    }
+    throw error;
+  }
     let places = normalizePlaces(data.elements || [], categoryKey, subcategoryKey, subConfig);
     let fromFallback = false;
 
-    if (!places.length && categoryKey === "school") {
-      places = await fetchSchoolFallback(subcategoryKey);
+    if (!places.length) {
+      places = await fetchPlacesFallback(categoryKey, subcategoryKey, subConfig);
       fromFallback = places.length > 0;
     }
+    places = mergePlaces(manualPlaces, places);
     writeCache(cacheKey, places);
     return { places, fromCache: false, fromFallback };
   }
@@ -710,6 +723,38 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       .sort((a, b) => a.distance - b.distance);
   }
 
+  function mergePlaces(...placeLists) {
+    const seenNames = new Set();
+    const merged = [];
+    const manualPlaces = placeLists[0] || [];
+    const externalPlaces = placeLists.slice(1).flat().sort((a, b) => a.distance - b.distance);
+
+    manualPlaces.forEach(addPlace);
+    externalPlaces.forEach(place => {
+      if (merged.length >= 30) return;
+      addPlace(place);
+    });
+
+    function addPlace(place) {
+      if (!place || !place.name) return;
+      const nameKey = normalizeText(place.name);
+      if (seenNames.has(nameKey)) return;
+      if ([...seenNames].some(existing => existing.includes(nameKey) || nameKey.includes(existing))) return;
+      seenNames.add(nameKey);
+      merged.push(place);
+    }
+
+    return merged.sort((a, b) => a.distance - b.distance);
+  }
+
+  function normalizeText(text) {
+    return String(text)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
+
   function buildOverpassQuery(filters) {
     const parts = [];
     filters.forEach(filter => {
@@ -725,35 +770,96 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   async function fetchOverpassWithRetry(query) {
     const endpoints = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
     for (let url of endpoints) {
-      try { return await fetchJsonWithTimeout(url, { method: "POST", body: query }, 15000); }
+      try {
+        return await fetchJsonWithTimeout(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
+          body: `data=${encodeURIComponent(query)}`
+        }, 15000);
+      }
       catch (e) { console.warn("Retry Overpass..."); }
     }
     throw new Error("Overpass failed");
   }
 
-  async function fetchSchoolFallback(subcategoryKey) {
+  async function fetchPlacesFallback(categoryKey, subcategoryKey, subConfig) {
     const defaultQueries = {
       school_all: [`iskola ${cityName}`],
-      university: [`egyetem ${cityName}`]
+      university: [`egyetem ${cityName}`, `főiskola ${cityName}`],
+      secondary: [`középiskola ${cityName}`, `szakképző ${cityName}`],
+      primary: [`általános iskola ${cityName}`, `${cityName} általános iskola`, `primary school ${cityName}`],
+      grocery: [`élelmiszerbolt ${cityName}`, `supermarket ${cityName}`],
+      mall: [`bevásárlóközpont ${cityName}`],
+      restaurant: [`étterem ${cityName}`],
+      cafe: [`kávézó ${cityName}`, `cukrászda ${cityName}`],
+      fastfood: [`gyorsétterem ${cityName}`],
+      bath: [`fürdő ${cityName}`, `uszoda ${cityName}`],
+      pub: [`pub ${cityName}`, `bár ${cityName}`],
+      cinema: [`mozi ${cityName}`],
+      museum: [`múzeum ${cityName}`, `galéria ${cityName}`],
+      library: [`könyvtár ${cityName}`],
+      theatre: [`színház ${cityName}`]
     };
-    const phrases = pageConfig.fallbackQueries || defaultQueries;
-    const queries = phrases[subcategoryKey] || defaultQueries[subcategoryKey] || defaultQueries.school_all;
+    const pageQueries = pageConfig.fallbackQueries?.[subcategoryKey] || [];
+    const defaultCategoryQueries = defaultQueries[subcategoryKey] || defaultQueries.school_all;
+    const queries = [...new Set([...pageQueries, ...defaultCategoryQueries])];
     const found = [];
+    const seen = new Set();
+
+    function addFallbackPlace(name, lat, lon) {
+      if (!name) return;
+      if (subConfig.matcher && !subConfig.matcher({ name })) return;
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+      const distance = haversine(station.lat, station.lon, lat, lon);
+      if (distance > radius + 500) return;
+
+      const key = `${normalizeText(name)}-${lat.toFixed(5)}-${lon.toFixed(5)}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+
+      found.push({
+        name,
+        lat,
+        lon,
+        distance,
+        categoryKey,
+        subcategoryKey,
+        icon: subConfig.icon || "📍"
+      });
+    }
+
     for (const q of queries) {
       const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q)}&limit=10`;
       try {
         const items = await fetchJsonWithTimeout(url, {}, 10000);
         items.forEach(item => {
-          found.push({
-            name: item.display_name.split(",")[0],
-            lat: Number(item.lat), lon: Number(item.lon),
-            distance: haversine(station.lat, station.lon, item.lat, item.lon),
-            icon: "🏫"
-          });
+          const lat = Number(item.lat);
+          const lon = Number(item.lon);
+          const name = item.display_name.split(",")[0];
+          addFallbackPlace(name, lat, lon);
         });
       } catch (e) {}
     }
-    return found;
+
+    if (found.length < 3) {
+      for (const q of queries) {
+        const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=10&lat=${station.lat}&lon=${station.lon}`;
+        try {
+          const data = await fetchJsonWithTimeout(url, {}, 10000);
+          (data.features || []).forEach(feature => {
+            const coords = feature.geometry?.coordinates;
+            if (!Array.isArray(coords) || coords.length < 2) return;
+            const props = feature.properties || {};
+            const city = props.city || props.county || props.state || "";
+            if (city && normalizeText(city) !== normalizeText(cityName) && !normalizeText(city).includes(normalizeText(cityName))) return;
+            addFallbackPlace(props.name, Number(coords[1]), Number(coords[0]));
+          });
+        } catch (e) {}
+      }
+    }
+
+    return found.sort((a, b) => a.distance - b.distance).slice(0, 30);
   }
 
   async function fetchRouteWithRetry(place) {
@@ -961,7 +1067,13 @@ function showSelectedPlace(place) {
 
   function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
   function hasName(p) { return !!p.name; }
-  function isExcludedSchool(p) { return /óvoda|bölcsőde/i.test(p.name); }
+  function isExcludedSchool(p) {
+    const name = p.name || "";
+    const lower = name.toLowerCase();
+    if (/sportpály|kosárlabda|labdarúgó|tornacsarnok|játszótér/i.test(name)) return true;
+    if (/óvoda|bölcsőde/i.test(name) && !/általános|gimnázium|középiskola|technikum|iskola/i.test(name)) return true;
+    return false;
+  }
   function isSecondarySchool(p) { return /gimnázium|technikum|középiskola/i.test(p.name); }
   function isPrimarySchool(p) { return /általános/i.test(p.name); }
 

@@ -13,21 +13,12 @@ window.stationSmartConfigs = {
       lat: 46.3529,
       lon: 17.7948
     },
-    radius: 5000,
+    radius: 3500,
     fallbackQueries: {
       school_all: ["iskola Kaposvár"],
       university: ["egyetem Kaposvár"]
     },
     manualPlaces: {
-      school: {
-        university: [
-          {
-            name: "MATE Kaposvári Campus",
-            lat: 46.3828889,
-            lon: 17.8249303
-          }
-        ]
-      },
       entertainment: {
         bath: [
           {
@@ -90,58 +81,9 @@ window.stationSmartConfigs = {
     radius: 3500,
     fallbackQueries: {
       school_all: ["iskola Pécs"],
-      university: ["egyetem Pécs", "PTE Pécs", "Pécsi Tudományegyetem Pécs"]
+      university: ["egyetem Pécs"]
     },
     manualPlaces: {
-      school: {
-        university: [
-          {
-            name: "PTE Műszaki és Informatikai Kar (MIK)",
-            lat: 46.0797187,
-            lon: 18.2124902
-          },
-          {
-            name: "PTE Bölcsészet- és Társadalomtudományi Kar (BTK)",
-            lat: 46.0763887,
-            lon: 18.2080009
-          },
-          {
-            name: "PTE Természettudományi Kar (TTK)",
-            lat: 46.0763887,
-            lon: 18.2080009
-          },
-          {
-            name: "PTE Általános Orvostudományi Kar (ÁOK)",
-            lat: 46.0734041,
-            lon: 18.2066167
-          },
-          {
-            name: "PTE Gyógyszerésztudományi Kar (GYTK)",
-            lat: 46.0752142,
-            lon: 18.211857
-          },
-          {
-            name: "PTE Közgazdaságtudományi Kar (KTK)",
-            lat: 46.0744332,
-            lon: 18.2369781
-          },
-          {
-            name: "PTE Állam- és Jogtudományi Kar (ÁJK)",
-            lat: 46.0741988,
-            lon: 18.2376675
-          },
-          {
-            name: "PTE Egészségtudományi Kar (ETK)",
-            lat: 46.0773793,
-            lon: 18.2262604
-          },
-          {
-            name: "PTE Művészeti Kar (MK)",
-            lat: 46.0777148,
-            lon: 18.2486131
-          }
-        ]
-      },
       entertainment: {
         bath: [
           {

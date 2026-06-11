@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dombóvár Hangoldal</title>
+  <title>Balatonlelle Hangoldal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="style.css?v=20260609-0955"/>
+  <link rel="stylesheet" href="style.css?v=20260608-1204"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-59ZRZ0FTDM"></script>
@@ -20,22 +20,22 @@
 </script>
 
 </head>
-<body data-station-key="dombovar">
+<body data-station-key="balatonlelle">
   <header class="bg-dark text-white text-center py-5">
     <div class="container">
-      <h1 class="display-4">Dombóvár – Hangos bemutató</h1>
-      <p class="lead">Fedezd fel Dombóvárt egy kattintással!</p>
+      <h1 class="display-4">Balatonlelle – Hangos bemutató</h1>
+      <p class="lead">Fedezd fel Balatonlellét egy kattintással!</p>
     </div>
     <div class="position-absolute" style="top: 15px; right: 15px;">
-    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='dombovar.html'">
-    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='dombovar-en.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='balatonlelle.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='balatonlelle-en.html'">
   </div>
   </header>
 
   <main class="container py-5">
     <section class="mb-5">
-      <h2>Miért érdemes ellátogatni Dombóvárra?</h2>
-      <p>Dombóvár vasútállomása a régió fontos közlekedési csomópontja, ahol a vonatok ritmusa összeköti a várost a környező tájjal...</p>
+      <h2>Miért érdemes ellátogatni Balatonlellére?</h2>
+      <p>Balatonlelle vasútállomása a nyári pezsgés és a balatoni élmények egyik fő kapuja, ahol a vonatok érkezése és indulása a vízparti nyaralások ritmusát követi...</p>
     </section>
 
     <section class="text-center">
@@ -48,27 +48,27 @@
   </div>
 
   <audio id="hang" preload="metadata">
-    <source src="dombovar.mp3" type="audio/mpeg" />
+    <source src="balatonlelle.mp3" type="audio/mpeg" />
     A böngésződ nem támogatja a hang lejátszást.
   </audio>
 </section>
 
 
-
 <div class="card my-4" style="max-width: 600px; margin: auto;">
-  <div class="card-body p-2"> <img src="dombovarallomaskep.jpg" alt="Dombóvár vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  <div class="card-body p-2"> <img src="balatonlelleallomaskep.jpg" alt="Balatonlelle vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
   </div>
 </div>
+
 
   </main>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
   <div class="card-body text-center">
-    <h5 class="card-title">Dombóvár vasútállomás</h5>
+    <h5 class="card-title">Balatonlelle vasútállomás</h5>
 
     <!-- Térkép -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2752.9682631180153!2d18.146702011310413!3d46.37001767098272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749797544678!5m2!1shu!2shu"
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1876.7242943363406!2d17.694646906469234!3d46.787369397065426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1750229409916!5m2!1shu!2shu"
       width="100%"
       height="300"
       style="border:0;"
@@ -84,9 +84,9 @@
   </div>
 </div>
 
-<div class="card text-center mt-4" id="idojaras-dombovar">
+<div class="card text-center mt-4" id="idojaras-balatonlelle">
   <div class="card-body">
-    <h5 class="card-title">Dombóvár időjárása</h5>
+    <h5 class="card-title">Balatonlelle időjárása</h5>
     <!-- JS generálja az összes adat sort -->
   </div>
 </div>
@@ -96,35 +96,35 @@
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="gunarasfurdo.jpg" class="card-img-top" alt="Gunarasfürdő">
+    <img src="lellevidampark.jpg" class="card-img-top" alt="Lellei Vidámpark">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Gunarasfürdő</h5>
-      <p class="card-text">A gyógy- és élménymedencék, a szaunavilág és a zöldövezeti szálláshelyek tökéletes kikapcsolódást kínálnak minden korosztály számára. Fedezd fel Te is ezt a rejtett dél-dunántúli gyöngyszemet!
+      <h5 class="card-title">Vidámpark</h5>
+      <p class="card-text"> Balatonlelle vidámparkja igazi családi élményközpont, ahol minden korosztály megtalálja a kedvére való kalandot. Legyen szó izgalmas hullámvasútról, mókás körhintákról vagy interaktív játékokról, a park garantált szórakozást nyújt a nyári napokra.
 
 </p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Gunarasfürdő" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Balatonlelle vidámpark" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="szallasretito.jpg" class="card-img-top" alt="Szállásréti-tó">
+    <img src="lelleoriaskerek.jpg" class="card-img-top" alt="Lelle Eye">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Szállásréti-tó</h5>
-      <p class="card-text">A Dombóvár közelében fekvő Szállásréti-tó a Kapos‑hegyháti Natúrpark és a Kis‑Konda‑patak völgye mentén nyugalmat és feltöltődést kínál. A tó partján festői sétány, pihenőpadok, egyedi szobrok, Kneipp‑ösvény és szabadtéri fitnesspark várja a vendégeket.</p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Szállásréti-tó" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Lelle Eye</h5>
+      <p class="card-text">Balatonlelle szívében, a Móló sétány közelében található a Lelle Eye, egy 30 méter magas óriáskerék, amely 2020 nyara óta várja a látogatókat. A három körös utazás során páratlan panoráma tárul elénk: a Balaton teljes víztükre, a kikötő és a túlsó part dombjai, köztük a híres tanúhegyek is jól láthatók.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Lelle Eye" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
 
     <div class="col">
   <div class="card h-100 shadow-sm">
-    <img src="dombovarvasutpark.jpg" class="card-img-top" alt="dombovarvasutpark">
+    <img src="gombkilato.jpg" class="card-img-top" alt="Gömbkilátó">
     <div class="card-body d-flex flex-column">
-      <h5 class="card-title">Vasúttörténeti múzeum</h5>
-      <p class="card-text">Fedezd fel a Dombóvári Vasúttörténeti Múzeumot – a helyiek által csak „Múzeum Megállóként” emlegetett, valaha vasúti bunkernek tervezett, impozáns betonépületet! </p>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Dombóvár múzeum megálló" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+      <h5 class="card-title">Gömbkilátó</h5>
+      <p class="card-text">A dombtetőn álló ikonikus gömbkilátót 1958-ban a brüsszeli világkiállításra készítették, majd a ’60-as években telepítették ide. 15m átmérőjű, 240 háromszög alkotja, és 165m magasból nyújt széles balatoni panorámát – naplementekor kivilágítottan különösen látványos. A gömb körül kalandpark, bobpálya, lombkorona-ösvény is várja a családokat.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Xantus János - Gömbkilátó és Magasösvény" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
     </div>
   </div>
 </div>
@@ -140,7 +140,7 @@
       <i class="bi bi-geo-alt-fill"></i>
       <div>
         <h6>Cím</h6>
-        <p>Vasútállomás: Földvár utca 35.<br>Autóbusz-állomás: Baross tér 1.</p>
+        <p>Szent István utca 1.</p>
       </div>
     </div>
 
@@ -148,7 +148,7 @@
       <i class="bi bi-cash-coin"></i>
       <div>
         <h6>Pénztárak és jegyvásárlás</h6>
-        <p><strong>Vasúti pénztár:</strong> H-V 05:30-17:20<br><strong>Nemzetközi pénztár:</strong> H-V 06:35-18:20<br><strong>Jegykiadás:</strong> gépi menetjegykiadás, jegykiadó automata.</p>
+        <p><strong>Pénztár:</strong> 2026 júniusában 06:45-18:35<br>Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata.</p>
       </div>
     </div>
 
@@ -156,7 +156,7 @@
       <i class="bi bi-clock"></i>
       <div>
         <h6>Váróterem és mosdó</h6>
-        <p><strong>H-P:</strong> 03:10-24:00<br><strong>Szombat:</strong> 03:20-22:00<br><strong>Vasárnap és ünnepnap:</strong> 03:20-24:00<br><span class="text-muted">A mosdó nyitvatartása ugyanez.</span></p>
+        <p>Váróterem és mosdó a belső állomástérképen jelölve.</p>
       </div>
     </div>
 
@@ -164,7 +164,7 @@
       <i class="bi bi-person-wheelchair"></i>
       <div>
         <h6>Akadálymentesség</h6>
-        <p>Emelő mindig van az állomáson.<br>Hangos utastájékoztatás.</p>
+        <p>Akadálymentes WC található az állomáson.</p>
       </div>
     </div>
 
@@ -172,7 +172,7 @@
       <i class="bi bi-telephone"></i>
       <div>
         <h6>Kapcsolat</h6>
-        <p><strong>Buszállomási ügyfélszolgálat:</strong> munkanapokon 08:00-15:00<br>MÁVDIREKT: +36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999</p>
+        <p>MÁVDIREKT: +36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999</p>
       </div>
     </div>
 
@@ -180,21 +180,9 @@
       <i class="bi bi-info-circle"></i>
       <div>
         <h6>További szolgáltatások</h6>
-        <p>Talált tárgyak az állomás épületében.<br>Parkoló az állomás közelében, kerékpártároló az állomás területén.<br><a href="https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/dombovar-vasut-es-autobusz-allomas" target="_blank" rel="noopener">Forrás: MÁV-csoport</a></p>
+        <p>Talált tárgyak a pénztár nyitvatartásával megegyezően.<br>Parkoló az állomás közelében.<br>Csoportos utazások szervezése: Nagykanizsa.<br><a href="https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/balatonlelle" target="_blank" rel="noopener">Forrás: MÁV-csoport</a></p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="container my-5 text-center">
-  <h2 class="mb-4">Mi van a közelben?</h2>
-
-  <div class="nearby-links">
-    <a href="https://www.google.com/maps/search/%C3%A9tterem+Domb%C3%B3v%C3%A1r/" target="_blank" class="nearby-btn">🍽 Éttermek</a>
-    <a href="https://www.google.com/maps/search/k%C3%A1v%C3%A9z%C3%B3+Domb%C3%B3v%C3%A1r/" target="_blank" class="nearby-btn">☕ Kávézók</a>
-    <a href="https://www.google.com/maps/search/%C3%A9lelmiszerbolt+Domb%C3%B3v%C3%A1r/" target="_blank" class="nearby-btn">🛒 Élelmiszerboltok</a>
-    <a href="https://www.google.com/maps/search/ATM+Domb%C3%B3v%C3%A1r/" target="_blank" class="nearby-btn">🏧 ATM</a>
-    <a href="https://www.google.com/maps/search/hotel+sz%C3%A1ll%C3%A1s+Domb%C3%B3v%C3%A1r/" target="_blank" class="nearby-btn">🏨 Szállások</a>
   </div>
 </section>
 
@@ -260,28 +248,27 @@
 
 <section class="container my-5">
   <div class="station-inner-map-section">
-    <h2 class="text-center mb-3">Állomástérkép</h2>
+    <h2 class="text-center mb-3">Állomás térkép</h2>
     <p class="text-center station-inner-map-text">
       A térkép nagyítható és telefonon oldalra húzva böngészhető.
     </p>
 
     <div class="station-inner-map-scroll">
-      <img 
-        src="dombovarbelso.png?v=20260611-0829" 
-        alt="Dombóvár vasútállomás térképe" 
+      <img
+        src="lellebelso.jpg?v=20260611-0913"
+        alt="Balatonlelle vasútállomás belső térképe"
         class="station-inner-map-img"
       >
     </div>
   </div>
 </section>
-
 <div class="text-center my-4">
     <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
   </div>
 
   <footer class="bg-light text-center py-3">
     <div class="container">
-      <small>&copy; 2025 Dombóvár Info</small>
+      <small>&copy; 2025 Balatonlelle Info</small>
     </div>
   </footer>
 

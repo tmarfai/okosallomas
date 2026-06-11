@@ -204,7 +204,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v14`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v15`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -295,7 +295,7 @@ function initSmartNearbyExplorer() {
         museum: "Múzeum / kiállítás",
         library: "Könyvtár",
         theatre: "Színház / művészet",
-        bath: "Fürdő",
+        bath: "Strand / fürdő",
       }
     },
     en: {
@@ -321,7 +321,7 @@ function initSmartNearbyExplorer() {
         museum: "Museum / exhibition",
         library: "Library",
         theatre: "Theatre / arts",
-        bath: "Bath / spa",
+        bath: "Beach / bath",
       }
     }
   };
@@ -392,10 +392,11 @@ function initSmartNearbyExplorer() {
     bath: {
       icon: "🏊",
       filters: [
-        { key: "leisure", values: ["water_park", "swimming_pool"] },
-        { key: "amenity", values: ["public_bath"] }
+        { key: "leisure", values: ["beach_resort", "swimming_area", "water_park", "swimming_pool"] },
+        { key: "amenity", values: ["public_bath"] },
+        { key: "natural", values: ["beach"] }
       ],
-      matcher: place => hasName(place)
+      matcher: place => hasName(place) && isBathOrBeachPlace(place)
     },
     pub: {
       icon: "🍺",
@@ -404,8 +405,11 @@ function initSmartNearbyExplorer() {
     },
     cinema: {
       icon: "🎬",
-      filters: [{ key: "amenity", values: ["cinema"] }],
-      matcher: place => hasName(place)
+      filters: [
+        { key: "amenity", values: ["cinema"] },
+        { key: "building", values: ["cinema"] }
+      ],
+      matcher: place => hasName(place) && isCinemaPlace(place)
     }
   }
 },
@@ -793,9 +797,9 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       restaurant: [`étterem ${cityName}`],
       cafe: [`kávézó ${cityName}`, `cukrászda ${cityName}`],
       fastfood: [`gyorsétterem ${cityName}`],
-      bath: [`fürdő ${cityName}`, `uszoda ${cityName}`],
+      bath: [`strand ${cityName}`, `szabadstrand ${cityName}`, `beach ${cityName}`, `uszoda ${cityName}`, `fürdő ${cityName}`],
       pub: [`pub ${cityName}`, `bár ${cityName}`],
-      cinema: [`mozi ${cityName}`],
+      cinema: [`mozi ${cityName}`, `cinema ${cityName}`, `filmszínház ${cityName}`, `filmklub ${cityName}`, `kertmozi ${cityName}`],
       museum: [`múzeum ${cityName}`, `galéria ${cityName}`],
       library: [`könyvtár ${cityName}`],
       theatre: [`színház ${cityName}`]
@@ -806,10 +810,18 @@ async function loadPlaces(categoryKey, subcategoryKey) {
     const found = [];
     const seen = new Set();
 
-    function addFallbackPlace(name, lat, lon) {
+    function addFallbackPlace(candidate, latArg, lonArg) {
+      const place = typeof candidate === "object"
+        ? candidate
+        : { name: candidate, lat: latArg, lon: lonArg };
+      const name = place.name;
+      const lat = Number(place.lat);
+      const lon = Number(place.lon);
+
       if (!name) return;
-      if (subConfig.matcher && !subConfig.matcher({ name })) return;
       if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+      if (isRoadLikePlace(place)) return;
+      if (subConfig.matcher && !subConfig.matcher(place)) return;
 
       const distance = haversine(station.lat, station.lon, lat, lon);
       if (distance > radius + 500) return;
@@ -837,7 +849,16 @@ async function loadPlaces(categoryKey, subcategoryKey) {
           const lat = Number(item.lat);
           const lon = Number(item.lon);
           const name = item.display_name.split(",")[0];
-          addFallbackPlace(name, lat, lon);
+          addFallbackPlace({
+            name,
+            lat,
+            lon,
+            source: "nominatim",
+            osmClass: item.category || item.class || "",
+            type: item.type || "",
+            addresstype: item.addresstype || "",
+            displayName: item.display_name || ""
+          });
         });
       } catch (e) {}
     }
@@ -853,7 +874,16 @@ async function loadPlaces(categoryKey, subcategoryKey) {
             const props = feature.properties || {};
             const city = props.city || props.county || props.state || "";
             if (city && normalizeText(city) !== normalizeText(cityName) && !normalizeText(city).includes(normalizeText(cityName))) return;
-            addFallbackPlace(props.name, Number(coords[1]), Number(coords[0]));
+            addFallbackPlace({
+              name: props.name,
+              lat: Number(coords[1]),
+              lon: Number(coords[0]),
+              source: "photon",
+              osmClass: props.osm_key || "",
+              type: props.osm_value || props.type || "",
+              tags: props.osm_key && props.osm_value ? { [props.osm_key]: props.osm_value } : {},
+              displayName: [props.name, props.street, props.city, props.county].filter(Boolean).join(", ")
+            });
           });
         } catch (e) {}
       }
@@ -879,6 +909,11 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       if (!lat || !lon) return;
 
       const name = el.tags?.name;
+      const placeCandidate = {
+        name,
+        source: "overpass",
+        tags: el.tags || {}
+      };
 
       // 1. Kiszűrés, ha a név szerepel a tiltólistán
       if (name && forbiddenNames.includes(name)) {
@@ -886,7 +921,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       }
 
       // 2. CSAK AKKOR ADJUK HOZZÁ, HA A KONFIGURÁCIÓBAN LÉVŐ MATCHER ENGEDI
-      if (subConfig.matcher && !subConfig.matcher({ name })) {
+      if (subConfig.matcher && !subConfig.matcher(placeCandidate)) {
         return; 
       }
 
@@ -1067,6 +1102,55 @@ function showSelectedPlace(place) {
 
   function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
   function hasName(p) { return !!p.name; }
+  function hasTag(p, key, values) {
+    const tags = p.tags || {};
+    return values.includes(tags[key]);
+  }
+  function isRoadLikePlace(p) {
+    const name = normalizeText(p.name || "");
+    const tags = p.tags || {};
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    const addresstype = normalizeText(p.addresstype || "");
+
+    if (tags.highway || osmClass === "highway") return true;
+    if (["road", "street", "residential", "pedestrian", "service", "footway", "cycleway"].includes(type)) return true;
+    if (["road", "street"].includes(addresstype)) return true;
+    return /\b(utca|ut|ter|koz|setany|sor|dulo|korut|rakpart|fasor|lepcso)\b/.test(name);
+  }
+  function isCinemaPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+    if (hasTag(p, "amenity", ["cinema"]) || hasTag(p, "building", ["cinema"])) return true;
+
+    const name = normalizeText(p.name);
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    if (osmClass === "amenity" && type === "cinema") return true;
+
+    return /\b(mozi|cinema|filmszinhaz|filmklub|kertmozi|autosmozi|movie|movies)\b/.test(name)
+      || name.includes("cinema city")
+      || name.includes("kultik");
+  }
+  function isBathOrBeachPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+    if (
+      hasTag(p, "natural", ["beach"]) ||
+      hasTag(p, "leisure", ["beach_resort", "swimming_area", "water_park", "swimming_pool"]) ||
+      hasTag(p, "amenity", ["public_bath"])
+    ) {
+      return true;
+    }
+
+    const name = normalizeText(p.name);
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    if (osmClass === "natural" && type === "beach") return true;
+    if (osmClass === "leisure" && ["beach_resort", "swimming_area", "water_park", "swimming_pool"].includes(type)) return true;
+    if (osmClass === "amenity" && type === "public_bath") return true;
+
+    return /\b(strand|szabadstrand|beach|uszoda|furdo|plazs|lido|aquapark|termal|thermal|gyogyfurdo|waterpark)\b/.test(name)
+      || name.includes("water park");
+  }
   function isExcludedSchool(p) {
     const name = p.name || "";
     const lower = name.toLowerCase();

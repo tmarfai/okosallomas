@@ -271,6 +271,62 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  balatonboglar: {
+    key: "balatonboglar",
+    cityName: {
+      hu: "Balatonboglár",
+      en: "Balatonboglár"
+    },
+    stationName: {
+      hu: "Balatonboglár vasútállomás",
+      en: "Balatonboglár railway station"
+    },
+    station: {
+      lat: 46.77617362419581,
+      lon: 17.64733190415802
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonboglár"],
+      university: ["egyetem Balatonboglár"],
+      bath: ["strand Balatonboglár", "szabadstrand Balatonboglár", "Platán strand Balatonboglár"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonszemes: {
+    key: "balatonszemes",
+    cityName: {
+      hu: "Balatonszemes",
+      en: "Balatonszemes"
+    },
+    stationName: {
+      hu: "Balatonszemes vasútállomás",
+      en: "Balatonszemes railway station"
+    },
+    station: {
+      lat: 46.811329345053416,
+      lon: 17.777085295534384
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonszemes"],
+      university: ["egyetem Balatonszemes"],
+      bath: ["strand Balatonszemes", "szabadstrand Balatonszemes"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   barcs: {
     key: "barcs",
     cityName: {
@@ -315,6 +371,32 @@ window.stationSmartConfigs = {
     fallbackQueries: {
       school_all: ["iskola Fonyód"],
       university: ["egyetem Fonyód"]
+    },
+    unavailableSubcategories: {
+      school: ["university"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  mohacs: {
+    key: "mohacs",
+    cityName: {
+      hu: "Mohács",
+      en: "Mohács"
+    },
+    stationName: {
+      hu: "Mohács vasútállomás",
+      en: "Mohács railway station"
+    },
+    station: {
+      lat: 46.00248972096716,
+      lon: 18.681094661286085
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Mohács"],
+      university: ["egyetem Mohács"]
     },
     unavailableSubcategories: {
       school: ["university"]

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
@@ -19,7 +19,7 @@
 </script>
 
 </head>
-<body>
+<body data-station-key="balatonaliga">
   <header class="bg-dark text-white text-center py-5">
     <div class="container">
       <h1 class="display-4">Balatonaliga – Hangos bemutató</h1>
@@ -53,7 +53,7 @@
 </section>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
-  <div class="card-body p-2"> <img src="balatonaligaallomaskep.jpg" alt="Abaliget vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  <div class="card-body p-2"> <img src="balatonaligaallomaskep.jpg" alt="Balatonaliga vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
   </div>
 </div>
 
@@ -127,6 +127,8 @@
 </section>
 
 
+  <div id="stationExtrasMount"></div>
+
   <div class="text-center my-4">
     <img src="mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
   </div>
@@ -137,6 +139,8 @@
     </div>
   </footer>
 
+  <script src="station-page-extras.js?v=20260615-balatonmaps"></script>
+  <script src="station-page-renderer.js?v=20260615-sourcefree"></script>
   <script src="script.js"></script>
 </body>
 </html>

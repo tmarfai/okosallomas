@@ -70,6 +70,7 @@ function initWeatherCards() {
     { id: "idojaras-balatonszarszo", nev: "Balatonszárszó", lat: 46.8295, lon: 17.8351 },
     { id: "idojaras-balatonszemes", nev: "Balatonszemes", lat: 46.8167, lon: 17.6667 },
     { id: "idojaras-balatonszentgyorgy", nev: "Balatonszentgyörgy", lat: 46.6991, lon: 17.4825 },
+    { id: "idojaras-barcs", nev: "Barcs", lat: 45.9514, lon: 17.4460 },
     { id: "idojaras-bataszek", nev: "Bátaszék", lat: 46.2010, lon: 18.7142 },
     { id: "idojaras-dombovar", nev: "Dombóvár", lat: 46.3500, lon: 18.1500 },
     { id: "idojaras-erd", nev: "Érd", lat: 47.3870, lon: 18.9051 },

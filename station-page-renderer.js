@@ -95,57 +95,59 @@
 
     const text = copy[lang] || copy.hu;
     const section = document.createElement("section");
-    section.className = "container my-5 smart-nearby-section";
+    section.className = "container my-5";
     section.innerHTML = `
-      <div class="smart-nearby-header text-center">
-        <h2>${text.title}</h2>
-        <p class="smart-nearby-intro">${text.intro}</p>
-      </div>
-
-      <div class="smart-nearby-controls">
-        <label>
-          <span>${text.category}</span>
-          <select id="smartCategorySelect" class="form-select">
-            <option value="">${text.categoryPlaceholder}</option>
-          </select>
-        </label>
-
-        <label>
-          <span>${text.subcategory}</span>
-          <select id="smartSubcategorySelect" class="form-select" disabled>
-            <option value="">${text.subcategoryPlaceholder}</option>
-          </select>
-        </label>
-
-        <label>
-          <span>${text.place}</span>
-          <select id="smartPlaceSelect" class="form-select" disabled>
-            <option value="">${text.placePlaceholder}</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="smart-nearby-actions">
-        <button id="smartRouteButton" type="button" class="btn btn-primary" disabled>
-          <i class="bi bi-signpost-split-fill me-2"></i>${text.route}
-        </button>
-        <button id="smartResetButton" type="button" class="btn btn-outline-secondary">
-          <i class="bi bi-arrow-counterclockwise me-2"></i>${text.reset}
-        </button>
-      </div>
-
-      <div id="smartNearbyStatus" class="smart-nearby-status" aria-live="polite">
-        ${text.status}
-      </div>
-      <div id="smartNearbySummary" class="smart-nearby-summary d-none"></div>
-      <div class="smart-nearby-map-shell">
-        <div id="smartNearbyMap"></div>
-        <div id="smartNearbyLoading" class="smart-nearby-loading d-none">
-          <div class="spinner-border" role="status" aria-hidden="true"></div>
-          <strong>${text.loading}</strong>
+      <div class="smart-nearby-section">
+        <div class="smart-nearby-header text-center">
+          <h2 class="mb-3">${text.title}</h2>
+          <p class="smart-nearby-intro">${text.intro}</p>
         </div>
+
+        <div class="smart-nearby-controls">
+          <div class="smart-control-card">
+            <label for="smartCategorySelect" class="form-label">${text.category}</label>
+            <select id="smartCategorySelect" class="form-select">
+              <option value="">${text.categoryPlaceholder}</option>
+            </select>
+          </div>
+
+          <div class="smart-control-card">
+            <label for="smartSubcategorySelect" class="form-label">${text.subcategory}</label>
+            <select id="smartSubcategorySelect" class="form-select" disabled>
+              <option value="">${text.subcategoryPlaceholder}</option>
+            </select>
+          </div>
+
+          <div class="smart-control-card smart-control-card-wide">
+            <label for="smartPlaceSelect" class="form-label">${text.place}</label>
+            <select id="smartPlaceSelect" class="form-select" disabled>
+              <option value="">${text.placePlaceholder}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="smart-nearby-actions">
+          <button id="smartRouteButton" type="button" class="btn btn-primary" disabled>
+            <i class="bi bi-sign-turn-right-fill me-2"></i>${text.route}
+          </button>
+          <button id="smartResetButton" type="button" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-counterclockwise me-2"></i>${text.reset}
+          </button>
+        </div>
+
+        <div id="smartNearbyStatus" class="smart-nearby-status" aria-live="polite">
+          ${text.status}
+        </div>
+        <div id="smartNearbySummary" class="smart-nearby-summary d-none"></div>
+        <div class="smart-nearby-map-shell">
+          <div id="smartNearbyMap"></div>
+          <div id="smartNearbyLoading" class="smart-nearby-loading d-none">
+            <div class="spinner"></div>
+            <div class="loading-text">${text.loading}</div>
+          </div>
+        </div>
+        <div id="smartNearbyRouteInfo" class="route-info hidden"></div>
       </div>
-      <div id="smartNearbyRouteInfo" class="smart-nearby-route-info"></div>
     `;
 
     return section;

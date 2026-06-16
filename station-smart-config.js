@@ -271,6 +271,34 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  balatonaliga: {
+    key: "balatonaliga",
+    cityName: {
+      hu: "Balatonaliga",
+      en: "Balatonaliga"
+    },
+    stationName: {
+      hu: "Balatonaliga vasútállomás",
+      en: "Balatonaliga railway station"
+    },
+    station: {
+      lat: 46.9843128189066,
+      lon: 18.170025659389854
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonaliga", "iskola Balatonvilágos"],
+      university: ["egyetem Balatonaliga"],
+      bath: ["strand Balatonaliga", "szabadstrand Balatonaliga", "Club Aliga strand"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   balatonboglar: {
     key: "balatonboglar",
     cityName: {

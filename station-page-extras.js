@@ -4,6 +4,7 @@
 // 3. Ha van hivatalos MAV allomasterkep, add meg a map.image es map.source ertekeket.
 window.stationPageExtras = {
   balatonaliga: {
+    smartNearby: true,
     map: {
       image: "balatonaligabelso.jpg",
       source: "terkep_balatonaliga_v2428.pdf",

@@ -167,8 +167,11 @@ function getSmartNearbyPageConfig(lang) {
   const pageKey = fileName
     .replace(/\.(html|htm)$/i, "")
     .replace(/-en$/i, "");
-  const key = bodyKey || pageKey;
-  const config = configs[key] || configs.kaposvar;
+  const aliases = {
+    lorinc: "szentlorinc"
+  };
+  const key = bodyKey || aliases[pageKey] || pageKey;
+  const config = configs[key];
 
   if (!config || !config.station) return null;
 
@@ -205,7 +208,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v15`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v16`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -332,7 +335,10 @@ function initSmartNearbyExplorer() {
       subcategories: {
         school_all: {
           icon: "🏫",
-          filters: [{ key: "amenity", values: ["school"] }],
+          filters: [
+            { key: "amenity", values: ["school", "university", "college"] },
+            { key: "building", values: ["school", "university", "college"] }
+          ],
           matcher: place => hasName(place) && !isExcludedSchool(place)
         },
         university: {
@@ -712,6 +718,22 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   }
 
   function getManualPlaces(categoryKey, subcategoryKey, subConfig) {
+    if (categoryKey === "school" && subcategoryKey === "school_all") {
+      const schoolPlaces = pageConfig.manualPlaces?.school || {};
+      const allSchoolPlaces = Object.values(schoolPlaces).flat().filter(Boolean);
+      return allSchoolPlaces
+        .map(place => ({
+          name: place.name,
+          lat: place.lat,
+          lon: place.lon,
+          distance: haversine(station.lat, station.lon, place.lat, place.lon),
+          categoryKey,
+          subcategoryKey,
+          icon: subConfig.icon || "🏫"
+        }))
+        .sort((a, b) => a.distance - b.distance);
+    }
+
     const places = pageConfig.manualPlaces?.[categoryKey]?.[subcategoryKey];
     if (!Array.isArray(places)) return null;
 
@@ -789,7 +811,16 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
   async function fetchPlacesFallback(categoryKey, subcategoryKey, subConfig) {
     const defaultQueries = {
-      school_all: [`iskola ${cityName}`],
+      school_all: [
+        `iskola ${cityName}`,
+        `általános iskola ${cityName}`,
+        `${cityName} általános iskola`,
+        `középiskola ${cityName}`,
+        `gimnázium ${cityName}`,
+        `technikum ${cityName}`,
+        `egyetem ${cityName}`,
+        `főiskola ${cityName}`
+      ],
       university: [`egyetem ${cityName}`, `főiskola ${cityName}`],
       secondary: [`középiskola ${cityName}`, `szakképző ${cityName}`],
       primary: [`általános iskola ${cityName}`, `${cityName} általános iskola`, `primary school ${cityName}`],

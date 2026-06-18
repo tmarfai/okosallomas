@@ -299,6 +299,141 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  pusztaszabolcs: {
+    key: "pusztaszabolcs",
+    cityName: {
+      hu: "Pusztaszabolcs",
+      en: "Pusztaszabolcs"
+    },
+    stationName: {
+      hu: "Pusztaszabolcs vasútállomás",
+      en: "Pusztaszabolcs railway station"
+    },
+    station: {
+      lat: 47.13931107815299,
+      lon: 18.758366899971776
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Pusztaszabolcs"],
+      university: ["egyetem Pusztaszabolcs"]
+    },
+    unavailableSubcategories: {
+      school: ["university"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  sarbogard: {
+    key: "sarbogard",
+    cityName: {
+      hu: "Sárbogárd",
+      en: "Sárbogárd"
+    },
+    stationName: {
+      hu: "Sárbogárd vasútállomás",
+      en: "Sárbogárd railway station"
+    },
+    station: {
+      lat: 46.896685666647244,
+      lon: 18.61091341386501
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Sárbogárd"],
+      university: ["egyetem Sárbogárd"]
+    },
+    unavailableSubcategories: {
+      school: ["university"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  szentlorinc: {
+    key: "szentlorinc",
+    cityName: {
+      hu: "Szentlőrinc",
+      en: "Szentlőrinc"
+    },
+    stationName: {
+      hu: "Szentlőrinc vasútállomás",
+      en: "Szentlőrinc railway station"
+    },
+    station: {
+      lat: 46.032996129236956,
+      lon: 17.990948359347666
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Szentlőrinc"],
+      university: ["egyetem Szentlőrinc"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  zamardi: {
+    key: "zamardi",
+    cityName: {
+      hu: "Zamárdi",
+      en: "Zamárdi"
+    },
+    stationName: {
+      hu: "Zamárdi vasútállomás",
+      en: "Zamárdi railway station"
+    },
+    station: {
+      lat: 46.87999277101195,
+      lon: 17.942251061344326
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Zamárdi"],
+      university: ["egyetem Zamárdi"],
+      bath: ["strand Zamárdi", "szabadstrand Zamárdi", "Zamárdi Nagystrand"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  szantod: {
+    key: "szantod",
+    cityName: {
+      hu: "Szántód",
+      en: "Szántód"
+    },
+    stationName: {
+      hu: "Szántód vasútállomás",
+      en: "Szántód railway station"
+    },
+    station: {
+      lat: 46.8623903,
+      lon: 17.8995729
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Szántód"],
+      university: ["egyetem Szántód"],
+      bath: ["strand Szántód", "szabadstrand Szántód", "Szántód strand"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   balatonboglar: {
     key: "balatonboglar",
     cityName: {

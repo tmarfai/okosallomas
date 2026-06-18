@@ -200,6 +200,376 @@ window.stationPageExtras = {
     }
   },
 
+  pusztaszabolcs: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "2490 Pusztaszabolcs, Sport utca 13."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Vasúti pénztár: H-V 05:25-08:10, 08:30-13:15, 13:40-15:35."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Akadálymentesség",
+            body: "Az állomáson akadálymentes WC található."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Megközelítés",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "2490 Pusztaszabolcs, Sport utca 13."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily 05:25-08:10, 08:30-13:15, 13:40-15:35."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Accessibility",
+            body: "An accessible restroom is available at the station."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Access",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  sarbogard: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "7000 Sárbogárd, Vasútállomás."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Vasúti pénztár: H-V 07:40-17:50."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Talált tárgyak",
+            body: "Talált tárgyak ügyintézése az állomás épületében, pénztári nyitvatartási időben."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Megközelítés",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "7000 Sárbogárd, Vasútállomás."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily 07:40-17:50."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Lost Property",
+            body: "Lost property service is available in the station building during ticket office opening hours."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Access",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  szentlorinc: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "7940 Szentlőrinc, Hunyadi u. 4."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "H-P 06:35-18:25, SZ-V 07:05-18:25."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás és gépi menetjegykiadás."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Megközelítés",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Kerékpár",
+            body: "Kerékpártároló található az állomás területén."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "7940 Szentlőrinc, Hunyadi u. 4."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Mon-Fri 06:35-18:25, Sat-Sun 07:05-18:25."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales and machine-issued tickets."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Access",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Bicycle",
+            body: "Bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  zamardi: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8621 Zamárdi, Szabadság tér 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Vasúti pénztár: H-V 03:30-23:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Akadálymentesség",
+            body: "Az állomáson akadálymentes WC található."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Továbbiak",
+            body: "Talált tárgyak ügyintézése, parkoló és kerékpártároló."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8621 Zamárdi, Szabadság tér 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily 03:30-23:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Accessibility",
+            body: "An accessible restroom is available at the station."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "More",
+            body: "Lost property service, parking and bicycle parking are available."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  szantod: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8622 Szántód, Vasútállomás."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Az állomáson nincs pénztár, csak jegykiadó automata érhető el."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkolás",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Kerékpár",
+            body: "Kerékpártároló található az állomás területén."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8622 Szántód, Vasútállomás."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "There is no ticket office at the station, but a ticket vending machine is available."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Bicycle",
+            body: "Bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
   siofok: {
     info: {
       hu: {

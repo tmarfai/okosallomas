@@ -208,7 +208,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v16`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v22`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -330,31 +330,37 @@ function initSmartNearbyExplorer() {
     }
   };
 
+  const schoolSearchFilters = [
+    { key: "amenity", values: ["school", "university", "college", "kindergarten", "music_school", "language_school"] },
+    { key: "building", values: ["school", "university", "college"] },
+    { key: "school", values: ["primary", "secondary", "vocational", "technical", "grammar", "music", "language"] }
+  ];
+
   const config = {
     school: {
       subcategories: {
         school_all: {
           icon: "🏫",
-          filters: [
-            { key: "amenity", values: ["school", "university", "college"] },
-            { key: "building", values: ["school", "university", "college"] }
-          ],
-          matcher: place => hasName(place) && !isExcludedSchool(place)
+          filters: schoolSearchFilters,
+          matcher: place => hasName(place) && !isExcludedSchool(place) && isSchoolPlace(place)
         },
         university: {
           icon: "🎓",
-          filters: [{ key: "amenity", values: ["university", "college"] }],
+          filters: [
+            { key: "amenity", values: ["university", "college"] },
+            { key: "building", values: ["university", "college"] }
+          ],
           matcher: place => hasName(place)
         },
         secondary: {
           icon: "🏫",
-          filters: [{ key: "amenity", values: ["school"] }],
-          matcher: place => hasName(place) && !isExcludedSchool(place) && isSecondarySchool(place)
+          filters: schoolSearchFilters,
+          matcher: place => hasName(place) && !isExcludedSchool(place) && isSchoolPlace(place) && isSecondarySchool(place)
         },
         primary: {
-          icon: "📚",
-          filters: [{ key: "amenity", values: ["school"] }],
-          matcher: place => hasName(place) && !isExcludedSchool(place) && isPrimarySchool(place)
+          icon: "🏫",
+          filters: schoolSearchFilters,
+          matcher: place => hasName(place) && !isExcludedSchool(place) && isSchoolPlace(place) && isPrimarySchool(place)
         }
       }
     },
@@ -684,7 +690,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
   const cached = readCache(cacheKey);
   if (cached) {
-    const places = mergePlaces(manualPlaces, cached);
+    const places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, cached);
     return { places, fromCache: true, fromFallback: false };
   }
 
@@ -698,7 +704,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   try {
     data = await fetchOverpassWithRetry(query);
   } catch (error) {
-    const places = mergePlaces(manualPlaces, await fetchPlacesFallback(categoryKey, subcategoryKey, subConfig));
+    const places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, await fetchPlacesFallback(categoryKey, subcategoryKey, subConfig));
     if (places.length) {
       writeCache(cacheKey, places);
       return { places, fromCache: false, fromFallback: true };
@@ -708,11 +714,12 @@ async function loadPlaces(categoryKey, subcategoryKey) {
     let places = normalizePlaces(data.elements || [], categoryKey, subcategoryKey, subConfig);
     let fromFallback = false;
 
-    if (!places.length) {
-      places = await fetchPlacesFallback(categoryKey, subcategoryKey, subConfig);
+    if (!places.length || shouldEnrichWithFallback(categoryKey, subcategoryKey, places)) {
+      const fallbackPlaces = await fetchPlacesFallback(categoryKey, subcategoryKey, subConfig);
+      places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), places, fallbackPlaces);
       fromFallback = places.length > 0;
     }
-    places = mergePlaces(manualPlaces, places);
+    places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, places);
     writeCache(cacheKey, places);
     return { places, fromCache: false, fromFallback };
   }
@@ -750,7 +757,18 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       .sort((a, b) => a.distance - b.distance);
   }
 
-  function mergePlaces(...placeLists) {
+  function getPlaceLimit(categoryKey, subcategoryKey) {
+    return categoryKey === "school" && subcategoryKey === "school_all" ? 120 : 30;
+  }
+
+  function shouldEnrichWithFallback(categoryKey, subcategoryKey, places) {
+    if (categoryKey !== "school") return false;
+    if (subcategoryKey === "school_all") return places.length < 10;
+    if (subcategoryKey === "secondary" || subcategoryKey === "primary") return places.length < 5;
+    return places.length < 3;
+  }
+
+  function mergePlaces(maxPlaces, ...placeLists) {
     const seenNames = new Set();
     const merged = [];
     const manualPlaces = placeLists[0] || [];
@@ -758,7 +776,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
     manualPlaces.forEach(addPlace);
     externalPlaces.forEach(place => {
-      if (merged.length >= 30) return;
+      if (merged.length >= maxPlaces) return;
       addPlace(place);
     });
 
@@ -796,17 +814,32 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
   async function fetchOverpassWithRetry(query) {
     const endpoints = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
-    for (let url of endpoints) {
-      try {
-        return await fetchJsonWithTimeout(url, {
+    return new Promise((resolve, reject) => {
+      let failed = 0;
+      let settled = false;
+
+      endpoints.forEach(url => {
+        fetchJsonWithTimeout(url, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
           body: `data=${encodeURIComponent(query)}`
-        }, 15000);
-      }
-      catch (e) { console.warn("Retry Overpass..."); }
-    }
-    throw new Error("Overpass failed");
+        }, 12000)
+          .then(data => {
+            if (settled) return;
+            if (!data || !Array.isArray(data.elements)) {
+              throw new Error("Invalid Overpass response");
+            }
+            settled = true;
+            resolve(data);
+          })
+          .catch(() => {
+            failed++;
+            if (!settled && failed >= endpoints.length) {
+              reject(new Error("Overpass failed"));
+            }
+          });
+      });
+    });
   }
 
   async function fetchPlacesFallback(categoryKey, subcategoryKey, subConfig) {
@@ -822,8 +855,20 @@ async function loadPlaces(categoryKey, subcategoryKey) {
         `főiskola ${cityName}`
       ],
       university: [`egyetem ${cityName}`, `főiskola ${cityName}`],
-      secondary: [`középiskola ${cityName}`, `szakképző ${cityName}`],
-      primary: [`általános iskola ${cityName}`, `${cityName} általános iskola`, `primary school ${cityName}`],
+      secondary: [
+        `középiskola ${cityName}`,
+        `gimnázium ${cityName}`,
+        `technikum ${cityName}`,
+        `szakképző ${cityName}`,
+        `szakközépiskola ${cityName}`,
+        `szakközép ${cityName}`,
+        `szakgimnázium ${cityName}`,
+        `szakiskola ${cityName}`,
+        `${cityName} középiskola`,
+        `${cityName} technikum`,
+        `${cityName} szakképző`
+      ],
+      primary: [`általános iskola ${cityName}`, `${cityName} általános iskola`, `alapfokú iskola ${cityName}`, `primary school ${cityName}`],
       grocery: [`élelmiszerbolt ${cityName}`, `supermarket ${cityName}`],
       mall: [`bevásárlóközpont ${cityName}`],
       restaurant: [`étterem ${cityName}`],
@@ -921,7 +966,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       }
     }
 
-    return found.sort((a, b) => a.distance - b.distance).slice(0, 30);
+    return found.sort((a, b) => a.distance - b.distance).slice(0, getPlaceLimit(categoryKey, subcategoryKey));
   }
 
   async function fetchRouteWithRetry(place) {
@@ -965,7 +1010,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
         icon: subConfig.icon
       });
     });
-    return res.sort((a,b) => a.distance - b.distance).slice(0, 30);
+    return res.sort((a,b) => a.distance - b.distance).slice(0, getPlaceLimit(categoryKey, subcategoryKey));
   }
 
 function showSelectedPlace(place) {
@@ -1183,15 +1228,46 @@ function showSelectedPlace(place) {
     return /\b(strand|szabadstrand|beach|uszoda|furdo|plazs|lido|aquapark|termal|thermal|gyogyfurdo|waterpark)\b/.test(name)
       || name.includes("water park");
   }
+  function isSchoolPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+    if (
+      hasTag(p, "amenity", ["school", "university", "college", "music_school", "language_school"]) ||
+      hasTag(p, "building", ["school", "university", "college"])
+    ) {
+      return true;
+    }
+
+    const name = normalizeText(`${p.name || ""} ${p.displayName || ""}`);
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    if (osmClass === "amenity" && ["school", "university", "college", "music_school", "language_school"].includes(type)) return true;
+    if (osmClass === "building" && ["school", "university", "college"].includes(type)) return true;
+
+    return /\b(iskola|altalanos|gimnazium|technikum|szakkepzo|szakgimnazium|kozepiskola|egyetem|foiskola|campus|akademia|zeneiskola|nyelviskola|tanciskola|muveszeti iskola|primary school|secondary school|school|university|college)\b/.test(name);
+  }
   function isExcludedSchool(p) {
-    const name = p.name || "";
-    const lower = name.toLowerCase();
-    if (/sportpály|kosárlabda|labdarúgó|tornacsarnok|játszótér/i.test(name)) return true;
-    if (/óvoda|bölcsőde/i.test(name) && !/általános|gimnázium|középiskola|technikum|iskola/i.test(name)) return true;
+    const name = normalizeText(`${p.name || ""} ${p.displayName || ""}`);
+    if (/\b(sportpaly|kosarlabda|labdarugo|tornacsarnok|jatszoter)\b/.test(name)) return true;
+    if (/\b(ovoda|ovi|bolcsode|kindergarten|nursery)\b/.test(name) && !/\b(altalanos|gimnazium|kozepiskola|technikum|iskola|school)\b/.test(name)) return true;
     return false;
   }
-  function isSecondarySchool(p) { return /gimnázium|technikum|középiskola/i.test(p.name); }
-  function isPrimarySchool(p) { return /általános/i.test(p.name); }
+  function isSecondarySchool(p) {
+    const name = normalizeText(`${p.name || ""} ${p.displayName || ""}`);
+    const tags = p.tags || {};
+    const tagText = normalizeText(Object.values(tags).join(" "));
+    const text = `${name} ${tagText}`;
+
+    return /\b(gimnazium|technikum|kozepiskola|szakkozep|szakkozepiskola|szakkepzo|szakkepzes|szakiskola|szakgimnazium|szakmai iskola|vocational|secondary|high school|grammar school)\b/.test(text);
+  }
+
+  function isPrimarySchool(p) {
+    const name = normalizeText(`${p.name || ""} ${p.displayName || ""}`);
+    const tags = p.tags || {};
+    const tagText = normalizeText(Object.values(tags).join(" "));
+    const text = `${name} ${tagText}`;
+
+    return /\b(altalanos|alapfoku|alapiskola|primary|elementary|grade school)\b/.test(text);
+  }
 
   function haversine(lat1, lon1, lat2, lon2) {
     const R = 6371000;

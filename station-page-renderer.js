@@ -7,8 +7,10 @@
     return;
   }
 
-  const isEnglish = document.documentElement.lang === "en" || window.location.pathname.endsWith("-en.html");
-  const lang = isEnglish ? "en" : "hu";
+  const pageLang = (document.documentElement.lang || "").substring(0, 2);
+  const isEnglish = pageLang === "en" || window.location.pathname.endsWith("-en.html");
+  const isGerman = pageLang === "de" || window.location.pathname.endsWith("-de.html");
+  const lang = isGerman ? "de" : isEnglish ? "en" : "hu";
 
   function createSection(className, title) {
     const section = document.createElement("section");
@@ -23,7 +25,7 @@
   }
 
   function renderInfo(info) {
-    const localized = info[lang] || info.hu || info.en;
+    const localized = info[lang] || (lang === "hu" ? info.hu : info.en) || info.hu;
     if (!localized || !Array.isArray(localized.cards)) {
       return null;
     }
@@ -90,6 +92,20 @@
         reset: "Reset",
         status: "Choose a category to load nearby places.",
         loading: "Loading places..."
+      },
+      de: {
+        title: "Interaktive Karte nahegelegener Orte",
+        intro: "Wähle eine Hauptkategorie, dann eine Unterkategorie und anschließend einen konkreten Ort. Auf der Karte wird nur der ausgewählte Ort angezeigt, und du kannst eine Fußroute vom Bahnhof anfordern.",
+        category: "Hauptkategorie",
+        categoryPlaceholder: "Kategorie wählen",
+        subcategory: "Unterkategorie",
+        subcategoryPlaceholder: "Zuerst Kategorie wählen",
+        place: "Konkreter Ort",
+        placePlaceholder: "Zuerst Unterkategorie wählen",
+        route: "Route vom Bahnhof",
+        reset: "Zurücksetzen",
+        status: "Wähle eine Kategorie, um nahegelegene Orte zu laden.",
+        loading: "Orte werden geladen..."
       }
     };
 
@@ -154,7 +170,7 @@
   }
 
   function renderMap(map) {
-    const localized = map[lang] || map.hu || map.en;
+    const localized = map[lang] || (lang === "hu" ? map.hu : map.en) || map.hu;
     if (!localized || !map.image) {
       return null;
     }

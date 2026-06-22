@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   initPecsGoogleMenu();
 });
 
+function getPageLang() {
+  const lang = (document.documentElement.getAttribute("lang") || "hu").substring(0, 2);
+  return ["hu", "en", "de"].includes(lang) ? lang : "hu";
+}
+
 function initAudioPlayer() {
   const audio = document.getElementById("hang");
   const playPauseButton = document.getElementById("playPauseButton");
@@ -12,10 +17,11 @@ function initAudioPlayer() {
 
   if (!audio || !playPauseButton || !restartButton) return;
 
-  const lang = document.documentElement.getAttribute("lang") || "hu";
+  const lang = getPageLang();
   const texts = {
     hu: { play: "Lejátszás", pause: "Szünet", restart: "Újrakezdés" },
-    en: { play: "Listen", pause: "Pause", restart: "Restart" }
+    en: { play: "Listen", pause: "Pause", restart: "Restart" },
+    de: { play: "Anhören", pause: "Pause", restart: "Neu starten" }
   };
 
   let isPlaying = false;
@@ -53,7 +59,34 @@ function initAudioPlayer() {
 }
 
 function initWeatherCards() {
-  const lang = document.documentElement.getAttribute("lang") || "hu";
+  const lang = getPageLang();
+  const weatherTexts = {
+    hu: {
+      now: "Most",
+      wind: "Szélsebesség",
+      dry: "🌞 Száraz nap, nem várható eső!",
+      lightRain: "🌦️ Gyenge csapadék várható",
+      heavyRain: "🌧️ Jelentős csapadék várható",
+      unavailable: "Nem elérhető az időjárás."
+    },
+    en: {
+      now: "Now",
+      wind: "Wind speed",
+      dry: "🌞 Dry day, no rain expected!",
+      lightRain: "🌦️ Light rain expected",
+      heavyRain: "🌧️ Significant rain expected",
+      unavailable: "Weather data unavailable."
+    },
+    de: {
+      now: "Aktuell",
+      wind: "Windgeschwindigkeit",
+      dry: "🌞 Trockener Tag, kein Regen erwartet!",
+      lightRain: "🌦️ Leichter Regen erwartet",
+      heavyRain: "🌧️ Deutlicher Regen erwartet",
+      unavailable: "Wetterdaten sind nicht verfügbar."
+    }
+  };
+  const weatherCopy = weatherTexts[lang] || weatherTexts.hu;
 
   const varosok = [
     { id: "idojaras-villany", nev: "Villány", lat: 45.8705, lon: 18.4543 },
@@ -119,16 +152,12 @@ function initWeatherCards() {
 
         const homersekletP = document.createElement("p");
         homersekletP.className = "homerseklet";
-        homersekletP.textContent = lang === "en"
-          ? `Now: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`
-          : `Most: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
+        homersekletP.textContent = `${weatherCopy.now}: ${weather.temperature} °C | Max: ${daily.temperature_2m_max[0]} °C | Min: ${daily.temperature_2m_min[0]} °C`;
         body.appendChild(homersekletP);
 
         const szelP = document.createElement("p");
         szelP.className = "szel";
-        szelP.textContent = lang === "en"
-          ? `Wind speed: ${weather.windspeed} km/h`
-          : `Szélsebesség: ${weather.windspeed} km/h`;
+        szelP.textContent = `${weatherCopy.wind}: ${weather.windspeed} km/h`;
         body.appendChild(szelP);
 
         const csapadek = daily.precipitation_sum[0];
@@ -136,24 +165,18 @@ function initWeatherCards() {
         csapadekP.className = "csapadek";
 
         if (csapadek === 0) {
-          csapadekP.textContent = lang === "en"
-            ? "🌞 Dry day, no rain expected!"
-            : "🌞 Száraz nap, nem várható eső!";
+          csapadekP.textContent = weatherCopy.dry;
         } else if (csapadek < 2) {
-          csapadekP.textContent = lang === "en"
-            ? `🌦️ Light rain expected: ${csapadek} mm`
-            : `🌦️ Gyenge csapadék várható: ${csapadek} mm`;
+          csapadekP.textContent = `${weatherCopy.lightRain}: ${csapadek} mm`;
         } else {
-          csapadekP.textContent = lang === "en"
-            ? `🌧️ Significant rain expected: ${csapadek} mm`
-            : `🌧️ Jelentős csapadék várható: ${csapadek} mm`;
+          csapadekP.textContent = `${weatherCopy.heavyRain}: ${csapadek} mm`;
         }
 
         body.appendChild(csapadekP);
       })
       .catch(error => {
         const errorP = document.createElement("p");
-        errorP.textContent = lang === "en" ? "Weather data unavailable." : "Nem elérhető az időjárás.";
+        errorP.textContent = weatherCopy.unavailable;
         body.appendChild(errorP);
         console.error(`${varos.nev} időjárási hiba:`, error);
       });
@@ -166,7 +189,7 @@ function getSmartNearbyPageConfig(lang) {
   const fileName = window.location.pathname.split("/").pop() || "";
   const pageKey = fileName
     .replace(/\.(html|htm)$/i, "")
-    .replace(/-en$/i, "");
+    .replace(/-(en|de)$/i, "");
   const aliases = {
     lorinc: "szentlorinc"
   };
@@ -196,7 +219,12 @@ function initSmartNearbyExplorer() {
 
   if (!mapElement || typeof L === "undefined") return;
 
-  const lang = document.documentElement.getAttribute("lang")?.substring(0, 2) || "hu";
+  if (!categorySelect || !subcategorySelect || !placeSelect || !routeButton || !resetButton || !statusBox || !summaryBox || !routeInfo || !loadingBox) {
+    console.warn("Smart nearby map controls are missing from this page.");
+    return;
+  }
+
+  const lang = getPageLang();
   const pageConfig = getSmartNearbyPageConfig(lang);
   if (!pageConfig) return;
 
@@ -215,6 +243,7 @@ function initSmartNearbyExplorer() {
   let destinationMarker = null;
   let allMarkersLayer = L.layerGroup(); 
   let placesLoadRequestId = 0;
+  let routeLoadRequestId = 0;
 
   const messages = {
     hu: {
@@ -272,6 +301,34 @@ function initSmartNearbyExplorer() {
       resultsCount: "Results count",
       usingFallback: "Results came from fallback search.",
       loading: "Loading..."
+    },
+    de: {
+      chooseCategory: "Wähle eine Kategorie, um nahegelegene Orte zu laden.",
+      chooseSubcategory: "Wähle jetzt eine Unterkategorie.",
+      loadingPlaces: "Orte werden geladen...",
+      cachedPlaces: "Orte wurden aus dem Cache geladen.",
+      placesLoaded: "Orte wurden geladen. Wähle jetzt einen konkreten Ort.",
+      noResults: "In dieser Unterkategorie wurden im Umkreis keine Treffer gefunden.",
+      unavailableSubcategory: "Diese Unterkategorie ist für diesen Ort nicht verfügbar.",
+      fetchError: "Die Orte konnten gerade nicht geladen werden. Bitte versuche es in ein paar Minuten erneut.",
+      routeLoading: "Route wird geplant...",
+      routeError: "Die Fußroute konnte vom Dienst nicht zurückgegeben werden.",
+      selectPlaceFirst: "Wähle zuerst einen konkreten Ort.",
+      categoryPlaceholder: "Kategorie wählen",
+      subcategoryPlaceholder: "Unterkategorie wählen",
+      placePlaceholder: "Ort wählen",
+      notFoundPlaceholder: "Nicht gefunden",
+      firstChooseCategory: "Zuerst Kategorie wählen",
+      firstChooseSubcategory: "Zuerst Unterkategorie wählen",
+      routeTo: "Route zu:",
+      directDistance: "Luftlinie",
+      walkingDistance: "Fußweg",
+      walkingTime: "Gehzeit",
+      resetDone: "Die Karte wurde zurückgesetzt.",
+      selectedPlace: "Ausgewählter Ort:",
+      resultsCount: "Trefferzahl",
+      usingFallback: "Die Treffer stammen aus der Ersatzsuche.",
+      loading: "Laden..."
     }
   };
 
@@ -326,6 +383,32 @@ function initSmartNearbyExplorer() {
         library: "Library",
         theatre: "Theatre / arts",
         bath: "Beach / bath",
+      }
+    },
+    de: {
+      categories: {
+        school: "Schulen",
+        shops: "Geschäfte",
+        food: "Essen",
+        entertainment: "Freizeit",
+        culture: "Kultur"
+      },
+      subcategories: {
+        school_all: "Alle Schulen",
+        university: "Universität / Hochschule",
+        secondary: "Weiterführende Schule / Technikerschule",
+        primary: "Grundschule",
+        grocery: "Lebensmittelgeschäft",
+        mall: "Einkaufszentrum / Kaufhaus",
+        restaurant: "Restaurant",
+        cafe: "Café / Konditorei",
+        fastfood: "Fast Food",
+        pub: "Bar / Pub",
+        cinema: "Kino",
+        museum: "Museum / Ausstellung",
+        library: "Bibliothek",
+        theatre: "Theater / Kunst",
+        bath: "Strand / Bad",
       }
     }
   };
@@ -481,6 +564,7 @@ function initSmartNearbyExplorer() {
 
   categorySelect.addEventListener("change", () => {
     placesLoadRequestId++;
+    routeLoadRequestId++;
     hideLoading();
     clearRoute();
     clearDestinationMarker();
@@ -496,6 +580,7 @@ function initSmartNearbyExplorer() {
   });
 
   subcategorySelect.addEventListener("change", async () => {
+    routeLoadRequestId++;
     clearRoute();
     clearDestinationMarker();
     allMarkersLayer.clearLayers();
@@ -582,6 +667,8 @@ function initSmartNearbyExplorer() {
   });
 
   placeSelect.addEventListener("change", () => {
+    routeLoadRequestId++;
+    hideLoading();
     clearRoute();
     routeInfo.classList.add("hidden");
     routeInfo.innerHTML = "";
@@ -594,7 +681,16 @@ function initSmartNearbyExplorer() {
       return;
     }
 
-    selectedPlace = JSON.parse(placeSelect.value);
+    try {
+      selectedPlace = JSON.parse(placeSelect.value);
+    } catch (error) {
+      selectedPlace = null;
+      routeButton.disabled = true;
+      clearDestinationMarker();
+      summaryBox.classList.add("d-none");
+      setStatus(messages[lang].selectPlaceFirst, "default");
+      return;
+    }
     routeButton.disabled = false;
     showSelectedPlace(selectedPlace);
     setStatus(`${messages[lang].selectedPlace} ${selectedPlace.name}`, "success");
@@ -602,37 +698,48 @@ function initSmartNearbyExplorer() {
 
   routeButton.addEventListener("click", async () => {
     if (!selectedPlace) return;
+    const routeRequestId = ++routeLoadRequestId;
+    const routePlace = selectedPlace;
     showLoading(messages[lang].routeLoading);
     try {
-      const route = await fetchRouteWithRetry(selectedPlace);
-      drawRoute(route, selectedPlace);
+      const route = await fetchRouteWithRetry(routePlace);
+      if (routeRequestId !== routeLoadRequestId || selectedPlace !== routePlace) return;
+      drawRoute(route, routePlace);
       const km = (route.distance / 1000).toFixed(2);
       const minutes = Math.max(1, Math.round((route.distance / 1000) * 12));
       routeInfo.classList.remove("hidden");
       routeInfo.innerHTML = `
-        ${messages[lang].routeTo} <strong>${selectedPlace.name}</strong><br>
-        ${messages[lang].directDistance}: ${selectedPlace.distance} m<br>
+        ${messages[lang].routeTo} <strong>${routePlace.name}</strong><br>
+        ${messages[lang].directDistance}: ${routePlace.distance} m<br>
         ${messages[lang].walkingDistance}: ~${km} km<br>
-        ${messages[lang].walkingTime}: ~${minutes} ${lang === "hu" ? "perc" : "min"}
+        ${messages[lang].walkingTime}: ~${minutes} ${lang === "hu" ? "perc" : lang === "de" ? "Min." : "min"}
       `;
     } catch (error) {
-      console.error(error);
-      setStatus(messages[lang].routeError, "error");
+      if (routeRequestId === routeLoadRequestId) {
+        console.error(error);
+        setStatus(messages[lang].routeError, "error");
+      }
     } finally {
-      hideLoading();
+      if (routeRequestId === routeLoadRequestId) hideLoading();
     }
   });
 
   resetButton.addEventListener("click", () => {
+    placesLoadRequestId++;
+    routeLoadRequestId++;
+    hideLoading();
     categorySelect.value = "";
     subcategorySelect.innerHTML = `<option value="">${messages[lang].firstChooseCategory}</option>`;
     subcategorySelect.disabled = true;
     resetPlaceSelect(messages[lang].firstChooseSubcategory);
+    selectedPlace = null;
+    routeButton.disabled = true;
     allMarkersLayer.clearLayers();
     clearRoute();
     clearDestinationMarker();
     summaryBox.classList.add("d-none");
     routeInfo.classList.add("hidden");
+    routeInfo.innerHTML = "";
     map.fitBounds(radiusCircle.getBounds(), { padding: [30, 30] });
     setStatus(messages[lang].resetDone, "default");
   });

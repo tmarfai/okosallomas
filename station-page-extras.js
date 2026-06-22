@@ -5,6 +5,78 @@
 window.stationPageExtras = {
   balatonaliga: {
     smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8171 Balatonvilágos, Balatonaliga Vasútállomás 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Az állomáson nincs vasúti pénztár."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Jegyváltás jegykiadó automatából lehetséges."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkolás",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Kerékpár",
+            body: "Kerékpártároló található az állomás területén."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8171 Balatonvilágos, Balatonaliga Vasútállomás 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "There is no railway ticket office at the station."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Tickets can be purchased from the ticket vending machine."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Bicycle",
+            body: "Bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    },
     map: {
       image: "balatonaligabelso.jpg",
       source: "terkep_balatonaliga_v2428.pdf",
@@ -349,6 +421,18 @@ window.stationPageExtras = {
           }
         ]
       }
+    },
+    map: {
+      image: "sarbogardbelso.jpg",
+      source: "terkep_sarbogard_v2440.pdf",
+      hu: {
+        title: "Állomástérkép",
+        text: "Sárbogárd állomás áttekintő térképe. Telefonon oldalirányban görgethető."
+      },
+      en: {
+        title: "Station Map",
+        text: "Overview map of Sárbogárd station. On mobile, swipe sideways to view the full map."
+      }
     }
   },
 
@@ -501,6 +585,18 @@ window.stationPageExtras = {
           }
         ]
       }
+    },
+    map: {
+      image: "zamardibelso.jpg",
+      source: "terkep_zamardi_v2421.pdf",
+      hu: {
+        title: "Állomástérkép",
+        text: "Zamárdi állomás áttekintő térképe. Telefonon oldalirányban görgethető."
+      },
+      en: {
+        title: "Station Map",
+        text: "Overview map of Zamárdi station. On mobile, swipe sideways to view the full map."
+      }
     }
   },
 
@@ -566,6 +662,18 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      }
+    },
+    map: {
+      image: "szantodbelso.jpg",
+      source: "terkep_szantod_v2431.pdf",
+      hu: {
+        title: "Állomástérkép",
+        text: "Szántód állomás áttekintő térképe. Telefonon oldalirányban görgethető."
+      },
+      en: {
+        title: "Station Map",
+        text: "Overview map of Szántód station. On mobile, swipe sideways to view the full map."
       }
     }
   },
@@ -641,6 +749,41 @@ window.stationPageExtras = {
             body: "Parking and bicycle parking are available near the station.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/siofok-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV source</a>"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "Bahnhof: 8600 Siófok, Millenium Park 1.<br>Busbahnhof: 8600 Siófok, Fő utca 71-81."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 03:30-23:30.<br>Busschalter: an Werktagen je nach Zeitraum geöffnet, am Wochenende und an Feiertagen geschlossen."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Tickets und Services",
+            body: "Inlands- und internationale Fahrkarten, Fahrkartenautomat, Fundbüro und Gepäckaufbewahrung."
+          },
+          {
+            icon: "bi-clock",
+            title: "Warteraum und WC",
+            body: "Buswartebereich: täglich 05:20-22:30, in der Hauptsaison 05:00-23:45.<br>WC: täglich 07:30-19:00."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Hebelift, barrierefreies WC, akustische Fahrgastinformation und Blindenleitsystem."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Weitere Informationen",
+            body: "Parkplätze und Fahrradabstellplätze befinden sich in der Nähe des Bahnhofs.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/siofok-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV-Quelle</a>"
+          }
+        ]
       }
     },
     map: {
@@ -653,6 +796,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Official MÁV overview map of Siófok railway and bus station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Übersichtsplan des Bahnhofs und Busbahnhofs Siófok. Auf dem Handy kannst du seitlich scrollen."
       }
     }
   },
@@ -803,6 +950,41 @@ window.stationPageExtras = {
             body: "Parking and bicycle parking are available at the station.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/szekszard-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV source</a>"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "Bahnhof: 7100 Szekszárd, Pollack Mihály utca 1-49.<br>Busbahnhof: 7100 Szekszárd, Pollack Mihály utca 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 08:10-17:30.<br>Busschalter: werktags 08:10-12:00 und 12:20-15:30, am Wochenende/Feiertag geschlossen."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Tickets und Services",
+            body: "Inlands- und internationale Fahrkarten, Fahrkartenautomat und Fundbüro."
+          },
+          {
+            icon: "bi-clock",
+            title: "Warteraum und WC",
+            body: "Warteraum: täglich 05:00-22:15.<br>WC: 05:00-20:00."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Barrierefreies WC und Blindenleitsystem für sehbehinderte Fahrgäste."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Weitere Informationen",
+            body: "Parkplätze und Fahrradabstellplätze befinden sich am Bahnhof.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/szekszard-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV-Quelle</a>"
+          }
+        ]
       }
     },
     map: {
@@ -815,6 +997,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Official MÁV overview map of Szekszárd railway and bus station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Übersichtsplan des Bahnhofs und Busbahnhofs Szekszárd. Auf dem Handy kannst du seitlich scrollen."
       }
     }
   }

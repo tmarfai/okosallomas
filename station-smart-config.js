@@ -3,11 +3,13 @@ window.stationSmartConfigs = {
     key: "kaposvar",
     cityName: {
       hu: "Kaposvár",
-      en: "Kaposvár"
+      en: "Kaposvár",
+      de: "Kaposvár"
     },
     stationName: {
       hu: "Kaposvár vasútállomás",
-      en: "Kaposvár railway station"
+      en: "Kaposvár railway station",
+      de: "Bahnhof Kaposvár"
     },
     station: {
       lat: 46.3529,
@@ -44,7 +46,8 @@ window.stationSmartConfigs = {
         matches: ["kultik"],
         text: {
           hu: "A képre kattintva megtekintheti az aktuális moziműsort:",
-          en: "Click the image to view the current movie schedule:"
+          en: "Click the image to view the current movie schedule:",
+          de: "Klicke auf das Bild, um das aktuelle Kinoprogramm anzusehen:"
         },
         url: "https://kaposvarimozi.hu/",
         image: "kultik_logo.png",
@@ -54,7 +57,8 @@ window.stationSmartConfigs = {
         matches: ["csiky gerge"],
         text: {
           hu: "A képre kattintva megtekintheti az aktuális színházműsort:",
-          en: "Click the image to view the current theater program:"
+          en: "Click the image to view the current theater program:",
+          de: "Klicke auf das Bild, um das aktuelle Theaterprogramm anzusehen:"
         },
         url: "https://www.csiky.hu/musor/",
         image: "csikygergelyszinhaz_logo.png",
@@ -64,7 +68,8 @@ window.stationSmartConfigs = {
         matches: ["roxínház", "roxinhaz"],
         text: {
           hu: "A képre kattintva megtekintheti az aktuális műsort és jegyeket:",
-          en: "Click the image to view the current program and tickets:"
+          en: "Click the image to view the current program and tickets:",
+          de: "Klicke auf das Bild, um das aktuelle Programm und Tickets anzusehen:"
         },
         url: "https://roxinhaz.hu/jegyek-musor/",
         image: "roxinhaz_logo.png",
@@ -77,11 +82,13 @@ window.stationSmartConfigs = {
     key: "pecs",
     cityName: {
       hu: "Pécs",
-      en: "Pécs"
+      en: "Pécs",
+      de: "Pécs"
     },
     stationName: {
       hu: "Pécs vasútállomás",
-      en: "Pécs railway station"
+      en: "Pécs railway station",
+      de: "Bahnhof Pécs"
     },
     station: {
       lat: 46.06637,
@@ -158,24 +165,28 @@ window.stationSmartConfigs = {
         matches: ["cinema city"],
         text: {
           hu: "Az aktuális moziműsort itt tudod megnézni:",
-          en: "You can view the current movie schedule here:"
+          en: "You can view the current movie schedule here:",
+          de: "Das aktuelle Kinoprogramm findest du hier:"
         },
         url: "https://www.cinemacity.hu/",
         label: {
           hu: "Cinema City műsor",
-          en: "Cinema City schedule"
+          en: "Cinema City schedule",
+          de: "Cinema City Programm"
         }
       },
       {
         matches: ["pécsi nemzeti", "nemzeti színház"],
         text: {
           hu: "Az aktuális színházműsort itt tudod megnézni:",
-          en: "You can view the current theater program here:"
+          en: "You can view the current theater program here:",
+          de: "Das aktuelle Theaterprogramm findest du hier:"
         },
         url: "https://www.pnsz.hu/",
         label: {
           hu: "Pécsi Nemzeti Színház",
-          en: "Pécs National Theatre"
+          en: "Pécs National Theatre",
+          de: "Nationaltheater Pécs"
         }
       }
     ]
@@ -223,11 +234,13 @@ window.stationSmartConfigs = {
     key: "siofok",
     cityName: {
       hu: "Siófok",
-      en: "Siófok"
+      en: "Siófok",
+      de: "Siófok"
     },
     stationName: {
       hu: "Siófok vasútállomás",
-      en: "Siófok railway station"
+      en: "Siófok railway station",
+      de: "Bahnhof Siófok"
     },
     station: {
       lat: 46.90709781544257,
@@ -249,11 +262,13 @@ window.stationSmartConfigs = {
     key: "balatonlelle",
     cityName: {
       hu: "Balatonlelle",
-      en: "Balatonlelle"
+      en: "Balatonlelle",
+      de: "Balatonlelle"
     },
     stationName: {
       hu: "Balatonlelle vasútállomás",
-      en: "Balatonlelle railway station"
+      en: "Balatonlelle railway station",
+      de: "Bahnhof Balatonlelle"
     },
     station: {
       lat: 46.787369397065426,
@@ -520,11 +535,13 @@ window.stationSmartConfigs = {
     key: "fonyod",
     cityName: {
       hu: "Fonyód",
-      en: "Fonyód"
+      en: "Fonyód",
+      de: "Fonyód"
     },
     stationName: {
       hu: "Fonyód vasútállomás",
-      en: "Fonyód railway station"
+      en: "Fonyód railway station",
+      de: "Bahnhof Fonyód"
     },
     station: {
       lat: 46.74967576545669,
@@ -572,11 +589,13 @@ window.stationSmartConfigs = {
     key: "szekszard",
     cityName: {
       hu: "Szekszárd",
-      en: "Szekszárd"
+      en: "Szekszárd",
+      de: "Szekszárd"
     },
     stationName: {
       hu: "Szekszárd vasútállomás",
-      en: "Szekszárd railway station"
+      en: "Szekszárd railway station",
+      de: "Bahnhof Szekszárd"
     },
     station: {
       lat: 46.34836988984216,

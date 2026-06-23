@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fonyód Audioguide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css?v=20260608-1204"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body data-station-key="fonyod">
+  <header class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Fonyód – Audioguide</h1>
+      <p class="lead">Entdecke Fonyód mit einem Klick!</p>
+    </div>
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='fonyod.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='fonyod-en.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='fonyod-de.html'">
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Warum lohnt sich ein Besuch in Fonyód?</h2>
+      <p>Fonyód ist ein wichtiger Bahnknotenpunkt am südlichen Balatonufer und ein guter Ausgangspunkt für Strände, Aussichtspunkte und Ausflüge Richtung Badacsony...</p>
+    </section>
+
+    <section class="text-center">
+      <div id="controlsContainer">
+        <button id="playPauseButton" class="btn btn-lg btn-primary">
+          <i class="bi bi-volume-up-fill me-2"></i> Jetzt anhören!
+        </button>
+
+        <button id="restartButton" class="btn btn-sm" style="display:none;">Neu starten</button>
+      </div>
+
+      <audio id="hang" preload="metadata">
+        <source src="fonyod-en.mp3" type="audio/mpeg" />
+        Dein Browser unterstützt die Audiowiedergabe nicht.
+      </audio>
+    </section>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body p-2"> <img src="fonyodallomaskep.jpg" alt="Fonyód Bahnhof" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  </div>
+</div>
+
+  </main>
+
+  <div class="card my-4" style="max-width: 600px; margin: auto;">
+    <div class="card-body text-center">
+      <h5 class="card-title">Fonyód Bahnhof</h5>
+
+      <!-- Map -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1366.8860464352283!2d17.55846251560088!3d46.74967576545669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sen!4v1750149450610!5m2!1sen!2sen"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <!-- Live schedule button -->
+      <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+        Live-Zugbewegungen ansehen
+      </a>
+    </div>
+  </div>
+
+  <div class="card text-center mt-4" id="idojaras-fonyod">
+    <div class="card-body">
+      <h5 class="card-title">Fonyód Wetter</h5>
+      <!-- JS will generate all data rows -->
+    </div>
+  </div>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Weitere Ziele in der Umgebung</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="panoramastrand.jpg" class="card-img-top" alt="Panoráma Strand">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Panoráma Strand</h5>
+            <p class="card-text">Several excellent, well-maintained free beaches can be found along the shore, such as Bélatelep or Panoráma Strand, with lots of green spaces and shady trees. Ideal for families or a peaceful swim.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Fonyódi strand" target="_blank" class="btn btn-primary mt-auto">Route anzeigen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="kriptavilla.jpg" class="card-img-top" alt="Kripta Villa">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Kripta Villa</h5>
+            <p class="card-text">Ein besonderer, symbolischer Ort im Herzen der Stadt, der mit einer berührenden Liebesgeschichte verbunden ist.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Kripta villa" target="_blank" class="btn btn-primary mt-auto">Route anzeigen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="badacsony.jpg" class="card-img-top" alt="Badacsony">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Badacsony</h5>
+            <p class="card-text">Von Fonyód erreichst du Badacsony bequem mit der Fähre. Der Ort ist bekannt für Wein, Basaltformationen und schöne Ausblicke.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Badacsony" target="_blank" class="btn btn-primary mt-auto">Route anzeigen</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Nützliche Informationen zum Bahnhof</h2>
+
+    <div class="station-info">
+      <div class="info-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <div>
+          <h6>Adresse</h6>
+          <p>Ady Endre utca 2.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-cash-coin"></i>
+        <div>
+          <h6>Fahrkartenschalter und Tickets</h6>
+          <p><strong>Bahnschalter:</strong> Mon-Sun 05:55-20:50; from 15 June 2026 06:40-19:50<br><strong>Internationaler Schalter:</strong> Mon-Sun 08:00-20:50; from 15 June 2026 08:30-19:50<br>Maschinell ausgegebene Tickets und Fahrkartenautomat.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-clock"></i>
+        <div>
+          <h6>Warteraum und WC</h6>
+          <p>Warteraum und WC sind auf dem Bahnhofsplan markiert.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-person-wheelchair"></i>
+        <div>
+          <h6>Barrierefreiheit</h6>
+          <p>Hilfe mit Hebelift ist am Bahnhof jederzeit verfügbar.<br>Ein barrierefreies WC ist vorhanden.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-telephone"></i>
+        <div>
+          <h6>Kontakt</h6>
+          <p>MÁVDIREKT: +36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="bi bi-info-circle"></i>
+        <div>
+          <h6>Weitere Services</h6>
+          <p>Fundsachen im Bahnhofsgebäude während der Öffnungszeiten des Fahrkartenschalters.<br>Parkplätze und Fahrradabstellplätze sind am Bahnhof vorhanden.<br>Gruppenreise-Organisation: Nagykanizsa.<br><a href="https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/fonyod-vasutallomas" target="_blank" rel="noopener">Quelle: MÁV-Gruppe</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="container my-5">
+  <div class="smart-nearby-section">
+    <div class="smart-nearby-header text-center">
+      <h2 class="mb-3">Interaktive Karte nahegelegener Orte</h2>
+      <p class="smart-nearby-intro">
+        Wähle eine Hauptkategorie, dann eine Unterkategorie und anschließend einen konkreten Ort.
+        Die Karte zeigt den ausgewählten Ort, und du kannst eine Fußroute vom Bahnhof anfordern.
+      </p>
+    </div>
+
+    <div class="smart-nearby-controls">
+      <div class="smart-control-card">
+        <label for="smartCategorySelect" class="form-label">Hauptkategorie</label>
+        <select id="smartCategorySelect" class="form-select">
+          <option value="">Kategorie wählen</option>
+        </select>
+      </div>
+
+      <div class="smart-control-card">
+        <label for="smartSubcategorySelect" class="form-label">Unterkategorie</label>
+        <select id="smartSubcategorySelect" class="form-select" disabled>
+          <option value="">Kategorie wählen first</option>
+        </select>
+      </div>
+
+      <div class="smart-control-card smart-control-card-wide">
+        <label for="smartPlaceSelect" class="form-label">Konkreter Ort</label>
+        <select id="smartPlaceSelect" class="form-select" disabled>
+          <option value="">Zuerst Unterkategorie wählen</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="smart-nearby-actions">
+      <button id="smartRouteButton" class="btn btn-primary" disabled>
+        <i class="bi bi-sign-turn-right-fill me-2"></i>Route vom Bahnhof
+      </button>
+      <button id="smartResetButton" class="btn btn-outline-secondary" type="button">
+        <i class="bi bi-arrow-counterclockwise me-2"></i>Zurücksetzen
+      </button>
+    </div>
+
+    <div id="smartNearbyStatus" class="smart-nearby-status" aria-live="polite">
+      Wähle eine Kategorie, um nahegelegene Orte zu laden.
+    </div>
+
+    <div id="smartNearbySummary" class="smart-nearby-summary d-none"></div>
+
+    <div class="smart-nearby-map-shell">
+      <div id="smartNearbyMap"></div>
+      <div id="smartNearbyLoading" class="smart-nearby-loading d-none">
+        <div class="spinner"></div>
+        <div class="loading-text">Laden...</div>
+      </div>
+    </div>
+
+    <div id="smartNearbyRouteInfo" class="route-info hidden"></div>
+  </div>
+</section>
+
+  <section class="container my-5">
+    <div class="station-inner-map-section">
+      <h2 class="text-center mb-3">Bahnhofsplan</h2>
+      <p class="text-center station-inner-map-text">
+        Der Plan kann vergrößert und auf dem Handy seitlich verschoben werden.
+      </p>
+
+      <div class="station-inner-map-scroll">
+        <img
+          src="fonyodbelso.jpg?v=20260611-0917"
+          alt="Bahnhofsplan Fonyód"
+          class="station-inner-map-img"
+        >
+      </div>
+    </div>
+  </section>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV Logo" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Fonyód Info</small>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="station-smart-config.js?v=20260622-osm-de-fix1"></script>
+<script src="script.js?v=20260622-osm-de-fix1"></script>
+</body>
+</html>

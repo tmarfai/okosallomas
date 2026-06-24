@@ -450,7 +450,7 @@ function initSmartNearbyExplorer() {
     shops: {
       subcategories: {
         grocery: {
-          icon: "??",
+          icon: "\u{1F6D2}",
           filters: [
             { key: "shop", values: ["supermarket", "convenience", "grocery", "general", "kiosk", "deli", "farm", "greengrocer", "butcher", "bakery", "beverages"] },
             { key: "amenity", values: ["marketplace"] }

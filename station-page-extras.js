@@ -198,31 +198,31 @@ window.stationPageExtras = {
     smartNearby: true,
     info: {
       hu: {
-        title: "Hasznos információk az állomásról",
+        title: "Hasznos inform?ci?k az ?llom?sr?l",
         cards: [
           {
             icon: "bi-geo-alt-fill",
-            title: "Cím",
-            body: "8636 Balatonszemes, Állomás tér 1."
+            title: "C?m",
+            body: "8636 Balatonszemes, ?llom?s t?r 1."
           },
           {
             icon: "bi-ticket-perforated",
-            title: "Jegyvásárlás",
-            body: "Az állomáson nincs pénztár, jegykiadó automata elérhető."
+            title: "Jegyv?s?rl?s",
+            body: "Az ?llom?son nincs p?nzt?r, jegykiad? automata el?rhet?."
           },
           {
             icon: "bi-car-front-fill",
-            title: "Parkolás",
-            body: "Parkoló található az állomás közelében."
+            title: "Parkol?s",
+            body: "Parkol? tal?lhat? az ?llom?s k?zel?ben."
           },
           {
             icon: "bi-bicycle",
-            title: "Kerékpár",
-            body: "Kerékpártároló található az állomás területén."
+            title: "Ker?kp?r",
+            body: "Ker?kp?rt?rol? tal?lhat? az ?llom?s ter?let?n."
           },
           {
             icon: "bi-telephone",
-            title: "MÁVDIREKT",
+            title: "M?VDIREKT",
             body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
           }
         ]
@@ -233,7 +233,7 @@ window.stationPageExtras = {
           {
             icon: "bi-geo-alt-fill",
             title: "Address",
-            body: "8636 Balatonszemes, Állomás tér 1."
+            body: "8636 Balatonszemes, ?llom?s t?r 1."
           },
           {
             icon: "bi-ticket-perforated",
@@ -252,8 +252,38 @@ window.stationPageExtras = {
           },
           {
             icon: "bi-telephone",
-            title: "MÁVDIREKT",
+            title: "M?VDIREKT",
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "N?tzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8636 Balatonszemes, ?llom?s t?r 1."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticketkauf",
+            body: "Der Bahnhof wird ohne Fahrkartenschalter betrieben, ein Fahrkartenautomat ist vorhanden."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken",
+            body: "Parkpl?tze befinden sich in der N?he des Bahnhofs."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Fahrrad",
+            body: "Fahrradabstellpl?tze sind auf dem Bahnhofsgel?nde vorhanden."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M?VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
           }
         ]
       }
@@ -262,12 +292,143 @@ window.stationPageExtras = {
       image: "balatonszemesbelso.jpg",
       source: "terkep_balatonszemes_v2442.pdf",
       hu: {
-        title: "Állomástérkép",
-        text: "A MÁV hivatalos áttekintő térképe Balatonszemes állomásáról. Telefonon oldalirányban görgethető."
+        title: "?llom?st?rk?p",
+        text: "A M?V hivatalos ?ttekint? t?rk?pe Balatonszemes ?llom?s?r?l. Telefonon oldalir?nyban g?rgethet?."
       },
       en: {
         title: "Station Map",
-        text: "Official MÁV overview map of Balatonszemes station. On mobile, swipe sideways to view the full map."
+        text: "Official M?V overview map of Balatonszemes station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Offizieller M?V-?bersichtsplan des Bahnhofs Balatonszemes. Auf dem Handy kann der Plan seitlich verschoben werden."
+      }
+    }
+  },
+
+  balatonszentgyorgy: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform?ci?k az ?llom?sr?l",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "C?m",
+            body: "8710 Balatonszentgy?rgy, Vas?t u. 9."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "P?nzt?r",
+            body: "Vas?ti p?nzt?r: H-V 03:00-22:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyv?s?rl?s",
+            body: "Belf?ldi jegyelad?s ?s g?pi menetjegykiad?s."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Akad?lymentess?g",
+            body: "Emel? mindig van az ?llom?son, akad?lymentes WC tal?lhat?."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkol?s ?s ker?kp?r",
+            body: "Parkol? tal?lhat? az ?llom?s k?zel?ben, ker?kp?rt?rol? az ?llom?s ter?let?n."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M?VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8710 Balatonszentgy?rgy, Vas?t u. 9."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily 03:00-22:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales and machine-issued tickets are available."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Accessibility",
+            body: "A lift is always available at the station, and an accessible restroom is provided."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking and Bicycle",
+            body: "Parking is available near the station, and bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M?VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "N?tzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8710 Balatonszentgy?rgy, Vas?t u. 9."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Fahrkartenschalter: t?glich 03:00-22:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticketkauf",
+            body: "Inlandsfahrkartenverkauf und maschinelle Fahrkartenausgabe sind verf?gbar."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Ein Hublift ist jederzeit am Bahnhof verf?gbar, au?erdem gibt es ein barrierefreies WC."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken und Fahrrad",
+            body: "Parkpl?tze befinden sich in der N?he des Bahnhofs, Fahrradabstellpl?tze auf dem Bahnhofsgel?nde."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M?VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    },
+    map: {
+      image: "balatonszentgyorgybelso.jpg",
+      source: "terkep_balatonszentgyorgy_v2422.pdf",
+      hu: {
+        title: "?llom?st?rk?p",
+        text: "A M?V hivatalos ?ttekint? t?rk?pe Balatonszentgy?rgy ?llom?s?r?l. Telefonon oldalir?nyban g?rgethet?."
+      },
+      en: {
+        title: "Station Map",
+        text: "Official M?V overview map of Balatonszentgy?rgy station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Offizieller M?V-?bersichtsplan des Bahnhofs Balatonszentgy?rgy. Auf dem Handy kann der Plan seitlich verschoben werden."
       }
     }
   },

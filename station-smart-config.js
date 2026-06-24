@@ -481,11 +481,13 @@ window.stationSmartConfigs = {
     key: "balatonszemes",
     cityName: {
       hu: "Balatonszemes",
-      en: "Balatonszemes"
+      en: "Balatonszemes",
+      de: "Balatonszemes"
     },
     stationName: {
       hu: "Balatonszemes vasútállomás",
-      en: "Balatonszemes railway station"
+      en: "Balatonszemes railway station",
+      de: "Bahnhof Balatonszemes"
     },
     station: {
       lat: 46.811329345053416,
@@ -496,6 +498,36 @@ window.stationSmartConfigs = {
       school_all: ["iskola Balatonszemes"],
       university: ["egyetem Balatonszemes"],
       bath: ["strand Balatonszemes", "szabadstrand Balatonszemes"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonszentgyorgy: {
+    key: "balatonszentgyorgy",
+    cityName: {
+      hu: "Balatonszentgyörgy",
+      en: "Balatonszentgyörgy",
+      de: "Balatonszentgyörgy"
+    },
+    stationName: {
+      hu: "Balatonszentgyörgy vasútállomás",
+      en: "Balatonszentgyörgy railway station",
+      de: "Bahnhof Balatonszentgyörgy"
+    },
+    station: {
+      lat: 46.69190661386738,
+      lon: 17.288625736225875
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonszentgyörgy"],
+      university: ["egyetem Balatonszentgyörgy"],
+      bath: ["strand Balatonszentgyörgy", "Balaton strand Balatonszentgyörgy"]
     },
     unavailableSubcategories: {
       school: ["university"],

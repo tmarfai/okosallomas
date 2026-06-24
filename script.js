@@ -236,7 +236,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v22`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v24`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -450,9 +450,12 @@ function initSmartNearbyExplorer() {
     shops: {
       subcategories: {
         grocery: {
-          icon: "🛒",
-          filters: [{ key: "shop", values: ["supermarket", "convenience", "grocery"] }],
-          matcher: place => hasName(place)
+          icon: "??",
+          filters: [
+            { key: "shop", values: ["supermarket", "convenience", "grocery", "general", "kiosk", "deli", "farm", "greengrocer", "butcher", "bakery", "beverages"] },
+            { key: "amenity", values: ["marketplace"] }
+          ],
+          matcher: place => isGroceryPlace(place)
         },
         mall: {
           icon: "🛍️",
@@ -797,7 +800,8 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
   const cached = readCache(cacheKey);
   if (cached) {
-    const places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, cached);
+    const filteredCached = cached.filter(place => !subConfig.matcher || subConfig.matcher(place));
+    const places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, filteredCached);
     return { places, fromCache: true, fromFallback: false };
   }
 
@@ -869,6 +873,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   }
 
   function shouldEnrichWithFallback(categoryKey, subcategoryKey, places) {
+    if (categoryKey === "shops" && subcategoryKey === "grocery") return places.length < 5;
     if (categoryKey !== "school") return false;
     if (subcategoryKey === "school_all") return places.length < 10;
     if (subcategoryKey === "secondary" || subcategoryKey === "primary") return places.length < 5;
@@ -976,7 +981,17 @@ async function loadPlaces(categoryKey, subcategoryKey) {
         `${cityName} szakképző`
       ],
       primary: [`általános iskola ${cityName}`, `${cityName} általános iskola`, `alapfokú iskola ${cityName}`, `primary school ${cityName}`],
-      grocery: [`élelmiszerbolt ${cityName}`, `supermarket ${cityName}`],
+      grocery: [
+        `\u00e9lelmiszerbolt ${cityName}`,
+        `ABC ${cityName}`,
+        `Coop ${cityName}`,
+        `CBA ${cityName}`,
+        `Pr\u00edma ${cityName}`,
+        `delik\u00e1tesz ${cityName}`,
+        `vegyesbolt ${cityName}`,
+        `kisbolt ${cityName}`,
+        `supermarket ${cityName}`
+      ],
       mall: [`bevásárlóközpont ${cityName}`],
       restaurant: [`étterem ${cityName}`],
       cafe: [`kávézó ${cityName}`, `cukrászda ${cityName}`],
@@ -1301,6 +1316,68 @@ function showSelectedPlace(place) {
     if (["road", "street", "residential", "pedestrian", "service", "footway", "cycleway"].includes(type)) return true;
     if (["road", "street"].includes(addresstype)) return true;
     return /\b(utca|ut|ter|koz|setany|sor|dulo|korut|rakpart|fasor|lepcso)\b/.test(name);
+  }
+  function isGroceryPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+
+    const tags = p.tags || {};
+    const shop = normalizeText(tags.shop || "");
+    const amenity = normalizeText(tags.amenity || "");
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    const text = normalizeText(`${p.name || ""} ${p.displayName || ""} ${Object.values(tags).join(" ")}`);
+
+    const hardExcludedShopTypes = [
+      "hardware",
+      "doityourself",
+      "building_materials",
+      "construction",
+      "trade",
+      "paint",
+      "furniture",
+      "bookmaker",
+      "books",
+      "stationery",
+      "copyshop",
+      "newsagent",
+      "tobacco",
+      "florist",
+      "garden_centre",
+      "car",
+      "car_parts",
+      "bicycle",
+      "clothes",
+      "shoes",
+      "beauty",
+      "hairdresser",
+      "chemist",
+      "optician",
+      "mobile_phone"
+    ];
+    if (hardExcludedShopTypes.includes(shop)) return false;
+
+    const excludedNamePattern = /\b(barkacs|barkacsbolt|epitoanyag|epitkezes|tuzep|festek|butor|konyv|papir|iroszer|papirbolt|dohany|trafik|virag|kerteszet|auto|autos|alkatresz|bicikli|ruha|cipo|fodrasz|kozmetika|gyogyszertar|patika|optika|mobil|telefon|cukraszda|fagylaltozo|tekepalya)\b/;
+    if (excludedNamePattern.test(text)) return false;
+
+    const acceptedShopTypes = [
+      "supermarket",
+      "convenience",
+      "grocery",
+      "general",
+      "kiosk",
+      "deli",
+      "farm",
+      "greengrocer",
+      "butcher",
+      "bakery",
+      "beverages"
+    ];
+    if (acceptedShopTypes.includes(shop)) return true;
+    if (amenity === "marketplace") return true;
+    if (osmClass === "shop" && acceptedShopTypes.includes(type)) return true;
+    if (osmClass === "amenity" && type === "marketplace") return true;
+
+    return /\b(abc|coop|cba|prima|re\\u00e1l|real|spar|tesco|aldi|lidl|penny|elelmiszer|elelmiszerbolt|kisbolt|vegyesbolt|delikatesz|csemege|diszkont|market|mini market|minimarket|supermarket|zoldseg|zoldseges|pekseg|husbolt|italbolt|bevasarlo)\b/.test(text);
   }
   function isCinemaPlace(p) {
     if (!hasName(p) || isRoadLikePlace(p)) return false;

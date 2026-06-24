@@ -529,6 +529,15 @@ window.stationSmartConfigs = {
       university: ["egyetem Balatonsz\u00e1rsz\u00f3"],
       bath: ["strand Balatonsz\u00e1rsz\u00f3", "szabadstrand Balatonsz\u00e1rsz\u00f3", "M\u00f3ricz utcai szabadstrand"]
     },
+    manualPlaces: {
+      shops: {
+        grocery: [
+          { name: "ABC \u00e9lelmiszer", lat: 46.8314685, lon: 17.8317128 },
+          { name: "ABC", lat: 46.8236466, lon: 17.8368335 },
+          { name: "Coop \u00e1ruh\u00e1z", lat: 46.8261051, lon: 17.8334923 }
+        ]
+      }
+    },
     unavailableSubcategories: {
       school: ["university"],
       entertainment: ["cinema"]

@@ -1006,6 +1006,260 @@ window.stationPageExtras = {
     }
   },
 
+  balatonfoldvar: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8623 Balatonföldvár, Vak Bottyán utca 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Vasúti pénztár: H-V és ünnepnapokon 07:00-18:35."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Talált tárgyak",
+            body: "Talált tárgyak ügyintézése az állomás épületében, a pénztár nyitvatartásával megegyezően."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkolás",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8623 Balatonföldvár, Vak Bottyán utca 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily and on public holidays 07:00-18:35."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Lost Property",
+            body: "Lost property service is available in the station building during ticket office opening hours."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8623 Balatonföldvár, Vak Bottyán utca 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich und an Feiertagen 07:00-18:35."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticketkauf",
+            body: "Inlandsfahrkarten, maschinell ausgegebene Tickets und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Fundsachen",
+            body: "Fundsachen-Service im Bahnhofsgebäude während der Öffnungszeiten des Fahrkartenschalters."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    },
+    map: {
+      image: "balatonfoldvarbelso.jpg",
+      source: "terkep_balatonfoldvar_v2427.pdf",
+      hu: {
+        title: "Állomástérkép",
+        text: "A MÁV hivatalos áttekintő térképe Balatonföldvár állomásáról. Telefonon oldalirányban görgethető."
+      },
+      en: {
+        title: "Station Map",
+        text: "Official MÁV overview map of Balatonföldvár station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Offizieller MÁV-Übersichtsplan des Bahnhofs Balatonföldvár. Auf dem Handy kann der Plan seitlich verschoben werden."
+      }
+    }
+  },
+
+  balatonbereny: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8649 Balatonberény, Balaton u. 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Az állomás jegypénztár nélkül működik."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Csak jegykiadó automata érhető el."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkolás",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Továbbiak",
+            body: "<a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/balatonbereny\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8649 Balatonberény, Balaton u. 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "The station operates without a ticket office."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Only a ticket vending machine is available."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          },
+          {
+            icon: "bi-info-circle",
+            title: "More",
+            body: "<a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/balatonbereny\" target=\"_blank\" rel=\"noopener\">MÁV source</a>"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8649 Balatonberény, Balaton u. 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Der Bahnhof wird ohne Fahrkartenschalter betrieben."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticketkauf",
+            body: "Es steht nur ein Fahrkartenautomat zur Verfügung."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Weitere Informationen",
+            body: "<a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/balatonbereny\" target=\"_blank\" rel=\"noopener\">Quelle: MÁV-Gruppe</a>"
+          }
+        ]
+      }
+    },
+    map: {
+      image: "balatonberenybelso.jpg",
+      source: "terkep_balatonbereny_v2438.pdf",
+      hu: {
+        title: "Állomástérkép",
+        text: "A MÁV hivatalos áttekintő térképe Balatonberény állomásáról. Telefonon oldalirányban görgethető."
+      },
+      en: {
+        title: "Station Map",
+        text: "Official MÁV overview map of Balatonberény station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Offizieller MÁV-Übersichtsplan des Bahnhofs Balatonberény. Auf dem Handy kann der Plan seitlich verschoben werden."
+      }
+    }
+  },
+
   szekszard: {
     info: {
       hu: {

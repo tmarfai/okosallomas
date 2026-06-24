@@ -637,5 +637,62 @@ window.stationSmartConfigs = {
     },
     forbiddenNames: [],
     specialLinks: []
+  },
+
+  balatonfoldvar: {
+    key: "balatonfoldvar",
+    cityName: {
+      hu: "Balatonföldvár",
+      en: "Balatonföldvár",
+      de: "Balatonföldvár"
+    },
+    stationName: {
+      hu: "Balatonföldvár vasútállomás",
+      en: "Balatonföldvár railway station",
+      de: "Bahnhof Balatonföldvár"
+    },
+    station: {
+      lat: 46.853451495190704,
+      lon: 17.880767645163562
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonföldvár"],
+      university: ["egyetem Balatonföldvár"]
+    },
+    unavailableSubcategories: {
+      school: ["university"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonbereny: {
+    key: "balatonbereny",
+    cityName: {
+      hu: "Balatonberény",
+      en: "Balatonberény",
+      de: "Balatonberény"
+    },
+    stationName: {
+      hu: "Balatonberény vasútállomás",
+      en: "Balatonberény railway station",
+      de: "Bahnhof Balatonberény"
+    },
+    station: {
+      lat: 46.71373166309745,
+      lon: 17.317126422183236
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonberény"],
+      university: ["egyetem Balatonberény"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
   }
 };

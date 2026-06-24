@@ -879,6 +879,133 @@ window.stationPageExtras = {
     }
   },
 
+  villany: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "7773 Villány, Ady fasor 9/6."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Az állomás jegypénztár nélkül működik."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkolás",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Kerékpár",
+            body: "Kerékpártároló található az állomás területén."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Továbbiak",
+            body: "Csoportos utazások szervezése: Pécs.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/villany\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "7773 Villány, Ady fasor 9/6."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "The station operates without a ticket office."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Bicycle",
+            body: "Bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          },
+          {
+            icon: "bi-info-circle",
+            title: "More",
+            body: "Group travel organizer: Pécs.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/villany\" target=\"_blank\" rel=\"noopener\">MÁV source</a>"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7773 Villány, Ady fasor 9/6."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Der Bahnhof wird ohne Fahrkartenschalter betrieben."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Fahrrad",
+            body: "Fahrradabstellplätze sind auf dem Bahnhofsgelände vorhanden."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Weitere Informationen",
+            body: "Organisation von Gruppenreisen: Pécs.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/villany\" target=\"_blank\" rel=\"noopener\">Quelle: MÁV-Gruppe</a>"
+          }
+        ]
+      }
+    },
+    map: {
+      image: "villanybelso.jpg",
+      source: "terkep_villany_v2446.pdf",
+      hu: {
+        title: "Állomástérkép",
+        text: "A MÁV hivatalos áttekintő térképe Villány állomásáról. Telefonon oldalirányban görgethető."
+      },
+      en: {
+        title: "Station Map",
+        text: "Official MÁV overview map of Villány station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Offizieller MÁV-Übersichtsplan des Bahnhofs Villány. Auf dem Handy kann der Plan seitlich verschoben werden."
+      }
+    }
+  },
+
   szekszard: {
     info: {
       hu: {

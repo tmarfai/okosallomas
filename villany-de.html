@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Villány Audio Guide</title>
+  <title>Villány Audioguide</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <link rel="stylesheet" href="style.css"/>
@@ -13,44 +13,44 @@
 <body data-station-key="villany">
 <header class="bg-dark text-white text-center py-5 position-relative">
   <div class="container">
-    <h1 class="display-4">Villány – Audio Guide</h1>
-    <p class="lead">Discover Villány with a single click!</p>
+    <h1 class="display-4">Villány - Audioguide</h1>
+    <p class="lead">Entdecke Villány mit einem Klick!</p>
   </div>
   <div class="position-absolute" style="top: 15px; right: 15px;">
-    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Hungarian"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='villany.html'">
-    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-switcher"style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='villany-en.html'">
-    <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-switcher"style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='villany-de.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Ungarisch" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='villany.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='villany-en.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='villany-de.html'">
   </div>
 </header>
 
 <main class="container py-5">
   <section class="mb-5">
-    <h2>Why should you visit Villány?</h2>
-    <p>Villány is one of Hungary's most famous wine regions, renowned for its excellent red wines...</p>
+    <h2>Warum lohnt sich ein Besuch in Villány?</h2>
+    <p>Villány ist eines der bekanntesten Weinbaugebiete Ungarns und besonders für seine kräftigen Rotweine berühmt...</p>
   </section>
 
   <section class="text-center">
     <button id="playPauseButton" class="btn btn-lg btn-primary">
-      <i class="bi bi-volume-up-fill me-2"></i> Listen
+      <i class="bi bi-volume-up-fill me-2"></i> Jetzt anhören!
     </button>
 
-    <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Neu starten</button>
     <audio id="hang" preload="metadata">
       <source src="villany-en.mp3" type="audio/mpeg" />
-      Your browser does not support audio playback.
+      Dein Browser unterstützt die Audiowiedergabe nicht.
     </audio>
   </section>
 
-<div class="card my-4" style="max-width: 600px; margin: auto;">
-  <div class="card-body p-2"> <img src="villanyallomaskep.jpg" alt="Villány railway station" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  <div class="card my-4" style="max-width: 600px; margin: auto;">
+    <div class="card-body p-2">
+      <img src="villanyallomaskep.jpg" alt="Bahnhof Villány" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+    </div>
   </div>
-</div>
-
 </main>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
   <div class="card-body text-center">
-    <h5 class="card-title">Villány railway station</h5>
+    <h5 class="card-title">Bahnhof Villány</h5>
 
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5555.457857090493!2d18.44581815816651!3d45.87673263885565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749540898733!5m2!1shu!2shu"
@@ -63,39 +63,39 @@
     </iframe>
 
     <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
-      Check live train movements
+      Live-Zugbewegungen ansehen
     </a>
   </div>
 </div>
 
 <div class="card text-center mt-4" id="idojaras-villany">
   <div class="card-body">
-    <h5 class="card-title">Villány weather</h5>
+    <h5 class="card-title">Villány Wetter</h5>
   </div>
 </div>
 
 <section class="container my-5">
-  <h2 class="text-center mb-4">Other destinations nearby</h2>
+  <h2 class="text-center mb-4">Weitere Ziele in der Umgebung</h2>
   <div class="row row-cols-1 row-cols-md-3 g-4">
 
     <div class="col">
       <div class="card h-100 shadow-sm">
-        <img src="villany.jpg" class="card-img-top" alt="Villány wine region">
+        <img src="villany.jpg" class="card-img-top" alt="Weinbaugebiet Villány">
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Villány wine region</h5>
-          <p class="card-text">One of Hungary's most developed wine regions. A glass of Villány Cabernet Franc in the sunset is more than wine: it is a feeling.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Villány" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+          <h5 class="card-title">Weinbaugebiet Villány</h5>
+          <p class="card-text">Eines der am besten entwickelten Weinbaugebiete Ungarns. Ein Glas Villány Cabernet Franc im Abendlicht ist mehr als Wein: Es ist ein Lebensgefühl.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Villány" target="_blank" class="btn btn-primary mt-auto">Route anzeigen</a>
         </div>
       </div>
     </div>
 
     <div class="col">
       <div class="card h-100 shadow-sm">
-        <img src="siklosivar.jpg" class="card-img-top" alt="Siklós Castle">
+        <img src="siklosivar.jpg" class="card-img-top" alt="Burg Siklós">
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Siklós Castle</h5>
-          <p class="card-text">A medieval castle with exhibitions, waxworks, and a city sightseeing train. One of Hungary’s most beautiful castles.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Siklósi vár" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+          <h5 class="card-title">Burg Siklós</h5>
+          <p class="card-text">Eine mittelalterliche Burg mit Ausstellungen, Panoptikum und Stadtbesichtigungszug. Sie gehört zu den schönsten Burgen Ungarns.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Siklósi vár" target="_blank" class="btn btn-primary mt-auto">Route anzeigen</a>
         </div>
       </div>
     </div>
@@ -105,8 +105,8 @@
         <img src="harkany.jpg" class="card-img-top" alt="Harkány">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">Harkány</h5>
-          <p class="card-text">Famous for its spa and wellness center. Ideal not only for hiking and wine tasting, but also for relaxation.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Harkányi fürdő" target="_blank" class="btn btn-primary mt-auto">Get directions</a>
+          <p class="card-text">Bekannt für sein Heilbad und Wellnesszentrum. Ideal nicht nur für Ausflüge und Weinverkostungen, sondern auch zum Entspannen.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Harkányi fürdő" target="_blank" class="btn btn-primary mt-auto">Route anzeigen</a>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
 <div id="stationExtrasMount"></div>
 
 <div class="text-center my-4">
-  <img src="mavlogo.png" alt="MÁV logo" class="img-fluid" style="max-width: 200px;">
+  <img src="mavlogo.png" alt="MÁV Logo" class="img-fluid" style="max-width: 200px;">
 </div>
 
 <footer class="bg-light text-center py-3">

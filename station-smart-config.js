@@ -608,5 +608,34 @@ window.stationSmartConfigs = {
     },
     forbiddenNames: [],
     specialLinks: []
+  },
+
+  villany: {
+    key: "villany",
+    cityName: {
+      hu: "Villány",
+      en: "Villány",
+      de: "Villány"
+    },
+    stationName: {
+      hu: "Villány vasútállomás",
+      en: "Villány railway station",
+      de: "Bahnhof Villány"
+    },
+    station: {
+      lat: 45.87673263885565,
+      lon: 18.44581815816651
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Villány"],
+      university: ["egyetem Villány"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
   }
 };

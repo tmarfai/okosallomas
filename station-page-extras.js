@@ -194,6 +194,101 @@ window.stationPageExtras = {
     }
   },
 
+  gyekenyes: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          { icon: "bi-geo-alt-fill", title: "C\u00edm", body: "8852 Z\u00e1k\u00e1ny, Zr\u00ednyi t\u00e9r 38." },
+          { icon: "bi-cash-coin", title: "P\u00e9nzt\u00e1r", body: "Vas\u00fati p\u00e9nzt\u00e1r: H-V 03:20-23:20. Nemzetk\u00f6zi p\u00e9nzt\u00e1r: H-V 03:20-23:20." },
+          { icon: "bi-ticket-perforated", title: "Jegyv\u00e1s\u00e1rl\u00e1s", body: "Belf\u00f6ldi \u00e9s nemzetk\u00f6zi jegyelad\u00e1s, g\u00e9pi menetjegykiad\u00e1s." },
+          { icon: "bi-person-wheelchair", title: "Akad\u00e1lymentess\u00e9g", body: "Emel\u0151 mindig van az \u00e1llom\u00e1son, akad\u00e1lymentes WC tal\u00e1lhat\u00f3." },
+          { icon: "bi-info-circle", title: "Tal\u00e1lt t\u00e1rgyak", body: "Tal\u00e1lt t\u00e1rgyak \u00fcgyint\u00e9z\u00e9se a p\u00e9nzt\u00e1rral megegyez\u0151 nyitvatart\u00e1ssal, az \u00e1llom\u00e1s \u00e9p\u00fclet\u00e9ben." },
+          { icon: "bi-car-front-fill", title: "Parkol\u00e1s \u00e9s ker\u00e9kp\u00e1r", body: "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben, ker\u00e9kp\u00e1rt\u00e1rol\u00f3 az \u00e1llom\u00e1s ter\u00fclet\u00e9n." },
+          { icon: "bi-telephone", title: "M\u00c1VDIREKT", body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999" }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          { icon: "bi-geo-alt-fill", title: "Address", body: "8852 Z\u00e1k\u00e1ny, Zr\u00ednyi t\u00e9r 38." },
+          { icon: "bi-cash-coin", title: "Ticket Office", body: "Railway ticket office: daily 03:20-23:20. International ticket office: daily 03:20-23:20." },
+          { icon: "bi-ticket-perforated", title: "Ticket Purchase", body: "Domestic and international ticket sales, with machine-issued tickets." },
+          { icon: "bi-person-wheelchair", title: "Accessibility", body: "A lift is always available at the station, and an accessible restroom is provided." },
+          { icon: "bi-info-circle", title: "Lost Property", body: "Lost property service is available during ticket office opening hours, in the station building." },
+          { icon: "bi-car-front-fill", title: "Parking and Bicycle", body: "Parking is available near the station, and bicycle parking is available on the station grounds." },
+          { icon: "bi-telephone", title: "M\u00c1VDIREKT", body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999" }
+        ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          { icon: "bi-geo-alt-fill", title: "Adresse", body: "8852 Z\u00e1k\u00e1ny, Zr\u00ednyi t\u00e9r 38." },
+          { icon: "bi-cash-coin", title: "Fahrkartenschalter", body: "Fahrkartenschalter: t\u00e4glich 03:20-23:20. Internationaler Schalter: t\u00e4glich 03:20-23:20." },
+          { icon: "bi-ticket-perforated", title: "Ticketkauf", body: "Inlands- und internationale Fahrkarten, mit maschineller Fahrkartenausgabe." },
+          { icon: "bi-person-wheelchair", title: "Barrierefreiheit", body: "Ein Hublift ist jederzeit am Bahnhof verf\u00fcgbar, au\u00dferdem gibt es ein barrierefreies WC." },
+          { icon: "bi-info-circle", title: "Fundsachen", body: "Fundsachenservice im Bahnhofsgeb\u00e4ude w\u00e4hrend der Schalter\u00f6ffnungszeiten." },
+          { icon: "bi-car-front-fill", title: "Parken und Fahrrad", body: "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs, Fahrradabstellpl\u00e4tze auf dem Bahnhofsgel\u00e4nde." },
+          { icon: "bi-telephone", title: "M\u00c1VDIREKT", body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999" }
+        ]
+      }
+    },
+    map: {
+      image: "gyekenyesbelso.jpg",
+      source: "terkep_gyekenyes_v2419.pdf",
+      hu: { title: "\u00c1llom\u00e1st\u00e9rk\u00e9p", text: "A M\u00c1V hivatalos \u00e1ttekint\u0151 t\u00e9rk\u00e9pe Gy\u00e9k\u00e9nyes \u00e1llom\u00e1s\u00e1r\u00f3l. Telefonon oldalir\u00e1nyban g\u00f6rgethet\u0151." },
+      en: { title: "Station Map", text: "Official M\u00c1V overview map of Gy\u00e9k\u00e9nyes station. On mobile, swipe sideways to view the full map." },
+      de: { title: "Bahnhofsplan", text: "Offizieller M\u00c1V-\u00dcbersichtsplan des Bahnhofs Gy\u00e9k\u00e9nyes. Auf dem Handy kann der Plan seitlich verschoben werden." }
+    }
+  },
+
+  balatonszarszo: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          { icon: "bi-geo-alt-fill", title: "C\u00edm", body: "8624 Balatonsz\u00e1rsz\u00f3, F\u0151 u. 2." },
+          { icon: "bi-cash-coin", title: "P\u00e9nzt\u00e1r", body: "A p\u00e9nzt\u00e1ri jegy- \u00e9s b\u00e9rlet\u00e9rt\u00e9kes\u00edt\u00e9s 2025. j\u00falius 1-t\u0151l visszavon\u00e1sig sz\u00fcnetel." },
+          { icon: "bi-ticket-perforated", title: "Jegyv\u00e1s\u00e1rl\u00e1s", body: "Belf\u00f6ldi jegyelad\u00e1s, g\u00e9pi menetjegykiad\u00e1s \u00e9s jegykiad\u00f3 automata." },
+          { icon: "bi-car-front-fill", title: "Parkol\u00e1s", body: "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben." },
+          { icon: "bi-bicycle", title: "Ker\u00e9kp\u00e1r", body: "Ker\u00e9kp\u00e1rt\u00e1rol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s ter\u00fclet\u00e9n." },
+          { icon: "bi-telephone", title: "M\u00c1VDIREKT", body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999" }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          { icon: "bi-geo-alt-fill", title: "Address", body: "8624 Balatonsz\u00e1rsz\u00f3, F\u0151 u. 2." },
+          { icon: "bi-cash-coin", title: "Ticket Office", body: "Ticket and pass sales at the ticket office are suspended from 1 July 2025 until further notice." },
+          { icon: "bi-ticket-perforated", title: "Ticket Purchase", body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine are available." },
+          { icon: "bi-car-front-fill", title: "Parking", body: "Parking is available near the station." },
+          { icon: "bi-bicycle", title: "Bicycle", body: "Bicycle parking is available on the station grounds." },
+          { icon: "bi-telephone", title: "M\u00c1VDIREKT", body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999" }
+        ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          { icon: "bi-geo-alt-fill", title: "Adresse", body: "8624 Balatonsz\u00e1rsz\u00f3, F\u0151 u. 2." },
+          { icon: "bi-cash-coin", title: "Fahrkartenschalter", body: "Der Fahrkarten- und Zeitkartenverkauf am Schalter ist seit dem 1. Juli 2025 bis auf Weiteres ausgesetzt." },
+          { icon: "bi-ticket-perforated", title: "Ticketkauf", body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und ein Fahrkartenautomat sind verf\u00fcgbar." },
+          { icon: "bi-car-front-fill", title: "Parken", body: "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs." },
+          { icon: "bi-bicycle", title: "Fahrrad", body: "Fahrradabstellpl\u00e4tze sind auf dem Bahnhofsgel\u00e4nde vorhanden." },
+          { icon: "bi-telephone", title: "M\u00c1VDIREKT", body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999" }
+        ]
+      }
+    },
+    map: {
+      image: "balatonszarszobelso.jpg",
+      source: "terkep_balatonszarszo_v2423.pdf",
+      hu: { title: "\u00c1llom\u00e1st\u00e9rk\u00e9p", text: "A M\u00c1V hivatalos \u00e1ttekint\u0151 t\u00e9rk\u00e9pe Balatonsz\u00e1rsz\u00f3 \u00e1llom\u00e1s\u00e1r\u00f3l. Telefonon oldalir\u00e1nyban g\u00f6rgethet\u0151." },
+      en: { title: "Station Map", text: "Official M\u00c1V overview map of Balatonsz\u00e1rsz\u00f3 station. On mobile, swipe sideways to view the full map." },
+      de: { title: "Bahnhofsplan", text: "Offizieller M\u00c1V-\u00dcbersichtsplan des Bahnhofs Balatonsz\u00e1rsz\u00f3. Auf dem Handy kann der Plan seitlich verschoben werden." }
+    }
+  },
+
   balatonszemes: {
     smartNearby: true,
     info: {

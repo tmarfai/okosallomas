@@ -477,6 +477,66 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  gyekenyes: {
+    key: "gyekenyes",
+    cityName: {
+      hu: "Gy\u00e9k\u00e9nyes",
+      en: "Gy\u00e9k\u00e9nyes",
+      de: "Gy\u00e9k\u00e9nyes"
+    },
+    stationName: {
+      hu: "Gy\u00e9k\u00e9nyes vas\u00fat\u00e1llom\u00e1s",
+      en: "Gy\u00e9k\u00e9nyes railway station",
+      de: "Bahnhof Gy\u00e9k\u00e9nyes"
+    },
+    station: {
+      lat: 46.249259508386395,
+      lon: 16.955781789004558
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Gy\u00e9k\u00e9nyes"],
+      university: ["egyetem Gy\u00e9k\u00e9nyes"],
+      bath: ["strand Gy\u00e9k\u00e9nyes", "Gy\u00e9k\u00e9nyesi-t\u00f3", "Kotro Gy\u00e9k\u00e9nyes"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonszarszo: {
+    key: "balatonszarszo",
+    cityName: {
+      hu: "Balatonsz\u00e1rsz\u00f3",
+      en: "Balatonsz\u00e1rsz\u00f3",
+      de: "Balatonsz\u00e1rsz\u00f3"
+    },
+    stationName: {
+      hu: "Balatonsz\u00e1rsz\u00f3 vas\u00fat\u00e1llom\u00e1s",
+      en: "Balatonsz\u00e1rsz\u00f3 railway station",
+      de: "Bahnhof Balatonsz\u00e1rsz\u00f3"
+    },
+    station: {
+      lat: 46.83198502630596,
+      lon: 17.83032463138781
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonsz\u00e1rsz\u00f3"],
+      university: ["egyetem Balatonsz\u00e1rsz\u00f3"],
+      bath: ["strand Balatonsz\u00e1rsz\u00f3", "szabadstrand Balatonsz\u00e1rsz\u00f3", "M\u00f3ricz utcai szabadstrand"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   balatonszemes: {
     key: "balatonszemes",
     cityName: {

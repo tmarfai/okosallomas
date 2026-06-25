@@ -1640,5 +1640,203 @@ window.stationPageExtras = {
         text: "Übersichtsplan des Bahnhofs und Busbahnhofs Szekszárd. Auf dem Handy kannst du seitlich scrollen."
       }
     }
+  },
+
+  tab: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "C\u00edm",
+            body: "Vas\u00fat\u00e1llom\u00e1s: 8660 Tab, Kossuth Lajos utca 1.<br>Aut\u00f3busz-\u00e1llom\u00e1s: 8660 Tab, Kossuth Lajos utca 2."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "P\u00e9nzt\u00e1r",
+            body: "A vas\u00fat\u00e1llom\u00e1s jegyp\u00e9nzt\u00e1r n\u00e9lk\u00fcl m\u0171k\u00f6dik. Az aut\u00f3busz-\u00e1llom\u00e1si p\u00e9nzt\u00e1r 2026. janu\u00e1r 1-t\u0151l hat\u00e1rozatlan ideig z\u00e1rva tart."
+          },
+          {
+            icon: "bi-megaphone",
+            title: "Utast\u00e1j\u00e9koztat\u00e1s",
+            body: "Az \u00e1llom\u00e1son hangos utast\u00e1j\u00e9koztat\u00e1s \u00e9rhet\u0151 el."
+          },
+          {
+            icon: "bi-clock",
+            title: "V\u00e1r\u00f3terem \u00e9s mosd\u00f3",
+            body: "Aut\u00f3busz-\u00e1llom\u00e1si v\u00e1r\u00f3terem: H-P 05:45-22:15, h\u00e9tv\u00e9g\u00e9n/\u00fcnnepnap 05:45-20:00.<br>Mosd\u00f3: mindennap 06:00-19:00."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "Railway station: 8660 Tab, Kossuth Lajos utca 1.<br>Bus station: 8660 Tab, Kossuth Lajos utca 2."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "The railway station operates without a ticket office. The bus-station ticket office is closed from 1 January 2026 until further notice."
+          },
+          {
+            icon: "bi-megaphone",
+            title: "Passenger Information",
+            body: "Audible passenger information is available at the station."
+          },
+          {
+            icon: "bi-clock",
+            title: "Waiting Room and Restrooms",
+            body: "Bus-station waiting room: Mon-Fri 05:45-22:15, weekends/holidays 05:45-20:00.<br>Restrooms: daily 06:00-19:00."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  szigetvar: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "C\u00edm",
+            body: "Vas\u00fat\u00e1llom\u00e1s: 7900 Szigetv\u00e1r, R\u00e1k\u00f3czi u. 35.<br>Aut\u00f3busz-\u00e1llom\u00e1s: 7900 Szigetv\u00e1r, Istv\u00e1nffy Mikl\u00f3s utca 28."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "P\u00e9nzt\u00e1r",
+            body: "A vas\u00fat\u00e1llom\u00e1son a belf\u00f6ldi szem\u00e9lyp\u00e9nzt\u00e1r 2024.10.31-t\u0151l tov\u00e1bbi int\u00e9zked\u00e9sig z\u00e1rva tart.<br>Aut\u00f3busz-\u00e1llom\u00e1si p\u00e9nzt\u00e1r: munkanapokon 05:45-07:45 \u00e9s 12:00-13:00."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyv\u00e1s\u00e1rl\u00e1s",
+            body: "Belf\u00f6ldi jegyelad\u00e1s, g\u00e9pi menetjegykiad\u00e1s \u00e9s jegykiad\u00f3 automata \u00e9rhet\u0151 el."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Akad\u00e1lymentess\u00e9g",
+            body: "Az \u00e1llom\u00e1son hangos utast\u00e1j\u00e9koztat\u00e1s \u00e9rhet\u0151 el."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkol\u00e1s \u00e9s ker\u00e9kp\u00e1r",
+            body: "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben, ker\u00e9kp\u00e1rt\u00e1rol\u00f3 az \u00e1llom\u00e1s ter\u00fclet\u00e9n."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "Railway station: 7900 Szigetv\u00e1r, R\u00e1k\u00f3czi u. 35.<br>Bus station: 7900 Szigetv\u00e1r, Istv\u00e1nffy Mikl\u00f3s utca 28."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "The domestic railway ticket office has been closed from 31 October 2024 until further notice.<br>Bus-station ticket office: weekdays 05:45-07:45 and 12:00-13:00."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine are available."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Accessibility",
+            body: "Audible passenger information is available at the station."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking and Bicycle",
+            body: "Parking is available near the station, and bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  osztopan: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "C\u00edm",
+            body: "7444 Osztop\u00e1n, vas\u00fat\u00e1llom\u00e1s."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "P\u00e9nzt\u00e1r",
+            body: "A M\u00c1V \u00e1llom\u00e1soldal helyi p\u00e9nzt\u00e1ri nyitvatart\u00e1st nem t\u00fcntet fel."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyv\u00e1s\u00e1rl\u00e1s",
+            body: "Jegyv\u00e1s\u00e1rl\u00e1shoz haszn\u00e1ld a M\u00c1V appot, az online jegyv\u00e1s\u00e1rl\u00e1st vagy a M\u00c1V hivatalos t\u00e1j\u00e9koztat\u00e1s\u00e1t."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "7444 Osztop\u00e1n, railway station."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "The M\u00c1V station page does not list local ticket-office opening hours."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Use the M\u00c1V app, online ticket purchase or official M\u00c1V information for ticket purchase."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
   }
 };

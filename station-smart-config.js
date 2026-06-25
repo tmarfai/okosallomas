@@ -795,5 +795,93 @@ window.stationSmartConfigs = {
     },
     forbiddenNames: [],
     specialLinks: []
+  },
+
+  tab: {
+    key: "tab",
+    cityName: {
+      hu: "Tab",
+      en: "Tab",
+      de: "Tab"
+    },
+    stationName: {
+      hu: "Tab vas\u00fat\u00e1llom\u00e1s",
+      en: "Tab railway station",
+      de: "Bahnhof Tab"
+    },
+    station: {
+      lat: 46.73391848182461,
+      lon: 18.040760193255085
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Tab"],
+      university: ["egyetem Tab"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  szigetvar: {
+    key: "szigetvar",
+    cityName: {
+      hu: "Szigetv\u00e1r",
+      en: "Szigetv\u00e1r",
+      de: "Szigetv\u00e1r"
+    },
+    stationName: {
+      hu: "Szigetv\u00e1r vas\u00fat\u00e1llom\u00e1s",
+      en: "Szigetv\u00e1r railway station",
+      de: "Bahnhof Szigetv\u00e1r"
+    },
+    station: {
+      lat: 46.04328867840719,
+      lon: 17.800295603582384
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Szigetv\u00e1r"],
+      university: ["egyetem Szigetv\u00e1r"],
+      bath: ["Szigetv\u00e1ri Gy\u00f3gyf\u00fcrd\u0151", "f\u00fcrd\u0151 Szigetv\u00e1r"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  osztopan: {
+    key: "osztopan",
+    cityName: {
+      hu: "Osztop\u00e1n",
+      en: "Osztop\u00e1n",
+      de: "Osztop\u00e1n"
+    },
+    stationName: {
+      hu: "Osztop\u00e1n vas\u00fat\u00e1llom\u00e1s",
+      en: "Osztop\u00e1n railway station",
+      de: "Bahnhof Osztop\u00e1n"
+    },
+    station: {
+      lat: 46.51519286833459,
+      lon: 17.656566556845913
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Osztop\u00e1n"],
+      university: ["egyetem Osztop\u00e1n"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema", "bath"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
   }
 };

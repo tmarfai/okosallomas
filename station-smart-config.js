@@ -196,11 +196,13 @@ window.stationSmartConfigs = {
     key: "dombovar",
     cityName: {
       hu: "Dombóvár",
-      en: "Dombóvár"
+      en: "Dombóvár",
+      de: "Dombóvár"
     },
     stationName: {
       hu: "Dombóvár vasútállomás",
-      en: "Dombóvár railway station"
+      en: "Dombóvár railway station",
+      de: "Bahnhof Dombóvár"
     },
     station: {
       lat: 46.37001767098272,

@@ -620,11 +620,13 @@ window.stationSmartConfigs = {
     key: "barcs",
     cityName: {
       hu: "Barcs",
-      en: "Barcs"
+      en: "Barcs",
+      de: "Barcs"
     },
     stationName: {
       hu: "Barcs vasútállomás",
-      en: "Barcs railway station"
+      en: "Barcs railway station",
+      de: "Bahnhof Barcs"
     },
     station: {
       lat: 45.951402872215816,
@@ -674,11 +676,13 @@ window.stationSmartConfigs = {
     key: "mohacs",
     cityName: {
       hu: "Mohács",
-      en: "Mohács"
+      en: "Mohács",
+      de: "Mohács"
     },
     stationName: {
       hu: "Mohács vasútállomás",
-      en: "Mohács railway station"
+      en: "Mohács railway station",
+      de: "Bahnhof Mohács"
     },
     station: {
       lat: 46.00248972096716,

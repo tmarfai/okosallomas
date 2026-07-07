@@ -996,6 +996,36 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8622 Szántód, Vasútállomás."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Am Bahnhof gibt es keinen Fahrkartenschalter, aber ein Fahrkartenautomat ist verfügbar."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken",
+            body: "Parkmöglichkeiten befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Fahrrad",
+            body: "Fahrradabstellplätze sind auf dem Bahnhofsgelände verfügbar."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     },
     map: {
@@ -1008,6 +1038,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Overview map of Szántód station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Übersichtsplan des Bahnhofs Szántód. Auf dem Handy kann der Plan seitlich verschoben werden."
       }
     }
   },

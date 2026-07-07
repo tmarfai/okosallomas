@@ -397,11 +397,13 @@ window.stationSmartConfigs = {
     key: "zamardi",
     cityName: {
       hu: "Zamárdi",
-      en: "Zamárdi"
+      en: "Zamárdi",
+      de: "Zamárdi"
     },
     stationName: {
       hu: "Zamárdi vasútállomás",
-      en: "Zamárdi railway station"
+      en: "Zamárdi railway station",
+      de: "Bahnhof Zamárdi"
     },
     station: {
       lat: 46.87999277101195,
@@ -453,11 +455,13 @@ window.stationSmartConfigs = {
     key: "balatonboglar",
     cityName: {
       hu: "Balatonboglár",
-      en: "Balatonboglár"
+      en: "Balatonboglár",
+      de: "Balatonboglár"
     },
     stationName: {
       hu: "Balatonboglár vasútállomás",
-      en: "Balatonboglár railway station"
+      en: "Balatonboglár railway station",
+      de: "Bahnhof Balatonboglár"
     },
     station: {
       lat: 46.77617362419581,

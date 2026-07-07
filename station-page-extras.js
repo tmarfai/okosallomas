@@ -178,6 +178,41 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8630 Balatonboglár, Dózsa György út 37."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 04:00-23:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Am Bahnhof steht ein barrierefreies WC zur Verfügung."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Fundbüro",
+            body: "Fundbüro-Service während der Öffnungszeiten des Fahrkartenschalters."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     },
     map: {
@@ -190,6 +225,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Official MÁV overview map of Balatonboglár station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Offizieller MÁV-Übersichtsplan des Bahnhofs Balatonboglár. Auf dem Handy kann der Plan seitlich verschoben werden."
       }
     }
   },
@@ -840,6 +879,41 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8621 Zamárdi, Szabadság tér 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 03:30-23:30."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Am Bahnhof steht ein barrierefreies WC zur Verfügung."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Weitere Informationen",
+            body: "Fundsachen-Service, Parkplätze und Fahrradabstellplätze sind verfügbar."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     },
     map: {
@@ -852,6 +926,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Overview map of Zamárdi station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Übersichtsplan des Bahnhofs Zamárdi. Auf dem Handy kann der Plan seitlich verschoben werden."
       }
     }
   },

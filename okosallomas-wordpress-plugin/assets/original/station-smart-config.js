@@ -453,11 +453,13 @@ window.stationSmartConfigs = {
     key: "balatonboglar",
     cityName: {
       hu: "Balatonboglár",
-      en: "Balatonboglár"
+      en: "Balatonboglár",
+      de: "Balatonboglár"
     },
     stationName: {
       hu: "Balatonboglár vasútállomás",
-      en: "Balatonboglár railway station"
+      en: "Balatonboglár railway station",
+      de: "Bahnhof Balatonboglár"
     },
     station: {
       lat: 46.77617362419581,
@@ -477,15 +479,86 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  gyekenyes: {
+    key: "gyekenyes",
+    cityName: {
+      hu: "Gy\u00e9k\u00e9nyes",
+      en: "Gy\u00e9k\u00e9nyes",
+      de: "Gy\u00e9k\u00e9nyes"
+    },
+    stationName: {
+      hu: "Gy\u00e9k\u00e9nyes vas\u00fat\u00e1llom\u00e1s",
+      en: "Gy\u00e9k\u00e9nyes railway station",
+      de: "Bahnhof Gy\u00e9k\u00e9nyes"
+    },
+    station: {
+      lat: 46.249259508386395,
+      lon: 16.955781789004558
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Gy\u00e9k\u00e9nyes"],
+      university: ["egyetem Gy\u00e9k\u00e9nyes"],
+      bath: ["strand Gy\u00e9k\u00e9nyes", "Gy\u00e9k\u00e9nyesi-t\u00f3", "Kotro Gy\u00e9k\u00e9nyes"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonszarszo: {
+    key: "balatonszarszo",
+    cityName: {
+      hu: "Balatonsz\u00e1rsz\u00f3",
+      en: "Balatonsz\u00e1rsz\u00f3",
+      de: "Balatonsz\u00e1rsz\u00f3"
+    },
+    stationName: {
+      hu: "Balatonsz\u00e1rsz\u00f3 vas\u00fat\u00e1llom\u00e1s",
+      en: "Balatonsz\u00e1rsz\u00f3 railway station",
+      de: "Bahnhof Balatonsz\u00e1rsz\u00f3"
+    },
+    station: {
+      lat: 46.83198502630596,
+      lon: 17.83032463138781
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonsz\u00e1rsz\u00f3"],
+      university: ["egyetem Balatonsz\u00e1rsz\u00f3"],
+      bath: ["strand Balatonsz\u00e1rsz\u00f3", "szabadstrand Balatonsz\u00e1rsz\u00f3", "M\u00f3ricz utcai szabadstrand"]
+    },
+    manualPlaces: {
+      shops: {
+        grocery: [
+          { name: "ABC \u00e9lelmiszer", lat: 46.8314685, lon: 17.8317128 },
+          { name: "ABC", lat: 46.8236466, lon: 17.8368335 },
+          { name: "Coop \u00e1ruh\u00e1z", lat: 46.8261051, lon: 17.8334923 }
+        ]
+      }
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   balatonszemes: {
     key: "balatonszemes",
     cityName: {
       hu: "Balatonszemes",
-      en: "Balatonszemes"
+      en: "Balatonszemes",
+      de: "Balatonszemes"
     },
     stationName: {
       hu: "Balatonszemes vasútállomás",
-      en: "Balatonszemes railway station"
+      en: "Balatonszemes railway station",
+      de: "Bahnhof Balatonszemes"
     },
     station: {
       lat: 46.811329345053416,
@@ -496,6 +569,36 @@ window.stationSmartConfigs = {
       school_all: ["iskola Balatonszemes"],
       university: ["egyetem Balatonszemes"],
       bath: ["strand Balatonszemes", "szabadstrand Balatonszemes"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonszentgyorgy: {
+    key: "balatonszentgyorgy",
+    cityName: {
+      hu: "Balatonszentgyörgy",
+      en: "Balatonszentgyörgy",
+      de: "Balatonszentgyörgy"
+    },
+    stationName: {
+      hu: "Balatonszentgyörgy vasútállomás",
+      en: "Balatonszentgyörgy railway station",
+      de: "Bahnhof Balatonszentgyörgy"
+    },
+    station: {
+      lat: 46.69190661386738,
+      lon: 17.288625736225875
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonszentgyörgy"],
+      university: ["egyetem Balatonszentgyörgy"],
+      bath: ["strand Balatonszentgyörgy", "Balaton strand Balatonszentgyörgy"]
     },
     unavailableSubcategories: {
       school: ["university"],
@@ -605,6 +708,180 @@ window.stationSmartConfigs = {
     fallbackQueries: {
       school_all: ["iskola Szekszárd"],
       university: ["egyetem Szekszárd"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  villany: {
+    key: "villany",
+    cityName: {
+      hu: "Villány",
+      en: "Villány",
+      de: "Villány"
+    },
+    stationName: {
+      hu: "Villány vasútállomás",
+      en: "Villány railway station",
+      de: "Bahnhof Villány"
+    },
+    station: {
+      lat: 45.87673263885565,
+      lon: 18.44581815816651
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Villány"],
+      university: ["egyetem Villány"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonfoldvar: {
+    key: "balatonfoldvar",
+    cityName: {
+      hu: "Balatonföldvár",
+      en: "Balatonföldvár",
+      de: "Balatonföldvár"
+    },
+    stationName: {
+      hu: "Balatonföldvár vasútállomás",
+      en: "Balatonföldvár railway station",
+      de: "Bahnhof Balatonföldvár"
+    },
+    station: {
+      lat: 46.853451495190704,
+      lon: 17.880767645163562
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonföldvár"],
+      university: ["egyetem Balatonföldvár"]
+    },
+    unavailableSubcategories: {
+      school: ["university"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonbereny: {
+    key: "balatonbereny",
+    cityName: {
+      hu: "Balatonberény",
+      en: "Balatonberény",
+      de: "Balatonberény"
+    },
+    stationName: {
+      hu: "Balatonberény vasútállomás",
+      en: "Balatonberény railway station",
+      de: "Bahnhof Balatonberény"
+    },
+    station: {
+      lat: 46.71373166309745,
+      lon: 17.317126422183236
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Balatonberény"],
+      university: ["egyetem Balatonberény"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  tab: {
+    key: "tab",
+    cityName: {
+      hu: "Tab",
+      en: "Tab",
+      de: "Tab"
+    },
+    stationName: {
+      hu: "Tab vas\u00fat\u00e1llom\u00e1s",
+      en: "Tab railway station",
+      de: "Bahnhof Tab"
+    },
+    station: {
+      lat: 46.73391848182461,
+      lon: 18.040760193255085
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Tab"],
+      university: ["egyetem Tab"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  szigetvar: {
+    key: "szigetvar",
+    cityName: {
+      hu: "Szigetv\u00e1r",
+      en: "Szigetv\u00e1r",
+      de: "Szigetv\u00e1r"
+    },
+    stationName: {
+      hu: "Szigetv\u00e1r vas\u00fat\u00e1llom\u00e1s",
+      en: "Szigetv\u00e1r railway station",
+      de: "Bahnhof Szigetv\u00e1r"
+    },
+    station: {
+      lat: 46.04328867840719,
+      lon: 17.800295603582384
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Szigetv\u00e1r"],
+      university: ["egyetem Szigetv\u00e1r"],
+      bath: ["Szigetv\u00e1ri Gy\u00f3gyf\u00fcrd\u0151", "f\u00fcrd\u0151 Szigetv\u00e1r"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  osztopan: {
+    key: "osztopan",
+    cityName: {
+      hu: "Osztop\u00e1n",
+      en: "Osztop\u00e1n",
+      de: "Osztop\u00e1n"
+    },
+    stationName: {
+      hu: "Osztop\u00e1n vas\u00fat\u00e1llom\u00e1s",
+      en: "Osztop\u00e1n railway station",
+      de: "Bahnhof Osztop\u00e1n"
+    },
+    station: {
+      lat: 46.51519286833459,
+      lon: 17.656566556845913
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola Osztop\u00e1n"],
+      university: ["egyetem Osztop\u00e1n"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema", "bath"]
     },
     forbiddenNames: [],
     specialLinks: []

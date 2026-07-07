@@ -2,7 +2,7 @@
 /**
  * Plugin Name: MAV Okosallomas
  * Description: LocalWP gyakorlashoz keszult shortcode az okosallomas HTML oldalak beagyazasahoz.
- * Version: 0.1.3
+ * Version: 0.1.4
  * Author: Okosallomas projekt
  */
 
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 
 final class Okosallomas_WordPress_Plugin
 {
-    private const VERSION = '0.1.3';
+    private const VERSION = '0.1.4';
 
     public static function init(): void
     {
@@ -182,6 +182,7 @@ final class Okosallomas_WordPress_Plugin
             'szekszard' => 'Szekszard',
             'siofok' => 'Siofok',
             'balatonlelle' => 'Balatonlelle',
+            'balatonboglar' => 'Balatonboglar',
             'fonyod' => 'Fonyod',
         ];
     }

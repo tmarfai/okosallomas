@@ -427,11 +427,13 @@ window.stationSmartConfigs = {
     key: "szantod",
     cityName: {
       hu: "Szántód",
-      en: "Szántód"
+      en: "Szántód",
+      de: "Szántód"
     },
     stationName: {
       hu: "Szántód vasútállomás",
-      en: "Szántód railway station"
+      en: "Szántód railway station",
+      de: "Bahnhof Szántód"
     },
     station: {
       lat: 46.8623903,

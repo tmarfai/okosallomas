@@ -290,11 +290,13 @@ window.stationSmartConfigs = {
     key: "balatonaliga",
     cityName: {
       hu: "Balatonaliga",
-      en: "Balatonaliga"
+      en: "Balatonaliga",
+      de: "Balatonaliga"
     },
     stationName: {
       hu: "Balatonaliga vasútállomás",
-      en: "Balatonaliga railway station"
+      en: "Balatonaliga railway station",
+      de: "Bahnhof Balatonaliga"
     },
     station: {
       lat: 46.9843128189066,

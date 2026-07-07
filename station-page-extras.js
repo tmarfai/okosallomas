@@ -75,6 +75,41 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8171 Balatonvilágos, Balatonaliga Vasútállomás 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Fahrkarten können am Fahrkartenautomaten gekauft werden."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken",
+            body: "Parkmöglichkeiten befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Fahrrad",
+            body: "Fahrradabstellplätze sind auf dem Bahnhofsgelände verfügbar."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     },
     map: {
@@ -87,6 +122,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Official MÁV overview map of Balatonaliga station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Übersichtsplan des Bahnhofs Balatonaliga. Auf dem Handy kann der Plan seitlich verschoben werden."
       }
     }
   },

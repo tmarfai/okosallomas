@@ -3,6 +3,87 @@
 // 2. Tedd bele az info.hu / info.en kartyakat.
 // 3. Ha van hivatalos MAV allomasterkep, add meg a map.image es map.source ertekeket.
 window.stationPageExtras = {
+  abaliget: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "7678 Abaliget"
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Az állomáson nincs vasúti jegypénztár."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Megközelítés",
+            body: "Parkoló található az állomás közelében."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "7678 Abaliget"
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "There is no railway ticket office at the station."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Access",
+            body: "Parking is available near the station."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7678 Abaliget"
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Anreise",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
   adand: {
     smartNearby: true,
     info: {
@@ -321,6 +402,117 @@ window.stationPageExtras = {
             icon: "bi-info-circle",
             title: "Fundsachen",
             body: "Fundsachenservice im Bahnhofsgebäude während der Öffnungszeiten des Fahrkartenschalters."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Anreise",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs, Fahrradabstellplätze auf dem Bahnhofsgelände."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  balatonmaria: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8647 Balatonmáriafürdő, Vasút tér 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Vasúti pénztár: H-V és ünnepnapokon 07:20-19:00."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Talált tárgyak",
+            body: "A talált tárgyak ügyintézése a pénztár nyitvatartásával megegyezően érhető el."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Megközelítés",
+            body: "Parkoló található az állomás közelében, kerékpártároló pedig az állomás területén."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8647 Balatonmáriafürdő, Vasút tér 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily and on holidays 07:20-19:00."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Lost Property",
+            body: "Lost property service is available during ticket office opening hours."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Access",
+            body: "Parking is available near the station, and bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8647 Balatonmáriafürdő, Vasút tér 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich und an Feiertagen 07:20-19:00."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Fundsachen",
+            body: "Fundsachenservice ist während der Öffnungszeiten des Fahrkartenschalters verfügbar."
           },
           {
             icon: "bi-car-front-fill",
@@ -1106,6 +1298,41 @@ window.stationPageExtras = {
             icon: "bi-telephone",
             title: "MÁVDIREKT",
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7940 Szentlőrinc, Hunyadi u. 4."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Mo-Fr 06:35-18:25, Sa-So 07:05-18:25."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten und maschinelle Fahrkartenausgabe."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Anreise",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-bicycle",
+            title: "Fahrrad",
+            body: "Fahrradabstellplätze sind auf dem Bahnhofsgelände verfügbar."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
           }
         ]
       }

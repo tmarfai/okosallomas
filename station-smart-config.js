@@ -1,4 +1,33 @@
 window.stationSmartConfigs = {
+  abaliget: {
+    key: "abaliget",
+    cityName: {
+      hu: "Abaliget",
+      en: "Abaliget",
+      de: "Abaliget"
+    },
+    stationName: {
+      hu: "Abaliget vasútállomás",
+      en: "Abaliget railway station",
+      de: "Bahnhof Abaliget"
+    },
+    station: {
+      lat: 46.15283570203589,
+      lon: 18.073234992607357
+    },
+    radius: 5500,
+    fallbackQueries: {
+      school_all: ["iskola Abaliget"],
+      university: ["egyetem Abaliget"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   adand: {
     key: "adand",
     cityName: {
@@ -407,11 +436,13 @@ window.stationSmartConfigs = {
     key: "szentlorinc",
     cityName: {
       hu: "Szentlőrinc",
-      en: "Szentlőrinc"
+      en: "Szentlőrinc",
+      de: "Szentlőrinc"
     },
     stationName: {
       hu: "Szentlőrinc vasútállomás",
-      en: "Szentlőrinc railway station"
+      en: "Szentlőrinc railway station",
+      de: "Bahnhof Szentlőrinc"
     },
     station: {
       lat: 46.032996129236956,
@@ -865,6 +896,36 @@ window.stationSmartConfigs = {
       school_all: ["iskola Balatonfenyves"],
       university: ["egyetem Balatonfenyves"],
       bath: ["strand Balatonfenyves", "szabadstrand Balatonfenyves", "Balatonfenyvesi strand"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonmaria: {
+    key: "balatonmaria",
+    cityName: {
+      hu: "Balatonmáriafürdő",
+      en: "Balatonmáriafürdő",
+      de: "Balatonmáriafürdő"
+    },
+    stationName: {
+      hu: "Balatonmáriafürdő vasútállomás",
+      en: "Balatonmáriafürdő railway station",
+      de: "Bahnhof Balatonmáriafürdő"
+    },
+    station: {
+      lat: 46.70427308590362,
+      lon: 17.373515985151588
+    },
+    radius: 4000,
+    fallbackQueries: {
+      school_all: ["iskola Balatonmáriafürdő"],
+      university: ["egyetem Balatonmáriafürdő"],
+      bath: ["strand Balatonmáriafürdő", "szabadstrand Balatonmáriafürdő", "Balatonmáriafürdő strand"]
     },
     unavailableSubcategories: {
       school: ["university"],

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sárbogárd Audioguide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body data-station-key="sarbogard">
+  <header class="bg-dark text-white text-center py-5 position-relative">
+    <div class="container">
+      <h1 class="display-4">Sárbogárd – Audioguide</h1>
+      <p class="lead">Entdecke Sárbogárd mit einem Klick!</p>
+    </div>
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='sarbogard.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='sarbogard-en.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='sarbogard-de.html'">
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Warum lohnt sich ein Besuch in Sárbogárd?</h2>
+      <p>Sárbogárd ist einer der wichtigsten Eisenbahnknotenpunkte in Transdanubien. Hier treffen Strecken aus mehreren Richtungen zusammen, deshalb ist die Stadt nicht nur für Umstiege, sondern auch für Bahninteressierte spannend.</p>
+    </section>
+
+    <section class="text-center">
+      <div id="controlsContainer">
+        <button id="playPauseButton" class="btn btn-lg btn-primary">
+          <i class="bi bi-volume-up-fill me-2"></i> Anhören
+        </button>
+        <button id="restartButton" class="btn btn-sm" style="display:none;">Neu starten</button>
+      </div>
+
+      <audio id="hang" preload="metadata">
+        <source src="sarbogard-en.mp3" type="audio/mpeg" />
+        Dein Browser unterstützt die Audiowiedergabe nicht.
+      </audio>
+    </section>
+
+    <div class="card my-4" style="max-width: 600px; margin: auto;">
+      <div class="card-body p-2">
+        <img src="sarbogardallomaskep.jpg" alt="Bahnhof Sárbogárd" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+      </div>
+    </div>
+  </main>
+
+  <div class="card my-4" style="max-width: 600px; margin: auto;">
+    <div class="card-body text-center">
+      <h5 class="card-title">Bahnhof Sárbogárd</h5>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1363.1533666957162!2d18.61091341386501!3d46.896685666647244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1752562828877!5m2!1sde!2sde"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+        Live-Zugbewegungen ansehen
+      </a>
+    </div>
+  </div>
+
+  <div class="card text-center mt-4" id="idojaras-sarbogard">
+    <div class="card-body">
+      <h5 class="card-title">Wetter in Sárbogárd</h5>
+    </div>
+  </div>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Weitere Ziele in der Nähe</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="aranypontyhorgaszcentrum.jpg" class="card-img-top" alt="Aranyponty Angelzentrum">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Aranyponty Angelzentrum</h5>
+            <p class="card-text">Ein ruhiges Ausflugsziel bei Sárbogárd mit Seen, Natur und Angelmöglichkeiten. Es eignet sich gut für Erholung und Programme im Grünen.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Aranyponty+Horg%C3%A1szcentrum+S%C3%A1rbog%C3%A1rd" target="_blank" class="btn btn-primary mt-auto">Route planen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="sarbogarditemplom.jpg" class="card-img-top" alt="Reformierte Großkirche Sárbogárd">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Reformierte Großkirche</h5>
+            <p class="card-text">Die markante Kirche gehört zu den prägenden Gebäuden der Stadt. Sie ist von außen auffällig und auch als kultureller Ort interessant.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=S%C3%A1rbog%C3%A1rdi+Reform%C3%A1tus+Nagytemplom" target="_blank" class="btn btn-primary mt-auto">Route planen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="simontornyaivar.jpg" class="card-img-top" alt="Burg Simontornya">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Burg Simontornya</h5>
+            <p class="card-text">Die mittelalterliche Burg von Simontornya ist ein schönes Ausflugsziel in der Umgebung. Heute ist sie als Museum und historischer Ort bekannt.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Simontornyai+v%C3%A1r" target="_blank" class="btn btn-primary mt-auto">Route planen</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="stationExtrasMount"></div>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="MÁV Logo" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Sárbogárd Info</small>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="station-smart-config.js?v=20260708-pusztaszabolcs-sarbogard-de1"></script>
+  <script src="station-page-extras.js?v=20260708-pusztaszabolcs-sarbogard-de1"></script>
+  <script src="station-page-renderer.js?v=20260708-pusztaszabolcs-sarbogard-de1"></script>
+  <script src="script.js?v=20260708-pusztaszabolcs-sarbogard-de1"></script>
+</body>
+</html>

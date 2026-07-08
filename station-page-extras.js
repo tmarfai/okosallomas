@@ -3,6 +3,87 @@
 // 2. Tedd bele az info.hu / info.en kartyakat.
 // 3. Ha van hivatalos MAV allomasterkep, add meg a map.image es map.source ertekeket.
 window.stationPageExtras = {
+  adand: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8653 Ádánd, Ady Endre u. 4."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Az állomáson nincs vasúti jegypénztár."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegykiadás",
+            body: "A MÁV állomási adatai szerint itt nincs helyszíni jegykiadás."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8653 Ádánd, Ady Endre u. 4."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "There is no railway ticket office at the station."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Issue",
+            body: "According to MÁV station data, on-site ticket issue is not available here."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8653 Ádánd, Ady Endre u. 4."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenausgabe",
+            body: "Laut MÁV-Stationsdaten gibt es hier keine Fahrkartenausgabe vor Ort."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
   balatonaliga: {
     smartNearby: true,
     info: {
@@ -141,6 +222,117 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Official MÁV overview map of Balatonalmádi station. On mobile, swipe sideways to view the full map."
+      }
+    }
+  },
+
+  balatonfenyves: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos információk az állomásról",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Cím",
+            body: "8646 Balatonfenyves, Kölcsey utca 11."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Pénztár",
+            body: "Vasúti pénztár: H-V 07:40-18:45."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyvásárlás",
+            body: "Belföldi jegyeladás, gépi menetjegykiadás és jegykiadó automata."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Talált tárgyak",
+            body: "A talált tárgyak ügyintézése a pénztári nyitvatartással megegyezően, az állomás épületében érhető el."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Megközelítés",
+            body: "Parkoló található az állomás közelében, kerékpártároló pedig az állomás területén."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8646 Balatonfenyves, Kölcsey utca 11."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "Railway ticket office: daily 07:40-18:45."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Domestic ticket sales, machine-issued tickets and a ticket vending machine."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Lost Property",
+            body: "Lost property service is available in the station building during ticket office opening hours."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Access",
+            body: "Parking is available near the station, and bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8646 Balatonfenyves, Kölcsey utca 11."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 07:40-18:45."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Fundsachen",
+            body: "Fundsachenservice im Bahnhofsgebäude während der Öffnungszeiten des Fahrkartenschalters."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Anreise",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs, Fahrradabstellplätze auf dem Bahnhofsgelände."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     }
   },
@@ -678,6 +870,41 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "2490 Pusztaszabolcs, Sport utca 13."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 05:25-08:10, 08:30-13:15, 13:40-15:35."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Am Bahnhof steht ein barrierefreies WC zur Verfügung."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Anreise",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     }
   },
@@ -754,6 +981,41 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "Nützliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7000 Sárbogárd, Vasútállomás."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: täglich 07:40-17:50."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Fundsachen",
+            body: "Fundsachenservice im Bahnhofsgebäude während der Öffnungszeiten des Fahrkartenschalters."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Anreise",
+            body: "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            icon: "bi-telephone",
+            title: "MÁVDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     },
     map: {
@@ -766,6 +1028,10 @@ window.stationPageExtras = {
       en: {
         title: "Station Map",
         text: "Overview map of Sárbogárd station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "Übersichtsplan des Bahnhofs Sárbogárd. Auf dem Handy kann der Plan seitlich verschoben werden."
       }
     }
   },

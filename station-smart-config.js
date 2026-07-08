@@ -1,4 +1,33 @@
 window.stationSmartConfigs = {
+  adand: {
+    key: "adand",
+    cityName: {
+      hu: "Ádánd",
+      en: "Ádánd",
+      de: "Ádánd"
+    },
+    stationName: {
+      hu: "Ádánd vasútállomás",
+      en: "Ádánd railway station",
+      de: "Bahnhof Ádánd"
+    },
+    station: {
+      lat: 46.85466625878969,
+      lon: 18.142051488633676
+    },
+    radius: 4500,
+    fallbackQueries: {
+      school_all: ["iskola Ádánd"],
+      university: ["egyetem Ádánd"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   kaposvar: {
     key: "kaposvar",
     cityName: {
@@ -322,11 +351,13 @@ window.stationSmartConfigs = {
     key: "pusztaszabolcs",
     cityName: {
       hu: "Pusztaszabolcs",
-      en: "Pusztaszabolcs"
+      en: "Pusztaszabolcs",
+      de: "Pusztaszabolcs"
     },
     stationName: {
       hu: "Pusztaszabolcs vasútállomás",
-      en: "Pusztaszabolcs railway station"
+      en: "Pusztaszabolcs railway station",
+      de: "Bahnhof Pusztaszabolcs"
     },
     station: {
       lat: 47.13931107815299,
@@ -348,11 +379,13 @@ window.stationSmartConfigs = {
     key: "sarbogard",
     cityName: {
       hu: "Sárbogárd",
-      en: "Sárbogárd"
+      en: "Sárbogárd",
+      de: "Sárbogárd"
     },
     stationName: {
       hu: "Sárbogárd vasútállomás",
-      en: "Sárbogárd railway station"
+      en: "Sárbogárd railway station",
+      de: "Bahnhof Sárbogárd"
     },
     station: {
       lat: 46.896685666647244,
@@ -802,6 +835,36 @@ window.stationSmartConfigs = {
     fallbackQueries: {
       school_all: ["iskola Balatonberény"],
       university: ["egyetem Balatonberény"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  balatonfenyves: {
+    key: "balatonfenyves",
+    cityName: {
+      hu: "Balatonfenyves",
+      en: "Balatonfenyves",
+      de: "Balatonfenyves"
+    },
+    stationName: {
+      hu: "Balatonfenyves vasútállomás",
+      en: "Balatonfenyves railway station",
+      de: "Bahnhof Balatonfenyves"
+    },
+    station: {
+      lat: 46.712945268687875,
+      lon: 17.48340130143374
+    },
+    radius: 4000,
+    fallbackQueries: {
+      school_all: ["iskola Balatonfenyves"],
+      university: ["egyetem Balatonfenyves"],
+      bath: ["strand Balatonfenyves", "szabadstrand Balatonfenyves", "Balatonfenyvesi strand"]
     },
     unavailableSubcategories: {
       school: ["university"],

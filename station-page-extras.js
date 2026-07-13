@@ -2424,6 +2424,41 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "Bahnhof: 7900 Szigetv\u00e1r, R\u00e1k\u00f3czi u. 35.<br>Busbahnhof: 7900 Szigetv\u00e1r, Istv\u00e1nffy Mikl\u00f3s utca 28."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Der Bahnschalter ist seit dem 31.10.2024 bis auf Weiteres geschlossen.<br>Busschalter: werktags 05:45-07:45 und 12:00-13:00."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und Fahrkartenautomat sind verf\u00fcgbar."
+          },
+          {
+            icon: "bi-person-wheelchair",
+            title: "Barrierefreiheit",
+            body: "Am Bahnhof ist eine akustische Fahrgastinformation verf\u00fcgbar."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken und Fahrrad",
+            body: "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs, Fahrradabstellpl\u00e4tze auf dem Bahnhofsgel\u00e4nde."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     }
   },

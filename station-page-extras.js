@@ -246,6 +246,118 @@ window.stationPageExtras = {
     }
   },
 
+  lepseny: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "C\u00edm",
+            body: "8132 Leps\u00e9ny, Vas\u00fat \u00fat 138."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "P\u00e9nzt\u00e1r",
+            body: "A M\u00c1V adatai szerint az \u00e1llom\u00e1s jegyp\u00e9nzt\u00e1r n\u00e9lk\u00fcl m\u0171k\u00f6dik."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegyv\u00e1s\u00e1rl\u00e1s",
+            body: "Helysz\u00ednen csak jegykiad\u00f3 automata \u00e9rhet\u0151 el."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parkol\u00e1s \u00e9s ker\u00e9kp\u00e1r",
+            body: "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben, ker\u00e9kp\u00e1rt\u00e1rol\u00f3 az \u00e1llom\u00e1s ter\u00fclet\u00e9n."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "8132 Leps\u00e9ny, Vas\u00fat \u00fat 138."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "According to M\u00c1V data, the station operates without a ticket office."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Purchase",
+            body: "Only a ticket vending machine is available on site."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parking and Bicycle",
+            body: "Parking is available near the station, and bicycle parking is available on the station grounds."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "8132 Leps\u00e9ny, Vas\u00fat \u00fat 138."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Laut M\u00c1V-Daten wird der Bahnhof ohne Fahrkartenschalter betrieben."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Vor Ort ist nur ein Fahrkartenautomat verf\u00fcgbar."
+          },
+          {
+            icon: "bi-car-front-fill",
+            title: "Parken und Fahrrad",
+            body: "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs, Fahrradabstellpl\u00e4tze auf dem Bahnhofsgel\u00e4nde."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    },
+    map: {
+      image: "lepsenybelso.png",
+      source: "terkep_lepseny_v2427.pdf",
+      hu: {
+        title: "\u00c1llom\u00e1st\u00e9rk\u00e9p",
+        text: "A M\u00c1V \u00e1ttekint\u0151 t\u00e9rk\u00e9pe Leps\u00e9ny vas\u00fat\u00e1llom\u00e1s\u00e1r\u00f3l. Telefonon oldalir\u00e1nyban g\u00f6rgethet\u0151."
+      },
+      en: {
+        title: "Station Map",
+        text: "M\u00c1V overview map of Leps\u00e9ny railway station. On mobile, swipe sideways to view the full map."
+      },
+      de: {
+        title: "Bahnhofsplan",
+        text: "M\u00c1V-\u00dcbersichtsplan des Bahnhofs Leps\u00e9ny. Auf dem Handy kann der Plan seitlich verschoben werden."
+      }
+    }
+  },
+
   balatonaliga: {
     smartNearby: true,
     info: {

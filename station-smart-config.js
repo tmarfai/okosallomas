@@ -86,6 +86,36 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  lepseny: {
+    key: "lepseny",
+    cityName: {
+      hu: "Leps\u00e9ny",
+      en: "Leps\u00e9ny",
+      de: "Leps\u00e9ny"
+    },
+    stationName: {
+      hu: "Leps\u00e9ny vas\u00fat\u00e1llom\u00e1s",
+      en: "Leps\u00e9ny railway station",
+      de: "Bahnhof Leps\u00e9ny"
+    },
+    station: {
+      lat: 46.987239371019356,
+      lon: 18.24466141135151
+    },
+    radius: 6000,
+    fallbackQueries: {
+      school_all: ["iskola Leps\u00e9ny"],
+      university: ["egyetem Leps\u00e9ny"],
+      bath: ["strand Leps\u00e9ny", "strand Balatonvil\u00e1gos", "Balatonaliga strand", "szabadstrand Balatonvil\u00e1gos"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   kaposvar: {
     key: "kaposvar",
     cityName: {

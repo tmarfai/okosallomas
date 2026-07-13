@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leps&eacute;ny Audioguide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+<body data-station-key="lepseny">
+  <header class="bg-dark text-white text-center py-5 position-relative">
+    <div class="container">
+      <h1 class="display-4">Leps&eacute;ny &ndash; Audioguide</h1>
+      <p class="lead">Entdecke Leps&eacute;ny mit einem Klick!</p>
+    </div>
+    <div class="position-absolute" style="top: 15px; right: 15px;">
+      <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='lepseny.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='lepseny-en.html'">
+      <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='lepseny-de.html'">
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Warum lohnt sich ein Besuch in Leps&eacute;ny?</h2>
+      <p>Leps&eacute;ny liegt nahe am Balaton und ist zugleich ein wichtiger Eisenbahnpunkt. Der Ort ist ruhig, gut erreichbar und eignet sich als Ausgangspunkt f&uuml;r Ausfl&uuml;ge in Richtung Balatonaliga, Balatonvil&aacute;gos und Si&oacute;fok.</p>
+    </section>
+
+    <section class="text-center">
+      <div id="controlsContainer">
+        <button id="playPauseButton" class="btn btn-lg btn-primary">
+          <i class="bi bi-volume-up-fill me-2"></i> Anh&ouml;ren
+        </button>
+        <button id="restartButton" class="btn btn-sm" style="display:none;">Neu starten</button>
+      </div>
+
+      <audio id="hang" preload="metadata">
+        <source src="lepseny-de.mp3" type="audio/mpeg" />
+        Dein Browser unterst&uuml;tzt die Audiowiedergabe nicht.
+      </audio>
+    </section>
+  </main>
+
+  <div class="card my-4" style="max-width: 600px; margin: auto;">
+    <div class="card-body text-center">
+      <h5 class="card-title">Bahnhof Leps&eacute;ny</h5>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2721.699359234689!2d18.24466141135151!3d46.987239371019356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1753339246776!5m2!1sde!2sde"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+        Live-Zugbewegungen ansehen
+      </a>
+    </div>
+  </div>
+
+  <div class="card text-center mt-4" id="idojaras-lepseny">
+    <div class="card-body">
+      <h5 class="card-title">Wetter in Leps&eacute;ny</h5>
+    </div>
+  </div>
+
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Weitere Ziele in der N&auml;he</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="aligakikoto.jpg" class="card-img-top" alt="Hafen Aliga">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Hafen Aliga</h5>
+            <p class="card-text">Der Hafen am Balatonufer ist ein angenehmer Ort f&uuml;r Spazierg&auml;nge, Seeblick und kurze Ausfl&uuml;ge von Leps&eacute;ny aus.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Aliga%20Kik%C3%B6t%C5%91" target="_blank" class="btn btn-primary mt-auto">Route planen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="zamardiring.jpg" class="card-img-top" alt="Go-Kart-Bahn Zam&aacute;rdi">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Go-Kart-Bahn</h5>
+            <p class="card-text">Die Go-Kart-Bahn in Zam&aacute;rdi ist ein sportlicher Ausflugstipp am Balaton und bietet Unterhaltung f&uuml;r Kinder und Erwachsene.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Zam%C3%A1rdi%20ring" target="_blank" class="btn btn-primary mt-auto">Route planen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="forditotthaz.jpg" class="card-img-top" alt="Umgedrehtes Haus">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Umgedrehtes Haus</h5>
+            <p class="card-text">Das umgedrehte Haus in Si&oacute;fok ist eine besondere Attraktion mit lustigen Fotomotiven und einem ungewohnten Raumerlebnis.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Ford%C3%ADtott%20h%C3%A1z%20Si%C3%B3fok" target="_blank" class="btn btn-primary mt-auto">Route planen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="stationExtrasMount"></div>
+
+  <div class="text-center my-4">
+    <img src="mavlogo.png" alt="M&Aacute;V Logo" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Leps&eacute;ny Info</small>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="station-smart-config.js?v=20260713-lepseny1"></script>
+  <script src="station-page-extras.js?v=20260713-lepseny1"></script>
+  <script src="station-page-renderer.js?v=20260713-lepseny1"></script>
+  <script src="script.js?v=20260713-lepseny2"></script>
+</body>
+</html>

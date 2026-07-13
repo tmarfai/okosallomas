@@ -116,6 +116,35 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  simontornya: {
+    key: "simontornya",
+    cityName: {
+      hu: "Simontornya",
+      en: "Simontornya",
+      de: "Simontornya"
+    },
+    stationName: {
+      hu: "Simontornya vas\u00fat\u00e1llom\u00e1s",
+      en: "Simontornya railway station",
+      de: "Bahnhof Simontornya"
+    },
+    station: {
+      lat: 46.75640316829538,
+      lon: 18.53940674705689
+    },
+    radius: 4500,
+    fallbackQueries: {
+      school_all: ["iskola Simontornya"],
+      university: ["egyetem Simontornya"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema", "bath"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   kaposvar: {
     key: "kaposvar",
     cityName: {

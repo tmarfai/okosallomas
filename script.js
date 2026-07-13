@@ -121,7 +121,7 @@ function initWeatherCards() {
     { id: "idojaras-pusztaszabolcs", nev: "Pusztaszabolcs", lat: 47.13718, lon: 18.76704 },
     { id: "idojaras-sarbogard", nev: "Sárbogárd", lat: 46.8773, lon: 18.6305 },
     { id: "idojaras-sellye", nev: "Sellye", lat: 45.8472, lon: 17.6867 },
-    { id: "idojaras-simontornya", nev: "Simontornya", lat: 46.7365, lon: 18.3863 },
+    { id: "idojaras-simontornya", nev: "Simontornya", lat: 46.75640316829538, lon: 18.53940674705689 },
     { id: "idojaras-siofok", nev: "Siófok", lat: 46.9081, lon: 18.0510 },
     { id: "idojaras-somogyszob", nev: "Somogyszob", lat: 46.2310, lon: 17.2650 },
     { id: "idojaras-szabadisosto", nev: "Szabadisóstó", lat: 46.9207, lon: 18.1204 },

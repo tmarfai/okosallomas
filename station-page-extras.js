@@ -165,6 +165,87 @@ window.stationPageExtras = {
     }
   },
 
+  ata: {
+    smartNearby: true,
+    info: {
+      hu: {
+        title: "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "C\u00edm",
+            body: "7763 \u00c1ta, Vas\u00fat\u00e1llom\u00e1s"
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "P\u00e9nzt\u00e1r",
+            body: "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Jegykiad\u00e1s",
+            body: "A M\u00c1V \u00e1llom\u00e1si adatai szerint itt nincs helysz\u00edni jegykiad\u00e1s."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      en: {
+        title: "Useful information about the station",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Address",
+            body: "7763 \u00c1ta, railway station"
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Ticket Office",
+            body: "There is no railway ticket office at the station."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Ticket Issue",
+            body: "According to M\u00c1V station data, on-site ticket issue is not available here."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7763 \u00c1ta, Bahnhof"
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenausgabe",
+            body: "Laut M\u00c1V-Stationsdaten gibt es hier keine Fahrkartenausgabe vor Ort."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
   balatonaliga: {
     smartNearby: true,
     info: {
@@ -2348,6 +2429,36 @@ window.stationPageExtras = {
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
           }
         ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "Bahnhof: 8660 Tab, Kossuth Lajos utca 1.<br>Busbahnhof: 8660 Tab, Kossuth Lajos utca 2."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Der Bahnhof arbeitet ohne Fahrkartenschalter. Der Fahrkartenschalter am Busbahnhof ist seit dem 1. Januar 2026 bis auf Weiteres geschlossen."
+          },
+          {
+            icon: "bi-megaphone",
+            title: "Fahrgastinformation",
+            body: "Am Bahnhof ist eine akustische Fahrgastinformation verf\u00fcgbar."
+          },
+          {
+            icon: "bi-clock",
+            title: "Warteraum und Toiletten",
+            body: "Warteraum am Busbahnhof: Mo-Fr 05:45-22:15, an Wochenenden/Feiertagen 05:45-20:00.<br>Toiletten: t\u00e4glich 06:00-19:00."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
       }
     }
   },
@@ -2513,6 +2624,31 @@ window.stationPageExtras = {
             icon: "bi-telephone",
             title: "M\u00c1VDIREKT",
             body: "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      de: {
+        title: "N\u00fctzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7444 Osztop\u00e1n, Bahnhof."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Auf der M\u00c1V-Stationsseite sind keine lokalen Schalter\u00f6ffnungszeiten angegeben."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Fahrkartenkauf",
+            body: "Nutze f\u00fcr den Fahrkartenkauf die M\u00c1V-App, den Online-Kauf oder die offiziellen M\u00c1V-Informationen."
+          },
+          {
+            icon: "bi-telephone",
+            title: "M\u00c1VDIREKT",
+            body: "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
           }
         ]
       }

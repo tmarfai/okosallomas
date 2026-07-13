@@ -57,6 +57,35 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  ata: {
+    key: "ata",
+    cityName: {
+      hu: "\u00c1ta",
+      en: "\u00c1ta",
+      de: "\u00c1ta"
+    },
+    stationName: {
+      hu: "\u00c1ta vas\u00fat\u00e1llom\u00e1s",
+      en: "\u00c1ta railway station",
+      de: "Bahnhof \u00c1ta"
+    },
+    station: {
+      lat: 45.93638887096503,
+      lon: 18.304364111281814
+    },
+    radius: 3500,
+    fallbackQueries: {
+      school_all: ["iskola \u00c1ta"],
+      university: ["egyetem \u00c1ta"]
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema", "bath"]
+    },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
   kaposvar: {
     key: "kaposvar",
     cityName: {

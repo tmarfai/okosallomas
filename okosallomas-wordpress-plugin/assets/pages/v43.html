@@ -1,12 +1,87 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V43 Dokumentum betöltése...</title>
-    <meta http-equiv="refresh" content="0; url=V43-.pdf">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V43 dokumentum</title>
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #10233f;
+    }
+
+    main {
+      width: min(1100px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 24px 0;
+    }
+
+    .document-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #1877f2;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .viewer {
+      width: 100%;
+      height: min(78vh, 920px);
+      min-height: 560px;
+      border: 1px solid #c8d5e6;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(16, 35, 63, 0.12);
+    }
+
+    .fallback {
+      margin-top: 14px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .document-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .viewer {
+        min-height: 70vh;
+      }
+    }
+  </style>
 </head>
 <body>
-    <p>A dokumentum betöltése... Ha nem nyílik meg automatikusan, <a href="assets/maps/V43-.pdf">kattints ide</a>.</p>
+  <main>
+    <div class="document-header">
+      <h1>V43 dokumentum</h1>
+      <a class="button" href="assets/maps/V43-.pdf" target="_blank" rel="noopener">PDF megnyitása</a>
+    </div>
+
+    <iframe class="viewer" src="assets/maps/V43-.pdf" title="V43 PDF dokumentum"></iframe>
+
+    <p class="fallback">
+      Ha a dokumentum nem jelenik meg, <a href="assets/maps/V43-.pdf" target="_blank" rel="noopener">nyisd meg külön fülön</a>.
+    </p>
+  </main>
 </body>
 </html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Áta Hangoldal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-59ZRZ0FTDM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-59ZRZ0FTDM');
+</script>
+
+</head>
+<body data-station-key="ata">
+<header class="bg-dark text-white text-center py-5 position-relative">
+  <div class="container">
+    <h1 class="display-4">Áta – Hangos bemutató</h1>
+    <p class="lead">Fedezd fel Átát egy kattintással!</p>
+  </div>
+  <div class="position-absolute" style="top: 15px; right: 15px;">
+    <img src="https://flagicons.lipis.dev/flags/4x3/hu.svg" alt="Magyar"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer;" onclick="window.location.href='ata.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='ata-en.html'">
+    <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch"class="flag-switcher" style="height: 22px; border-radius: 4px; cursor: pointer; margin-left:5px;" onclick="window.location.href='ata-de.html'">
+  </div>
+</header>
+
+
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2>Miért érdemes ellátogatni Átára?</h2>
+      <p>Áta egy csendes, barátságos falu Pécs közelében, ahol nyugalom, természetközeli élmény vár...</p>
+    </section>
+
+    <section class="text-center">
+  <div id="controlsContainer">
+    <button id="playPauseButton" class="btn btn-lg btn-primary">
+  <i class="bi bi-volume-up-fill me-2"></i> Hallgass meg!
+</button>
+
+    <button id="restartButton" class="btn btn-sm" style="display:none;">Újrakezdés</button>
+  </div>
+
+  <audio id="hang" preload="metadata">
+    <source src="assets/audio/ata.mp3" type="audio/mpeg" />
+    A böngésződ nem támogatja a hang lejátszást.
+  </audio>
+</section>
+
+
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body p-2"> <img src="assets/img/ataallomaskep.jpg" alt="Áta vasútállomás" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  </div>
+</div>
+
+  </main>
+
+<div class="card my-4" style="max-width: 600px; margin: auto;">
+  <div class="card-body text-center">
+    <h5 class="card-title">Áta vasútállomás</h5>
+
+    <!-- Térkép -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2774.745364913068!2d18.304364111281814!3d45.93638887096503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1749540964619!5m2!1shu!2shu"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <!-- Élő menetrend gomb -->
+    <a href="https://vonatinfo.mav-start.hu/" target="_blank" class="btn btn-primary mt-3">
+    Nézd meg az élő vonatmozgásokat
+    </a>
+  </div>
+</div>
+
+<div class="card text-center mt-4" id="idojaras-ata">
+  <div class="card-body">
+    <h5 class="card-title">Áta időjárása</h5>
+    <!-- JS generálja az összes adat sort -->
+  </div>
+</div>
+
+  <section class="container my-5">
+  <h2 class="text-center mb-4">További úti célok a környéken</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="assets/img/pecs.jpg" class="card-img-top" alt="Pécs város">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Pécs</h5>
+      <p class="card-text">Pécs egy város, ahol a déli napfény és a történelmi rétegek különös harmóniában élnek együtt.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Pécs" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="assets/img/orfu.jpg" class="card-img-top" alt="Orfu">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Orfűi tó</h5>
+      <p class="card-text">Kiváló horgászási, csónakázási, fürdési lehetőség a természet lágy ölében.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Pécsi tó" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+    <div class="col">
+  <div class="card h-100 shadow-sm">
+    <img src="assets/img/abaliget.jpg" class="card-img-top" alt="Abaliget">
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">Abaligeti cseppkőbarlang</h5>
+      <p class="card-text">Lenyűgöző barlang és denevérmúzeum, kb. 45-50 percnyi autóútra.</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Abaligeti cseppkőbarlang" target="_blank" class="btn btn-primary mt-auto">Útvonaltervezés</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+  <div id="stationExtrasMount"></div>
+
+
+  <div class="text-center my-4">
+    <img src="assets/img/mavlogo.png" alt="MÁV logó" class="img-fluid" style="max-width: 200px;">
+  </div>
+
+  <footer class="bg-light text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 Áta Info</small>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/station-smart-config.js?v=20260713-ata1"></script>
+  <script src="assets/js/station-page-extras.js?v=20260713-ata1"></script>
+  <script src="assets/js/station-page-renderer.js?v=20260713-ata1"></script>
+  <script src="assets/js/script.js?v=20260713-ata1"></script>
+</body>
+</html>

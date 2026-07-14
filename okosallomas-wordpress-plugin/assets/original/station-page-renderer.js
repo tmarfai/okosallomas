@@ -18,7 +18,10 @@
     }
 
     const base = window.okosallomasAssetBase || "";
-    return base ? base + path.replace(/^\.\//, "") : path;
+    const normalized = path
+      .replace(/^\.\//, "")
+      .replace(/^assets\/(?:audio|img|maps)\//i, "");
+    return base ? base + normalized : path;
   }
 
   function createSection(className, title) {

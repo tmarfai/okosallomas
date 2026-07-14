@@ -6,9 +6,9 @@
   <title>Pécs Audio Guide</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="style.css?v=20260609-0940"/>
+  <link rel="stylesheet" href="assets/css/style.css?v=20260609-0940"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
 </head>
 <body data-station-key="pecs">
   <header class="bg-dark text-white text-center py-5">
@@ -36,13 +36,13 @@
 
       <button id="restartButton" class="btn btn-sm" style="display:none;">Restart</button>
       <audio id="hang" preload="metadata">
-        <source src="pecs-en.mp3" type="audio/mpeg" />
+        <source src="assets/audio/pecs-en.mp3" type="audio/mpeg" />
         Your browser does not support audio playback.
       </audio>
     </section>
 
 <div class="card my-4" style="max-width: 600px; margin: auto;">
-  <div class="card-body p-2"> <img src="pecsallomaskep.jpg" alt="Pécs railway station" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
+  <div class="card-body p-2"> <img src="assets/img/pecsallomaskep.jpg" alt="Pécs railway station" class="img-fluid rounded" style="width: 100%; height: 300px; object-fit: cover;">
   </div>
 </div>
 
@@ -83,7 +83,7 @@
 
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="villany.jpg" class="card-img-top" alt="Villány Wine Region">
+          <img src="assets/img/villany.jpg" class="card-img-top" alt="Villány Wine Region">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Villány Wine Region</h5>
             <p class="card-text">One of Hungary's most developed wine regions. A glass of Villány Cabernet Franc in the light of the setting sun – it's more than wine: it's a way of life.</p>
@@ -94,7 +94,7 @@
 
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="siklosivar.jpg" class="card-img-top" alt="Siklós Castle">
+          <img src="assets/img/siklosivar.jpg" class="card-img-top" alt="Siklós Castle">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Siklós Castle</h5>
             <p class="card-text">Medieval castle, wax museum, exhibitions, sightseeing train. One of Hungary's most beautiful castles.</p>
@@ -105,7 +105,7 @@
 
       <div class="col">
         <div class="card h-100 shadow-sm">
-          <img src="zsolnaynegyed.jpg" class="card-img-top" alt="Zsolnay Cultural Quarter">
+          <img src="assets/img/zsolnaynegyed.jpg" class="card-img-top" alt="Zsolnay Cultural Quarter">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Zsolnay Cultural Quarter</h5>
             <p class="card-text">Explore the world of the famous Zsolnay porcelain, admire the Gyugyi collection, stroll through the winding streets of the Zsolnay Quarter, and enjoy the peaceful cafés, parks, and exhibitions. This is not just a museum – it's an experience.</p>
@@ -252,7 +252,7 @@
 
       <div class="station-inner-map-scroll">
         <img 
-          src="pecs-belso-terkep.png" 
+          src="assets/img/pecs-belso-terkep.png" 
           alt="Pécs railway station map" 
           class="station-inner-map-img"
         >
@@ -261,7 +261,7 @@
   </section>
 
   <div class="text-center my-4">
-    <img src="mavlogo.png" alt="MÁV Logo" class="img-fluid" style="max-width: 200px;">
+    <img src="assets/img/mavlogo.png" alt="MÁV Logo" class="img-fluid" style="max-width: 200px;">
   </div>
 
   <footer class="bg-light text-center py-3">
@@ -271,7 +271,7 @@
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="station-smart-config.js?v=20260624-grocery3"></script>
-  <script src="script.js?v=20260624-noquestion2"></script>
+  <script src="assets/js/station-smart-config.js?v=20260624-grocery3"></script>
+  <script src="assets/js/script.js?v=20260624-noquestion2"></script>
 </body>
 </html>

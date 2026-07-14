@@ -11,7 +11,10 @@ function okosallomasAssetUrl(path) {
   }
 
   const base = window.okosallomasAssetBase || "";
-  return base ? base + path.replace(/^\.\//, "") : path;
+  const normalized = path
+    .replace(/^\.\//, "")
+    .replace(/^assets\/(?:audio|img|maps)\//i, "");
+  return base ? base + normalized : path;
 }
 
 function getPageLang() {
@@ -25,6 +28,13 @@ function initAudioPlayer() {
   const restartButton = document.getElementById("restartButton");
 
   if (!audio || !playPauseButton || !restartButton) return;
+
+  const audioSource = audio.querySelector("source[src]");
+  if (!audioSource || !audioSource.getAttribute("src")) {
+    playPauseButton.style.display = "none";
+    restartButton.style.display = "none";
+    return;
+  }
 
   const lang = getPageLang();
   const texts = {
@@ -121,6 +131,7 @@ function initWeatherCards() {
     { id: "idojaras-keszohidegkutgyonk", nev: "Keszőhidegkút-Gyönk", lat: 46.5006, lon: 18.4831 },
     { id: "idojaras-kaposvar", nev: "Kaposvár", lat: 46.3590, lon: 17.7960 },
     { id: "idojaras-lengyeltoti", nev: "Lengyeltóti", lat: 46.7000, lon: 17.6389 },
+    { id: "idojaras-lepseny", nev: "Lepsény", lat: 46.987239371019356, lon: 18.24466141135151 },
     { id: "idojaras-mohacs", nev: "Mohács", lat: 45.9959, lon: 18.6798 },
     { id: "idojaras-osztopan", nev: "Osztopán", lat: 46.4832, lon: 17.8879 },
     { id: "idojaras-ocseny", nev: "Őcsény", lat: 46.31776, lon: 18.74559 },
@@ -129,7 +140,7 @@ function initWeatherCards() {
     { id: "idojaras-pusztaszabolcs", nev: "Pusztaszabolcs", lat: 47.13718, lon: 18.76704 },
     { id: "idojaras-sarbogard", nev: "Sárbogárd", lat: 46.8773, lon: 18.6305 },
     { id: "idojaras-sellye", nev: "Sellye", lat: 45.8472, lon: 17.6867 },
-    { id: "idojaras-simontornya", nev: "Simontornya", lat: 46.7365, lon: 18.3863 },
+    { id: "idojaras-simontornya", nev: "Simontornya", lat: 46.75640316829538, lon: 18.53940674705689 },
     { id: "idojaras-siofok", nev: "Siófok", lat: 46.9081, lon: 18.0510 },
     { id: "idojaras-somogyszob", nev: "Somogyszob", lat: 46.2310, lon: 17.2650 },
     { id: "idojaras-szabadisosto", nev: "Szabadisóstó", lat: 46.9207, lon: 18.1204 },
@@ -245,7 +256,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v22`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v27`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -459,14 +470,21 @@ function initSmartNearbyExplorer() {
     shops: {
       subcategories: {
         grocery: {
-          icon: "🛒",
-          filters: [{ key: "shop", values: ["supermarket", "convenience", "grocery"] }],
-          matcher: place => hasName(place)
+          icon: "\u{1F6D2}",
+          filters: [
+            { key: "shop", values: ["supermarket", "convenience", "grocery", "general", "kiosk", "deli", "farm", "greengrocer", "butcher", "bakery", "beverages"] },
+            { key: "amenity", values: ["marketplace"] }
+          ],
+          matcher: place => isGroceryPlace(place)
         },
         mall: {
           icon: "🛍️",
-          filters: [{ key: "shop", values: ["mall", "department_store"] }],
-          matcher: place => hasName(place)
+          filters: [
+            { key: "shop", values: ["mall", "department_store"] },
+            { key: "building", values: ["retail", "commercial"] },
+            { key: "landuse", values: ["retail"] }
+          ],
+          matcher: place => isShoppingCenterPlace(place)
         }
       }
     },
@@ -625,15 +643,16 @@ function initSmartNearbyExplorer() {
       populatePlaces(result.places);
 
       result.places.forEach(place => {
+        const safeIcon = sanitizePlaceIcon(place.icon, place.categoryKey, place.subcategoryKey);
         const markerIcon = L.divIcon({
           className: "destination-smart-marker",
-          html: place.icon || "📍",
+          html: getMarkerIconHtml(safeIcon, place.categoryKey, place.subcategoryKey),
           iconSize: [28, 28],
           iconAnchor: [14, 14]
         });
         
         const m = L.marker([place.lat, place.lon], { icon: markerIcon });
-        m.bindPopup(`<strong>${place.icon} ${place.name}</strong>`);
+        m.bindPopup(`<strong>${safeIcon} ${place.name}</strong>`);
         
         m.on('click', function() {
           for (let i = 0; i < placeSelect.options.length; i++) {
@@ -779,9 +798,11 @@ function initSmartNearbyExplorer() {
     placeSelect.innerHTML = `<option value="">${places.length ? messages[lang].placePlaceholder : emptyText}</option>`;
     placeSelect.disabled = places.length === 0;
     places.forEach(place => {
+      const safeIcon = sanitizePlaceIcon(place.icon, place.categoryKey, place.subcategoryKey);
+      const displayPlace = { ...place, icon: safeIcon };
       const option = document.createElement("option");
-      option.value = JSON.stringify(place);
-      option.textContent = `${place.icon} ${place.name} (${place.distance} m)`;
+      option.value = JSON.stringify(displayPlace);
+      option.textContent = `${safeIcon} ${place.name} (${place.distance} m)`;
       placeSelect.appendChild(option);
     });
   }
@@ -806,7 +827,8 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
   const cached = readCache(cacheKey);
   if (cached) {
-    const places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, cached);
+    const filteredCached = cached.filter(place => !subConfig.matcher || subConfig.matcher(place));
+    const places = mergePlaces(getPlaceLimit(categoryKey, subcategoryKey), manualPlaces, filteredCached);
     return { places, fromCache: true, fromFallback: false };
   }
 
@@ -878,6 +900,8 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   }
 
   function shouldEnrichWithFallback(categoryKey, subcategoryKey, places) {
+    if (categoryKey === "shops" && subcategoryKey === "grocery") return places.length < 5;
+    if (categoryKey === "shops" && subcategoryKey === "mall") return places.length < 3;
     if (categoryKey !== "school") return false;
     if (subcategoryKey === "school_all") return places.length < 10;
     if (subcategoryKey === "secondary" || subcategoryKey === "primary") return places.length < 5;
@@ -902,7 +926,10 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       if (seenNames.has(nameKey)) return;
       if ([...seenNames].some(existing => existing.includes(nameKey) || nameKey.includes(existing))) return;
       seenNames.add(nameKey);
-      merged.push(place);
+      merged.push({
+        ...place,
+        icon: sanitizePlaceIcon(place.icon, place.categoryKey, place.subcategoryKey)
+      });
     }
 
     return merged.sort((a, b) => a.distance - b.distance);
@@ -914,6 +941,41 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
       .trim();
+  }
+
+  function sanitizePlaceIcon(icon, categoryKey, subcategoryKey) {
+    const raw = String(icon || "").trim();
+    if (!raw || /[?\u2753\u2754\uFFFD]/.test(raw) || raw.includes("�")) {
+      return getFallbackIcon(categoryKey, subcategoryKey);
+    }
+    return raw;
+  }
+
+  function getMarkerIconHtml(icon, categoryKey, subcategoryKey) {
+    if (subcategoryKey === "grocery") return "&#128722;";
+    if (subcategoryKey === "mall") return "&#128717;&#65039;";
+    return sanitizePlaceIcon(icon, categoryKey, subcategoryKey);
+  }
+
+  function getFallbackIcon(categoryKey, subcategoryKey) {
+    const icons = {
+      school_all: "\u{1F3EB}",
+      university: "\u{1F393}",
+      secondary: "\u{1F3EB}",
+      primary: "\u{1F3EB}",
+      grocery: "\u{1F6D2}",
+      mall: "\u{1F6CD}\uFE0F",
+      restaurant: "\u{1F37D}\uFE0F",
+      cafe: "\u2615",
+      fastfood: "\u{1F354}",
+      bath: "\u{1F3CA}",
+      pub: "\u{1F37A}",
+      cinema: "\u{1F3AC}",
+      museum: "\u{1F3DB}\uFE0F",
+      library: "\u{1F4D6}",
+      theatre: "\u{1F3AD}"
+    };
+    return icons[subcategoryKey] || (categoryKey === "shops" ? "\u{1F6CD}\uFE0F" : "\u{1F4CD}");
   }
 
   function buildOverpassQuery(filters) {
@@ -985,8 +1047,29 @@ async function loadPlaces(categoryKey, subcategoryKey) {
         `${cityName} szakképző`
       ],
       primary: [`általános iskola ${cityName}`, `${cityName} általános iskola`, `alapfokú iskola ${cityName}`, `primary school ${cityName}`],
-      grocery: [`élelmiszerbolt ${cityName}`, `supermarket ${cityName}`],
-      mall: [`bevásárlóközpont ${cityName}`],
+      grocery: [
+        `\u00e9lelmiszerbolt ${cityName}`,
+        `ABC ${cityName}`,
+        `Coop ${cityName}`,
+        `CBA ${cityName}`,
+        `Pr\u00edma ${cityName}`,
+        `delik\u00e1tesz ${cityName}`,
+        `vegyesbolt ${cityName}`,
+        `kisbolt ${cityName}`,
+        `supermarket ${cityName}`
+      ],
+      mall: [
+        `bev\u00e1s\u00e1rl\u00f3k\u00f6zpont ${cityName}`,
+        `pl\u00e1za ${cityName}`,
+        `${cityName} pl\u00e1za`,
+        `plaza ${cityName}`,
+        `Corso ${cityName}`,
+        `Korz\u00f3 ${cityName}`,
+        `\u00c1rk\u00e1d ${cityName}`,
+        `\u00fczleth\u00e1z ${cityName}`,
+        `shopping center ${cityName}`,
+        `mall ${cityName}`
+      ],
       restaurant: [`étterem ${cityName}`],
       cafe: [`kávézó ${cityName}`, `cukrászda ${cityName}`],
       fastfood: [`gyorsétterem ${cityName}`],
@@ -1122,7 +1205,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
         name: name || "Névtelen",
         lat, lon,
         distance: haversine(station.lat, station.lon, lat, lon),
-        categoryKey, subcategoryKey,
+        categoryKey, subcategoryKey, 
         icon: subConfig.icon
       });
     });
@@ -1131,9 +1214,10 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
 function showSelectedPlace(place) {
     clearDestinationMarker();
+    const safeIcon = sanitizePlaceIcon(place.icon, place.categoryKey, place.subcategoryKey);
     const icon = L.divIcon({ 
       className: "destination-smart-marker", 
-      html: place.icon, 
+      html: getMarkerIconHtml(safeIcon, place.categoryKey, place.subcategoryKey), 
       iconSize: [34,34], 
       iconAnchor:[17,17] 
     });
@@ -1154,7 +1238,7 @@ function showSelectedPlace(place) {
     };
     
     // Alapértelmezett rész: név és távolság
-    let summaryHtml = `<strong>${ui.selected}</strong> ${place.icon} ${place.name} (${place.distance} m)`;
+    let summaryHtml = `<strong>${ui.selected}</strong> ${safeIcon} ${place.name} (${place.distance} m)`;
     
     const lowerName = place.name.toLowerCase();
 
@@ -1196,7 +1280,8 @@ function showSelectedPlace(place) {
     }
 
     const specialLink = findSpecialPlaceLink(lowerName);
-    if (specialLink && !summaryHtml.includes(specialLink.url)) {
+    const specialLinkUrl = specialLink ? getSpecialLinkPrimaryUrl(specialLink) : "";
+    if (specialLink && (!specialLinkUrl || !summaryHtml.includes(specialLinkUrl))) {
       summaryHtml += renderSpecialPlaceLink(specialLink);
     }
 
@@ -1205,6 +1290,19 @@ function showSelectedPlace(place) {
   }
 
   
+
+  function localizeSpecialLinkValue(value, fallback = "") {
+    if (!value) return fallback;
+    if (typeof value === "string") return value;
+    return value[lang] || value.hu || value.en || value.de || fallback;
+  }
+
+  function getSpecialLinkPrimaryUrl(link) {
+    if (!link) return "";
+    if (link.url) return link.url;
+    if (Array.isArray(link.actions) && link.actions[0]?.url) return link.actions[0].url;
+    return "";
+  }
 
   function findSpecialPlaceLink(lowerName) {
     const links = pageConfig.specialLinks || [];
@@ -1215,8 +1313,13 @@ function showSelectedPlace(place) {
   }
 
   function renderSpecialPlaceLink(link) {
-    const text = link.text?.[lang] || link.text?.hu || "";
-    const label = link.label?.[lang] || link.label?.hu || link.alt || link.url;
+    const text = localizeSpecialLinkValue(link.text);
+    const label = localizeSpecialLinkValue(link.label, link.alt || getSpecialLinkPrimaryUrl(link));
+    const tag = localizeSpecialLinkValue(link.tag);
+    const icon = link.icon || "bi-box-arrow-up-right";
+    const actions = Array.isArray(link.actions) && link.actions.length
+      ? link.actions
+      : [{ label: link.label, url: link.url, icon: "bi-box-arrow-up-right" }];
 
     if (link.image) {
       return `
@@ -1230,14 +1333,30 @@ function showSelectedPlace(place) {
         </div>`;
     }
 
+    const actionHtml = actions
+      .filter(action => action.url)
+      .map(action => {
+        const actionLabel = localizeSpecialLinkValue(action.label, label);
+        const actionIcon = action.icon || "bi-box-arrow-up-right";
+        return `
+          <a href="${action.url}" target="_blank" rel="noopener" class="smart-place-link-action">
+            <i class="bi ${actionIcon}" aria-hidden="true"></i>
+            <span>${actionLabel}</span>
+          </a>`;
+      })
+      .join("");
+
     return `
-      <div class="mt-3 pt-2 border-top" style="display: block !important;">
-        <p class="mb-2" style="font-size: 0.95rem; color: #1b447d; font-weight: 700; line-height: 1.2; display: block !important;">
-          ${text}
-        </p>
-        <a href="${link.url}" target="_blank" class="btn btn-outline-primary btn-sm">
-          ${label}
-        </a>
+      <div class="smart-place-link-card">
+        <div class="smart-place-link-top">
+          <span class="smart-place-link-icon"><i class="bi ${icon}" aria-hidden="true"></i></span>
+          <div>
+            ${tag ? `<div class="smart-place-link-tag">${tag}</div>` : ""}
+            <div class="smart-place-link-title">${label}</div>
+          </div>
+        </div>
+        ${text ? `<p class="smart-place-link-text">${text}</p>` : ""}
+        ${actionHtml ? `<div class="smart-place-link-actions">${actionHtml}</div>` : ""}
       </div>`;
   }
 
@@ -1310,6 +1429,118 @@ function showSelectedPlace(place) {
     if (["road", "street", "residential", "pedestrian", "service", "footway", "cycleway"].includes(type)) return true;
     if (["road", "street"].includes(addresstype)) return true;
     return /\b(utca|ut|ter|koz|setany|sor|dulo|korut|rakpart|fasor|lepcso)\b/.test(name);
+  }
+  function isGroceryPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+
+    const tags = p.tags || {};
+    const shop = normalizeText(tags.shop || "");
+    const amenity = normalizeText(tags.amenity || "");
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    const text = normalizeText(`${p.name || ""} ${p.displayName || ""} ${Object.values(tags).join(" ")}`);
+
+    const hardExcludedShopTypes = [
+      "hardware",
+      "doityourself",
+      "building_materials",
+      "construction",
+      "trade",
+      "paint",
+      "furniture",
+      "bookmaker",
+      "books",
+      "stationery",
+      "copyshop",
+      "newsagent",
+      "tobacco",
+      "florist",
+      "garden_centre",
+      "car",
+      "car_parts",
+      "bicycle",
+      "clothes",
+      "shoes",
+      "beauty",
+      "hairdresser",
+      "chemist",
+      "optician",
+      "mobile_phone"
+    ];
+    if (hardExcludedShopTypes.includes(shop)) return false;
+
+    const excludedNamePattern = /\b(barkacs|barkacsbolt|epitoanyag|epitkezes|tuzep|festek|butor|konyv|papir|iroszer|papirbolt|dohany|trafik|virag|kerteszet|auto|autos|alkatresz|bicikli|ruha|cipo|fodrasz|kozmetika|gyogyszertar|patika|optika|mobil|telefon|cukraszda|fagylaltozo|tekepalya)\b/;
+    if (excludedNamePattern.test(text)) return false;
+
+    const acceptedShopTypes = [
+      "supermarket",
+      "convenience",
+      "grocery",
+      "general",
+      "kiosk",
+      "deli",
+      "farm",
+      "greengrocer",
+      "butcher",
+      "bakery",
+      "beverages"
+    ];
+    if (acceptedShopTypes.includes(shop)) return true;
+    if (amenity === "marketplace") return true;
+    if (osmClass === "shop" && acceptedShopTypes.includes(type)) return true;
+    if (osmClass === "amenity" && type === "marketplace") return true;
+
+    return /\b(abc|coop|cba|prima|re\\u00e1l|real|spar|tesco|aldi|lidl|penny|elelmiszer|elelmiszerbolt|kisbolt|vegyesbolt|delikatesz|csemege|diszkont|market|mini market|minimarket|supermarket|zoldseg|zoldseges|pekseg|husbolt|italbolt|bevasarlo)\b/.test(text);
+  }
+  function isShoppingCenterPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+
+    const tags = p.tags || {};
+    const shop = normalizeText(tags.shop || "");
+    const building = normalizeText(tags.building || "");
+    const landuse = normalizeText(tags.landuse || "");
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    const text = normalizeText(`${p.name || ""} ${p.displayName || ""} ${Object.values(tags).join(" ")}`);
+
+    const excludedShopTypes = [
+      "hardware",
+      "doityourself",
+      "building_materials",
+      "construction",
+      "trade",
+      "paint",
+      "furniture",
+      "car",
+      "car_parts",
+      "bicycle",
+      "flooring",
+      "tiles",
+      "windows",
+      "doors",
+      "garden_centre",
+      "florist",
+      "stationery",
+      "books",
+      "tobacco"
+    ];
+    if (excludedShopTypes.includes(shop)) return false;
+
+    const excludedNamePattern = /\b(jola|ajto|ablak|nyilaszaro|parketta|garazskapu|kofarago|sirko|kovago|ko farago|epitoanyag|epitkezes|tuzep|barkacs|festek|burkolat|csempe|padlo|butor|fatelep|faanyag|asztalos|otthon|lakberendezes|ingatlan|auto|autos|gumiszerviz|alkatresz|szerviz|kerteszet|virag|dohany|trafik|konyv|papir|iroszer|fodrasz|kozmetika|gyogyszertar|patika|hulladek|hulladekudvar|waste|recycling)\b/;
+    if (excludedNamePattern.test(text)) return false;
+
+    const shoppingNamePattern = /\b(plaza|mall|shopping|center|centre|centrum|arkad|corso|korzo|uzlethaz|uzletkozpont|bevasarlokozpont|bevasarlo kozpont|aruhaz|hipermarket|hypermarket|tesco|auchan|interspar|metro|retail park|park center|stop shop|vasarcsarnok|piaccsarnok)\b/;
+
+    if (shop === "mall") return true;
+    if (shop === "department_store") return shoppingNamePattern.test(text);
+    if (osmClass === "shop" && type === "mall") return true;
+    if (osmClass === "shop" && type === "department_store") return shoppingNamePattern.test(text);
+
+    if (["retail", "commercial"].includes(building) || landuse === "retail") {
+      return shoppingNamePattern.test(text);
+    }
+
+    return shoppingNamePattern.test(text);
   }
   function isCinemaPlace(p) {
     if (!hasName(p) || isRoadLikePlace(p)) return false;

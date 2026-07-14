@@ -2,7 +2,7 @@
 /**
  * Plugin Name: MAV Okosallomas
  * Description: LocalWP gyakorlashoz keszult shortcode az okosallomas HTML oldalak beagyazasahoz.
- * Version: 0.1.4
+ * Version: 0.1.9
  * Author: Okosallomas projekt
  */
 
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 
 final class Okosallomas_WordPress_Plugin
 {
-    private const VERSION = '0.1.4';
+    private const VERSION = '0.1.8';
 
     public static function init(): void
     {
@@ -127,10 +127,8 @@ final class Okosallomas_WordPress_Plugin
 
         $station = sanitize_key((string) $atts['station']);
         $lang = self::resolve_lang((string) $atts['lang']);
-        $stations = self::stations();
-
-        if (!array_key_exists($station, $stations)) {
-            return self::message('Ismeretlen allomas: ' . esc_html($station));
+        if ($station === '') {
+            return self::message('Nincs megadva allomas.');
         }
 
         $page_path = self::page_path($station, $lang);
@@ -174,19 +172,6 @@ final class Okosallomas_WordPress_Plugin
         return in_array($candidate, ['hu', 'en', 'de'], true) ? $candidate : 'hu';
     }
 
-    private static function stations(): array
-    {
-        return [
-            'kaposvar' => 'Kaposvar',
-            'pecs' => 'Pecs',
-            'szekszard' => 'Szekszard',
-            'siofok' => 'Siofok',
-            'balatonlelle' => 'Balatonlelle',
-            'balatonboglar' => 'Balatonboglar',
-            'fonyod' => 'Fonyod',
-        ];
-    }
-
     private static function page_path(string $station, string $lang): string
     {
         $suffix = $lang === 'hu' ? '' : '-' . $lang;
@@ -227,6 +212,7 @@ final class Okosallomas_WordPress_Plugin
                 }
 
                 $path = ltrim($url, './');
+                $path = (string) preg_replace('#^assets/(?:audio|img|maps)/#i', '', $path);
 
                 return $attr . '=' . $quote . esc_url($asset_base . $path) . $quote;
             },

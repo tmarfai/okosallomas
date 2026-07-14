@@ -1,4 +1,4 @@
-body {
+﻿body {
   background-color: #f8f9fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -310,6 +310,81 @@ header img {
   line-height: 1.55;
 }
 
+.smart-place-link-card {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #cfe0f5;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+  box-shadow: 0 8px 18px rgba(27, 68, 125, 0.08);
+}
+
+.smart-place-link-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.smart-place-link-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #1b447d;
+  color: #ffffff;
+  font-size: 1.15rem;
+}
+
+.smart-place-link-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #607894;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.smart-place-link-title {
+  color: #143a6b;
+  font-weight: 800;
+}
+
+.smart-place-link-text {
+  margin: 10px 0 0;
+  color: #35506d;
+}
+
+.smart-place-link-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.smart-place-link-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #b9cdea;
+  background: #ffffff;
+  color: #174b87;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.smart-place-link-action:hover {
+  background: #174b87;
+  border-color: #174b87;
+  color: #ffffff;
+}
+
 .smart-nearby-map-shell {
   position: relative;
   margin-top: 16px;
@@ -389,6 +464,14 @@ header img {
   }
 
   .smart-nearby-actions .btn {
+    width: 100%;
+  }
+
+  .smart-place-link-actions {
+    flex-direction: column;
+  }
+
+  .smart-place-link-action {
     width: 100%;
   }
 
@@ -527,7 +610,7 @@ body.okosallomas-full-page .wp-block-post-title {
 }
 
 body.okosallomas-full-page .wp-site-blocks,
-body.okosallomas-full-page main,
+body.okosallomas-full-page .wp-site-blocks > main,
 body.okosallomas-full-page .entry-content,
 body.okosallomas-full-page .wp-block-post-content,
 body.okosallomas-full-page .has-global-padding,
@@ -554,30 +637,41 @@ body.okosallomas-full-page .okosallomas-wordpress-page {
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   color: #111827;
 }
 
 body.okosallomas-full-page .okosallomas-wordpress-page > header.bg-dark {
   position: relative;
-  min-height: 310px;
-  margin: 0 0 42px 0;
-  padding: 56px 16px !important;
-  display: flex;
-  align-items: center;
+  min-height: 0;
+  margin: 0;
+  padding: 48px 16px !important;
+  display: block;
 }
 
 body.okosallomas-full-page .okosallomas-wordpress-page > header.bg-dark .container {
-  max-width: 1040px !important;
+  max-width: 1140px !important;
 }
 
 body.okosallomas-full-page .okosallomas-wordpress-page > main.container,
-body.okosallomas-full-page .okosallomas-wordpress-page > .container {
-  max-width: 1120px !important;
+body.okosallomas-full-page .okosallomas-wordpress-page > .container,
+body.okosallomas-full-page .okosallomas-wordpress-page > section.container {
+  width: 100%;
+  max-width: 1140px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: calc(var(--bs-gutter-x, 1.5rem) * 0.5) !important;
+  padding-right: calc(var(--bs-gutter-x, 1.5rem) * 0.5) !important;
+}
+
+body.okosallomas-full-page .okosallomas-wordpress-page > main.container {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
 }
 
 body.okosallomas-full-page .okosallomas-wordpress-page section {
-  max-width: 1120px;
+  max-width: 1140px;
 }
 
 body.okosallomas-full-page .okosallomas-wordpress-page .position-absolute {
@@ -586,8 +680,8 @@ body.okosallomas-full-page .okosallomas-wordpress-page .position-absolute {
 
 @media (max-width: 700px) {
   body.okosallomas-full-page .okosallomas-wordpress-page > header.bg-dark {
-    min-height: 260px;
-    margin-bottom: 28px;
+    min-height: 0;
+    margin-bottom: 0;
     padding: 42px 14px !important;
   }
 
@@ -595,3 +689,4 @@ body.okosallomas-full-page .okosallomas-wordpress-page .position-absolute {
     font-size: clamp(2rem, 11vw, 3.25rem);
   }
 }
+

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: MAV Okosallomas
  * Description: LocalWP gyakorlashoz keszult shortcode az okosallomas HTML oldalak beagyazasahoz.
- * Version: 0.1.9
+ * Version: 0.1.10
  * Author: Okosallomas projekt
  */
 
@@ -12,13 +12,25 @@ if (!defined('ABSPATH')) {
 
 final class Okosallomas_WordPress_Plugin
 {
-    private const VERSION = '0.1.8';
+    private const VERSION = '0.1.10';
 
     public static function init(): void
     {
+        add_action('wp_head', [self::class, 'print_favicon'], 1);
         add_action('wp_enqueue_scripts', [self::class, 'enqueue_assets']);
         add_filter('body_class', [self::class, 'body_class']);
         add_shortcode('okosallomas', [self::class, 'render_shortcode']);
+    }
+
+    public static function print_favicon(): void
+    {
+        if (is_admin()) {
+            return;
+        }
+
+        $favicon_url = plugin_dir_url(__FILE__) . 'assets/original/favicon.ico';
+
+        echo '<link rel="icon" href="' . esc_url($favicon_url) . '" type="image/x-icon">' . "\n";
     }
 
     public static function body_class(array $classes): array

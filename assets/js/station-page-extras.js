@@ -2861,5 +2861,884 @@ window.stationPageExtras = {
         ]
       }
     }
+  },
+
+  "bataszek": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "7140 B\u00e1tasz\u00e9k, Bonyh\u00e1di \u00fat 4."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "P\u00e9nzt\u00e1r: H-Szo 02:50-22:50, vas\u00e1rnap \u00e9s \u00fcnnepnap 02:50-07:00 \u00e9s 07:45-22:50."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegyv\u00e1s\u00e1rl\u00e1s",
+            "body": "Belf\u00f6ldi jegyelad\u00e1s \u00e9s g\u00e9pi menetjegykiad\u00e1s el\u00e9rhet\u0151."
+          },
+          {
+            "icon": "bi-info-circle",
+            "title": "Tal\u00e1lt t\u00e1rgyak",
+            "body": "Tal\u00e1lt t\u00e1rgyak \u00fcgyint\u00e9z\u00e9se a p\u00e9nzt\u00e1r nyitvatart\u00e1s\u00e1val megegyez\u0151en, az \u00e1llom\u00e1s \u00e9p\u00fclet\u00e9ben."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Megk\u00f6zel\u00edt\u00e9s",
+            "body": "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7140 B\u00e1tasz\u00e9k, Bonyh\u00e1di \u00fat 4."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "Ticket office: Mon-Sat 02:50-22:50, Sundays and holidays 02:50-07:00 and 07:45-22:50."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Purchase",
+            "body": "Domestic ticket sales and machine-issued tickets are available."
+          },
+          {
+            "icon": "bi-info-circle",
+            "title": "Lost Property",
+            "body": "Lost property service is available in the station building during ticket office opening hours."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Access",
+            "body": "Parking is available near the station."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7140 B\u00e1tasz\u00e9k, Bonyh\u00e1di \u00fat 4."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Fahrkartenschalter: Mo-Sa 02:50-22:50, sonn- und feiertags 02:50-07:00 und 07:45-22:50."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenkauf",
+            "body": "Inlandsfahrkarten und maschinelle Fahrkartenausgabe sind verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-info-circle",
+            "title": "Fundsachen",
+            "body": "Fundsachenservice im Bahnhofsgeb\u00e4ude w\u00e4hrend der Schalter\u00f6ffnungszeiten."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Anreise",
+            "body": "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "keszohidegkut-gyonk": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "7062 Kesz\u0151hidegk\u00fat, vas\u00fat\u00e1llom\u00e1s."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegykiad\u00e1s",
+            "body": "A M\u00c1V \u00e1llom\u00e1si adatai szerint itt nincs helysz\u00edni jegykiad\u00e1s."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7062 Kesz\u0151hidegk\u00fat, railway station."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "There is no railway ticket office at the station."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Issue",
+            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7062 Kesz\u0151hidegk\u00fat, Bahnhof."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenausgabe",
+            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "lengyeltoti": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "8693 Lengyelt\u00f3ti, Bajcsy-Zsilinszky u. 138."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegykiad\u00e1s",
+            "body": "A M\u00c1V \u00e1llom\u00e1si adatai szerint itt nincs helysz\u00edni jegykiad\u00e1s."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Megk\u00f6zel\u00edt\u00e9s",
+            "body": "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "8693 Lengyelt\u00f3ti, Bajcsy-Zsilinszky u. 138."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "There is no railway ticket office at the station."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Issue",
+            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Access",
+            "body": "Parking is available near the station."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "8693 Lengyelt\u00f3ti, Bajcsy-Zsilinszky u. 138."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenausgabe",
+            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Anreise",
+            "body": "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "ocseny": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "7143 \u0150cs\u00e9ny, R\u00e1k\u00f3czi \u00fat 7."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegykiad\u00e1s",
+            "body": "A M\u00c1V \u00e1llom\u00e1si adatai szerint itt nincs helysz\u00edni jegykiad\u00e1s."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7143 \u0150cs\u00e9ny, R\u00e1k\u00f3czi \u00fat 7."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "There is no railway ticket office at the station."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Issue",
+            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7143 \u0150cs\u00e9ny, R\u00e1k\u00f3czi \u00fat 7."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenausgabe",
+            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "pincehely": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "7084 Pincehely, M\u00e1rt\u00edrok \u00fatja."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegyv\u00e1s\u00e1rl\u00e1s",
+            "body": "Jegykiad\u00f3 automata tal\u00e1lhat\u00f3 az \u00e1llom\u00e1son."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Megk\u00f6zel\u00edt\u00e9s",
+            "body": "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7084 Pincehely, M\u00e1rt\u00edrok \u00fatja."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "There is no railway ticket office at the station."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Purchase",
+            "body": "A ticket vending machine is available at the station."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Access",
+            "body": "Parking is available near the station."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7084 Pincehely, M\u00e1rt\u00edrok \u00fatja."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenkauf",
+            "body": "Ein Fahrkartenautomat ist am Bahnhof verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Anreise",
+            "body": "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "sellye": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "7960 Sellye, Vas\u00fat u. 2."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegykiad\u00e1s",
+            "body": "A M\u00c1V \u00e1llom\u00e1si adatai szerint itt nincs helysz\u00edni jegykiad\u00e1s."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Megk\u00f6zel\u00edt\u00e9s",
+            "body": "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7960 Sellye, Vas\u00fat u. 2."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "There is no railway ticket office at the station."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Issue",
+            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Access",
+            "body": "Parking is available near the station."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7960 Sellye, Vas\u00fat u. 2."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenausgabe",
+            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Anreise",
+            "body": "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "somogyszob": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "7563 Somogyszob, Keleti k\u00f6z 1."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Vas\u00fati p\u00e9nzt\u00e1r: H-V 04:00-23:00."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegyv\u00e1s\u00e1rl\u00e1s",
+            "body": "Belf\u00f6ldi jegyelad\u00e1s \u00e9s g\u00e9pi menetjegykiad\u00e1s el\u00e9rhet\u0151."
+          },
+          {
+            "icon": "bi-info-circle",
+            "title": "Tal\u00e1lt t\u00e1rgyak",
+            "body": "Tal\u00e1lt t\u00e1rgyak \u00fcgyint\u00e9z\u00e9se a p\u00e9nzt\u00e1r nyitvatart\u00e1s\u00e1val megegyez\u0151en, az \u00e1llom\u00e1s \u00e9p\u00fclet\u00e9ben."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7563 Somogyszob, Keleti k\u00f6z 1."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "Railway ticket office: daily 04:00-23:00."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Purchase",
+            "body": "Domestic ticket sales and machine-issued tickets are available."
+          },
+          {
+            "icon": "bi-info-circle",
+            "title": "Lost Property",
+            "body": "Lost property service is available in the station building during ticket office opening hours."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7563 Somogyszob, Keleti k\u00f6z 1."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Fahrkartenschalter: t\u00e4glich 04:00-23:00."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenkauf",
+            "body": "Inlandsfahrkarten und maschinelle Fahrkartenausgabe sind verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-info-circle",
+            "title": "Fundsachen",
+            "body": "Fundsachenservice im Bahnhofsgeb\u00e4ude w\u00e4hrend der Schalter\u00f6ffnungszeiten."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "szabadisosto": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "8600 Si\u00f3fok, Baross G\u00e1bor utca 54/B."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "Az \u00e1llom\u00e1son nincs vas\u00fati jegyp\u00e9nzt\u00e1r."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegyv\u00e1s\u00e1rl\u00e1s",
+            "body": "Jegykiad\u00f3 automata tal\u00e1lhat\u00f3 az \u00e1llom\u00e1son."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Megk\u00f6zel\u00edt\u00e9s",
+            "body": "Parkol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s k\u00f6zel\u00e9ben."
+          },
+          {
+            "icon": "bi-bicycle",
+            "title": "Ker\u00e9kp\u00e1r",
+            "body": "Ker\u00e9kp\u00e1rt\u00e1rol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s ter\u00fclet\u00e9n."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "8600 Si\u00f3fok, Baross G\u00e1bor utca 54/B."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "There is no railway ticket office at the station."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Purchase",
+            "body": "A ticket vending machine is available at the station."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Access",
+            "body": "Parking is available near the station."
+          },
+          {
+            "icon": "bi-bicycle",
+            "title": "Bicycle",
+            "body": "Bicycle parking is available on the station grounds."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "8600 Si\u00f3fok, Baross G\u00e1bor utca 54/B."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Am Bahnhof gibt es keinen Fahrkartenschalter."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenkauf",
+            "body": "Ein Fahrkartenautomat ist am Bahnhof verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Anreise",
+            "body": "Parkpl\u00e4tze befinden sich in der N\u00e4he des Bahnhofs."
+          },
+          {
+            "icon": "bi-bicycle",
+            "title": "Fahrrad",
+            "body": "Fahrradabstellpl\u00e4tze sind auf dem Bahnhofsgel\u00e4nde vorhanden."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
+  },
+
+  "szazhalombatta": {
+    "smartNearby": false,
+    "info": {
+      "hu": {
+        "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "C\u00edm",
+            "body": "2440 Sz\u00e1zhalombatta, V\u00e1roskapu u. 1."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "P\u00e9nzt\u00e1r",
+            "body": "P\u00e9nzt\u00e1r: H-P 06:00-09:40, 10:00-13:40, 14:05-16:00; h\u00e9tv\u00e9g\u00e9n \u00e9s \u00fcnnepnap 06:45-09:40, 10:00-13:40, 14:05-17:00."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegyv\u00e1s\u00e1rl\u00e1s",
+            "body": "Belf\u00f6ldi jegyelad\u00e1s, g\u00e9pi menetjegykiad\u00e1s \u00e9s jegykiad\u00f3 automata el\u00e9rhet\u0151."
+          },
+          {
+            "icon": "bi-person-wheelchair",
+            "title": "Akad\u00e1lymentess\u00e9g",
+            "body": "Akad\u00e1lymentes WC tal\u00e1lhat\u00f3 az \u00e1llom\u00e1son."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Parkol\u00e1s \u00e9s ker\u00e9kp\u00e1r",
+            "body": "Parkol\u00f3 \u00e9s ker\u00e9kp\u00e1rt\u00e1rol\u00f3 tal\u00e1lhat\u00f3 az \u00e1llom\u00e1s ter\u00fclet\u00e9n."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "2440 Sz\u00e1zhalombatta, V\u00e1roskapu u. 1."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "Ticket office: Mon-Fri 06:00-09:40, 10:00-13:40, 14:05-16:00; weekends and holidays 06:45-09:40, 10:00-13:40, 14:05-17:00."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Purchase",
+            "body": "Domestic ticket sales, machine-issued tickets and a ticket vending machine are available."
+          },
+          {
+            "icon": "bi-person-wheelchair",
+            "title": "Accessibility",
+            "body": "An accessible restroom is available at the station."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Parking and Bicycle",
+            "body": "Parking and bicycle storage are available on the station grounds."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "N\u00fctzliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "2440 Sz\u00e1zhalombatta, V\u00e1roskapu u. 1."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Fahrkartenschalter: Mo-Fr 06:00-09:40, 10:00-13:40, 14:05-16:00; am Wochenende und an Feiertagen 06:45-09:40, 10:00-13:40, 14:05-17:00."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenkauf",
+            "body": "Inlandsfahrkarten, maschinelle Fahrkartenausgabe und ein Fahrkartenautomat sind verf\u00fcgbar."
+          },
+          {
+            "icon": "bi-person-wheelchair",
+            "title": "Barrierefreiheit",
+            "body": "Ein barrierefreies WC ist am Bahnhof vorhanden."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Parken und Fahrrad",
+            "body": "Parkpl\u00e4tze und Fahrradabstellpl\u00e4tze sind auf dem Bahnhofsgel\u00e4nde vorhanden."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "M\u00c1VDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
   }
 };

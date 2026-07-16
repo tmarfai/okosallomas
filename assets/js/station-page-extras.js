@@ -2064,6 +2064,41 @@ window.stationPageExtras = {
             body: "Group travel organizer: Pécs Szabadság út.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/barcs-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV source</a>"
           }
         ]
+      },
+      de: {
+        title: "Nutzliche Informationen zum Bahnhof",
+        cards: [
+          {
+            icon: "bi-geo-alt-fill",
+            title: "Adresse",
+            body: "7570 Barcs, Palyaudvar 1."
+          },
+          {
+            icon: "bi-cash-coin",
+            title: "Fahrkartenschalter",
+            body: "Bahnschalter: taglich 03:15-22:30.<br>Der Busbahnhof wird ohne Fahrkartenschalter betrieben."
+          },
+          {
+            icon: "bi-ticket-perforated",
+            title: "Tickets und Services",
+            body: "Inlandstickets, maschinelle Ticketausgabe und Fundburo im Bahnhofsgebaude."
+          },
+          {
+            icon: "bi-clock",
+            title: "Warteraum und WC",
+            body: "Buswarteraum: Mo-Fr 05:30-22:20, Wochenende/Feiertage 06:00-18:45.<br>WC: taglich 03:30-22:00."
+          },
+          {
+            icon: "bi-megaphone",
+            title: "Fahrgastinformation",
+            body: "Akustische Fahrgastinformation ist am Bahnhof verfugbar."
+          },
+          {
+            icon: "bi-info-circle",
+            title: "Weitere Informationen",
+            body: "Organisation von Gruppenreisen: Pecs Szabadsag ut.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/barcs-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MAV Quelle</a>"
+          }
+        ]
       }
     }
   },
@@ -2864,7 +2899,7 @@ window.stationPageExtras = {
   },
 
   "bataszek": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -2975,7 +3010,7 @@ window.stationPageExtras = {
   },
 
   "keszohidegkut-gyonk": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3056,7 +3091,7 @@ window.stationPageExtras = {
   },
 
   "lengyeltoti": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3152,7 +3187,7 @@ window.stationPageExtras = {
   },
 
   "ocseny": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3233,7 +3268,7 @@ window.stationPageExtras = {
   },
 
   "pincehely": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3329,7 +3364,7 @@ window.stationPageExtras = {
   },
 
   "sellye": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3425,7 +3460,7 @@ window.stationPageExtras = {
   },
 
   "somogyszob": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3521,7 +3556,7 @@ window.stationPageExtras = {
   },
 
   "szabadisosto": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3632,7 +3667,7 @@ window.stationPageExtras = {
   },
 
   "szazhalombatta": {
-    "smartNearby": false,
+    "smartNearby": true,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",

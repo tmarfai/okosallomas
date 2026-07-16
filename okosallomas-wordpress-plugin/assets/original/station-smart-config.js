@@ -1254,5 +1254,113 @@ window.stationSmartConfigs = {
     },
     forbiddenNames: [],
     specialLinks: []
+  },
+
+  bataszek: {
+    key: "bataszek",
+    cityName: { hu: "B\u00e1tasz\u00e9k", en: "B\u00e1tasz\u00e9k", de: "B\u00e1tasz\u00e9k" },
+    stationName: { hu: "B\u00e1tasz\u00e9k vas\u00fat\u00e1llom\u00e1s", en: "B\u00e1tasz\u00e9k railway station", de: "Bahnhof B\u00e1tasz\u00e9k" },
+    station: { lat: 46.202073620975035, lon: 18.713174861299233 },
+    radius: 4500,
+    fallbackQueries: { school_all: ["iskola B\u00e1tasz\u00e9k"], university: ["egyetem B\u00e1tasz\u00e9k"] },
+    unavailableSubcategories: { school: ["university"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  "keszohidegkut-gyonk": {
+    key: "keszohidegkut-gyonk",
+    cityName: { hu: "Kesz\u0151hidegk\u00fat-Gy\u00f6nk", en: "Kesz\u0151hidegk\u00fat-Gy\u00f6nk", de: "Kesz\u0151hidegk\u00fat-Gy\u00f6nk" },
+    stationName: { hu: "Kesz\u0151hidegk\u00fat-Gy\u00f6nk vas\u00fat\u00e1llom\u00e1s", en: "Kesz\u0151hidegk\u00fat-Gy\u00f6nk railway station", de: "Bahnhof Kesz\u0151hidegk\u00fat-Gy\u00f6nk" },
+    station: { lat: 46.5975741933717, lon: 18.425351594823475 },
+    radius: 4500,
+    fallbackQueries: { school_all: ["iskola Kesz\u0151hidegk\u00fat", "iskola Gy\u00f6nk"], university: ["egyetem Gy\u00f6nk"] },
+    unavailableSubcategories: { school: ["university"], entertainment: ["cinema"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  lengyeltoti: {
+    key: "lengyeltoti",
+    cityName: { hu: "Lengyelt\u00f3ti", en: "Lengyelt\u00f3ti", de: "Lengyelt\u00f3ti" },
+    stationName: { hu: "Lengyelt\u00f3ti vas\u00fat\u00e1llom\u00e1s", en: "Lengyelt\u00f3ti railway station", de: "Bahnhof Lengyelt\u00f3ti" },
+    station: { lat: 46.66018740654837, lon: 17.612567657280355 },
+    radius: 4500,
+    fallbackQueries: { school_all: ["iskola Lengyelt\u00f3ti"], university: ["egyetem Lengyelt\u00f3ti"] },
+    unavailableSubcategories: { school: ["university"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  ocseny: {
+    key: "ocseny",
+    cityName: { hu: "\u0150cs\u00e9ny", en: "\u0150cs\u00e9ny", de: "\u0150cs\u00e9ny" },
+    stationName: { hu: "\u0150cs\u00e9ny vas\u00fat\u00e1llom\u00e1s", en: "\u0150cs\u00e9ny railway station", de: "Bahnhof \u0150cs\u00e9ny" },
+    station: { lat: 46.31776025378645, lon: 18.74198372622474 },
+    radius: 4000,
+    fallbackQueries: { school_all: ["iskola \u0150cs\u00e9ny"], university: ["egyetem \u0150cs\u00e9ny"] },
+    unavailableSubcategories: { school: ["university"], entertainment: ["cinema"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  pincehely: {
+    key: "pincehely",
+    cityName: { hu: "Pincehely", en: "Pincehely", de: "Pincehely" },
+    stationName: { hu: "Pincehely vas\u00fat\u00e1llom\u00e1s", en: "Pincehely railway station", de: "Bahnhof Pincehely" },
+    station: { lat: 46.68136374008985, lon: 18.428854483294362 },
+    radius: 4000,
+    fallbackQueries: { school_all: ["iskola Pincehely"], university: ["egyetem Pincehely"] },
+    unavailableSubcategories: { school: ["university"], entertainment: ["cinema"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  sellye: {
+    key: "sellye",
+    cityName: { hu: "Sellye", en: "Sellye", de: "Sellye" },
+    stationName: { hu: "Sellye vas\u00fat\u00e1llom\u00e1s", en: "Sellye railway station", de: "Bahnhof Sellye" },
+    station: { lat: 45.87322837096296, lon: 17.85631951127762 },
+    radius: 4500,
+    fallbackQueries: { school_all: ["iskola Sellye"], university: ["egyetem Sellye"] },
+    unavailableSubcategories: { school: ["university"], entertainment: ["cinema"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  somogyszob: {
+    key: "somogyszob",
+    cityName: { hu: "Somogyszob", en: "Somogyszob", de: "Somogyszob" },
+    stationName: { hu: "Somogyszob vas\u00fat\u00e1llom\u00e1s", en: "Somogyszob railway station", de: "Bahnhof Somogyszob" },
+    station: { lat: 46.289297370978744, lon: 17.304316711304985 },
+    radius: 4500,
+    fallbackQueries: { school_all: ["iskola Somogyszob"], university: ["egyetem Somogyszob"] },
+    unavailableSubcategories: { school: ["university"], entertainment: ["cinema"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  szabadisosto: {
+    key: "szabadisosto",
+    cityName: { hu: "Szabadis\u00f3st\u00f3", en: "Szabadis\u00f3st\u00f3", de: "Szabadis\u00f3st\u00f3" },
+    stationName: { hu: "Szabadis\u00f3st\u00f3 vas\u00fat\u00e1llom\u00e1s", en: "Szabadis\u00f3st\u00f3 railway station", de: "Bahnhof Szabadis\u00f3st\u00f3" },
+    station: { lat: 46.9342984621304, lon: 18.118613702577907 },
+    radius: 3500,
+    fallbackQueries: { school_all: ["iskola Szabadis\u00f3st\u00f3", "iskola Si\u00f3fok"], university: ["egyetem Si\u00f3fok"], bath: ["strand Szabadis\u00f3st\u00f3", "strand Si\u00f3fok"] },
+    unavailableSubcategories: { school: ["university"] },
+    forbiddenNames: [],
+    specialLinks: []
+  },
+
+  szazhalombatta: {
+    key: "szazhalombatta",
+    cityName: { hu: "Sz\u00e1zhalombatta", en: "Sz\u00e1zhalombatta", de: "Sz\u00e1zhalombatta" },
+    stationName: { hu: "Sz\u00e1zhalombatta vas\u00fat\u00e1llom\u00e1s", en: "Sz\u00e1zhalombatta railway station", de: "Bahnhof Sz\u00e1zhalombatta" },
+    station: { lat: 47.3221705119882, lon: 18.898803929178147 },
+    radius: 5000,
+    fallbackQueries: { school_all: ["iskola Sz\u00e1zhalombatta"], university: ["egyetem Sz\u00e1zhalombatta"], cinema: ["mozi Sz\u00e1zhalombatta"] },
+    unavailableSubcategories: { school: ["university"] },
+    forbiddenNames: [],
+    specialLinks: []
   }
 };

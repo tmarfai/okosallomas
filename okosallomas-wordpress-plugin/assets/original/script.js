@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
+  initHomeStationMenu();
   initAudioPlayer();
   initWeatherCards();
   initSmartNearbyExplorer();
@@ -20,6 +21,22 @@ function okosallomasAssetUrl(path) {
 function getPageLang() {
   const lang = (document.documentElement.getAttribute("lang") || "hu").substring(0, 2);
   return ["hu", "en", "de"].includes(lang) ? lang : "hu";
+}
+
+function initHomeStationMenu() {
+  const stationSearch = document.getElementById("stationSearch");
+  const searchableItems = Array.from(document.querySelectorAll("[data-name]"));
+
+  if (!stationSearch || searchableItems.length === 0) return;
+
+  stationSearch.addEventListener("input", () => {
+    const query = stationSearch.value.trim().toLowerCase();
+
+    searchableItems.forEach((item) => {
+      const text = `${item.dataset.name || ""} ${item.textContent || ""}`.toLowerCase();
+      item.classList.toggle("is-hidden", query !== "" && !text.includes(query));
+    });
+  });
 }
 
 function initAudioPlayer() {

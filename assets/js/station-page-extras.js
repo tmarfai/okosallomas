@@ -103,7 +103,7 @@ window.stationPageExtras = {
           {
             icon: "bi-ticket-perforated",
             title: "Jegykiadás",
-            body: "A MÁV állomási adatai szerint itt nincs helyszíni jegykiadás."
+            body: "Nincs helyszíni jegykiadás."
           },
           {
             icon: "bi-telephone",
@@ -128,7 +128,7 @@ window.stationPageExtras = {
           {
             icon: "bi-ticket-perforated",
             title: "Ticket Issue",
-            body: "According to MÁV station data, on-site ticket issue is not available here."
+            body: "No on-site ticket sales are available."
           },
           {
             icon: "bi-telephone",
@@ -153,7 +153,7 @@ window.stationPageExtras = {
           {
             icon: "bi-ticket-perforated",
             title: "Fahrkartenausgabe",
-            body: "Laut MÁV-Stationsdaten gibt es hier keine Fahrkartenausgabe vor Ort."
+            body: "Vor Ort ist keine Fahrkartenausgabe verfügbar."
           },
           {
             icon: "bi-telephone",
@@ -209,7 +209,7 @@ window.stationPageExtras = {
           {
             icon: "bi-ticket-perforated",
             title: "Ticket Issue",
-            body: "According to M\u00c1V station data, on-site ticket issue is not available here."
+            body: "No on-site ticket sales are available."
           },
           {
             icon: "bi-telephone",
@@ -234,7 +234,7 @@ window.stationPageExtras = {
           {
             icon: "bi-ticket-perforated",
             title: "Fahrkartenausgabe",
-            body: "Laut M\u00c1V-Stationsdaten gibt es hier keine Fahrkartenausgabe vor Ort."
+            body: "Vor Ort ist keine Fahrkartenausgabe verf\u00fcgbar."
           },
           {
             icon: "bi-telephone",
@@ -3010,7 +3010,7 @@ window.stationPageExtras = {
   },
 
   "keszohidegkut-gyonk": {
-    "smartNearby": true,
+    "smartNearby": false,
     "info": {
       "hu": {
         "title": "Hasznos inform\u00e1ci\u00f3k az \u00e1llom\u00e1sr\u00f3l",
@@ -3053,7 +3053,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Ticket Issue",
-            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+            "body": "No on-site ticket sales are available."
           },
           {
             "icon": "bi-telephone",
@@ -3078,7 +3078,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Fahrkartenausgabe",
-            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+            "body": "Vor Ort ist keine Fahrkartenausgabe verf\u00fcgbar."
           },
           {
             "icon": "bi-telephone",
@@ -3139,7 +3139,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Ticket Issue",
-            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+            "body": "No on-site ticket sales are available."
           },
           {
             "icon": "bi-car-front-fill",
@@ -3169,7 +3169,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Fahrkartenausgabe",
-            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+            "body": "Vor Ort ist keine Fahrkartenausgabe verf\u00fcgbar."
           },
           {
             "icon": "bi-car-front-fill",
@@ -3230,7 +3230,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Ticket Issue",
-            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+            "body": "No on-site ticket sales are available."
           },
           {
             "icon": "bi-telephone",
@@ -3255,7 +3255,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Fahrkartenausgabe",
-            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+            "body": "Vor Ort ist keine Fahrkartenausgabe verf\u00fcgbar."
           },
           {
             "icon": "bi-telephone",
@@ -3412,7 +3412,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Ticket Issue",
-            "body": "According to M\u00c1V station data, on-site ticket issue is not available here."
+            "body": "No on-site ticket sales are available."
           },
           {
             "icon": "bi-car-front-fill",
@@ -3442,7 +3442,7 @@ window.stationPageExtras = {
           {
             "icon": "bi-ticket-perforated",
             "title": "Fahrkartenausgabe",
-            "body": "Laut M\u00c1V-Stationsdaten ist hier keine Fahrkartenausgabe vor Ort verf\u00fcgbar."
+            "body": "Vor Ort ist keine Fahrkartenausgabe verf\u00fcgbar."
           },
           {
             "icon": "bi-car-front-fill",

@@ -2,61 +2,144 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <title>Okosállomás Választó</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okos&aacute;llom&aacute;s</title>
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
-<body>
-  <h1>Válassz állomást</h1>
-  <ol>
-    <li><a href="abaliget.html">Abaliget</a></li>
-    <li><a href="adand.html">Ádánd</a></li>
-    <li><a href="ata.html">Áta</a></li>
-    <li><a href="balatonaliga.html">Balatonaliga</a></li>
-    <li><a href="balatonbereny.html">Balatonberény</a></li>
-    <li><a href="balatonboglar.html">Balatonboglár</a></li>
-    <li><a href="balatonfenyves.html">Balatonfenyves</a></li>
-    <li><a href="balatonfoldvar.html">Balatonföldvár</a></li>
-    <li><a href="balatonlelle.html">Balatonlelle</a></li>
-    <li><a href="balatonmaria.html">Balatonmáriafürdő</a></li>
-    <li><a href="balatonszarszo.html">Balatonszárszó</a></li>
-    <li><a href="balatonszemes.html">Balatonszemes</a></li>
-    <li><a href="balatonszentgyorgy.html">Balatonszentgyörgy</a></li>
-     <li><a href="barcs.html">Barcs</a></li>
-    <li><a href="bataszek.html">Bátaszék</a></li>
-    <li><a href="dombovar.html">Dombóvár</a></li>
-    <li><a href="erd.html">Érd</a></li>
-    <li><a href="fonyod.html">Fonyód</a></li>
-    <li><a href="gyekenyes.html">Gyékényes</a></li>
-    <li><a href="keszohidegkut-gyonk.html">Keszőhidegkút-Gyönk</a></li>
-    <li><a href="kaposvar.html">Kaposvár</a></li>
-    <li><a href="lengyeltoti.html">Lengyeltóti</a></li>
-    <li><a href="mohacs.html">Mohács</a></li>
-    <li><a href="osztopan.html">Osztopán</a></li>
-    <li><a href="ocseny.html">Őcsény</a></li>
-    <li><a href="pecs.html">Pécs</a></li>
-    <li><a href="pincehely.html">Pincehely</a></li>
-    <li><a href="pusztaszabolcs.html">Pusztaszabolcs</a></li>
-    <li><a href="sarbogard.html">Sárbogárd</a></li>
-    <li><a href="sellye.html">Sellye</a></li>
-    <li><a href="simontornya.html">Simontornya</a></li>
-    <li><a href="siofok.html">Siófok</a></li>
-    <li><a href="somogyszob.html">Somogyszob</a></li>
-    <li><a href="szabadisosto.html">Szabadisóstó</a></li>
-    <li><a href="szantod.html">Szántód</a></li>
-    <li><a href="szazhalombatta.html">Százhalombatta</a></li>
-    <li><a href="szekszard.html">Szekszárd</a></li>
-    <li><a href="szigetvar.html">Szigetvár</a></li>
-    <li><a href="szentlorinc.html">Szentlőrinc</a></li>
-       <li><a href="tab.html">Tab</a></li>
-    <li><a href="villany.html">Villány</a></li>
-    <li><a href="zamardi.html">Zamárdi</a></li>
-    <li><a href="bzmot.html">Bzmot</a></li>
-    <li><a href="m62.html">M62</a></li>
-    <li><a href="tvg.html">TVG</a></li>
-    <li><a href="v43.html">V43</a></li>
-    <li><a href="ikarus.html">Ikarus-55</a></li>
-  </ol>
+<body class="home-page">
+  <header class="home-header">
+    <nav class="home-nav" aria-label="F&ouml;men&uuml;">
+      <a class="home-brand" href="index.html">Okos&aacute;llom&aacute;s</a>
+      <div class="home-nav-links">
+        <a href="#kiemelt">Kiemelt</a>
+        <a href="#balaton">Balaton</a>
+        <a href="#allomasok">&Aacute;llom&aacute;sok</a>
+        <a href="#jarmuvek">J&aacute;rm&#369;vek</a>
+      </div>
+    </nav>
 
+    <div class="home-hero">
+      <p class="home-eyebrow">M&Aacute;V okos&aacute;llom&aacute;s bemutat&oacute;</p>
+      <h1>V&aacute;lassz &aacute;llom&aacute;st</h1>
+      <p class="home-lead">Hangos bemutat&oacute;, &aacute;llom&aacute;sinform&aacute;ci&oacute;k, id&#337;j&aacute;r&aacute;s &eacute;s k&ouml;zeli helyek egy helyen.</p>
+      <div class="home-search-wrap">
+        <input id="stationSearch" class="home-search" type="search" placeholder="&Aacute;llom&aacute;s keres&eacute;se..." autocomplete="off">
+      </div>
+    </div>
+  </header>
+
+  <main class="home-main">
+    <section id="kiemelt" class="home-section">
+      <div class="home-section-head">
+        <p class="home-kicker">Gyors el&eacute;r&eacute;s</p>
+        <h2>Kiemelt &aacute;llom&aacute;sok</h2>
+      </div>
+      <div class="featured-grid">
+        <a class="station-card featured" href="kaposvar.html" data-name="kaposvar">
+          <span>Kaposv&aacute;r</span>
+          <small>Somogy varmegye</small>
+        </a>
+        <a class="station-card featured" href="pecs.html" data-name="pecs">
+          <span>P&eacute;cs</span>
+          <small>Baranya varmegye</small>
+        </a>
+        <a class="station-card featured" href="dombovar.html" data-name="dombovar">
+          <span>Domb&oacute;v&aacute;r</span>
+          <small>Tolna varmegye</small>
+        </a>
+        <a class="station-card featured" href="siofok.html" data-name="siofok">
+          <span>Si&oacute;fok</span>
+          <small>Balaton</small>
+        </a>
+        <a class="station-card featured" href="szekszard.html" data-name="szekszard">
+          <span>Szeksz&aacute;rd</span>
+          <small>Tolna varmegye</small>
+        </a>
+        <a class="station-card featured" href="fonyod.html" data-name="fonyod">
+          <span>Fony&oacute;d</span>
+          <small>Balaton</small>
+        </a>
+      </div>
+    </section>
+
+    <section id="balaton" class="home-section">
+      <div class="home-section-head">
+        <p class="home-kicker">D&eacute;li part</p>
+        <h2>Balatoni &aacute;llom&aacute;sok</h2>
+      </div>
+      <div class="station-strip">
+        <a class="station-chip" href="balatonaliga.html" data-name="balatonaliga">Balatonaliga</a>
+        <a class="station-chip" href="szabadisosto.html" data-name="szabadisosto">Szabadis&oacute;st&oacute;</a>
+        <a class="station-chip" href="siofok.html" data-name="siofok">Si&oacute;fok</a>
+        <a class="station-chip" href="zamardi.html" data-name="zamardi">Zam&aacute;rdi</a>
+        <a class="station-chip" href="szantod.html" data-name="szantod">Sz&aacute;nt&oacute;d</a>
+        <a class="station-chip" href="balatonfoldvar.html" data-name="balatonfoldvar">Balatonf&ouml;ldv&aacute;r</a>
+        <a class="station-chip" href="balatonszarszo.html" data-name="balatonszarszo">Balatonsz&aacute;rsz&oacute;</a>
+        <a class="station-chip" href="balatonszemes.html" data-name="balatonszemes">Balatonszemes</a>
+        <a class="station-chip" href="balatonlelle.html" data-name="balatonlelle">Balatonlelle</a>
+        <a class="station-chip" href="balatonboglar.html" data-name="balatonboglar">Balatonbogl&aacute;r</a>
+        <a class="station-chip" href="fonyod.html" data-name="fonyod">Fony&oacute;d</a>
+        <a class="station-chip" href="balatonfenyves.html" data-name="balatonfenyves">Balatonfenyves</a>
+        <a class="station-chip" href="balatonmaria.html" data-name="balatonmariafurdo">Balatonm&aacute;riaf&uuml;rd&#337;</a>
+        <a class="station-chip" href="balatonbereny.html" data-name="balatonbereny">Balatonber&eacute;ny</a>
+        <a class="station-chip" href="balatonszentgyorgy.html" data-name="balatonszentgyorgy">Balatonszentgy&ouml;rgy</a>
+      </div>
+    </section>
+
+    <section id="allomasok" class="home-section">
+      <div class="home-section-head">
+        <p class="home-kicker">Teljes lista</p>
+        <h2>&Aacute;llom&aacute;sok</h2>
+      </div>
+      <div class="station-grid">
+        <a class="station-card" href="abaliget.html" data-name="abaliget"><span>Abaliget</span><small>Baranya</small></a>
+        <a class="station-card" href="adand.html" data-name="adand"><span>&Aacute;d&aacute;nd</span><small>Somogy</small></a>
+        <a class="station-card" href="ata.html" data-name="ata"><span>&Aacute;ta</span><small>Baranya</small></a>
+        <a class="station-card" href="barcs.html" data-name="barcs"><span>Barcs</span><small>Somogy</small></a>
+        <a class="station-card" href="bataszek.html" data-name="bataszek"><span>B&aacute;tasz&eacute;k</span><small>Tolna</small></a>
+        <a class="station-card" href="dombovar.html" data-name="dombovar"><span>Domb&oacute;v&aacute;r</span><small>Tolna</small></a>
+        <a class="station-card" href="erd.html" data-name="erd"><span>&Eacute;rd</span><small>Pest</small></a>
+        <a class="station-card" href="gyekenyes.html" data-name="gyekenyes"><span>Gy&eacute;k&eacute;nyes</span><small>Somogy</small></a>
+        <a class="station-card" href="kaposvar.html" data-name="kaposvar"><span>Kaposv&aacute;r</span><small>Somogy</small></a>
+        <a class="station-card" href="keszohidegkut-gyonk.html" data-name="keszohidegkut gyonk"><span>Kesz&#337;hidegk&uacute;t-Gy&ouml;nk</span><small>Tolna</small></a>
+        <a class="station-card" href="lengyeltoti.html" data-name="lengyeltoti"><span>Lengyelt&oacute;ti</span><small>Somogy</small></a>
+        <a class="station-card" href="lepseny.html" data-name="lepseny"><span>Leps&eacute;ny</span><small>Fej&eacute;r</small></a>
+        <a class="station-card" href="mohacs.html" data-name="mohacs"><span>Moh&aacute;cs</span><small>Baranya</small></a>
+        <a class="station-card" href="ocseny.html" data-name="ocseny"><span>&#336;cs&eacute;ny</span><small>Tolna</small></a>
+        <a class="station-card" href="osztopan.html" data-name="osztopan"><span>Osztop&aacute;n</span><small>Somogy</small></a>
+        <a class="station-card" href="pecs.html" data-name="pecs"><span>P&eacute;cs</span><small>Baranya</small></a>
+        <a class="station-card" href="pincehely.html" data-name="pincehely"><span>Pincehely</span><small>Tolna</small></a>
+        <a class="station-card" href="pusztaszabolcs.html" data-name="pusztaszabolcs"><span>Pusztaszabolcs</span><small>Fejer</small></a>
+        <a class="station-card" href="sarbogard.html" data-name="sarbogard"><span>S&aacute;rbog&aacute;rd</span><small>Fej&eacute;r</small></a>
+        <a class="station-card" href="sellye.html" data-name="sellye"><span>Sellye</span><small>Baranya</small></a>
+        <a class="station-card" href="simontornya.html" data-name="simontornya"><span>Simontornya</span><small>Tolna</small></a>
+        <a class="station-card" href="somogyszob.html" data-name="somogyszob"><span>Somogyszob</span><small>Somogy</small></a>
+        <a class="station-card" href="szabadisosto.html" data-name="szabadisosto"><span>Szabadis&oacute;st&oacute;</span><small>Balaton</small></a>
+        <a class="station-card" href="szazhalombatta.html" data-name="szazhalombatta"><span>Sz&aacute;zhalombatta</span><small>Pest</small></a>
+        <a class="station-card" href="szekszard.html" data-name="szekszard"><span>Szeksz&aacute;rd</span><small>Tolna</small></a>
+        <a class="station-card" href="szentlorinc.html" data-name="szentlorinc lorinc"><span>Szentl&#337;rinc</span><small>Baranya</small></a>
+        <a class="station-card" href="szigetvar.html" data-name="szigetvar"><span>Szigetv&aacute;r</span><small>Baranya</small></a>
+        <a class="station-card" href="tab.html" data-name="tab"><span>Tab</span><small>Somogy</small></a>
+        <a class="station-card" href="villany.html" data-name="villany"><span>Vill&aacute;ny</span><small>Baranya</small></a>
+      </div>
+    </section>
+
+    <section id="jarmuvek" class="home-section compact">
+      <div class="home-section-head">
+        <p class="home-kicker">K&uuml;l&ouml;n anyagok</p>
+        <h2>J&aacute;rm&#369;bemutat&oacute;k</h2>
+      </div>
+      <div class="vehicle-grid">
+        <a href="bzmot.html">Bzmot</a>
+        <a href="ikarus.html">Ikarus-55</a>
+        <a href="m62.html">M62</a>
+        <a href="tvg.html">TVG</a>
+        <a href="v43.html">V43</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/script.js?v=20260716-home-menu"></script>
 </body>
 </html>

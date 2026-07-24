@@ -1900,7 +1900,7 @@ window.stationPageExtras = {
           {
             icon: "bi-info-circle",
             title: "Továbbiak",
-            body: "Parkoló és kerékpártároló az állomás közelében.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/siofok-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+            body: "Parkoló és kerékpártároló az állomás közelében.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/siofok-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">Állomás adatai</a>"
           }
         ]
       },
@@ -2026,7 +2026,7 @@ window.stationPageExtras = {
           {
             icon: "bi-info-circle",
             title: "Továbbiak",
-            body: "Csoportos utazások szervezése: Pécs Szabadság út.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/barcs-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+            body: "Csoportos utazások szervezése: Pécs Szabadság út.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/barcs-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">Állomás adatai</a>"
           }
         ]
       },
@@ -2137,7 +2137,7 @@ window.stationPageExtras = {
           {
             icon: "bi-info-circle",
             title: "Továbbiak",
-            body: "Csoportos utazások szervezése: Pécs.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/villany\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+            body: "Csoportos utazások szervezése: Pécs.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/villany\" target=\"_blank\" rel=\"noopener\">Állomás adatai</a>"
           }
         ]
       },
@@ -2391,7 +2391,7 @@ window.stationPageExtras = {
           {
             icon: "bi-info-circle",
             title: "Továbbiak",
-            body: "<a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/balatonbereny\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+            body: "<a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/balatonbereny\" target=\"_blank\" rel=\"noopener\">Állomás adatai</a>"
           }
         ]
       },
@@ -2517,7 +2517,7 @@ window.stationPageExtras = {
           {
             icon: "bi-info-circle",
             title: "Továbbiak",
-            body: "Parkoló és kerékpártároló az állomás területén.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/szekszard-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">MÁV forrás</a>"
+            body: "Parkoló és kerékpártároló az állomás területén.<br><a href=\"https://www.mavcsoport.hu/mav-szemelyszallitas/belfoldi-utazas/vasutallomas/szekszard-vasut-es-autobusz-allomas\" target=\"_blank\" rel=\"noopener\">Állomás adatai</a>"
           }
         ]
       },

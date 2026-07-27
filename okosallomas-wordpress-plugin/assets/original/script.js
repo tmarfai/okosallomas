@@ -11,11 +11,15 @@ function okosallomasAssetUrl(path) {
     return path;
   }
 
+  const cleanPath = path.replace(/^\.\//, "");
   const base = window.okosallomasAssetBase || "";
-  const normalized = path
-    .replace(/^\.\//, "")
-    .replace(/^assets\/(?:audio|img|maps)\//i, "");
-  return base ? base + normalized : path;
+
+  if (!base) {
+    return cleanPath;
+  }
+
+  const normalizedPath = cleanPath.replace(/^assets\/(?:audio|img|maps)\//i, "");
+  return base + normalizedPath;
 }
 
 function getPageLang() {
@@ -147,6 +151,7 @@ function initWeatherCards() {
     { id: "idojaras-gyekenyes", nev: "Gyékényes", lat: 46.242159, lon: 16.983306 },
     { id: "idojaras-keszohidegkutgyonk", nev: "Keszőhidegkút-Gyönk", lat: 46.5006, lon: 18.4831 },
     { id: "idojaras-kaposvar", nev: "Kaposvár", lat: 46.3590, lon: 17.7960 },
+    { id: "idojaras-komlo", nev: "Komló", lat: 46.1891599, lon: 18.2647078 },
     { id: "idojaras-lengyeltoti", nev: "Lengyeltóti", lat: 46.7000, lon: 17.6389 },
     { id: "idojaras-lepseny", nev: "Lepsény", lat: 46.987239371019356, lon: 18.24466141135151 },
     { id: "idojaras-mohacs", nev: "Mohács", lat: 45.9959, lon: 18.6798 },
@@ -1267,7 +1272,7 @@ function showSelectedPlace(place) {
             ${ui.cinema}
           </p>
           <a href="https://kaposvarimozi.hu/" target="_blank" style="display: inline-block;">
-            <img src="${okosallomasAssetUrl("kultik_logo.png")}" alt="Kultik Mozi" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+            <img src="${okosallomasAssetUrl("assets/img/kultik_logo.png")}" alt="Kultik Mozi" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
           </a>
         </div>`;
     } 
@@ -1279,7 +1284,7 @@ function showSelectedPlace(place) {
             ${ui.theater}
           </p>
           <a href="https://www.csiky.hu/musor/" target="_blank" style="display: inline-block;">
-            <img src="${okosallomasAssetUrl("csikygergelyszinhaz_logo.png")}" alt="Csiky Gergely Színház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+            <img src="${okosallomasAssetUrl("assets/img/csikygergelyszinhaz_logo.png")}" alt="Csiky Gergely Színház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
           </a>
         </div>`;
     }
@@ -1291,7 +1296,7 @@ function showSelectedPlace(place) {
             ${ui.rox}
           </p>
           <a href="https://roxinhaz.hu/jegyek-musor/" target="_blank" style="display: inline-block;">
-            <img src="${okosallomasAssetUrl("roxinhaz_logo.png")}" alt="Roxínház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+            <img src="${okosallomasAssetUrl("assets/img/roxinhaz_logo.png")}" alt="Roxínház" style="width: 140px; height: auto; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
           </a>
         </div>`;
     }

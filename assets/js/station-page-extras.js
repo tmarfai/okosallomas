@@ -3775,5 +3775,146 @@ window.stationPageExtras = {
         ]
       }
     }
+  },
+
+  "komlo": {
+    "smartNearby": true,
+    "info": {
+      "hu": {
+        "title": "Hasznos információk az állomásról",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Cím",
+            "body": "7300 Komló, Bem u. 17."
+          },
+          {
+            "icon": "bi-building",
+            "title": "Állomástípus",
+            "body": "Vasútállomás, autóbusz-állomás és jegypénztár egy helyen."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Pénztár",
+            "body": "Autóbusz-állomási pénztár: munkanapokon 1. és 6. között 06:00-11:30 és 12:00-18:00; 7. és 31. között 07:00-11:30 és 12:00-15:00. Hétvégén zárva."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Jegyvásárlás",
+            "body": "Belföldi jegyeladás elérhető az állomáson."
+          },
+          {
+            "icon": "bi-clock",
+            "title": "Váróterem és mosdó",
+            "body": "Váróterem: mindennap 03:30-23:30.<br>Mosdó: mindennap 06:00-20:00."
+          },
+          {
+            "icon": "bi-person-wheelchair",
+            "title": "Akadálymentesség",
+            "body": "Akadálymentes mosdó, hangos utastájékoztatás és indukciós hurok elérhető."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Megközelítés",
+            "body": "Parkoló található az állomás közelében."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "MÁVDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "en": {
+        "title": "Useful information about the station",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Address",
+            "body": "7300 Komló, Bem u. 17."
+          },
+          {
+            "icon": "bi-building",
+            "title": "Station Type",
+            "body": "Railway station, bus station and ticket office in one place."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Ticket Office",
+            "body": "Bus station ticket office: on working days from the 1st to the 6th of the month 06:00-11:30 and 12:00-18:00; from the 7th to the 31st 07:00-11:30 and 12:00-15:00. Closed at weekends."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Ticket Purchase",
+            "body": "Domestic ticket sales are available at the station."
+          },
+          {
+            "icon": "bi-clock",
+            "title": "Waiting Room and Restroom",
+            "body": "Waiting room: daily 03:30-23:30.<br>Restroom: daily 06:00-20:00."
+          },
+          {
+            "icon": "bi-person-wheelchair",
+            "title": "Accessibility",
+            "body": "Accessible restroom, audio passenger information and induction loop are available."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Access",
+            "body": "Parking is available near the station."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "MÁVDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobile: +36 (20/30/70) 499 4999"
+          }
+        ]
+      },
+      "de": {
+        "title": "Nützliche Informationen zum Bahnhof",
+        "cards": [
+          {
+            "icon": "bi-geo-alt-fill",
+            "title": "Adresse",
+            "body": "7300 Komló, Bem u. 17."
+          },
+          {
+            "icon": "bi-building",
+            "title": "Stationstyp",
+            "body": "Bahnhof, Busbahnhof und Fahrkartenschalter an einem Ort."
+          },
+          {
+            "icon": "bi-cash-coin",
+            "title": "Fahrkartenschalter",
+            "body": "Busschalter: werktags vom 1. bis 6. des Monats 06:00-11:30 und 12:00-18:00; vom 7. bis 31. 07:00-11:30 und 12:00-15:00. Am Wochenende geschlossen."
+          },
+          {
+            "icon": "bi-ticket-perforated",
+            "title": "Fahrkartenkauf",
+            "body": "Inlandsfahrkarten sind am Bahnhof erhältlich."
+          },
+          {
+            "icon": "bi-clock",
+            "title": "Warteraum und WC",
+            "body": "Warteraum: täglich 03:30-23:30.<br>WC: täglich 06:00-20:00."
+          },
+          {
+            "icon": "bi-person-wheelchair",
+            "title": "Barrierefreiheit",
+            "body": "Barrierefreies WC, akustische Fahrgastinformation und Induktionsschleife sind verfügbar."
+          },
+          {
+            "icon": "bi-car-front-fill",
+            "title": "Anreise",
+            "body": "Parkplätze befinden sich in der Nähe des Bahnhofs."
+          },
+          {
+            "icon": "bi-telephone",
+            "title": "MÁVDIREKT",
+            "body": "+36 (1) 3 49 49 49<br>Mobil: +36 (20/30/70) 499 4999"
+          }
+        ]
+      }
+    }
   }
 };

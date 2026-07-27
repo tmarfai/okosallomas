@@ -997,6 +997,66 @@ window.stationSmartConfigs = {
     specialLinks: []
   },
 
+  komlo: {
+    key: "komlo",
+    cityName: {
+      hu: "Komló",
+      en: "Komló",
+      de: "Komló"
+    },
+    stationName: {
+      hu: "Komló vasút- és autóbusz-állomás",
+      en: "Komló railway and bus station",
+      de: "Bahnhof und Busbahnhof Komló"
+    },
+    station: {
+      lat: 46.1891599,
+      lon: 18.2647078
+    },
+    radius: 5000,
+    fallbackQueries: {
+      school_all: ["iskola Komló"],
+      secondary: [
+        "Baranya Vármegyei SZC Komlói Technikum",
+        "Komlói Technikum Szakképző Iskola",
+        "technikum Komló",
+        "középiskola Komló"
+      ],
+      university: ["egyetem Komló"],
+      museum: ["Komlóverzum", "Bányászati emlékhely Komló", "múzeum Komló"],
+      bath: ["Sikonda fürdő", "strand Komló"]
+    },
+    manualPlaces: {
+      school: {
+        secondary: [
+          {
+            name: "Baranya Vármegyei SZC Komlói Technikum, Szakképző Iskola és Kollégium",
+            lat: 46.1866992,
+            lon: 18.2592709,
+            icon: "\u{1F3EB}"
+          },
+          {
+            name: "Komlói Technikum - Alkotmány utcai telephely",
+            lat: 46.1943861,
+            lon: 18.2688853,
+            icon: "\u{1F3EB}"
+          }
+        ]
+      },
+      culture: {
+        museum: [
+          { name: "Komlóverzum Látogatóközpont", lat: 46.1905, lon: 18.2642, icon: "🏛️" },
+          { name: "Bányászati emlékhely", lat: 46.1908, lon: 18.2604, icon: "⛏️" }
+        ]
+      }
+    },
+    unavailableSubcategories: {
+      school: ["university"],
+      entertainment: ["cinema"]
+    },
+    forbiddenNames: []
+  },
+
   szekszard: {
     key: "szekszard",
     cityName: {

@@ -308,7 +308,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v29`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v30`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -967,6 +967,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
 
   function mergePlaces(maxPlaces, ...placeLists) {
     const seenNames = new Set();
+    const seenCompactNames = new Set();
     const merged = [];
     const manualPlaces = placeLists[0] || [];
     const externalPlaces = placeLists.slice(1).flat().sort((a, b) => a.distance - b.distance);
@@ -980,9 +981,13 @@ async function loadPlaces(categoryKey, subcategoryKey) {
     function addPlace(place) {
       if (!place || !place.name) return;
       const nameKey = normalizeText(place.name);
+      const compactNameKey = compactPlaceName(place.name);
       if (seenNames.has(nameKey)) return;
+      if (compactNameKey && seenCompactNames.has(compactNameKey)) return;
       if ([...seenNames].some(existing => existing.includes(nameKey) || nameKey.includes(existing))) return;
+      if (compactNameKey && [...seenCompactNames].some(existing => existing.includes(compactNameKey) || compactNameKey.includes(existing))) return;
       seenNames.add(nameKey);
+      if (compactNameKey) seenCompactNames.add(compactNameKey);
       merged.push({
         ...place,
         icon: sanitizePlaceIcon(place.icon, place.categoryKey, place.subcategoryKey)
@@ -998,6 +1003,10 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
       .trim();
+  }
+
+  function compactPlaceName(text) {
+    return normalizeText(text).replace(/[^a-z0-9]/g, "");
   }
 
   function sanitizePlaceIcon(icon, categoryKey, subcategoryKey) {

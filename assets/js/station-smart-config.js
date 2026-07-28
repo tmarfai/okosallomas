@@ -1083,7 +1083,7 @@ window.stationSmartConfigs = {
           { name: "Körtvélyesi Csemege", lat: 46.1893048, lon: 18.2303537, icon: "🛒" },
           { name: "Via Markt Élelmiszerbolt", lat: 46.1839308, lon: 18.2595197, icon: "🛒" },
           { name: "Dominó ABC", lat: 46.1870637, lon: 18.2513331, icon: "🛒" },
-          { name: "Zi-Zi Csemege", lat: 46.1905754, lon: 18.2618478, icon: "🛒" },
+          { name: "Zi-Zi Csemege", lat: 46.1914563, lon: 18.2615376, icon: "🛒" },
           { name: "Böbe élelmiszerbolt", lat: 46.1900847, lon: 18.2301928, icon: "🛒" }
         ],
         mall: [

@@ -308,7 +308,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v27`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v28`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -544,8 +544,11 @@ function initSmartNearbyExplorer() {
       subcategories: {
         restaurant: {
           icon: "🍽️",
-          filters: [{ key: "amenity", values: ["restaurant"] }],
-          matcher: place => hasName(place)
+          filters: [
+            { key: "amenity", values: ["restaurant", "food_court", "fast_food"] },
+            { key: "cuisine", values: ["hungarian", "regional", "pizza", "burger", "kebab", "gyros"] }
+          ],
+          matcher: place => isRestaurantPlace(place)
         },
         cafe: {
           icon: "☕",
@@ -954,6 +957,8 @@ async function loadPlaces(categoryKey, subcategoryKey) {
   function shouldEnrichWithFallback(categoryKey, subcategoryKey, places) {
     if (categoryKey === "shops" && subcategoryKey === "grocery") return places.length < 5;
     if (categoryKey === "shops" && subcategoryKey === "mall") return places.length < 3;
+    if (categoryKey === "food" && subcategoryKey === "restaurant") return places.length < 8;
+    if (categoryKey === "food" && (subcategoryKey === "cafe" || subcategoryKey === "fastfood")) return places.length < 5;
     if (categoryKey !== "school") return false;
     if (subcategoryKey === "school_all") return places.length < 10;
     if (subcategoryKey === "secondary" || subcategoryKey === "primary") return places.length < 5;
@@ -1122,7 +1127,15 @@ async function loadPlaces(categoryKey, subcategoryKey) {
         `shopping center ${cityName}`,
         `mall ${cityName}`
       ],
-      restaurant: [`étterem ${cityName}`],
+      restaurant: [
+        `étterem ${cityName}`,
+        `vendéglő ${cityName}`,
+        `pizzéria ${cityName}`,
+        `bisztró ${cityName}`,
+        `ételbár ${cityName}`,
+        `falatozó ${cityName}`,
+        `gyros ${cityName}`
+      ],
       cafe: [`kávézó ${cityName}`, `cukrászda ${cityName}`],
       fastfood: [`gyorsétterem ${cityName}`],
       bath: [`strand ${cityName}`, `szabadstrand ${cityName}`, `beach ${cityName}`, `uszoda ${cityName}`, `fürdő ${cityName}`],
@@ -1544,6 +1557,30 @@ function showSelectedPlace(place) {
 
     return /\b(abc|coop|cba|prima|re\\u00e1l|real|spar|tesco|aldi|lidl|penny|elelmiszer|elelmiszerbolt|kisbolt|vegyesbolt|delikatesz|csemege|diszkont|market|mini market|minimarket|supermarket|zoldseg|zoldseges|pekseg|husbolt|italbolt|bevasarlo)\b/.test(text);
   }
+
+  function isRestaurantPlace(p) {
+    if (!hasName(p) || isRoadLikePlace(p)) return false;
+
+    const tags = p.tags || {};
+    const amenity = normalizeText(tags.amenity || "");
+    const cuisine = normalizeText(tags.cuisine || "");
+    const osmClass = normalizeText(p.osmClass || "");
+    const type = normalizeText(p.type || "");
+    const text = normalizeText(`${p.name || ""} ${p.displayName || ""} ${Object.values(tags).join(" ")}`);
+
+    const clearRestaurantName = /\b(etterem|vendeglo|csarda|pizzeria|pizza|bisztro|bistro|etelbar|falatozo|gyros|grill|kifozde|restaurant|diner)\b/;
+    const onlyDrinkOrSweets = /\b(kavezo|cafe|cukraszda|fagylaltozo|presszo|sorozo|borozo|kocsma|pub)\b/;
+    if (onlyDrinkOrSweets.test(text) && !clearRestaurantName.test(text)) return false;
+
+    if (amenity === "restaurant" || amenity === "food_court") return true;
+    if (osmClass === "amenity" && ["restaurant", "food_court"].includes(type)) return true;
+    if (clearRestaurantName.test(text)) return true;
+    if (amenity === "fast_food" && /\b(gyros|pizza|pizzeria|etelbar|falatozo|grill|kifozde|burger|kebab)\b/.test(text)) return true;
+    if (cuisine && /\b(hungarian|regional|pizza|burger|kebab|gyros)\b/.test(cuisine)) return true;
+
+    return false;
+  }
+
   function isShoppingCenterPlace(p) {
     if (!hasName(p) || isRoadLikePlace(p)) return false;
 

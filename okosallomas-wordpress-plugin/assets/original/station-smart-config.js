@@ -1024,9 +1024,47 @@ window.stationSmartConfigs = {
       ],
       university: ["egyetem Komló"],
       museum: ["Komlóverzum", "Bányászati emlékhely Komló", "múzeum Komló"],
-      bath: ["Sikonda fürdő", "strand Komló"]
+      bath: [
+        "Komló Városi Sportközpont uszoda",
+        "Komlói tanuszoda",
+        "uszoda Komló",
+        "Sikonda fürdő",
+        "strand Komló"
+      ],
+      restaurant: [
+        "étterem Komló",
+        "vendéglő Komló",
+        "pizzéria Komló",
+        "bisztró Komló",
+        "ételbár Komló",
+        "falatozó Komló",
+        "gyros Komló",
+        "Piknik Étterem Komló",
+        "Mecsek Bisztró Komló",
+        "Árkád Étterem Pizzéria Komló",
+        "Jó szerencsét ételbár Komló",
+        "Jó szerencsét Falatozó Komló",
+        "Forrás Étterem és Grill Bár Komló",
+        "Gyros Bár Komló",
+        "Tárna Falatozó Komló",
+        "Tárna Coffee-Bar Komló",
+        "Tárna Coffe-Bar Komló",
+        "Tárna Söröző Komló"
+      ]
     },
     manualPlaces: {
+      food: {
+        restaurant: [
+          { name: "Piknik Étterem", lat: 46.1911557, lon: 18.2616909, icon: "🍽️" },
+          { name: "Mecsek Bisztró", lat: 46.1903299, lon: 18.2624393, icon: "🍽️" },
+          { name: "Árkád Étterem Pizzéria", lat: 46.1905754, lon: 18.2618478, icon: "🍽️" },
+          { name: "Tárna Falatozó / Tárna Coffee-Bar", lat: 46.1900717, lon: 18.2601539, icon: "🍽️" },
+          { name: "Jó szerencsét Ételbár", lat: 46.1872386, lon: 18.2668388, icon: "🍽️" },
+          { name: "Jó szerencsét Falatozó", lat: 46.1937511, lon: 18.255891, icon: "🍽️" },
+          { name: "Gyros Bár", lat: 46.1952957, lon: 18.2547005, icon: "🍽️" },
+          { name: "Forrás Étterem és Grill Bár", lat: 46.1766945, lon: 18.2225016, icon: "🍽️" }
+        ]
+      },
       school: {
         secondary: [
           {
@@ -1047,6 +1085,11 @@ window.stationSmartConfigs = {
         museum: [
           { name: "Komlóverzum Látogatóközpont", lat: 46.1905, lon: 18.2642, icon: "🏛️" },
           { name: "Bányászati emlékhely", lat: 46.1908, lon: 18.2604, icon: "⛏️" }
+        ]
+      },
+      entertainment: {
+        bath: [
+          { name: "Komló Városi Sportközpont uszoda", lat: 46.1902236, lon: 18.2631947, icon: "🏊" }
         ]
       }
     },

@@ -301,7 +301,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v30`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v33`;
   
   let selectedPlace = null;
   let routeLayer = null;
@@ -1245,6 +1245,7 @@ async function loadPlaces(categoryKey, subcategoryKey) {
     const res = [];
     // TILTO LISTA: ezek a nevek az adott városnál soha nem kerülnek a listába.
     const forbiddenNames = pageConfig.forbiddenNames || [];
+    const forbiddenNamePatterns = (pageConfig.forbiddenNamePatterns || []).map(pattern => new RegExp(pattern, "i"));
 
     elements.forEach(el => {
       const lat = el.lat || el.center?.lat;
@@ -1259,7 +1260,8 @@ async function loadPlaces(categoryKey, subcategoryKey) {
       };
 
       // 1. Kiszűrés, ha a név szerepel a tiltólistán
-      if (name && forbiddenNames.includes(name)) {
+      const normalizedName = normalizeText(name || "");
+      if (name && (forbiddenNames.includes(name) || forbiddenNamePatterns.some(pattern => pattern.test(normalizedName)))) {
         return; 
       }
 

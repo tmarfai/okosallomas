@@ -1105,6 +1105,12 @@ window.stationSmartConfigs = {
       school: {
         secondary: [
           {
+            name: "Kökönyösi Általános Iskola, Gimnázium és Alapfokú Művészeti Iskola",
+            lat: 46.1932728,
+            lon: 18.267315,
+            icon: "\u{1F3EB}"
+          },
+          {
             name: "Baranya Vármegyei SZC Komlói Technikum, Szakképző Iskola és Kollégium",
             lat: 46.1866992,
             lon: 18.2592709,
@@ -1134,7 +1140,8 @@ window.stationSmartConfigs = {
       school: ["university"],
       entertainment: ["cinema"]
     },
-    forbiddenNames: []
+    forbiddenNames: [],
+    forbiddenNamePatterns: ["kokonyosi.*altalanos.*iskola"]
   },
 
   szekszard: {

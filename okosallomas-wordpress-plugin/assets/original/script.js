@@ -308,7 +308,7 @@ function initSmartNearbyExplorer() {
   const cityName = pageConfig.cityName?.[lang] || pageConfig.cityName?.hu || pageConfig.cityName || "";
   const radius = pageConfig.radius || 3500;
   const cacheTtlMs = 1000 * 60 * 15;
-  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v28`;
+  const cachePrefix = `${pageConfig.key || cityName || "station"}-smart-nearby-v29`;
   
   let selectedPlace = null;
   let routeLayer = null;

@@ -1024,6 +1024,25 @@ window.stationSmartConfigs = {
       ],
       university: ["egyetem Komló"],
       museum: ["Komlóverzum", "Bányászati emlékhely Komló", "múzeum Komló"],
+      grocery: [
+        "élelmiszerbolt Komló",
+        "szupermarket Komló",
+        "csemege Komló",
+        "ABC Komló",
+        "Tesco Komló",
+        "Lidl Komló",
+        "Penny Komló",
+        "SPAR Komló",
+        "Aranykosár Komló",
+        "Vörös Csemege Komló",
+        "Körtvélyesi Csemege Komló",
+        "Via Markt Komló"
+      ],
+      mall: [
+        "Tesco Hipermarket Komló",
+        "áruház Komló",
+        "hipermarket Komló"
+      ],
       bath: [
         "Komló Városi Sportközpont uszoda",
         "Komlói tanuszoda",
@@ -1053,6 +1072,24 @@ window.stationSmartConfigs = {
       ]
     },
     manualPlaces: {
+      shops: {
+        grocery: [
+          { name: "Tesco Hipermarket", lat: 46.1922336, lon: 18.2580965, icon: "🛒" },
+          { name: "Lidl", lat: 46.1903292, lon: 18.2581518, icon: "🛒" },
+          { name: "Penny Market", lat: 46.18913, lon: 18.26803, icon: "🛒" },
+          { name: "SPAR szupermarket", lat: 46.196552, lon: 18.2713136, icon: "🛒" },
+          { name: "Aranykosár Diszkont", lat: 46.188891, lon: 18.267001, icon: "🛒" },
+          { name: "Vörös Csemege", lat: 46.1969988, lon: 18.2574236, icon: "🛒" },
+          { name: "Körtvélyesi Csemege", lat: 46.1893048, lon: 18.2303537, icon: "🛒" },
+          { name: "Via Markt Élelmiszerbolt", lat: 46.1839308, lon: 18.2595197, icon: "🛒" },
+          { name: "Dominó ABC", lat: 46.1870637, lon: 18.2513331, icon: "🛒" },
+          { name: "Zi-Zi Csemege", lat: 46.1905754, lon: 18.2618478, icon: "🛒" },
+          { name: "Böbe élelmiszerbolt", lat: 46.1900847, lon: 18.2301928, icon: "🛒" }
+        ],
+        mall: [
+          { name: "Tesco Hipermarket", lat: 46.1922336, lon: 18.2580965, icon: "🛒" }
+        ]
+      },
       food: {
         restaurant: [
           { name: "Piknik Étterem", lat: 46.1911557, lon: 18.2616909, icon: "🍽️" },

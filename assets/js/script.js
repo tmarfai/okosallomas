@@ -47,6 +47,7 @@ function initAudioPlayer() {
   const audio = document.getElementById("hang");
   const playPauseButton = document.getElementById("playPauseButton");
   const restartButton = document.getElementById("restartButton");
+  const pendingNote = document.getElementById("audioPendingNote");
 
   if (!audio || !playPauseButton || !restartButton) return;
 
@@ -59,17 +60,43 @@ function initAudioPlayer() {
 
   const lang = getPageLang();
   const texts = {
-    hu: { play: "Lejátszás", pause: "Szünet", restart: "Újrakezdés" },
-    en: { play: "Listen", pause: "Pause", restart: "Restart" },
-    de: { play: "Anhören", pause: "Pause", restart: "Neu starten" }
+    hu: { play: "Lejátszás", pause: "Szünet", restart: "Újrakezdés", pending: "Hanganyag hamarosan" },
+    en: { play: "Listen", pause: "Pause", restart: "Restart", pending: "Audio coming soon" },
+    de: { play: "Anhören", pause: "Pause", restart: "Neu starten", pending: "Audio folgt bald" }
   };
 
   let isPlaying = false;
   let startedOnce = false;
 
+  function markAudioUnavailable() {
+    isPlaying = false;
+    playPauseButton.disabled = true;
+    playPauseButton.innerHTML = `<i class="bi bi-volume-up-fill me-2"></i> ${texts[lang].pending}`;
+    restartButton.style.display = "none";
+    if (pendingNote) {
+      pendingNote.hidden = false;
+    }
+  }
+
+  function markAudioReady() {
+    playPauseButton.disabled = false;
+    if (pendingNote) {
+      pendingNote.hidden = true;
+    }
+  }
+
+  function playAudio() {
+    const playRequest = audio.play();
+    if (playRequest && typeof playRequest.catch === "function") {
+      playRequest.catch(markAudioUnavailable);
+    }
+  }
+
+  playPauseButton.disabled = false;
+
   playPauseButton.addEventListener("click", function () {
     if (!isPlaying) {
-      audio.play();
+      playAudio();
       playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${texts[lang].pause}`;
       if (!startedOnce) {
         startedOnce = true;
@@ -85,10 +112,13 @@ function initAudioPlayer() {
 
   restartButton.addEventListener("click", function () {
     audio.currentTime = 0;
-    audio.play();
+    playAudio();
     isPlaying = true;
     playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${texts[lang].pause}`;
   });
+
+  audio.addEventListener("error", markAudioUnavailable);
+  audio.addEventListener("canplay", markAudioReady);
 
   audio.addEventListener("ended", function () {
     isPlaying = false;

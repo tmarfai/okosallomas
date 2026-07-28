@@ -12,16 +12,24 @@
   const isGerman = pageLang === "de" || window.location.pathname.endsWith("-de.html");
   const lang = isGerman ? "de" : isEnglish ? "en" : "hu";
 
-  function toAssetUrl(path) {
-    if (!path || /^(https?:|data:|\/)/i.test(path)) {
+  function resolveLocalAsset(path) {
+    if (!path || /^(?:https?:|\/\/|data:|assets\/)/i.test(path)) {
       return path;
     }
 
-    const base = window.okosallomasAssetBase || "";
-    const normalized = path
-      .replace(/^\.\//, "")
-      .replace(/^assets\/(?:audio|img|maps)\//i, "");
-    return base ? base + normalized : path;
+    if (/\.(?:jpg|jpeg|png|webp|ico)$/i.test(path)) {
+      return `assets/img/${path}`;
+    }
+
+    if (/\.pdf$/i.test(path)) {
+      return `assets/maps/${path}`;
+    }
+
+    if (/\.mp3$/i.test(path)) {
+      return `assets/audio/${path}`;
+    }
+
+    return path;
   }
 
   function createSection(className, title) {
@@ -50,8 +58,21 @@
       const item = document.createElement("div");
       item.className = "info-item";
 
+      const iconWrap = document.createElement("span");
+      iconWrap.className = "station-info-icon";
+
       const icon = document.createElement("i");
       icon.className = `bi ${card.icon || "bi-info-circle"}`;
+      icon.setAttribute("aria-hidden", "true");
+
+      const fallbackIcon = document.createElement("span");
+      fallbackIcon.className = "station-info-icon-fallback";
+      fallbackIcon.textContent = getInfoIconFallback(card.icon);
+      fallbackIcon.setAttribute("aria-hidden", "true");
+
+      iconWrap.appendChild(icon);
+      iconWrap.appendChild(fallbackIcon);
+      enableBootstrapIconIfAvailable(iconWrap, icon);
 
       const content = document.createElement("div");
       const title = document.createElement("h6");
@@ -62,13 +83,46 @@
 
       content.appendChild(title);
       content.appendChild(body);
-      item.appendChild(icon);
+      item.appendChild(iconWrap);
       item.appendChild(content);
       grid.appendChild(item);
     });
 
     section.appendChild(grid);
     return section;
+  }
+
+  function getInfoIconFallback(iconName) {
+    const fallbackIcons = {
+      "bi-geo-alt-fill": "\uD83D\uDCCD",
+      "bi-cash-coin": "\uD83D\uDCB3",
+      "bi-ticket-perforated": "\uD83C\uDFAB",
+      "bi-car-front-fill": "\uD83D\uDE97",
+      "bi-bicycle": "\uD83D\uDEB2",
+      "bi-telephone": "\u260E\uFE0F",
+      "bi-clock": "\u23F0",
+      "bi-info-circle": "\u2139\uFE0F",
+      "bi-megaphone": "\uD83D\uDCE3",
+      "bi-person-wheelchair": "\u267F",
+      "bi-building": "\uD83C\uDFE2"
+    };
+
+    return fallbackIcons[iconName] || fallbackIcons["bi-info-circle"];
+  }
+
+  function enableBootstrapIconIfAvailable(iconWrap, icon) {
+    const checkIcon = () => {
+      const beforeContent = window.getComputedStyle(icon, "::before").content;
+      const hasCssIcon = beforeContent && beforeContent !== "none" && beforeContent !== '""';
+      const hasIconFont = !document.fonts || document.fonts.check('1em "bootstrap-icons"');
+
+      iconWrap.classList.toggle("has-bootstrap-icon", !!(hasCssIcon && hasIconFont));
+    };
+
+    checkIcon();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(checkIcon).catch(() => {});
+    }
   }
 
   function renderSmartNearby() {
@@ -206,7 +260,7 @@
 
     const image = document.createElement("img");
     image.className = "station-inner-map-img";
-    image.src = toAssetUrl(map.image);
+    image.src = resolveLocalAsset(map.image);
     image.alt = localized.title;
     image.loading = "eager";
     image.draggable = false;

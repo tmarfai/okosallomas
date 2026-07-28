@@ -47,7 +47,6 @@ function initAudioPlayer() {
   const audio = document.getElementById("hang");
   const playPauseButton = document.getElementById("playPauseButton");
   const restartButton = document.getElementById("restartButton");
-  const pendingNote = document.getElementById("audioPendingNote");
 
   if (!audio || !playPauseButton || !restartButton) return;
 
@@ -60,9 +59,9 @@ function initAudioPlayer() {
 
   const lang = getPageLang();
   const texts = {
-    hu: { play: "Lejátszás", pause: "Szünet", restart: "Újrakezdés", pending: "Hanganyag hamarosan" },
-    en: { play: "Listen", pause: "Pause", restart: "Restart", pending: "Audio coming soon" },
-    de: { play: "Anhören", pause: "Pause", restart: "Neu starten", pending: "Audio folgt bald" }
+    hu: { play: "Lejátszás", pause: "Szünet", restart: "Újrakezdés" },
+    en: { play: "Listen", pause: "Pause", restart: "Restart" },
+    de: { play: "Anhören", pause: "Pause", restart: "Neu starten" }
   };
 
   let isPlaying = false;
@@ -71,18 +70,12 @@ function initAudioPlayer() {
   function markAudioUnavailable() {
     isPlaying = false;
     playPauseButton.disabled = true;
-    playPauseButton.innerHTML = `<i class="bi bi-volume-up-fill me-2"></i> ${texts[lang].pending}`;
+    playPauseButton.style.display = "none";
     restartButton.style.display = "none";
-    if (pendingNote) {
-      pendingNote.hidden = false;
-    }
   }
 
   function markAudioReady() {
     playPauseButton.disabled = false;
-    if (pendingNote) {
-      pendingNote.hidden = true;
-    }
   }
 
   function playAudio() {

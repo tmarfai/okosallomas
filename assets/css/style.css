@@ -986,6 +986,27 @@ div.info-item:hover{
   justify-content: center;
 }
 
+.station-video-card {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.station-video-card .card-body {
+  padding: 12px;
+}
+
+.station-video-card .card-title {
+  margin: 4px 0 12px;
+  color: rgb(27, 68, 125);
+  font-weight: 700;
+}
+
+.station-video-card iframe {
+  border: 0;
+  border-radius: 8px;
+}
+
 .station-history-audio-btn,
 .station-history-restart-btn {
   min-height: 46px;

@@ -44,9 +44,14 @@ function initHomeStationMenu() {
 }
 
 function initAudioPlayer() {
-  const audio = document.getElementById("hang");
-  const playPauseButton = document.getElementById("playPauseButton");
-  const restartButton = document.getElementById("restartButton");
+  setupAudioPlayer("hang", "playPauseButton", "restartButton");
+  setupAudioPlayer("historyAudio", "historyPlayPauseButton", "historyRestartButton");
+}
+
+function setupAudioPlayer(audioId, playButtonId, restartButtonId) {
+  const audio = document.getElementById(audioId);
+  const playPauseButton = document.getElementById(playButtonId);
+  const restartButton = document.getElementById(restartButtonId);
 
   if (!audio || !playPauseButton || !restartButton) return;
 
@@ -63,14 +68,31 @@ function initAudioPlayer() {
     en: { play: "Listen", pause: "Pause", restart: "Restart" },
     de: { play: "Anhören", pause: "Pause", restart: "Neu starten" }
   };
+  const copy = texts[lang] || texts.hu;
+  const playLabel = playPauseButton.dataset.playLabel || copy.play;
+  const pauseLabel = playPauseButton.dataset.pauseLabel || copy.pause;
+  const restartLabel = restartButton.dataset.restartLabel || copy.restart;
+  const playIcon = playPauseButton.dataset.playIcon || "bi-volume-up-fill";
+  const keepVisibleWhenUnavailable = playPauseButton.dataset.keepVisible === "true";
 
   let isPlaying = false;
   let startedOnce = false;
 
+  function showPlayState() {
+    playPauseButton.innerHTML = `<i class="bi ${playIcon} me-2"></i> ${playLabel}`;
+  }
+
+  function showPauseState() {
+    playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${pauseLabel}`;
+  }
+
   function markAudioUnavailable() {
     isPlaying = false;
+    showPlayState();
     playPauseButton.disabled = true;
-    playPauseButton.style.display = "none";
+    if (!keepVisibleWhenUnavailable) {
+      playPauseButton.style.display = "none";
+    }
     restartButton.style.display = "none";
   }
 
@@ -90,15 +112,15 @@ function initAudioPlayer() {
   playPauseButton.addEventListener("click", function () {
     if (!isPlaying) {
       playAudio();
-      playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${texts[lang].pause}`;
+      showPauseState();
       if (!startedOnce) {
         startedOnce = true;
         restartButton.style.display = "inline-block";
-        restartButton.innerHTML = texts[lang].restart;
+        restartButton.innerHTML = restartLabel;
       }
     } else {
       audio.pause();
-      playPauseButton.innerHTML = `<i class="bi bi-volume-up-fill me-2"></i> ${texts[lang].play}`;
+      showPlayState();
     }
     isPlaying = !isPlaying;
   });
@@ -107,7 +129,7 @@ function initAudioPlayer() {
     audio.currentTime = 0;
     playAudio();
     isPlaying = true;
-    playPauseButton.innerHTML = `<i class="bi bi-pause-fill me-2"></i> ${texts[lang].pause}`;
+    showPauseState();
   });
 
   audio.addEventListener("error", markAudioUnavailable);
@@ -115,7 +137,7 @@ function initAudioPlayer() {
 
   audio.addEventListener("ended", function () {
     isPlaying = false;
-    playPauseButton.innerHTML = `<i class="bi bi-volume-up-fill me-2"></i> ${texts[lang].play}`;
+    showPlayState();
   });
 
   audio.load();

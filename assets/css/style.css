@@ -169,6 +169,18 @@ header img {
   display: none;
 }
 
+.info-item > i.bi {
+  width: 2.4rem;
+  min-width: 2.4rem;
+  margin-right: 0.75rem;
+  color: rgb(27, 68, 125);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 1;
+}
+
 .info-item h6 {
   margin-bottom: 0.25rem;
   font-weight: 600;

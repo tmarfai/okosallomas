@@ -1177,3 +1177,228 @@ div.info-item:hover{
     align-items: flex-start;
   }
 }
+
+.pecs-events-section {
+  max-width: 1080px;
+}
+
+.pecs-events-header {
+  max-width: 720px;
+  margin: 0 auto 18px;
+}
+
+.pecs-events-kicker {
+  display: block;
+  margin-bottom: 5px;
+  color: #1b447d;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pecs-events-header h2 {
+  margin-bottom: 8px;
+  color: #10233f;
+}
+
+.pecs-events-header p {
+  margin: 0;
+  color: #4d617a;
+  line-height: 1.55;
+}
+
+.pecs-events-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 76px;
+  padding: 16px;
+  color: #1b447d;
+  background: #ffffff;
+  border: 1px solid #d8e3f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+.pecs-events-status .spinner {
+  width: 28px;
+  height: 28px;
+  border-width: 3px;
+}
+
+.pecs-events-status.is-error {
+  color: #8a1f1f;
+  background: #fff7f7;
+  border-color: #eccaca;
+}
+
+.pecs-events-status.is-empty {
+  color: #4d617a;
+  background: #f8fafc;
+}
+
+.pecs-events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pecs-event-card {
+  position: relative;
+  min-width: 0;
+  min-height: 116px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid #d8e3f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pecs-event-card:hover {
+  transform: translateY(-2px);
+  border-color: #b8cbe3;
+  box-shadow: 0 8px 18px rgba(27, 68, 125, 0.12);
+  color: inherit;
+  text-decoration: none;
+}
+
+.pecs-event-date {
+  width: 58px;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #1b447d;
+  background: #eef4fb;
+  border: 1px solid #ccdaeb;
+  border-radius: 8px;
+}
+
+.pecs-event-date span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.pecs-event-date strong {
+  margin-top: 4px;
+  color: #10233f;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.pecs-event-content {
+  min-width: 0;
+  padding-right: 20px;
+}
+
+.pecs-event-topline {
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.pecs-event-date-label {
+  color: #536983;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.pecs-event-card h3 {
+  margin: 0 0 7px;
+  color: #10233f;
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.32;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pecs-event-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  color: #4d617a;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.pecs-event-location i {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #1b447d;
+}
+
+.pecs-event-location span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pecs-event-open {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #1b447d;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.pecs-event-card:hover .pecs-event-open,
+.pecs-event-card:hover h3 {
+  color: #0d6efd;
+}
+
+@media (max-width: 1199px) {
+  .pecs-events-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .pecs-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .pecs-events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .pecs-event-card {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+    min-height: 108px;
+  }
+
+  .pecs-event-date {
+    width: 52px;
+    min-height: 58px;
+  }
+
+  .pecs-event-date strong {
+    font-size: 1.45rem;
+  }
+
+}

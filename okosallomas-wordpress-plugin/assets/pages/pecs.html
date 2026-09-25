@@ -6,7 +6,7 @@
   <title>Pécs Hangoldal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="assets/css/style.css?v=20260609-0940"/>
+  <link rel="stylesheet" href="assets/css/style.css?v=20260925-events1"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
   <!-- Google Analytics -->
@@ -85,6 +85,20 @@
     <!-- JS generálja az összes adat sort -->
   </div>
 </div>
+
+<section class="container my-5 pecs-events-section" id="pecsEventsSection" aria-labelledby="pecsEventsTitle">
+  <div class="pecs-events-header text-center">
+    <span class="pecs-events-kicker">Pécsi programajánló</span>
+    <h2 id="pecsEventsTitle">Aktuális programok Pécsen</h2>
+    <p>Válogatás a következő időszak kiemelt, fiatalos és családi eseményeiből.</p>
+  </div>
+
+  <div id="pecsEventsStatus" class="pecs-events-status" role="status" aria-live="polite">
+    <span class="spinner" aria-hidden="true"></span>
+    <span>Programok betöltése...</span>
+  </div>
+  <div id="pecsEventsGrid" class="pecs-events-grid" hidden></div>
+</section>
 
 <section class="container my-5">
   <h2 class="text-center mb-4">További úti célok a környéken</h2>
@@ -275,6 +289,6 @@
   </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="assets/js/station-smart-config.js?v=20260624-grocery3"></script>
-<script src="assets/js/script.js?v=20260624-noquestion2"></script>
+<script src="assets/js/script.js?v=20260925-events1"></script>
 </body>
 </html>

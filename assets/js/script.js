@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   initWeatherCards();
   initSmartNearbyExplorer();
   initPecsGoogleMenu();
+  initPecsEvents();
 });
 
 function okosallomasAssetUrl(path) {
@@ -1738,6 +1739,289 @@ function showSelectedPlace(place) {
     const dLon = toRad(lon2-lon1);
     const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
     return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+  }
+}
+
+async function initPecsEvents() {
+  const section = document.getElementById("pecsEventsSection");
+  const grid = document.getElementById("pecsEventsGrid");
+  const status = document.getElementById("pecsEventsStatus");
+
+  if (!section || !grid || !status) return;
+
+  const endpoint = "https://pecs.hu/wp-json/wp/v2/event";
+
+  try {
+    const firstResponse = await fetchPecsEventPage(endpoint, 1);
+    const totalPages = Math.min(
+      Math.max(Number.parseInt(firstResponse.headers.get("X-WP-TotalPages"), 10) || 1, 1),
+      5
+    );
+    const remainingRequests = [];
+
+    for (let page = 2; page <= totalPages; page += 1) {
+      remainingRequests.push(fetchPecsEventPage(endpoint, page));
+    }
+
+    const remainingResponses = await Promise.all(remainingRequests);
+    const allItems = [
+      ...firstResponse.items,
+      ...remainingResponses.flatMap((response) => response.items)
+    ];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const events = allItems
+      .map((item) => normalizePecsEvent(item, today))
+      .filter(Boolean);
+    const selectedEvents = selectPecsEvents(events, 8);
+
+    if (selectedEvents.length === 0) {
+      status.classList.add("is-empty");
+      status.innerHTML = '<i class="bi bi-calendar2-x" aria-hidden="true"></i><span>Jelenleg nincs megjeleníthető közelgő program.</span>';
+      return;
+    }
+
+    grid.innerHTML = selectedEvents.map(renderPecsEventCard).join("");
+    grid.hidden = false;
+    status.hidden = true;
+  } catch (error) {
+    console.error("A pécsi programok betöltése sikertelen:", error);
+    status.classList.add("is-error");
+    status.innerHTML = '<i class="bi bi-wifi-off" aria-hidden="true"></i><span>A programok most nem tölthetők be.</span>';
+  }
+}
+
+async function fetchPecsEventPage(endpoint, page) {
+  const fields = "id,link,title,acf";
+  const url = `${endpoint}?per_page=100&page=${page}&_fields=${fields}`;
+  const response = await fetch(url, { headers: { Accept: "application/json" } });
+
+  if (!response.ok) {
+    throw new Error(`Pécs API: ${response.status}`);
+  }
+
+  return {
+    headers: response.headers,
+    items: await response.json()
+  };
+}
+
+function normalizePecsEvent(item, today) {
+  const blocks = Array.isArray(item?.acf?.meta_data) ? item.acf.meta_data : [];
+  const eventData = blocks.find((block) => block?.acf_fc_layout === "event");
+
+  if (!eventData?.start_date) return null;
+
+  const startDate = parsePecsEventDate(eventData.start_date, eventData.start_time);
+  const endDate = parsePecsEventDate(
+    eventData.end_date || eventData.start_date,
+    eventData.end_time,
+    true
+  );
+
+  if (!startDate || !endDate || endDate < today) return null;
+
+  const mapData = eventData.event_gmap && typeof eventData.event_gmap === "object"
+    ? eventData.event_gmap
+    : {};
+  const city = pecsNormalizeText(mapData.city || "");
+
+  if (city && city !== "pecs") return null;
+
+  const title = decodePecsEventText(item?.title?.rendered || "")
+    .replace(/Infjú/g, "Ifjú")
+    .trim();
+  if (!title) return null;
+
+  const location = String(mapData.name || eventData.location || mapData.address || "Pécs").trim();
+  const isFeatured = pecsBoolean(eventData.is_featured_event);
+  const isFree = pecsBoolean(eventData.is_free);
+  const link = safePecsEventUrl(item?.link);
+  const durationDays = Math.max(0, Math.round((endDate - startDate) / 86400000));
+  const startsInDays = Math.round((startDate - today) / 86400000);
+
+  const event = {
+    id: item.id,
+    title,
+    location,
+    link,
+    startDate,
+    endDate,
+    startTime: String(eventData.start_time || "").slice(0, 5),
+    isFeatured,
+    isFree,
+    durationDays,
+    startsInDays
+  };
+
+  event.score = scorePecsEvent(event);
+  return event;
+}
+
+function parsePecsEventDate(dateValue, timeValue, endOfDay = false) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dateValue || ""))) return null;
+
+  const cleanTime = /^\d{2}:\d{2}/.test(String(timeValue || ""))
+    ? String(timeValue).slice(0, 8)
+    : (endOfDay ? "23:59:59" : "12:00:00");
+  const parsed = new Date(`${dateValue}T${cleanTime}`);
+
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function scorePecsEvent(event) {
+  const text = pecsNormalizeText(`${event.title} ${event.location}`);
+  let score = 0;
+
+  if (event.isFeatured) score += 48;
+  if (event.isFree) score += 5;
+
+  if (event.startsInDays <= 0) {
+    score += 35;
+  } else {
+    score += Math.max(0, 35 - event.startsInDays * 1.25);
+  }
+
+  const priorities = [
+    { pattern: /\b(fesztival|napok|koncert|zene|tanchaz|buli|party|oktoberfest)\b/, value: 38 },
+    { pattern: /\b(sport|maraton|futas|futoverseny|bike|kerekpar|edzes)\b/, value: 34 },
+    { pattern: /\b(star wars|film|mozi|jatek|gaming|egyetemi|diak|tanulo|ifju)\b/, value: 42 },
+    { pattern: /\b(csaladi|gyermek|gyerek|baba|jatszohaz|allatkert|latvanyetetes)\b/, value: 28 },
+    { pattern: /\b(muhely|workshop|kreativ|keramia|alkotas|cserebere)\b/, value: 22 },
+    { pattern: /\b(tura|seta|szinhaz|eloadas|kiallitasvezetes)\b/, value: 18 }
+  ];
+
+  priorities.forEach(({ pattern, value }) => {
+    if (pattern.test(text)) score += value;
+  });
+
+  if (/\b(kiallitas|tarlat|galeria|allando program)\b/.test(text)) score -= 32;
+  if (/\b(szenior|nyugdijas)\b/.test(text)) score -= 14;
+  if (event.durationDays > 35) score -= 24;
+  else if (event.durationDays > 14) score -= 10;
+  if (event.startsInDays < -3) score -= 12;
+
+  return score;
+}
+
+function selectPecsEvents(events, limit) {
+  const ranked = [...events].sort((a, b) =>
+    b.score - a.score || a.startDate - b.startDate || String(a.title).localeCompare(String(b.title), "hu")
+  );
+  const selected = [];
+  const selectedIds = new Set();
+  const locationCounts = new Map();
+
+  for (const event of ranked) {
+    const locationKey = pecsNormalizeText(event.location || "pecs");
+    const locationCount = locationCounts.get(locationKey) || 0;
+
+    if (locationCount >= 3) continue;
+
+    selected.push(event);
+    selectedIds.add(event.id);
+    locationCounts.set(locationKey, locationCount + 1);
+    if (selected.length === limit) break;
+  }
+
+  if (selected.length < limit) {
+    for (const event of ranked) {
+      if (selectedIds.has(event.id)) continue;
+      selected.push(event);
+      if (selected.length === limit) break;
+    }
+  }
+
+  return selected.sort((a, b) => a.startDate - b.startDate || b.score - a.score);
+}
+
+function renderPecsEventCard(event) {
+  const month = new Intl.DateTimeFormat("hu-HU", { month: "short" })
+    .format(event.startDate)
+    .replace(".", "")
+    .toLocaleUpperCase("hu-HU");
+  const day = new Intl.DateTimeFormat("hu-HU", { day: "numeric" }).format(event.startDate);
+  const dateLabel = formatPecsEventDateLabel(event);
+  const escapedTitle = pecsEscapeHtml(event.title);
+  const cardOpen = event.link
+    ? `<a class="pecs-event-card" href="${pecsEscapeHtml(event.link)}" target="_blank" rel="noopener noreferrer" aria-label="Részletek: ${escapedTitle}">`
+    : '<article class="pecs-event-card">';
+  const cardClose = event.link ? "</a>" : "</article>";
+  const openIcon = event.link
+    ? '<span class="pecs-event-open" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>'
+    : "";
+
+  return `
+    ${cardOpen}
+      <div class="pecs-event-date" aria-hidden="true">
+        <span>${pecsEscapeHtml(month)}</span>
+        <strong>${pecsEscapeHtml(day)}</strong>
+      </div>
+      <div class="pecs-event-content">
+        <div class="pecs-event-topline">
+          <span class="pecs-event-date-label">${pecsEscapeHtml(dateLabel)}</span>
+        </div>
+        <h3 title="${escapedTitle}">${escapedTitle}</h3>
+        <p class="pecs-event-location"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span>${pecsEscapeHtml(event.location)}</span></p>
+      </div>
+      ${openIcon}
+    ${cardClose}`;
+}
+
+function formatPecsEventDateLabel(event) {
+  const dateFormatter = new Intl.DateTimeFormat("hu-HU", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  const shortDateFormatter = new Intl.DateTimeFormat("hu-HU", {
+    month: "short",
+    day: "numeric"
+  });
+  const sameDay = event.startDate.toDateString() === event.endDate.toDateString();
+  let label = sameDay
+    ? dateFormatter.format(event.startDate)
+    : `${shortDateFormatter.format(event.startDate)} – ${shortDateFormatter.format(event.endDate)}`;
+
+  if (sameDay && event.startTime) {
+    label += `, ${event.startTime}`;
+  }
+
+  return label;
+}
+
+function decodePecsEventText(value) {
+  const element = document.createElement("textarea");
+  element.innerHTML = String(value || "");
+  return element.value;
+}
+
+function pecsEscapeHtml(value) {
+  const element = document.createElement("div");
+  element.textContent = String(value || "");
+  return element.innerHTML;
+}
+
+function pecsNormalizeText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function pecsBoolean(value) {
+  return value === true || value === 1 || value === "1";
+}
+
+function safePecsEventUrl(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+  } catch (error) {
+    return "";
   }
 }
 

@@ -1771,9 +1771,12 @@ async function initPecsEvents() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const events = allItems
-      .map((item) => normalizePecsEvent(item, today))
-      .filter(Boolean);
+    const events = [
+      ...allItems
+        .map((item) => normalizePecsEvent(item, today))
+        .filter(Boolean),
+      ...getPecsPartnerEvents(today)
+    ];
     const selectedEvents = selectPecsEvents(events, 8);
 
     if (selectedEvents.length === 0) {
@@ -1805,6 +1808,36 @@ async function fetchPecsEventPage(endpoint, page) {
     headers: response.headers,
     items: await response.json()
   };
+}
+
+function getPecsPartnerEvents(today) {
+  const partnerEvents = [
+    {
+      id: "kaptalankert-bsw-2026",
+      title: "BSW és a Gang",
+      location: "Káptalan Kert",
+      link: "https://kaptalankert.net/programok/bsw-es-a-gang/",
+      startDate: new Date("2026-09-26T19:00:00"),
+      endDate: new Date("2026-09-26T23:59:59"),
+      startTime: "19:00",
+      isFeatured: true,
+      isFree: false,
+      scoreBoost: 70
+    }
+  ];
+
+  return partnerEvents
+    .filter((event) => event.endDate >= today)
+    .map((event) => {
+      const normalizedEvent = {
+        ...event,
+        durationDays: Math.max(0, Math.round((event.endDate - event.startDate) / 86400000)),
+        startsInDays: Math.round((event.startDate - today) / 86400000)
+      };
+
+      normalizedEvent.score = scorePecsEvent(normalizedEvent);
+      return normalizedEvent;
+    });
 }
 
 function normalizePecsEvent(item, today) {
@@ -1872,7 +1905,7 @@ function parsePecsEventDate(dateValue, timeValue, endOfDay = false) {
 
 function scorePecsEvent(event) {
   const text = pecsNormalizeText(`${event.title} ${event.location}`);
-  let score = 0;
+  let score = Number(event.scoreBoost) || 0;
 
   if (event.isFeatured) score += 48;
   if (event.isFree) score += 5;
